@@ -106,3 +106,10 @@ deploy:
   repo: https://github.com/zhangyida-lab/zhangyida-lab.github.io.git
   branch: main
   token: ghp_nYRibQVCjT1NqQadZPdRvetD1bhoLq3rUJ5H
+
+# Local search config
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000

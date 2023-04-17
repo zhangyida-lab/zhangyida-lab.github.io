@@ -2,7 +2,8 @@
 layout: blog
 title: UsefulCommand
 date: 2023-04-17 19:08:48
-tags:
+tags: usefulcommand
+categories: ceshi
 ---
 # Useful Commands
 
