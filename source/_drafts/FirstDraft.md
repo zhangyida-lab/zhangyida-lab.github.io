@@ -8,4 +8,6 @@ tags:
 ## about swift go and so on 
 
 
-The limits of my language mean the limits of my world.
+The limits of my language mean the limits of my world
+ `#0969DA`
+`rgb(9, 105, 218)`
