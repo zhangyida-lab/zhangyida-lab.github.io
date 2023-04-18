@@ -72,7 +72,7 @@ hexo deploy
 ```
 
 ### Clean cache
-``` ruby
+``` bash
 hexo clean
 ```
 clear db.json and public folder

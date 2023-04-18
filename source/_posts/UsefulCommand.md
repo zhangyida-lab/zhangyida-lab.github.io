@@ -376,3 +376,8 @@ webm to MP4
 ```powershell
 Get-ChildItem -Filter '*.webm' | % { &ffmpeg -i .\$($_.BaseName).webm -c copy .\$($_.BaseName).mp4 }
 ```
+## hexo command
+```bash
+# add local search
+npm install hexo-generator-search --save
+```
