@@ -6,55 +6,65 @@ tags: others
 ---
 
 
-## Overview
+# Q&A about markdown
 
-## Headings
+## <font color="green">\#</font> How to headings your word?
 
 ``` markdown
  # Heading
  represent level 1
 ```
 
+## <font color="green">\#</font> How to emphasis your word?
 
-## Emphasis
 ``` markdown
  *heading* represent Italic
  **heading** represent Bold
 ```
 
-## Blockquotes
-## Lists
+
+## <font color="green">\#</font> How to lists your word?
+
 ``` markdown
  1. first
  2. second 
 represent Ordered Lists
-
  - first
  - second 
 represent Unordered Lists
-```  
-## Code Blocks
-``` markdown
-\ ```
-\ ```
-```  
-## Images
+```
+
+
+## <font color="orange">\#</font> How to add images in markdown?
+
+```bash
+![this is a message](AddImageToMd/Snipaste.png)
+```
+
+![this is a messag](https://s3.bmp.ovh/imgs/2023/05/04/363e4e279c367a69.png)
+
+## <font color="green">\#</font> How to add links in markdow?
 
 ``` markdown
-![alt text for screen readers](/path/to/image.png "Text to show on mouseover").
-```  
+Markdown basic syntax is [here](https://www.markdownguide.org/basic-syntax/)
+```
 
-![alt text for screen readers](./source/_posts/Markdown-Basic-Syntax/1000030.jpg "Text to show on mouseover").
 
-## Links
+Markdown basic syntax is [here](https://www.markdownguide.org/basic-syntax/)
+
+## <font color="green">\#</font> How to color your word in markdown?
 
 ``` markdown
-My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
-```  
-My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
+<font color="green"> i am green </font>
+```
 
+<font color="green"> I am GREEN </font>
 
+## <font color="green">\#</font> How to use emoji in markdown?
 
+``` markdown
+:some strings:
+```
+:x:,  :link:
 
-## Escaping Characters
-## Syntax Highlighting
+:link: The emoji list is [here](https://gist.github.com/rxaviers/7360908).
