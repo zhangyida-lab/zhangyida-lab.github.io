@@ -22,6 +22,7 @@ tags: others
  **heading** represent Bold
 ```
 
+<!--more-->
 
 ## <font color="green">\#</font> How to lists your word?
 

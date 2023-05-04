@@ -37,7 +37,7 @@ brew list mysql
 ```bash
 ALL_PROXY=socks5://192.168.0.107:7890 brew upgrade
 ```
-
+<!--more-->
 # 🧑🏻‍💻 **github**
 
 git代理设置:
