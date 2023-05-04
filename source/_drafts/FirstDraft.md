@@ -2,24 +2,42 @@
 title: FirstDraft
 tags:
 ---
-# language
-## about english
-## about chinese
-## about swift go and so on 
 
-fdfdfdfdfdfjkjlkjjlkjlkjlkjk
-jjjjjjkjkjkjkjkjkjk
-dfddssssaaasddddssa
-oooooppppp
->The limits of my language mean the limits ossssddaaaaaa my worl
-the human language is used to communicate with others
-but this is my first favourite 
-what we use language do 
-communiacte with human and machine
-machine change the word
-computer change the whole world
-i will practice my type skill and record 
-how to type quickly is what i will find ]
-chinese people is not brave and why
-doghghjklasdfweqmnzxccthrevkeyboard is not for chin
-how to code how to study is a question.gqqiss
+## <font color="green">\#</font> what i want to share on my blog
+
+- about operation system 100 Q&A
+- about computer language 100 Q&A
+- about hard ware 100 Q&A
+- about erp 100 Q&A
+- about mes 100 Q&A
+- about plm 100 Q&A
+- about archeticture 100 Q&A
+- about chinese education 100 Q&A
+- about chinese conturyside 100 Q&A
+- about human language such as english and chinese 100 Q&A
+- about mysql 100 Q&A
+- how to use internet correctly
+- how to use hexo 
+- the tips i usually use 100 Q&A
+- the above subject i will explian Systematically.
+- Information collation, information analysis,expression of opinion
+
+ > <font color="gray"> *the limits of my language means the limits of my world* </font>
+
+
+
+ > As a user, people should adapt to the machine; as a developer, the machine should adapt to humans
+
+## \# the difference between Compiled language and Interpreted language
+  
+- A compiled language is converted into machine code so that the processor can execute it.
+- An interpreted language is a language in which the implementations execute instructions directly without earlier compiling a program into machine language.
+  
+## \# how to change markdown font color.
+
+``` markdown
+
+<font color="green"> i am red </font>
+```
+
+<font color="green"> i am red </font>
