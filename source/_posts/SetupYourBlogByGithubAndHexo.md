@@ -4,22 +4,22 @@ tags: setupBlog
 categories: Hexo
 ---
 
-## [What is github page?](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages)
+### [What is github page?](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages)
 
 >GitHub Pages is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository on GitHub, optionally runs the files through a build process, and publishes a website. you can set up what branch will the github page use,so that we can use deploy different branch,one branch to deploy our site,the other to write blog.
 
-## [What is hexo?](https://hexo.io/docs/)
+### [What is hexo?](https://hexo.io/docs/)
 
 >Hexo is a fast, simple and powerful blog framework. You write posts in Markdown (or other markup languages) and Hexo generates static files with a beautiful theme in seconds.
 and when you use "hexo deploy"command the generated file will be git push to git repository branch which you have set.
 
-### Install hexo
+### How to install hexo?
 
 ``` bash
 npm install -g hexo-cli
 ```
 <!--more-->
-### Create your site
+### How to create your site?
 
 ``` bash
 hexo init <folder>
@@ -27,7 +27,7 @@ cd <folder>
 npm install
 ```
 
-### Floder structure
+### What is floder structure in hexo?
 
 ``` bash
 .
@@ -40,7 +40,7 @@ npm install
 └── themes
 ```
 
-### Set about page
+### How to set about page?
 
 ``` bash
 hexo new page --path about/me "About me"
@@ -48,7 +48,7 @@ hexo new page --path about/me "About me"
 
 the above command will create a me.md,so when you click the about tag,the webpage will 404 ,you should rename the file name to index.md.
 
-### Set tag and other page
+### How to set tag and other page?
 
 ``` bash
 cd your-hexo-site
@@ -56,25 +56,25 @@ hexo new page tags
 hexo new page categories
 ```
 
-### Create a new post
+### Create a new post?
 
 ``` bash
 hexo new "My New Post"
 ```
 
-### Set bolg asset floder
+### How to set bolg asset floder?
 
 ``` bash
 post_asset_folder: false
 ```
 
-### Generate static files
+### How to generate static files?
 
 ``` bash
 hexo generate
 ```
 
-### Deploy to remote sites
+### How to deploy to remote sites?
 
 ``` bash
 hexo deploy
@@ -88,7 +88,7 @@ hexo clean
 
 clear db.json and public folder
 
-## Setup your hexo blog envrinment for more than one computer
+## How to setup your hexo blog envrinment for more than one computer?
 
 1.create  hexoSource branch on github and set it deafult
 2.clone the github repository last step you created,and move other file except .git
@@ -107,7 +107,7 @@ npm install
 npm install hexo-deployer-git --save
 ```
 
-## write blog
+## How to write blog on hexo?
 
 Before write remmber git pull command,this command will pull the github main branch.
 Remmber your new computer do not have your old blog markdown file.
@@ -119,3 +119,42 @@ hexo new [layout] <title>
 ```
 
 There are three default layouts in Hexo: post, page and draft you can use.
+
+
+## Hexo offical document is [here](https://hexo.io/docs/commands.html)
+
+### \# This command is used to cerate draft\post and so on 
+
+``` bash
+hexo new [layout] <title>
+```
+
+### \# This command is used publish your draft
+
+``` bash
+hexo publish [layout] <filename>
+```
+
+### \# This command is used to generate your html page
+
+``` bash
+hexo generate
+```
+
+### \# This command is used to preview your blog site
+
+``` bash
+hexo server
+```
+
+### \# This command is used to list your post\tage\category and so on 
+
+``` bash
+hexo list <type>
+```
+
+### \# This command is used to delpoy to your site to github page.
+
+``` bash
+hexo clean && hexo deploy
+```
