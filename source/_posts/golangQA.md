@@ -67,3 +67,33 @@ strings that appear in import declarations.
 When using the go tool, a package’s import path indicates not only where to find it in the local
 workspace, but where to find it on the Internet so that go get can retrieve and update it.
 
+## \# Where go get download file?
+
+go get module caches the module in GOPATH/pkg/mod.
+
+## \# How to use the resource by the golang book?
+
+You can download, build, and run the programs with the following commands:
+
+```go
+
+$ export GOPATH=$HOME/gobook            # choose workspace directory
+$ go get gopl.io/ch1/helloworld         # fetch, build, install
+$ $GOPATH/bin/helloworld                # run
+Hello, 世界
+```
+
+## \# What CS language consisit of normally?
+
+A language typically consists of the language specifications (syntax), standard library, a runtime environment, and a compiler.
+
+## \# What is go workspace?
+
+A workspace is Go’s way to facilitate project management. A workspace, in a nutshell, is a directory on your system where Go looks for source code files, manages dependency packages and build distribution binary files.
+
+Whenever a Go program encounters an import statement, it looks for the package in the Go’s standard library ($GOROOT/src). If the package is not available there, then Go refers to the system's environment variable GOPATH which is the path to Go workspace directory and looks for packages in $GOPATH/src directory.
+
+> **You can have as many workspaces as you want, as long as you keep GOPATH environment variable pointed to the current working workspace directory whenever you are working on the given project.**
+
+
+> Similar to $GOROOT, $GOPATH by default points to $HOME/go directory in UNIX and %USERPROFILE%\go on windows. Hence, it is not absolutely necessary to setup GOPATH environment variable.

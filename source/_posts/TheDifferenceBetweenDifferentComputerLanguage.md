@@ -19,3 +19,4 @@ tags: CS
 |Swift|Swift编程语言，支持多编程范式和编译式，面向对象，面向协议。|
 |Go|Go是Google开发的一种静态强类型、编译型、并发型，并具有垃圾回收功能的编程语言|
 |JS|JavaScript是一门基于原型和头等函数的多范式高级解释型编程语言，它支持面向对象程序设计、指令式编程和函数式编程。|
+|C++|The main difference between C and C++ is that C++ support classes and objects, while C does not|
