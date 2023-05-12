@@ -97,3 +97,6 @@ Whenever a Go program encounters an import statement, it looks for the package i
 
 
 > Similar to $GOROOT, $GOPATH by default points to $HOME/go directory in UNIX and %USERPROFILE%\go on windows. Hence, it is not absolutely necessary to setup GOPATH environment variable.
+
+
+what is 
