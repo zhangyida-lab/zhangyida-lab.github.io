@@ -1,7 +1,7 @@
 ---
 title: golangQA
 date: 2023-05-05 14:50:21
-tags: CS
+tags: Golang
 ---
 ## \# What does "range" mean in golang?
 
@@ -33,6 +33,8 @@ associated with a particular type.
 |vers|ion print Go version|
 |vet |run go tool vet on packages|
 |clean| remove object files|
+
+<!--more-->
 
 ## \# What's the difference between "go run" "go build" and "go install" command?
 
@@ -98,5 +100,15 @@ Whenever a Go program encounters an import statement, it looks for the package i
 
 > Similar to $GOROOT, $GOPATH by default points to $HOME/go directory in UNIX and %USERPROFILE%\go on windows. Hence, it is not absolutely necessary to setup GOPATH environment variable.
 
+## \# What about interface?
 
-what is 
+Any data type that implements an interface can also be represented as a type of that interface (polymorphism)
+
+
+
+## \# what is utf8?
+
+ UTF-8 character can be defined in memory size from 1 byte (ASCII compatible) to 4 bytes. Hence in Go, all characters are represented in int32 (size of 4 bytes) data type.
+  A code unit is the number of bits an encoding uses for one single unit cell. So UTF-8 uses 8 bits and UTF-16 uses 16 bits for a code unit, that means UTF-8 needs minimum 8 bits or 1 byte to represent a character.
+
+  As character represented in single quotes in Go is rune and rune can be compared because they represent Unicode code points (int32 values).
