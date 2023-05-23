@@ -106,9 +106,28 @@ Any data type that implements an interface can also be represented as a type of 
 
 
 
-## \# what is utf8?
+## \# What is utf8?
 
  UTF-8 character can be defined in memory size from 1 byte (ASCII compatible) to 4 bytes. Hence in Go, all characters are represented in int32 (size of 4 bytes) data type.
   A code unit is the number of bits an encoding uses for one single unit cell. So UTF-8 uses 8 bits and UTF-16 uses 16 bits for a code unit, that means UTF-8 needs minimum 8 bits or 1 byte to represent a character.
 
   As character represented in single quotes in Go is rune and rune can be compared because they represent Unicode code points (int32 values).
+
+
+
+## \# What is popcount?
+
+  popcount（population count），也叫 sideways sum，是计算一个整数的二进制表示有多少位是1
+
+
+## \# How does go code organization?
+
+ Go programs are organized into packages. A package is a collection of source files in the same directory that are compiled together. Functions, types, variables, and constants defined in one source file are visible to all other source files within the same package.
+
+A repository contains one or more modules. A module is a collection of related Go packages that are released together. A Go repository typically contains only one module, located at the root of the repository. A file named go.mod there declares the module path: the import path prefix for all packages within the module. The module contains the packages in the directory containing its go.mod file as well as subdirectories of that directory, up to the next subdirectory containing another go.mod file (if any).
+
+Note that you don't need to publish your code to a remote repository before you can build it. A module can be defined locally without belonging to a repository. However, it's a good habit to organize your code as if you will publish it someday.
+
+Each module's path not only serves as an import path prefix for its packages, but also indicates where the go command should look to download it. For example, in order to download the module golang.org/x/tools, the go command would consult the repository indicated by https://golang.org/x/tools (described more here).
+
+An import path is a string used to import a package. A package's import path is its module path joined with its subdirectory within the module. For example, the module github.com/google/go-cmp contains a package in the directory cmp/. That package's import path is github.com/google/go-cmp/cmp. Packages in the standard library do not have a module path prefix.
