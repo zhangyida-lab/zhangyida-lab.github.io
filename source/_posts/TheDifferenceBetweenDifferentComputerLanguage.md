@@ -2,7 +2,7 @@
 layout: psot
 title: TheDifferenceBetweenDifferentComputerLanguage
 date: 2023-05-05 15:32:29
-tags: CS
+tags: softwareDevelopment
 ---
 
 

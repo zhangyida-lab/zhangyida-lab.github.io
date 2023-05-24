@@ -1,7 +1,7 @@
 ---
 title: golangQA
 date: 2023-05-05 14:50:21
-tags: Golang
+tags: softwareDevelopment
 ---
 ## \# What does "range" mean in golang?
 
@@ -131,3 +131,9 @@ Note that you don't need to publish your code to a remote repository before you 
 Each module's path not only serves as an import path prefix for its packages, but also indicates where the go command should look to download it. For example, in order to download the module golang.org/x/tools, the go command would consult the repository indicated by https://golang.org/x/tools (described more here).
 
 An import path is a string used to import a package. A package's import path is its module path joined with its subdirectory within the module. For example, the module github.com/google/go-cmp contains a package in the directory cmp/. That package's import path is github.com/google/go-cmp/cmp. Packages in the standard library do not have a module path prefix.
+
+
+## \# Is slices  like interface?
+
+From the slices lesson, we learned that a slice holds the reference to an array. Similarly, we can say that an interface also works in a similar way by dynamically holding a reference to the underlying type.
+Interfaces are very useful in case of functions and methods where you need argument of dynamic types.
