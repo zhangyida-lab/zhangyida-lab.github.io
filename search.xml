@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>ChineseEducation</title>
+    <url>/2023/05/12/ChineseEducation/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>ChineseArchitecture</title>
+    <url>/2023/05/12/ChineseArchitecture/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>ChineseManufacturing</title>
+    <url>/2023/05/12/ChineseManufacturing/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>AboutClash</title>
     <url>/2023/05/16/AboutClash/</url>
     <content><![CDATA[<h2 id="How-to-build-clash-on-local-computer"><a href="#How-to-build-clash-on-local-computer" class="headerlink" title="# How to build clash on local computer?"></a><font color="green">#</font> How to build clash on local computer?</h2><ul>
@@ -30,32 +45,9 @@
       </tags>
   </entry>
   <entry>
-    <title>ChineseArchitecture</title>
-    <url>/2023/05/12/ChineseArchitecture/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>ChineseEducation</title>
-    <url>/2023/05/12/ChineseEducation/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>ChineseManufacturing</title>
-    <url>/2023/05/12/ChineseManufacturing/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>EnterpriseInformationSystem</title>
     <url>/2023/05/12/EnterpriseInformationSystem/</url>
     <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>EverythingAboutLinux</title>
-    <url>/2023/05/24/EverythingAboutLinux/</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>operatingSystem</tag>
-      </tags>
   </entry>
   <entry>
     <title>EverythingAboutMysql</title>
@@ -63,6 +55,22 @@
     <content><![CDATA[]]></content>
       <tags>
         <tag>database</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>EverythingAboutNetwork</title>
+    <url>/2023/05/24/EverythingAboutNetwork/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>softwareDevelopment</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>EverythingAboutLinux</title>
+    <url>/2023/05/24/EverythingAboutLinux/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>operatingSystem</tag>
       </tags>
   </entry>
   <entry>
@@ -99,11 +107,19 @@
 ]]></content>
   </entry>
   <entry>
-    <title>EverythingAboutNetwork</title>
-    <url>/2023/05/24/EverythingAboutNetwork/</url>
+    <title>PresentationSkillsYouShouldKonw</title>
+    <url>/2023/05/12/PresentationSkillsYouShouldKonw/</url>
     <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>AboutCode</title>
+    <url>/2023/05/24/AboutCode/</url>
+    <content><![CDATA[<p>关于编程</p>
+<h2 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h2><p>从人猿相揖别，踏上自主的发展历史，从狩猎时代，到农业时代、工业时代、信息时代、智能时代。<br>用字母和图画记录信息，象天法地探寻客观世界的发展规律，形成清明前后种瓜种豆得节气习俗。<br>土地上产生了食物，土地上产生了高楼大厦、土地上产生了汽车飞机、电脑手机。</p>
+<p>语言本质上就是进行交流，人可以与。</p>
+]]></content>
       <tags>
-        <tag>softwareDevelopment</tag>
+        <tag>code</tag>
       </tags>
   </entry>
   <entry>
@@ -113,11 +129,6 @@
       <tags>
         <tag>operatingSystem</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>PresentationSkillsYouShouldKonw</title>
-    <url>/2023/05/12/PresentationSkillsYouShouldKonw/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Resume</title>
@@ -291,17 +302,6 @@
       </tags>
   </entry>
   <entry>
-    <title>AboutCode</title>
-    <url>/2023/05/24/AboutCode/</url>
-    <content><![CDATA[<p>关于编程</p>
-<h2 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h2><p>从人猿相揖别，踏上自主的发展历史，从狩猎时代，到农业时代、工业时代、信息时代、智能时代。<br>用字母和图画记录信息，象天法地探寻客观世界的发展规律，形成清明前后种瓜种豆得节气习俗。<br>土地上产生了食物，土地上产生了高楼大厦、土地上产生了汽车飞机、电脑手机。</p>
-<p>语言本质上就是进行交流，人可以与。</p>
-]]></content>
-      <tags>
-        <tag>code</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>WhyWeShouldKnowAlgorithmsAndDataStructures</title>
     <url>/2023/05/25/WhyWeShouldKnowAlgorithmsAndDataStructures/</url>
     <content><![CDATA[<p>Algorithm is nothing but a mention of steps to solve a problem.If you don’t know algorithms well, you won’t be able to identify if you can optimize the code you are writing right now.</p>
@@ -321,27 +321,6 @@
       </tags>
   </entry>
   <entry>
-    <title>EnglishAndCommandApp</title>
-    <url>/2023/05/19/EnglishAndCommandApp/</url>
-    <content><![CDATA[<h2 id="1-the-english-we-used-in-our-daily-life"><a href="#1-the-english-we-used-in-our-daily-life" class="headerlink" title="1. the english we used in our daily life"></a>1. the english we used in our daily life</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rm --force [file]</span><br><span class="line">verb adverb noun</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brew install hugo</span><br><span class="line">noun verb  noun</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-what-does-commandAPP-mean"><a href="#2-what-does-commandAPP-mean" class="headerlink" title="2. what does commandAPP mean?"></a>2. what does commandAPP mean?</h2><ul>
-<li>launch something</li>
-<li>do more than one thing</li>
-<li>collection of command</li>
-</ul>
-<h2 id="3-what-does-subCommand-mean"><a href="#3-what-does-subCommand-mean" class="headerlink" title="3. what does subCommand mean?"></a>3. what does subCommand mean?</h2><ul>
-<li>commandAPP are groups of command,such as:</li>
-</ul>
-   <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">svn add</span><br><span class="line">brew install</span><br><span class="line">npm search</span><br><span class="line">apt-get upgrade</span><br><span class="line">git clone</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>commandApp</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ComputerSystem</title>
     <url>/2023/05/24/ComputerSystem/</url>
     <content><![CDATA[<h2 id="What-are-Environment-Variables"><a href="#What-are-Environment-Variables" class="headerlink" title="# What are Environment Variables?"></a># What are Environment Variables?</h2><p>Environment variables are global system variables accessible by all the processes&#x2F;users running under the Operating System (OS), such as Windows, macOS and Linux. Environment variables are useful to store system-wide values, for examples,</p>
@@ -358,38 +337,8 @@
       </tags>
   </entry>
   <entry>
-    <title>MarkdownBasicSyntax</title>
-    <url>/2023/04/17/MarkdownBasicSyntax/</url>
-    <content><![CDATA[<h1 id="Q-amp-A-about-markdown"><a href="#Q-amp-A-about-markdown" class="headerlink" title="Q&amp;A about markdown"></a>Q&amp;A about markdown</h1><h2 id="How-to-headings-your-word"><a href="#How-to-headings-your-word" class="headerlink" title="# How to headings your word?"></a><font color="green">#</font> How to headings your word?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># Heading</span></span><br><span class="line">represent level 1</span><br></pre></td></tr></table></figure>
-
-<h2 id="How-to-emphasis-your-word"><a href="#How-to-emphasis-your-word" class="headerlink" title="# How to emphasis your word?"></a><font color="green">#</font> How to emphasis your word?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="emphasis">*heading*</span> represent Italic</span><br><span class="line"><span class="strong">**heading**</span> represent Bold</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-
-<h2 id="How-to-lists-your-word"><a href="#How-to-lists-your-word" class="headerlink" title="# How to lists your word?"></a><font color="green">#</font> How to lists your word?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet"> 1.</span> first</span><br><span class="line"><span class="bullet"> 2.</span> second </span><br><span class="line">represent Ordered Lists</span><br><span class="line"><span class="bullet"> -</span> first</span><br><span class="line"><span class="bullet"> -</span> second </span><br><span class="line">represent Unordered Lists</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="How-to-add-images-in-markdown"><a href="#How-to-add-images-in-markdown" class="headerlink" title="# How to add images in markdown?"></a><font color="orange">#</font> How to add images in markdown?</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">![this is a message](AddImageToMd/Snipaste.png)</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://s3.bmp.ovh/imgs/2023/05/04/363e4e279c367a69.png" alt="this is a messag"></p>
-<h2 id="How-to-add-links-in-markdow"><a href="#How-to-add-links-in-markdow" class="headerlink" title="# How to add links in markdow?"></a><font color="green">#</font> How to add links in markdow?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">Markdown basic syntax is [<span class="string">here</span>](<span class="link">https://www.markdownguide.org/basic-syntax/</span>)</span><br></pre></td></tr></table></figure>
-
-
-<p>Markdown basic syntax is <a href="https://www.markdownguide.org/basic-syntax/">here</a></p>
-<h2 id="How-to-color-your-word-in-markdown"><a href="#How-to-color-your-word-in-markdown" class="headerlink" title="# How to color your word in markdown?"></a><font color="green">#</font> How to color your word in markdown?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">&quot;green&quot;</span>&gt;</span></span> i am green <span class="language-xml"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<p><font color="green"> I am GREEN </font></p>
-<h2 id="How-to-use-emoji-in-markdown"><a href="#How-to-use-emoji-in-markdown" class="headerlink" title="# How to use emoji in markdown?"></a><font color="green">#</font> How to use emoji in markdown?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">:some strings:</span><br></pre></td></tr></table></figure>
-<p>:x:,  :link:</p>
-<p>:link: The emoji list is <a href="https://gist.github.com/rxaviers/7360908">here</a>.</p>
-]]></content>
-      <tags>
-        <tag>others</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PythonQA</title>
-    <url>/2023/05/05/PythonQA/</url>
+    <title>JavaQA</title>
+    <url>/2023/05/05/JavaQA/</url>
     <content><![CDATA[]]></content>
       <tags>
         <tag>softwareDevelopment</tag>
@@ -453,6 +402,65 @@
       </tags>
   </entry>
   <entry>
+    <title>EnglishAndCommandApp</title>
+    <url>/2023/05/19/EnglishAndCommandApp/</url>
+    <content><![CDATA[<h2 id="1-the-english-we-used-in-our-daily-life"><a href="#1-the-english-we-used-in-our-daily-life" class="headerlink" title="1. the english we used in our daily life"></a>1. the english we used in our daily life</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rm --force [file]</span><br><span class="line">verb adverb noun</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brew install hugo</span><br><span class="line">noun verb  noun</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-what-does-commandAPP-mean"><a href="#2-what-does-commandAPP-mean" class="headerlink" title="2. what does commandAPP mean?"></a>2. what does commandAPP mean?</h2><ul>
+<li>launch something</li>
+<li>do more than one thing</li>
+<li>collection of command</li>
+</ul>
+<h2 id="3-what-does-subCommand-mean"><a href="#3-what-does-subCommand-mean" class="headerlink" title="3. what does subCommand mean?"></a>3. what does subCommand mean?</h2><ul>
+<li>commandAPP are groups of command,such as:</li>
+</ul>
+   <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">svn add</span><br><span class="line">brew install</span><br><span class="line">npm search</span><br><span class="line">apt-get upgrade</span><br><span class="line">git clone</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>commandApp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PythonQA</title>
+    <url>/2023/05/05/PythonQA/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>softwareDevelopment</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MarkdownBasicSyntax</title>
+    <url>/2023/04/17/MarkdownBasicSyntax/</url>
+    <content><![CDATA[<h1 id="Q-amp-A-about-markdown"><a href="#Q-amp-A-about-markdown" class="headerlink" title="Q&amp;A about markdown"></a>Q&amp;A about markdown</h1><h2 id="How-to-headings-your-word"><a href="#How-to-headings-your-word" class="headerlink" title="# How to headings your word?"></a><font color="green">#</font> How to headings your word?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># Heading</span></span><br><span class="line">represent level 1</span><br></pre></td></tr></table></figure>
+
+<h2 id="How-to-emphasis-your-word"><a href="#How-to-emphasis-your-word" class="headerlink" title="# How to emphasis your word?"></a><font color="green">#</font> How to emphasis your word?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="emphasis">*heading*</span> represent Italic</span><br><span class="line"><span class="strong">**heading**</span> represent Bold</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h2 id="How-to-lists-your-word"><a href="#How-to-lists-your-word" class="headerlink" title="# How to lists your word?"></a><font color="green">#</font> How to lists your word?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet"> 1.</span> first</span><br><span class="line"><span class="bullet"> 2.</span> second </span><br><span class="line">represent Ordered Lists</span><br><span class="line"><span class="bullet"> -</span> first</span><br><span class="line"><span class="bullet"> -</span> second </span><br><span class="line">represent Unordered Lists</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="How-to-add-images-in-markdown"><a href="#How-to-add-images-in-markdown" class="headerlink" title="# How to add images in markdown?"></a><font color="orange">#</font> How to add images in markdown?</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">![this is a message](AddImageToMd/Snipaste.png)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s3.bmp.ovh/imgs/2023/05/04/363e4e279c367a69.png" alt="this is a messag"></p>
+<h2 id="How-to-add-links-in-markdow"><a href="#How-to-add-links-in-markdow" class="headerlink" title="# How to add links in markdow?"></a><font color="green">#</font> How to add links in markdow?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">Markdown basic syntax is [<span class="string">here</span>](<span class="link">https://www.markdownguide.org/basic-syntax/</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p>Markdown basic syntax is <a href="https://www.markdownguide.org/basic-syntax/">here</a></p>
+<h2 id="How-to-color-your-word-in-markdown"><a href="#How-to-color-your-word-in-markdown" class="headerlink" title="# How to color your word in markdown?"></a><font color="green">#</font> How to color your word in markdown?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">&quot;green&quot;</span>&gt;</span></span> i am green <span class="language-xml"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><font color="green"> I am GREEN </font></p>
+<h2 id="How-to-use-emoji-in-markdown"><a href="#How-to-use-emoji-in-markdown" class="headerlink" title="# How to use emoji in markdown?"></a><font color="green">#</font> How to use emoji in markdown?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">:some strings:</span><br></pre></td></tr></table></figure>
+<p>:x:,  :link:</p>
+<p>:link: The emoji list is <a href="https://gist.github.com/rxaviers/7360908">here</a>.</p>
+]]></content>
+      <tags>
+        <tag>others</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SwiftQA</title>
     <url>/2023/05/05/SwiftQA/</url>
     <content><![CDATA[]]></content>
@@ -503,36 +511,6 @@
 <td>The main difference between C and C++ is that C++ support classes and objects, while C does not</td>
 </tr>
 </tbody></table>
-]]></content>
-      <tags>
-        <tag>softwareDevelopment</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JavaQA</title>
-    <url>/2023/05/05/JavaQA/</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>softwareDevelopment</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>WhyWeShouldKnowAlgorithmsAndDataStructures</title>
-    <url>/2023/05/25/WhyWeShouldKnowAlgorithmsAndDataStructures/</url>
-    <content><![CDATA[<p>Algorithm is nothing but a mention of steps to solve a problem.If you don’t know algorithms well, you won’t be able to identify if you can optimize the code you are writing right now.</p>
-<p>Data Structure is used for organizing the data in memory. There are various ways of organizing the data in the memory, for eg. array, list, stack, queue, and many more.</p>
-<p>Data structures allow us to organize and store data, while algorithms allow us to process that data in a meaningful way. Learning data structure and algorithms will help you become a better programmer. You will be able to write code that is more efficient and more reliable. You will also be able to solve problems more quickly and more effectively.</p>
-<p>Data structures and algorithms complement each other. The data structure exists for the algorithm, and an algorithm generally suits a specific data structure.</p>
-<p>Generally speaking, a data structure is a way to organize data, while an algorithm is a method or pattern for solving problems.</p>
-<p>To illustrate this, let’s say you want to find a specific book in a library.</p>
-<p><img src="/GITHUB.png" alt="library"></p>
-<img src="/2023/05/25/WhyWeShouldKnowAlgorithmsAndDataStructures/library.jpg" class="">
-
-
-<p><img src="/images%5Clibrary.jpg" alt="library"></p>
-<p><img src="/WhyWeShouldKnowAlgorithmsAndDataStructures" alt="library"></p>
-<p>Because computer can only do simple thing,but it can do thing very fast;it can store large number data.so as a programmer we need Algorithm and Data structures.</p>
-<p>计算机只能做简单的事情，并且可以存储大量数据，因此需要程序员知道如何数据结构和算法。计算机的内部实现类比图书馆，如何组织存放图书，如何快速查找图书。</p>
 ]]></content>
       <tags>
         <tag>softwareDevelopment</tag>
@@ -696,6 +674,27 @@
       </categories>
       <tags>
         <tag>usefulcommand</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>WhyWeShouldKnowAlgorithmsAndDataStructures</title>
+    <url>/2023/05/25/WhyWeShouldKnowAlgorithmsAndDataStructures/</url>
+    <content><![CDATA[<p>Algorithm is nothing but a mention of steps to solve a problem.If you don’t know algorithms well, you won’t be able to identify if you can optimize the code you are writing right now.</p>
+<p>Data Structure is used for organizing the data in memory. There are various ways of organizing the data in the memory, for eg. array, list, stack, queue, and many more.</p>
+<p>Data structures allow us to organize and store data, while algorithms allow us to process that data in a meaningful way. Learning data structure and algorithms will help you become a better programmer. You will be able to write code that is more efficient and more reliable. You will also be able to solve problems more quickly and more effectively.</p>
+<p>Data structures and algorithms complement each other. The data structure exists for the algorithm, and an algorithm generally suits a specific data structure.</p>
+<p>Generally speaking, a data structure is a way to organize data, while an algorithm is a method or pattern for solving problems.</p>
+<p>To illustrate this, let’s say you want to find a specific book in a library.</p>
+<p>1<br><img src="/GITHUB.png" alt="library"><br>2</p>
+<img src="/2023/05/25/WhyWeShouldKnowAlgorithmsAndDataStructures/library.jpg" class="">
+<p>5</p>
+
+<p>3<br><img src="/images%5Clibrary.jpg" alt="library"><br>4<br><img src="/WhyWeShouldKnowAlgorithmsAndDataStructures" alt="library"></p>
+<p>Because computer can only do simple thing,but it can do thing very fast;it can store large number data.so as a programmer we need Algorithm and Data structures.</p>
+<p>计算机只能做简单的事情，并且可以存储大量数据，因此需要程序员知道如何数据结构和算法。计算机的内部实现类比图书馆，如何组织存放图书，如何快速查找图书。</p>
+]]></content>
+      <tags>
+        <tag>softwareDevelopment</tag>
       </tags>
   </entry>
   <entry>
