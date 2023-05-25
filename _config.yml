@@ -39,7 +39,7 @@ external_link:
   field: site # Apply to the whole site
   exclude: ''
 filename_case: 0
-render_drafts: false
+render_drafts: true
 post_asset_folder: true
 relative_link: false
 future: true
@@ -105,7 +105,7 @@ deploy:
   type: git
   repo: https://github.com/zhangyida-lab/zhangyida-lab.github.io.git
   branch: main
-  token: ghp_nYRibQVCjT1NqQadZPdRvetD1bhoLq3rUJ5H
+  token: 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
 
 # Local search config
 search:
