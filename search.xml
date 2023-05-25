@@ -12,22 +12,6 @@
       </tags>
   </entry>
   <entry>
-    <title>ComputerSystem</title>
-    <url>/2023/05/24/ComputerSystem/</url>
-    <content><![CDATA[<h2 id="What-are-Environment-Variables"><a href="#What-are-Environment-Variables" class="headerlink" title="# What are Environment Variables?"></a># What are Environment Variables?</h2><p>Environment variables are global system variables accessible by all the processes&#x2F;users running under the Operating System (OS), such as Windows, macOS and Linux. Environment variables are useful to store system-wide values, for examples,</p>
-<p>PATH: the most frequently-used environment variable, which stores a list of directories to search for executable programs.<br>OS: the operating system.<br>COMPUTENAME, USERNAME: stores the computer and current user name.<br>SystemRoot: the system root directory.<br>(Windows) HOMEDRIVE, HOMEPATH: Current user’s home directory.</p>
-<h2 id="How-to-set-Windows-Environment-Variables"><a href="#How-to-set-Windows-Environment-Variables" class="headerlink" title="# How to set Windows Environment Variables"></a># How to set Windows Environment Variables</h2><p> Set&#x2F;Unset&#x2F;Change an Environment Variable for the “Current” CMD Session<br> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">set varname  Display the value of the variable</span><br><span class="line">set varname=value Set or change the value of the variable (Note: no space before and after &#x27;=&#x27;)</span><br><span class="line">set varname=    Delete the variable by setting to empty string (Note: nothing after &#x27;=&#x27;)</span><br><span class="line">set   Display ALL the environment variables</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// Append a directory in front of the existing PATH</span><br><span class="line">set PATH=c:\myBin;%PATH%</span><br><span class="line">PATH=c:\myBin;[existing entries]</span><br></pre></td></tr></table></figure></p>
-<h2 id="How-to-Add-or-Change-an-Environment-Variable-“Permanently”"><a href="#How-to-Add-or-Change-an-Environment-Variable-“Permanently”" class="headerlink" title="# How to Add or Change an Environment Variable “Permanently”"></a># How to Add or Change an Environment Variable “Permanently”</h2><p>   Launch “Control Panel”</p>
-<h2 id="How-to-set-macOS-x2F-Linux-Environment-Variables"><a href="#How-to-set-macOS-x2F-Linux-Environment-Variables" class="headerlink" title="# How to set (macOS&#x2F;Linux) Environment Variables"></a># How to set (macOS&#x2F;Linux) Environment Variables</h2><p>Most of the Unixes (Ubuntu&#x2F;macOS) use the so-called Bash shell. Under bash shell:</p>
-<p>To list all the environment variables, use the command “env” (or “printenv”). You could also use “set” to list all the variables, including all local variables.<br>To reference a variable, use $varname, with a prefix ‘$’ (Windows uses %varname%).<br>To print the value of a particular variable, use the command “echo $varname”.<br>To set an environment variable, use the command “export varname&#x3D;value”, which sets the variable and exports it to the global environment (available to other processes). Enclosed the value with double quotes if it contains spaces.<br>To set a local variable, use the command “varname&#x3D;value” (or “set varname&#x3D;value”). Local variable is available within this process only.<br>To unset a local variable, use command “varname&#x3D;”, i.e., set to empty string (or “unset varname”).</p>
-<h2 id="How-to-Set-an-Environment-Variable-Permanently-in-Bash-Shell"><a href="#How-to-Set-an-Environment-Variable-Permanently-in-Bash-Shell" class="headerlink" title="# How to Set an Environment Variable Permanently in Bash Shell"></a># How to Set an Environment Variable Permanently in Bash Shell</h2><p>You can set an environment variable permanently by placing an export command in your Bash shell’s startup script “<del>&#x2F;.bashrc” (or “</del>&#x2F;.bash_profile”, or “~&#x2F;.profile”) of your home directory; or “&#x2F;etc&#x2F;profile” for system-wide operations. Take note that files beginning with dot (.) is hidden by default. To display hidden files, use command “ls -a” or “ls -al”.</p>
-<p>For example, to add a directory to the PATH environment variable, add the following line at the end of “<del>&#x2F;.bashrc” (or “</del>&#x2F;.bash_profile”, or “~&#x2F;.profile”), where ~ denotes the home directory of the current user, or “&#x2F;etc&#x2F;profile” for ALL users.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// Append a directory in front of the existing PATH</span><br><span class="line">export PATH=/usr/local/mysql/bin:$PATH</span><br><span class="line">// Refresh the bash shell</span><br><span class="line">source ~/.bashrc</span><br><span class="line">// or</span><br><span class="line">source ~/.bash_profile</span><br><span class="line">source ~/.profile</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>softwareDevelopment</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>EnglishAndCommandApp</title>
     <url>/2023/05/19/EnglishAndCommandApp/</url>
     <content><![CDATA[<h2 id="1-the-english-we-used-in-our-daily-life"><a href="#1-the-english-we-used-in-our-daily-life" class="headerlink" title="1. the english we used in our daily life"></a>1. the english we used in our daily life</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rm --force [file]</span><br><span class="line">verb adverb noun</span><br></pre></td></tr></table></figure>
@@ -52,6 +36,22 @@
     <title>JavaQA</title>
     <url>/2023/05/05/JavaQA/</url>
     <content><![CDATA[]]></content>
+      <tags>
+        <tag>softwareDevelopment</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ComputerSystem</title>
+    <url>/2023/05/24/ComputerSystem/</url>
+    <content><![CDATA[<h2 id="What-are-Environment-Variables"><a href="#What-are-Environment-Variables" class="headerlink" title="# What are Environment Variables?"></a># What are Environment Variables?</h2><p>Environment variables are global system variables accessible by all the processes&#x2F;users running under the Operating System (OS), such as Windows, macOS and Linux. Environment variables are useful to store system-wide values, for examples,</p>
+<p>PATH: the most frequently-used environment variable, which stores a list of directories to search for executable programs.<br>OS: the operating system.<br>COMPUTENAME, USERNAME: stores the computer and current user name.<br>SystemRoot: the system root directory.<br>(Windows) HOMEDRIVE, HOMEPATH: Current user’s home directory.</p>
+<h2 id="How-to-set-Windows-Environment-Variables"><a href="#How-to-set-Windows-Environment-Variables" class="headerlink" title="# How to set Windows Environment Variables"></a># How to set Windows Environment Variables</h2><p> Set&#x2F;Unset&#x2F;Change an Environment Variable for the “Current” CMD Session<br> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">set varname  Display the value of the variable</span><br><span class="line">set varname=value Set or change the value of the variable (Note: no space before and after &#x27;=&#x27;)</span><br><span class="line">set varname=    Delete the variable by setting to empty string (Note: nothing after &#x27;=&#x27;)</span><br><span class="line">set   Display ALL the environment variables</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// Append a directory in front of the existing PATH</span><br><span class="line">set PATH=c:\myBin;%PATH%</span><br><span class="line">PATH=c:\myBin;[existing entries]</span><br></pre></td></tr></table></figure></p>
+<h2 id="How-to-Add-or-Change-an-Environment-Variable-“Permanently”"><a href="#How-to-Add-or-Change-an-Environment-Variable-“Permanently”" class="headerlink" title="# How to Add or Change an Environment Variable “Permanently”"></a># How to Add or Change an Environment Variable “Permanently”</h2><p>   Launch “Control Panel”</p>
+<h2 id="How-to-set-macOS-x2F-Linux-Environment-Variables"><a href="#How-to-set-macOS-x2F-Linux-Environment-Variables" class="headerlink" title="# How to set (macOS&#x2F;Linux) Environment Variables"></a># How to set (macOS&#x2F;Linux) Environment Variables</h2><p>Most of the Unixes (Ubuntu&#x2F;macOS) use the so-called Bash shell. Under bash shell:</p>
+<p>To list all the environment variables, use the command “env” (or “printenv”). You could also use “set” to list all the variables, including all local variables.<br>To reference a variable, use $varname, with a prefix ‘$’ (Windows uses %varname%).<br>To print the value of a particular variable, use the command “echo $varname”.<br>To set an environment variable, use the command “export varname&#x3D;value”, which sets the variable and exports it to the global environment (available to other processes). Enclosed the value with double quotes if it contains spaces.<br>To set a local variable, use the command “varname&#x3D;value” (or “set varname&#x3D;value”). Local variable is available within this process only.<br>To unset a local variable, use command “varname&#x3D;”, i.e., set to empty string (or “unset varname”).</p>
+<h2 id="How-to-Set-an-Environment-Variable-Permanently-in-Bash-Shell"><a href="#How-to-Set-an-Environment-Variable-Permanently-in-Bash-Shell" class="headerlink" title="# How to Set an Environment Variable Permanently in Bash Shell"></a># How to Set an Environment Variable Permanently in Bash Shell</h2><p>You can set an environment variable permanently by placing an export command in your Bash shell’s startup script “<del>&#x2F;.bashrc” (or “</del>&#x2F;.bash_profile”, or “~&#x2F;.profile”) of your home directory; or “&#x2F;etc&#x2F;profile” for system-wide operations. Take note that files beginning with dot (.) is hidden by default. To display hidden files, use command “ls -a” or “ls -al”.</p>
+<p>For example, to add a directory to the PATH environment variable, add the following line at the end of “<del>&#x2F;.bashrc” (or “</del>&#x2F;.bash_profile”, or “~&#x2F;.profile”), where ~ denotes the home directory of the current user, or “&#x2F;etc&#x2F;profile” for ALL users.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// Append a directory in front of the existing PATH</span><br><span class="line">export PATH=/usr/local/mysql/bin:$PATH</span><br><span class="line">// Refresh the bash shell</span><br><span class="line">source ~/.bashrc</span><br><span class="line">// or</span><br><span class="line">source ~/.bash_profile</span><br><span class="line">source ~/.profile</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>softwareDevelopment</tag>
       </tags>
@@ -89,6 +89,14 @@
   <entry>
     <title>PythonQA</title>
     <url>/2023/05/05/PythonQA/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>softwareDevelopment</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SwiftQA</title>
+    <url>/2023/05/05/SwiftQA/</url>
     <content><![CDATA[]]></content>
       <tags>
         <tag>softwareDevelopment</tag>
@@ -142,21 +150,27 @@
 
 <h3 id="This-command-is-used-to-list-your-post-tage-category-and-so-on"><a href="#This-command-is-used-to-list-your-post-tage-category-and-so-on" class="headerlink" title="# This command is used to list your post\tage\category and so on"></a># This command is used to list your post\tage\category and so on</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo list &lt;<span class="built_in">type</span>&gt;</span><br></pre></td></tr></table></figure>
 
-<h3 id="This-command-is-used-to-delpoy-to-your-site-to-github-page"><a href="#This-command-is-used-to-delpoy-to-your-site-to-github-page" class="headerlink" title="# This command is used to delpoy to your site to github page."></a># This command is used to delpoy to your site to github page.</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo deploy</span><br></pre></td></tr></table></figure>
+<h3 id="This-command-is-used-to-delpoy-to-your-site-to-github-page"><a href="#This-command-is-used-to-delpoy-to-your-site-to-github-page" class="headerlink" title="# This command is used to delpoy to your site to github page."></a># This command is used to delpoy to your site to github page.</h3><ul>
+<li>当执行 hexo deploy 时，Hexo 会将 public 目录中的文件和目录推送至 _config.yml 中指定的远端仓库和分支中，并且完全覆盖该分支下的已有内容</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo deploy</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="How-to-display-image-on-your-hexo-blog"><a href="#How-to-display-image-on-your-hexo-blog" class="headerlink" title="# How to display image on your hexo blog."></a># How to display image on your hexo blog.</h3><ul>
+<li>set the post_asset_folder setting in _config.yml to true</li>
+<li>put the image file in your folder which name is the same as your blog</li>
+<li>writing blog use the below synta.</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![library](wheat.jpg)</span><br></pre></td></tr></table></figure>
+
+
 ]]></content>
       <categories>
         <category>Hexo</category>
       </categories>
       <tags>
         <tag>setupBlog</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SwiftQA</title>
-    <url>/2023/05/05/SwiftQA/</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>softwareDevelopment</tag>
       </tags>
   </entry>
   <entry>
@@ -202,6 +216,23 @@
 <td>The main difference between C and C++ is that C++ support classes and objects, while C does not</td>
 </tr>
 </tbody></table>
+]]></content>
+      <tags>
+        <tag>softwareDevelopment</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>WhyWeShouldKnowAlgorithmsAndDataStructures</title>
+    <url>/2023/05/25/WhyWeShouldKnowAlgorithmsAndDataStructures/</url>
+    <content><![CDATA[<p>Algorithm is nothing but a mention of steps to solve a problem.If you don’t know algorithms well, you won’t be able to identify if you can optimize the code you are writing right now.</p>
+<p>Data Structure is used for organizing the data in memory. There are various ways of organizing the data in the memory, for eg. array, list, stack, queue, and many more.</p>
+<p>Data structures allow us to organize and store data, while algorithms allow us to process that data in a meaningful way. Learning data structure and algorithms will help you become a better programmer. You will be able to write code that is more efficient and more reliable. You will also be able to solve problems more quickly and more effectively.</p>
+<p>Data structures and algorithms complement each other. The data structure exists for the algorithm, and an algorithm generally suits a specific data structure.</p>
+<p>Generally speaking, a data structure is a way to organize data, while an algorithm is a method or pattern for solving problems.</p>
+<p>To illustrate this, let’s say you want to find a specific book in a library.</p>
+<p>1<br><img src="/2023/05/25/WhyWeShouldKnowAlgorithmsAndDataStructures/library.jpg" alt="library"><br>2<br><img src="/2023/05/25/WhyWeShouldKnowAlgorithmsAndDataStructures/wheat.jpg" alt="library"><br>3<br><img src="/2023/05/25/WhyWeShouldKnowAlgorithmsAndDataStructures/GITHUB.png" alt="library"></p>
+<p>Because computer can only do simple thing,but it can do thing very fast;it can store large number data.so as a programmer we need Algorithm and Data structures.</p>
+<p>计算机只能做简单的事情，并且可以存储大量数据，因此需要程序员知道如何数据结构和算法。计算机的内部实现类比图书馆，如何组织存放图书，如何快速查找图书。</p>
 ]]></content>
       <tags>
         <tag>softwareDevelopment</tag>
@@ -365,32 +396,6 @@
       </categories>
       <tags>
         <tag>usefulcommand</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>WhyWeShouldKnowAlgorithmsAndDataStructures</title>
-    <url>/2023/05/25/WhyWeShouldKnowAlgorithmsAndDataStructures/</url>
-    <content><![CDATA[<p>Algorithm is nothing but a mention of steps to solve a problem.If you don’t know algorithms well, you won’t be able to identify if you can optimize the code you are writing right now.</p>
-<p>Data Structure is used for organizing the data in memory. There are various ways of organizing the data in the memory, for eg. array, list, stack, queue, and many more.</p>
-<p>Data structures allow us to organize and store data, while algorithms allow us to process that data in a meaningful way. Learning data structure and algorithms will help you become a better programmer. You will be able to write code that is more efficient and more reliable. You will also be able to solve problems more quickly and more effectively.</p>
-<p>Data structures and algorithms complement each other. The data structure exists for the algorithm, and an algorithm generally suits a specific data structure.</p>
-<p>Generally speaking, a data structure is a way to organize data, while an algorithm is a method or pattern for solving problems.</p>
-<p>To illustrate this, let’s say you want to find a specific book in a library.</p>
-<p>1<br><img src="/images%5CGITHUB.png" alt="library"><br>2</p>
-<img src="/2023/05/25/WhyWeShouldKnowAlgorithmsAndDataStructures/library.jpg" class="" title="spaced title">
-<p>5</p>
-<img src="/2023/05/25/WhyWeShouldKnowAlgorithmsAndDataStructures/wheat.jpg" class="" title="spaced title">
-<p>3<br><img src="/images%5Clibrary.jpg" alt="library"></p>
-<p><img src="/images%5Cwheat.jpg" alt="library"></p>
-<p>888888888</p>
-<p><img src="/source/../WhyWeShouldKnowAlgorithmsAndDataStructures/library.jpg" alt="library"><br>999999999999</p>
-<p><img src="/2023/05/25/WhyWeShouldKnowAlgorithmsAndDataStructures/wheat.jpg" alt="library"></p>
-<p>themes\next\source\images</p>
-<p>Because computer can only do simple thing,but it can do thing very fast;it can store large number data.so as a programmer we need Algorithm and Data structures.</p>
-<p>计算机只能做简单的事情，并且可以存储大量数据，因此需要程序员知道如何数据结构和算法。计算机的内部实现类比图书馆，如何组织存放图书，如何快速查找图书。</p>
-]]></content>
-      <tags>
-        <tag>softwareDevelopment</tag>
       </tags>
   </entry>
   <entry>
