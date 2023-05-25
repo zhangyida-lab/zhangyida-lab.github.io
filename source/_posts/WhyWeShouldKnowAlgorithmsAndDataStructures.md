@@ -19,13 +19,15 @@ Generally speaking, a data structure is a way to organize data, while an algorit
 
 To illustrate this, let’s say you want to find a specific book in a library.
 
-
+1
 ![library](GITHUB.png)
-
+2
 {% asset_img library.jpg %}
-
+5
+{% asset_img GITHUB.png %}
+3
 ![library](images\library.jpg)
-
+4
 ![library](WhyWeShouldKnowAlgorithmsAndDataStructures)
 
 
