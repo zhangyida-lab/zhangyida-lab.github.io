@@ -17,7 +17,7 @@ Generally speaking, a data structure is a way to organize data, while an algorit
 
 To illustrate this, let’s say you want to find a specific book in a library.
 
-![library](images\GITHUB.png)
+
 ![library](source\_posts\golangQA\GITHUB.png)
 
 
