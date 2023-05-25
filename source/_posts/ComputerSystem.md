@@ -15,6 +15,8 @@ COMPUTENAME, USERNAME: stores the computer and current user name.
 SystemRoot: the system root directory.
 (Windows) HOMEDRIVE, HOMEPATH: Current user's home directory.
 
+<!--more-->
+
 ## \# How to set Windows Environment Variables
 
  Set/Unset/Change an Environment Variable for the "Current" CMD Session

@@ -155,6 +155,22 @@ hexo list <type>
 
 ### \# This command is used to delpoy to your site to github page.
 
+- 当执行 hexo deploy 时，Hexo 会将 public 目录中的文件和目录推送至 _config.yml 中指定的远端仓库和分支中，并且完全覆盖该分支下的已有内容
+
 ``` bash
 hexo clean && hexo deploy
 ```
+
+
+
+### \# How to display image on your hexo blog.
+
+- set the post_asset_folder setting in _config.yml to true
+- put the image file in your folder which name is the same as your blog
+- writing blog use the below synta.
+  
+```
+![library](wheat.jpg)
+```
+
+

@@ -11,6 +11,8 @@ tags: softwareDevelopment
 - A compiled language is converted into machine code so that the processor can execute it.
 - An interpreted language is a language in which the implementations execute instructions directly without earlier compiling a program into machine language.
 
+<!--more-->
+
 |计算机语言|特点|
 |---|---|
 |C语言|C是一种通用的、过程式编程编程语言，支持结构化编程、词法作用域和递归，使用静态类型系统，并且广泛用于系统软件与应用软件的开发。|
