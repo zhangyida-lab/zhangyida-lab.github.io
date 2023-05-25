@@ -1,7 +1,9 @@
 ---
 title: WhyWeShouldKnowAlgorithmsAndDataStructures
 tags: softwareDevelopment
+date: 2023-05-25 10:39:09
 ---
+
 
 
 Algorithm is nothing but a mention of steps to solve a problem.If you don't know algorithms well, you won't be able to identify if you can optimize the code you are writing right now.
@@ -17,14 +19,14 @@ Generally speaking, a data structure is a way to organize data, while an algorit
 
 To illustrate this, let’s say you want to find a specific book in a library.
 
-1111
+
 ![library](GITHUB.png)
-2222
+
 {% asset_img library.jpg %}
-333
+
 ![library](images\library.jpg)
-444
-![library](WhyWeShouldKnowAlgorithmsAndDataStructures\library.jpg)
+
+![library](WhyWeShouldKnowAlgorithmsAndDataStructures)
 
 
 
