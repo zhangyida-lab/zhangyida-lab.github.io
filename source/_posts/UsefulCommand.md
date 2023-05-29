@@ -8,6 +8,10 @@ categories: command
 
 # Useful Commands
 
+![usefulCommand](usefulCommand.jpg)
+
+
+(source:  [www.pexels.com](https://www.pexels.com/photo/crop-cyber-spy-hacking-system-while-typing-on-laptop-5935794/))
 
 
 
@@ -287,9 +291,6 @@ yt-dlp  https://www.youtube.com/watch?v=d4lfTXXzQ-o -o "%(title)s.%(ext)s"
 
 ## \# video clipper
 
-Created: February 16, 2022
-Created by: yi zhang
-Tags: CC
 
 ### 1. Finalcut souperted
 

@@ -172,5 +172,3 @@ hexo clean && hexo deploy
 ```
 ![library](wheat.jpg)
 ```
-
-

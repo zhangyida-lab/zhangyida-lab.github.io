@@ -33,12 +33,3 @@ A function hides its implementation details from its users. For all of these rea
 Interface types express generalizations or abstractions about the behaviors of other types. By generalizing, interfaces let us write functions that are more flexible and adapt able because they are not tied to the details of one particular implementation
 
 《The Go Programming Language》 written by "Alan A. A. Donovan" and "Brian W. Kernighan"
-
-关于编程
-## 历史
-
-从人猿相揖别，踏上自主的发展历史，从狩猎时代，到农业时代、工业时代、信息时代、智能时代。
-用字母和图画记录信息，象天法地探寻客观世界的发展规律，形成清明前后种瓜种豆得节气习俗。
-土地上产生了食物，土地上产生了高楼大厦、土地上产生了汽车飞机、电脑手机。
-
-语言本质上就是进行交流，人可以与。
