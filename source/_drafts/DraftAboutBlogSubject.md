@@ -3,9 +3,15 @@ title: DraftAboutBlogSubject
 tags:
 ---
 
+
+
+
+
+
 ## <font color="green">\#</font> what i want to share on my blog
 
 - about operation system 100 Q&A
+- 书评
 - about computer language 100 Q&A
 - about hard ware 100 Q&A
 - git&docker 100 Q&A
@@ -23,6 +29,8 @@ tags:
 - the above subject i will explian Systematically.
 - Information collation, information analysis,expression of opinion
 - golang study note
+- iOS 项目介绍（答题类App）
+  
 -- start a go project
 go command usually use
 

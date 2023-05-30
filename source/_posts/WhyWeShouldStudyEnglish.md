@@ -7,6 +7,12 @@ tags: other
 
 # Why We Should Study English
 
+
+
+open your eyes ,you can find the new world of your own .
+
+![english](English03.jpeg)
+
 >There are many, many reasons why learning a new language is a good idea. It allows you to communicate with new people. It helps you to see things from a different perspective, or get a deeper understanding of another culture. It helps you to become a better listener. It even has health benefits, as studies have shown that people who speak two or more languages have more active minds later in life!
 
 
@@ -22,7 +28,7 @@ Here are five big reasons that learning English can improve your life.
 ## It’s the Most Widely Spoken Language in the World
  
 
-What’s more, English is the rest of the world’s “second language”. While Chinese Mandarin and Spanish are the mother tongues of more people overall, most people in the world choose to learn some English after their native language. In fact, one in five people on the planet speak or understand at least a little bit of English.
+What’s more, English is the rest of the world’s “second language”. most people in the world choose to learn some English after their native language. In fact, one in five people on the planet speak or understand at least a little bit of English.
 
 This makes English one of the most useful languages you can learn. After all, you can’t learn all 6,500 languages in the world, but at least you will be able to communicate with people from all different countries using English.
 

@@ -3,6 +3,10 @@ title: PythonQA
 date: 2023-05-05 15:52:45
 tags: softwareDevelopment
 ---
-# How to use python and youtube-api-analysis 
 
->we can use python and youtube-api to analysis the youtuber data which you want to know.
+## How to use python and youtube-api-analysis 
+
+>we can use python and youtube-api to analysis the youtuber data which you want to know.you can open this github repository.
+
+
+[youtube-api-analysis](https://github.com/thu-vu92/youtube-api-analysis)

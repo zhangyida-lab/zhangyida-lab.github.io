@@ -8,6 +8,8 @@ categories: command
 
 # Useful Commands
 
+
+
 ![usefulCommand](usefulCommand.jpg)
 
 
@@ -17,6 +19,23 @@ categories: command
 
 In this blog, i will list many useful command about homebrew/github/npm/linux/yt-dlp and son.
 
+## \# bash shortcut
+
+~~ cce ~~
+测试部署hexoBlog快捷键
+
+```bash
+
+alias ht='hexo clean && hexo g && hexo s'
+
+```
+
+部署到github快捷键
+
+``` bash
+alias hd='hexo clean && hexo deploy'
+
+```
 
 ## \# Is suported netflix 
 

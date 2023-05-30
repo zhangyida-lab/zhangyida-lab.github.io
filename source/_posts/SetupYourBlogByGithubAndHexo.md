@@ -1,8 +1,14 @@
 ---
 title: How to setup your hexo blog
-tags: setupBlog
+tags: Blog
 categories: Hexo
 ---
+
+## How to setup your hexo blog
+
+> Hexo can help us to write blog by markdown,and then we can deploy my blog on github or other srevice.
+
+![blog](blog.jpg)
 
 ### [What is github page?](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages)
 
