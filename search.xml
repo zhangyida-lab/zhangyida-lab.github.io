@@ -11,9 +11,6 @@
 <h2 id="about-function"><a href="#about-function" class="headerlink" title="about function"></a>about function</h2><p>A function lets us wrap upasequence of statements asaunit that can be called from else where<br>in a program, perhaps multiple times. Functions make it possible to breakabig job into smaller pieces that might well be written by different people sep arated by both time and space.<br>A function hides its implementation details from its users. For all of these reasons, functions areacritical part of any programming language.</p>
 <h2 id="about-interface"><a href="#about-interface" class="headerlink" title="about interface"></a>about interface</h2><p>Interface types express generalizations or abstractions about the behaviors of other types. By generalizing, interfaces let us write functions that are more flexible and adapt able because they are not tied to the details of one particular implementation</p>
 <p>《The Go Programming Language》 written by “Alan A. A. Donovan” and “Brian W. Kernighan”</p>
-<p>关于编程</p>
-<h2 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h2><p>从人猿相揖别，踏上自主的发展历史，从狩猎时代，到农业时代、工业时代、信息时代、智能时代。<br>用字母和图画记录信息，象天法地探寻客观世界的发展规律，形成清明前后种瓜种豆得节气习俗。<br>土地上产生了食物，土地上产生了高楼大厦、土地上产生了汽车飞机、电脑手机。</p>
-<p>语言本质上就是进行交流，人可以与。</p>
 ]]></content>
       <tags>
         <tag>code</tag>
@@ -22,11 +19,163 @@
   <entry>
     <title>ComputerSystem</title>
     <url>/2023/05/24/ComputerSystem/</url>
-    <content><![CDATA[<h2 id="What-are-Environment-Variables"><a href="#What-are-Environment-Variables" class="headerlink" title="# What are Environment Variables?"></a># What are Environment Variables?</h2><p>Environment variables are global system variables accessible by all the processes&#x2F;users running under the Operating System (OS), such as Windows, macOS and Linux. Environment variables are useful to store system-wide values, for examples,</p>
-<p>PATH: the most frequently-used environment variable, which stores a list of directories to search for executable programs.<br>OS: the operating system.<br>COMPUTENAME, USERNAME: stores the computer and current user name.<br>SystemRoot: the system root directory.<br>(Windows) HOMEDRIVE, HOMEPATH: Current user’s home directory.</p>
+    <content><![CDATA[<h2 id="什么是计算机科学？"><a href="#什么是计算机科学？" class="headerlink" title="# 什么是计算机科学？"></a># 什么是计算机科学？</h2><p>计算机就是输入 计算 输出，对于常见的计算机设备输入设备就是键盘、鼠标、麦克风、摄像头，输出设备就是音响、屏幕等；计算设备就是CPU等。自下而上，从简单的原理构建出错综复杂的系统，自上而下循着足迹一步一步去解构大系统，这就是计算机科学的巨大魅力。</p>
+<h2 id="Hardware-about-CPU-and-RAM"><a href="#Hardware-about-CPU-and-RAM" class="headerlink" title="# Hardware about CPU and RAM"></a># Hardware about CPU and RAM</h2><blockquote>
+<p>计算机科学，是逻辑、抽象、规则、协作的伟大发明，但是归根结底就是规则（协议）。在基础科学的基石上不断推进技术向纵深发展，形成一种文化，将人类的生活不断推向前进。</p>
+</blockquote>
+<p><img src="/2023/05/24/ComputerSystem/computerHardware.jpg" alt="computerHardware"></p>
+<h3 id="CPU"><a href="#CPU" class="headerlink" title="# CPU"></a># CPU</h3><p>CPU和内存是由许多晶体管组成的电子部件，通常称为IC(Integrated Circuit，集成电路)。CPU的内部由寄存器、控制器、运算器和时钟四个部分构成，各部分之间由电流信号相互连通。寄存器可用来暂存指令、数据等处理对象，可以将其看作是内存的一种。根据种类的不同，一个 CPU 内部会有20~100 个寄存器。控制器负责把内存上的指令、数据等读人寄存器并根据指令的执行结果来控制整个计算机。运算器负责运算从内存读入寄存器的数据。时钟负责发出 CPU 开始计时的时钟信号 。</p>
+<hr>
+<p>内存指的是计算机的主存储器(main memory),简称主存。主存通过控制片等与CPU相连主要负责存储指令和数据。主存由可读写的元素构成，每个字节(1字节 &#x3D;8位)都带有一个地址编号。CPU 可以通过该地址读取主存中的指令和数据，当然也可以写入数据。</p>
 <span id="more"></span>
 
-<h2 id="How-to-set-Windows-Environment-Variables"><a href="#How-to-set-Windows-Environment-Variables" class="headerlink" title="# How to set Windows Environment Variables"></a># How to set Windows Environment Variables</h2><p> Set&#x2F;Unset&#x2F;Change an Environment Variable for the “Current” CMD Session<br> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">set varname  Display the value of the variable</span><br><span class="line">set varname=value Set or change the value of the variable (Note: no space before and after &#x27;=&#x27;)</span><br><span class="line">set varname=    Delete the variable by setting to empty string (Note: nothing after &#x27;=&#x27;)</span><br><span class="line">set   Display ALL the environment variables</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// Append a directory in front of the existing PATH</span><br><span class="line">set PATH=c:\myBin;%PATH%</span><br><span class="line">PATH=c:\myBin;[existing entries]</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>我们可以将寄存器大致划分为八类可以看出，寄存器中存储的内容既可以是指令也可以是数据。其中，数据分为“用于运算的数值”和“表示内存地址的数值”两种。数据种类不同，存储该数值的寄存器也不同，CPU 中每个寄存器的功能都是不同的。用于运算的数值放在累加寄存器中存储，表示内存地址的数值则放在基址寄存器和变址寄存器中存储。</p>
+<hr>
+<p>程序的流程分为顺序执行、条件分支和循环三种。顺序执行是指按照地址内容的顺序执行指令。条件分支是指根据条件执行任意地址的指令。循环是指重复执行同一地址的指令。顺序执行的情况比较简单，每执行一个指令程序计数器的值就自动加 1。但若程序中存在条件分支和循环，机器语言的指令就可以将程序计数器的值设定为任意地址(不是 +1)。这样一来，程序便可以返回到上一个地址来重复执行同一个指令，或者跳转到任意地址。</p>
+<hr>
+<p>下图一般常见CPU的结构。</p>
+<p><img src="/2023/05/24/ComputerSystem/8bitADD.png" alt="CPU"><br><img src="/2023/05/24/ComputerSystem/8bitADD2.png" alt="CPU2"><br><img src="/2023/05/24/ComputerSystem/CPU.jpg" alt="CPU3"></p>
+<table>
+<thead>
+<tr>
+<th>种类</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>累加寄存器( accumulator register )</td>
+<td>存储执行运算的数据和运算后的数据</td>
+</tr>
+<tr>
+<td>标志寄存器(flag register )</td>
+<td>存储运算处理后的 CPU的状态</td>
+</tr>
+<tr>
+<td>程序计数器( program counter )</td>
+<td>存储下一条指令所在内存的地址</td>
+</tr>
+<tr>
+<td>基址寄存器( base register )</td>
+<td>存储数据内存的起始地址</td>
+</tr>
+<tr>
+<td>变址寄存器(index register)</td>
+<td>存储基址寄存器的相对地址</td>
+</tr>
+<tr>
+<td>通用寄存器( general purpose register )</td>
+<td>存储任意数据</td>
+</tr>
+<tr>
+<td>指令寄存器(instruction register )</td>
+<td>过程序对该寄存器进行读写操作</td>
+</tr>
+<tr>
+<td>栈寄存器(stack register )</td>
+<td>存储栈区域的起始地址</td>
+</tr>
+</tbody></table>
+<h3 id="加法器可以衍生出减法器乘法器等"><a href="#加法器可以衍生出减法器乘法器等" class="headerlink" title="# 加法器可以衍生出减法器乘法器等"></a># 加法器可以衍生出减法器乘法器等</h3><p>加法器（英语：adder）是一种用于执行加法运算的数位电路部件，是构成电子计算机核心微处理器中算术逻辑单元的基础.</p>
+<p>半加器（英语：half adder）的功能是将两个一位二进制数相加。它有两个输出：</p>
+<ul>
+<li>和：记作 S，来自对应的英语 Sum;</li>
+<li>进位：记作 C;</li>
+</ul>
+<p>全加器（full adder）将两个一位二进制数相加，并根据接收到的低位进位信号，输出和、进位输出。全加器的三个输入信号为两个加数A、B和低位进位Cin</p>
+<p>触发器：电路的奇怪之处是:同样是在两个开关都断开的状态下，灯泡有时亮着，有时却不亮。当两个开关都断开时，电路有两个稳定态，这类电路统称为触发器 (Flip-Flop)，<br>触发器和跷跷板有着很强的相似性。跷跷板也有两个稳定状态，它不会长期停留在不稳定的中间位置。</p>
+<blockquote>
+<p>逻辑门电路如下例如：异或门,若两个输入的电平相异，则输出为高电平（1）；若两个输入的电平相同，则输出为低电平（0）。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>OR</th>
+<th>NAND</th>
+<th>XOR</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<h3 id="RAM"><a href="#RAM" class="headerlink" title="# RAM"></a># RAM</h3><p>内存IC中有电源、地址信号、数据信号、控制信号等用于输入输出的大量引脚(IC 的引脚 )，通过为其指定地址(address )，来进行数据的读写。</p>
+<p>数组是指多个同样数据类型的数据在内存中连续排列的形式。作为数组元素的各个数据会通过连续的编号被区分开来，这个编号称为索引(index)。指定索引后，就可以对该索引所对应地址的内存进行读写操作而索引和内存地址的变换工作则是由编译器自动实现的。<br>数组是链表和树结构的基础。</p>
+<p>栈和队列，都可以不通过指定地址和索引来对数组的元素进行读写。需要临时保存计算过程中的数据、连接在计算机上的设备或者输人输出的数据时，都可以通过这些方法来使用内存。如果每次保存临时数据都需指定地址和索引，程序就会变得比较麻烦，因此要加以改进<br>栈和队列的区别在于数据出入的顺序是不同的。在对内存数据进行读写时，栈用的是 LIFO(Last Input First Out），后入先出)方式，而队列用的则是 FIFO( First Input First Out），先入先出)方式。如果我们在内存中预留出栈和队列所需要的空间，并确定好写入和读出的顺序就不用再指定地址和索引了。</p>
+<p>下图是内存的组织结构<br><img src="/2023/05/24/ComputerSystem/RAM0001.png" alt="RAM2"><br><img src="/2023/05/24/ComputerSystem/RAM0002.png" alt="RAM3"><br><img src="/2023/05/24/ComputerSystem/RAM0003.png" alt="RAM4"><br><img src="/2023/05/24/ComputerSystem/RAM.png" alt="RAM1"></p>
+<h2 id="为什么我们需要编程语言？"><a href="#为什么我们需要编程语言？" class="headerlink" title="# 为什么我们需要编程语言？"></a># 为什么我们需要编程语言？</h2><blockquote>
+<p>因为计算机时走向微型化，集成化我们“不能”使用物理的开关去操作内存，所以我们需要微观的操作方式，因此产生了计算机语言，用于人与机器的沟通，甚至说人与人的沟通也可以。</p>
+</blockquote>
+<h3 id="What’s-the-difference-between-Compiled-language-and-Interpreted-language"><a href="#What’s-the-difference-between-Compiled-language-and-Interpreted-language" class="headerlink" title="# What’s the difference between Compiled language and Interpreted language?"></a># What’s the difference between Compiled language and Interpreted language?</h3><ul>
+<li>A compiled language is converted into machine code so that the processor can execute it.</li>
+<li>An interpreted language is a language in which the implementations execute instructions directly without earlier compiling a program into machine language.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>计算机语言</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>C语言</td>
+<td>C是一种通用的、过程式编程编程语言，支持结构化编程、词法作用域和递归，使用静态类型系统，并且广泛用于系统软件与应用软件的开发。</td>
+</tr>
+<tr>
+<td>Python</td>
+<td>Python是一种广泛使用的解释型、高级和通用的编程语言</td>
+</tr>
+<tr>
+<td>Java</td>
+<td>Java不同于一般的编译语言或解释型语言。它首先将源代码编译成字节码，再依赖各种不同平台上的虚拟机来解释执行字节码，从而具有“一次编写，到处运行”的跨平台特性。</td>
+</tr>
+<tr>
+<td>Swift</td>
+<td>Swift编程语言，支持多编程范式和编译式，面向对象，面向协议。</td>
+</tr>
+<tr>
+<td>Go</td>
+<td>Go是Google开发的一种静态强类型、编译型、并发型，并具有垃圾回收功能的编程语言</td>
+</tr>
+<tr>
+<td>JS</td>
+<td>JavaScript是一门基于原型和头等函数的多范式高级解释型编程语言，它支持面向对象程序设计、指令式编程和函数式编程。</td>
+</tr>
+<tr>
+<td>C++</td>
+<td>The main difference between C and C++ is that C++ support classes and objects, while C does not</td>
+</tr>
+</tbody></table>
+<h2 id="What-are-Environment-Variables"><a href="#What-are-Environment-Variables" class="headerlink" title="# What are Environment Variables?"></a># What are Environment Variables?</h2><p>Environment variables are global system variables accessible by all the processes&#x2F;users running under the Operating System (OS), such as Windows, macOS and Linux. Environment variables are useful to store system-wide values, for examples,</p>
+<p>PATH: the most frequently-used environment variable, which stores a list of directories to search for executable programs.<br>OS: the operating system.<br>COMPUTENAME, USERNAME: stores the computer and current user name.<br>SystemRoot: the system root directory.<br>(Windows) HOMEDRIVE, HOMEPATH: Current user’s home directory.</p>
+<h2 id="How-to-set-Windows-Environment-Variables"><a href="#How-to-set-Windows-Environment-Variables" class="headerlink" title="# How to set Windows Environment Variables"></a># How to set Windows Environment Variables</h2><p> Set&#x2F;Unset&#x2F;Change an Environment Variable for the “Current” CMD Session<br> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> </span><br><span class="line">set varname  Display the value of the variable</span><br><span class="line">set varname=value Set or change the value of the variable (Note: no space before and after &#x27;=&#x27;)</span><br><span class="line">set varname=    Delete the variable by setting to empty string (Note: nothing after &#x27;=&#x27;)</span><br><span class="line">set   Display ALL the environment variables</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// Append a directory in front of the existing PATH</span><br><span class="line">set PATH=c:\myBin;%PATH%</span><br><span class="line">PATH=c:\myBin;[existing entries]</span><br></pre></td></tr></table></figure></p>
 <h2 id="How-to-Add-or-Change-an-Environment-Variable-“Permanently”"><a href="#How-to-Add-or-Change-an-Environment-Variable-“Permanently”" class="headerlink" title="# How to Add or Change an Environment Variable “Permanently”"></a># How to Add or Change an Environment Variable “Permanently”</h2><p>   Launch “Control Panel”</p>
 <h2 id="How-to-set-macOS-x2F-Linux-Environment-Variables"><a href="#How-to-set-macOS-x2F-Linux-Environment-Variables" class="headerlink" title="# How to set (macOS&#x2F;Linux) Environment Variables"></a># How to set (macOS&#x2F;Linux) Environment Variables</h2><p>Most of the Unixes (Ubuntu&#x2F;macOS) use the so-called Bash shell. Under bash shell:</p>
 <p>To list all the environment variables, use the command “env” (or “printenv”). You could also use “set” to list all the variables, including all local variables.<br>To reference a variable, use $varname, with a prefix ‘$’ (Windows uses %varname%).<br>To print the value of a particular variable, use the command “echo $varname”.<br>To set an environment variable, use the command “export varname&#x3D;value”, which sets the variable and exports it to the global environment (available to other processes). Enclosed the value with double quotes if it contains spaces.<br>To set a local variable, use the command “varname&#x3D;value” (or “set varname&#x3D;value”). Local variable is available within this process only.<br>To unset a local variable, use command “varname&#x3D;”, i.e., set to empty string (or “unset varname”).</p>
@@ -40,20 +189,24 @@
   <entry>
     <title>EnglishAndCommandApp</title>
     <url>/2023/05/19/EnglishAndCommandApp/</url>
-    <content><![CDATA[<h2 id="1-the-english-we-used-in-our-daily-life"><a href="#1-the-english-we-used-in-our-daily-life" class="headerlink" title="1. the english we used in our daily life"></a>1. the english we used in our daily life</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rm --force [file]</span><br><span class="line">verb adverb noun</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h2 id="English-And-CommandApp"><a href="#English-And-CommandApp" class="headerlink" title="English And CommandApp"></a>English And CommandApp</h2><p><img src="/2023/05/19/EnglishAndCommandApp/commandline.png" alt="command"></p>
+<blockquote>
+<p>In this bolg you will find a fact that commandline syntax is the same as the english syntax.  </p>
+</blockquote>
+<h3 id="1-the-english-we-used-in-our-daily-life"><a href="#1-the-english-we-used-in-our-daily-life" class="headerlink" title="1. the english we used in our daily life"></a>1. the english we used in our daily life</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> --force [file]</span><br><span class="line">verb adverb noun</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brew install hugo</span><br><span class="line">noun verb  noun</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install hugo</span><br><span class="line">noun verb  noun</span><br></pre></td></tr></table></figure>
 
-<h2 id="2-what-does-commandAPP-mean"><a href="#2-what-does-commandAPP-mean" class="headerlink" title="2. what does commandAPP mean?"></a>2. what does commandAPP mean?</h2><ul>
+<h3 id="2-what-does-commandAPP-mean"><a href="#2-what-does-commandAPP-mean" class="headerlink" title="2. what does commandAPP mean?"></a>2. what does commandAPP mean?</h3><ul>
 <li>launch something</li>
 <li>do more than one thing</li>
 <li>collection of command</li>
 </ul>
 <span id="more"></span>
-<h2 id="3-what-does-subCommand-mean"><a href="#3-what-does-subCommand-mean" class="headerlink" title="3. what does subCommand mean?"></a>3. what does subCommand mean?</h2><ul>
-<li>commandAPP are groups of command,such as:</li>
+<h3 id="3-what-does-subCommand-mean"><a href="#3-what-does-subCommand-mean" class="headerlink" title="3. what does subCommand mean?"></a>3. what does subCommand mean?</h3><ul>
+<li>commandAPP are groups of command,such as</li>
 </ul>
-   <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">svn add</span><br><span class="line">brew install</span><br><span class="line">npm search</span><br><span class="line">apt-get upgrade</span><br><span class="line">git clone</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">svn add</span><br><span class="line">brew install</span><br><span class="line">npm search</span><br><span class="line">apt-get upgrade</span><br><span class="line">git <span class="built_in">clone</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
         <tag>commandApp</tag>
@@ -66,7 +219,7 @@
 <p>This blog will record the thing I meetting when I learn mysql.</p>
 </blockquote>
 <p><img src="/2023/05/25/EverythingAboutMysql/database-schema.png" alt="library"></p>
-<h2 id="MySQL-Data-Types"><a href="#MySQL-Data-Types" class="headerlink" title="MySQL Data Types:"></a>MySQL Data Types:</h2><p>The proper definition of a table’s fields is critical to the overall optimization of your database. You should only utilise the type and size of the field that you truly require. For example, if you know you’ll only use two characters, don’t make a field 10 characters large. After the sort of data, you’ll be storing in those fields, these fields (or columns) are referred to as data types.</p>
+<h2 id="MySQL-Data-Types"><a href="#MySQL-Data-Types" class="headerlink" title="MySQL Data Types"></a>MySQL Data Types</h2><p>The proper definition of a table’s fields is critical to the overall optimization of your database. You should only utilise the type and size of the field that you truly require. For example, if you know you’ll only use two characters, don’t make a field 10 characters large. After the sort of data, you’ll be storing in those fields, these fields (or columns) are referred to as data types.</p>
 <p>MySQL makes use of a variety of data types that are divided into three groups.</p>
 <ul>
 <li>Numeric</li>
@@ -74,7 +227,7 @@
 <li>String Types.</li>
 </ul>
 <span id="more"></span>
-<h2 id="DDL"><a href="#DDL" class="headerlink" title="DDL:"></a>DDL:</h2><p>DDL or Data Definition Language consists of those commands which include defining the structure of database schema and database table. It mainly involves the structuring of database schema and the table.</p>
+<h2 id="DDL"><a href="#DDL" class="headerlink" title="DDL"></a>DDL</h2><p>DDL or Data Definition Language consists of those commands which include defining the structure of database schema and database table. It mainly involves the structuring of database schema and the table.</p>
 <p>The commands included in DDL are: </p>
 <ul>
 <li>Create – Used to create the table schema</li>
@@ -84,23 +237,23 @@
 <li>Comment – These statements are meant only for understanding the schema structure. They do not contribute to the actual database structure</li>
 <li>Rename – Used to rename the database table</li>
 </ul>
-<h2 id="DML"><a href="#DML" class="headerlink" title="DML:"></a>DML:</h2><p>DML or Data Manipulation Language consists of those commands which include manipulating the data of the database table. It involves creating and manipulating the data of the database table.</p>
-<p>The commands included in DML are: </p>
+<h2 id="DML"><a href="#DML" class="headerlink" title="DML"></a>DML</h2><p>DML or Data Manipulation Language consists of those commands which include manipulating the data of the database table. It involves creating and manipulating the data of the database table.</p>
+<p>The commands included in DML are</p>
 <ul>
-<li>Select: Used to extract the information from the database table</li>
+<li>Select: Used to extract the information from the database table  </li>
 <li>Insert: Used to insert the data into the database table</li>
 <li>Update: Update the existing data in the database table where a particular condition is defined.</li>
 <li>Delete: Delete the data from the database table</li>
 </ul>
-<h2 id="DCL"><a href="#DCL" class="headerlink" title="DCL:"></a>DCL:</h2><p>DCL or Data Control Language consists of those commands to deal with the rights, permissions, or other controls of the database system. It involves specific rights to the specific users to access the database.</p>
-<p>The commands included in DCL are : </p>
+<h2 id="DCL"><a href="#DCL" class="headerlink" title="DCL"></a>DCL</h2><p>DCL or Data Control Language consists of those commands to deal with the rights, permissions, or other controls of the database system. It involves specific rights to the specific users to access the database.</p>
+<p>The commands included in DCL are</p>
 <ul>
 <li><p>Grant : Used to give permissions to a specific user to access the database with read or write permissions.</p>
 </li>
 <li><p>Revoke : Used to remove the permissions from a specific user to access the database.</p>
 </li>
 </ul>
-<h2 id="TCL"><a href="#TCL" class="headerlink" title="TCL:"></a>TCL:</h2><p>TCL or Transaction Control Language consists of those commands that deal with the transactions of the database.These include collection of statements between specific client and server.</p>
+<h2 id="TCL"><a href="#TCL" class="headerlink" title="TCL"></a>TCL</h2><p>TCL or Transaction Control Language consists of those commands that deal with the transactions of the database.These include collection of statements between specific client and server.</p>
 <p>The commands included in TCL are:</p>
 <ul>
 <li>Commit : Used to store the previous data.</li>
@@ -121,14 +274,6 @@
       </tags>
   </entry>
   <entry>
-    <title>PythonQA</title>
-    <url>/2023/05/05/PythonQA/</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>softwareDevelopment</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MarkdownBasicSyntax</title>
     <url>/2023/04/17/MarkdownBasicSyntax/</url>
     <content><![CDATA[<h1 id="Q-amp-A-about-markdown"><a href="#Q-amp-A-about-markdown" class="headerlink" title="Q&amp;A about markdown"></a>Q&amp;A about markdown</h1><h2 id="How-to-headings-your-word"><a href="#How-to-headings-your-word" class="headerlink" title="# How to headings your word?"></a><font color="green">#</font> How to headings your word?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># Heading</span></span><br><span class="line">represent level 1</span><br></pre></td></tr></table></figure>
@@ -139,29 +284,46 @@
 
 <h2 id="How-to-lists-your-word"><a href="#How-to-lists-your-word" class="headerlink" title="# How to lists your word?"></a><font color="green">#</font> How to lists your word?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet"> 1.</span> first</span><br><span class="line"><span class="bullet"> 2.</span> second </span><br><span class="line">represent Ordered Lists</span><br><span class="line"><span class="bullet"> -</span> first</span><br><span class="line"><span class="bullet"> -</span> second </span><br><span class="line">represent Unordered Lists</span><br></pre></td></tr></table></figure>
 
-
 <h2 id="How-to-add-images-in-markdown"><a href="#How-to-add-images-in-markdown" class="headerlink" title="# How to add images in markdown?"></a><font color="orange">#</font> How to add images in markdown?</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">![this is a message](AddImageToMd/Snipaste.png)</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://s3.bmp.ovh/imgs/2023/05/04/363e4e279c367a69.png" alt="this is a messag"></p>
 <h2 id="How-to-add-links-in-markdow"><a href="#How-to-add-links-in-markdow" class="headerlink" title="# How to add links in markdow?"></a><font color="green">#</font> How to add links in markdow?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">Markdown basic syntax is [<span class="string">here</span>](<span class="link">https://www.markdownguide.org/basic-syntax/</span>)</span><br></pre></td></tr></table></figure>
-
 
 <p>Markdown basic syntax is <a href="https://www.markdownguide.org/basic-syntax/">here</a></p>
 <h2 id="How-to-color-your-word-in-markdown"><a href="#How-to-color-your-word-in-markdown" class="headerlink" title="# How to color your word in markdown?"></a><font color="green">#</font> How to color your word in markdown?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">&quot;green&quot;</span>&gt;</span></span> i am green <span class="language-xml"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 
 <p><font color="green"> I am GREEN </font></p>
 <h2 id="How-to-use-emoji-in-markdown"><a href="#How-to-use-emoji-in-markdown" class="headerlink" title="# How to use emoji in markdown?"></a><font color="green">#</font> How to use emoji in markdown?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">:some strings:</span><br></pre></td></tr></table></figure>
+
 <p>:x:,  :link:</p>
 <p>:link: The emoji list is <a href="https://gist.github.com/rxaviers/7360908">here</a>.</p>
+<h2 id="Paragraphs-and-Line-Breaks"><a href="#Paragraphs-and-Line-Breaks" class="headerlink" title="Paragraphs and Line Breaks"></a>Paragraphs and Line Breaks</h2><p>To create paragraphs, use a blank line to separate one or more lines of text.</p>
+<p>To create a line break or new line , end a line with two or more spaces, and then type return.</p>
 ]]></content>
       <tags>
         <tag>others</tag>
       </tags>
   </entry>
   <entry>
+    <title>PythonQA</title>
+    <url>/2023/05/05/PythonQA/</url>
+    <content><![CDATA[<h2 id="How-to-use-python-and-youtube-api-analysis"><a href="#How-to-use-python-and-youtube-api-analysis" class="headerlink" title="How to use python and youtube-api-analysis"></a>How to use python and youtube-api-analysis</h2><blockquote>
+<p>we can use python and youtube-api to analysis the youtuber data which you want to know.you can open this github repository.</p>
+</blockquote>
+<p><a href="https://github.com/thu-vu92/youtube-api-analysis">youtube-api-analysis</a></p>
+]]></content>
+      <tags>
+        <tag>softwareDevelopment</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>How to setup your hexo blog</title>
     <url>/2023/05/12/SetupYourBlogByGithubAndHexo/</url>
-    <content><![CDATA[<h3 id="What-is-github-page"><a href="#What-is-github-page" class="headerlink" title="What is github page?"></a><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages">What is github page?</a></h3><blockquote>
+    <content><![CDATA[<h2 id="How-to-setup-your-hexo-blog"><a href="#How-to-setup-your-hexo-blog" class="headerlink" title="How to setup your hexo blog"></a>How to setup your hexo blog</h2><blockquote>
+<p>Hexo can help us to write blog by markdown,and then we can deploy my blog on github or other srevice.</p>
+</blockquote>
+<p><img src="/2023/05/12/SetupYourBlogByGithubAndHexo/blog.jpg" alt="blog"></p>
+<h3 id="What-is-github-page"><a href="#What-is-github-page" class="headerlink" title="What is github page?"></a><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages">What is github page?</a></h3><blockquote>
 <p>GitHub Pages is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository on GitHub, optionally runs the files through a build process, and publishes a website. you can set up what branch will the github page use,so that we can use deploy different branch,one branch to deploy our site,the other to write blog.</p>
 </blockquote>
 <h3 id="What-is-hexo"><a href="#What-is-hexo" class="headerlink" title="What is hexo?"></a><a href="https://hexo.io/docs/">What is hexo?</a></h3><blockquote>
@@ -206,33 +368,31 @@
 
 <h3 id="This-command-is-used-to-list-your-post-tage-category-and-so-on"><a href="#This-command-is-used-to-list-your-post-tage-category-and-so-on" class="headerlink" title="# This command is used to list your post\tage\category and so on"></a># This command is used to list your post\tage\category and so on</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo list &lt;<span class="built_in">type</span>&gt;</span><br></pre></td></tr></table></figure>
 
-<h3 id="This-command-is-used-to-delpoy-to-your-site-to-github-page"><a href="#This-command-is-used-to-delpoy-to-your-site-to-github-page" class="headerlink" title="# This command is used to delpoy to your site to github page."></a># This command is used to delpoy to your site to github page.</h3><ul>
+<h3 id="This-command-is-used-to-delpoy-to-your-site-to-github-page"><a href="#This-command-is-used-to-delpoy-to-your-site-to-github-page" class="headerlink" title="# This command is used to delpoy to your site to github page"></a># This command is used to delpoy to your site to github page</h3><ul>
 <li>当执行 hexo deploy 时，Hexo 会将 public 目录中的文件和目录推送至 _config.yml 中指定的远端仓库和分支中，并且完全覆盖该分支下的已有内容</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo deploy</span><br></pre></td></tr></table></figure>
 
-
-
-<h3 id="How-to-display-image-on-your-hexo-blog"><a href="#How-to-display-image-on-your-hexo-blog" class="headerlink" title="# How to display image on your hexo blog."></a># How to display image on your hexo blog.</h3><ul>
+<h3 id="How-to-display-image-on-your-hexo-blog"><a href="#How-to-display-image-on-your-hexo-blog" class="headerlink" title="# How to display image on your hexo blog"></a># How to display image on your hexo blog</h3><ul>
 <li>set the post_asset_folder setting in _config.yml to true</li>
 <li>put the image file in your folder which name is the same as your blog</li>
 <li>writing blog use the below synta.</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![library](wheat.jpg)</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">library</span>](<span class="link">wheat.jpg</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-
+<h2 id="zgangyida’s-bash-hexo-shortcut"><a href="#zgangyida’s-bash-hexo-shortcut" class="headerlink" title="# zgangyida’s bash hexo shortcut"></a># zgangyida’s bash hexo shortcut</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">alias</span> ht=<span class="string">&#x27;hexo clean &amp;&amp; hexo g &amp;&amp; hexo s&#x27;</span></span><br><span class="line">测试部署hexoBlog快捷键</span><br><span class="line"></span><br><span class="line"><span class="built_in">alias</span> hd=<span class="string">&#x27;hexo clean &amp;&amp; hexo deploy&#x27;</span></span><br><span class="line">部署到github快捷键</span><br><span class="line"></span><br><span class="line"><span class="built_in">alias</span> hnp=<span class="string">&#x27;hexo new post&#x27;</span></span><br><span class="line">新建博客</span><br><span class="line"></span><br><span class="line"><span class="built_in">alias</span> hnd=<span class="string">&#x27;hexo new draft&#x27;</span></span><br><span class="line">新建草稿</span><br><span class="line"></span><br><span class="line"><span class="built_in">alias</span> hp=<span class="string">&#x27;hexo publish&#x27;</span></span><br><span class="line">发布草稿</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Hexo</category>
       </categories>
       <tags>
-        <tag>setupBlog</tag>
+        <tag>Blog</tag>
       </tags>
   </entry>
   <entry>
     <title>SwiftQA</title>
     <url>/2023/05/05/SwiftQA/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h1 id="How-to-use-swift-to-development-an-ios-APP"><a href="#How-to-use-swift-to-development-an-ios-APP" class="headerlink" title="How to use swift to development an ios APP."></a>How to use swift to development an ios APP.</h1><h2 id="The-idea-of-this-application"><a href="#The-idea-of-this-application" class="headerlink" title="The idea of this application"></a>The idea of this application</h2>]]></content>
       <tags>
         <tag>softwareDevelopment</tag>
       </tags>
@@ -288,56 +448,21 @@
       </tags>
   </entry>
   <entry>
-    <title>WhyWeShouldKnowAlgorithmsAndDataStructures</title>
-    <url>/2023/05/25/WhyWeShouldKnowAlgorithmsAndDataStructures/</url>
-    <content><![CDATA[<h2 id="What-is-Data-Structure-and-Algorithm"><a href="#What-is-Data-Structure-and-Algorithm" class="headerlink" title="# What is Data Structure and  Algorithm?"></a># What is Data Structure and  Algorithm?</h2><p>Algorithm is nothing but a mention of steps to solve a problem.If you don’t know algorithms well, you won’t be able to identify if you can optimize the code you are writing right now.</p>
-<p>Data Structure is used for organizing the data in memory. There are various ways of organizing the data in the memory, for eg. array, list, stack, queue, and many more.</p>
-<p>Data structures allow us to organize and store data, while algorithms allow us to process that data in a meaningful way. Learning data structure and algorithms will help you become a better programmer. You will be able to write code that is more efficient and more reliable. You will also be able to solve problems more quickly and more effectively.</p>
-<span id="more"></span>
-<p>Data structures and algorithms complement each other. The data structure exists for the algorithm, and an algorithm generally suits a specific data structure.</p>
-<p>Generally speaking, a data structure is a way to organize data, while an algorithm is a method or pattern for solving problems.</p>
-<p>To illustrate this, let’s say you want to find a specific book in a library.</p>
-<p><img src="/2023/05/25/WhyWeShouldKnowAlgorithmsAndDataStructures/library.jpg" alt="library"></p>
-<p>Because computer can only do simple thing,but it can do thing very fast;it can store large number data.so as a programmer we need Algorithm and Data structures.</p>
-<p>计算机只能做简单的事情，并且可以存储大量数据，因此需要程序员知道如何存储数据、读取数据，这就是涉及到我们的主题——数据结构和算法。计算机的内部实现类比图书馆，如何组织存放图书，如何快速查找图书。</p>
-<h2 id="What-thing-can-Data-Structure-and-Algorithm-do"><a href="#What-thing-can-Data-Structure-and-Algorithm-do" class="headerlink" title="# What thing can Data Structure and  Algorithm do ?"></a># What thing can Data Structure and  Algorithm do ?</h2><ul>
-<li><p>Organization of data in a computer’s memory</p>
-</li>
-<li><p>Representation of information in databases</p>
-</li>
-<li><p>Algorithms that search through data (such as a search engine)</p>
-</li>
-<li><p>algorithms that manipulate data (such as a word processor)</p>
-</li>
-<li><p>algorithms that analyze data (such as a data miner)</p>
-</li>
-<li><p>algorithms that generate data (such as a random number generator)</p>
-</li>
-<li><p>algorithms that compress and decompress data (such as a zip utility)</p>
-</li>
-<li><p>algorithms that encrypt and decrypt data (such as a security system)</p>
-</li>
-<li><p>software that manages files and directories (such as a file manager)</p>
-</li>
-<li><p>software that renders graphics (such as a web browser or 3D rendering software)</p>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>softwareDevelopment</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>UsefulCommand</title>
     <url>/2023/04/17/UsefulCommand/</url>
-    <content><![CDATA[<h1 id="Useful-Commands"><a href="#Useful-Commands" class="headerlink" title="Useful Commands"></a>Useful Commands</h1><p><img src="/2023/04/17/UsefulCommand/usefulCommand.jpg" alt="usefulCommand"></p>
+    <content><![CDATA[<h2 id="Useful-Commands"><a href="#Useful-Commands" class="headerlink" title="Useful Commands"></a>Useful Commands</h2><p><img src="/2023/04/17/UsefulCommand/usefulCommand.jpg" alt="usefulCommand"></p>
+<p>(source:  <a href="https://www.pexels.com/photo/crop-cyber-spy-hacking-system-while-typing-on-laptop-5935794/">www.pexels.com</a>)</p>
+<blockquote>
 <p>In this blog, i will list many useful command about homebrew&#x2F;github&#x2F;npm&#x2F;linux&#x2F;yt-dlp and son.</p>
-<h2 id="Is-suported-netflix"><a href="#Is-suported-netflix" class="headerlink" title="# Is suported netflix"></a># Is suported netflix</h2><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -L -s <span class="attr">https</span>:<span class="comment">//raw.githubusercontent.com/lmc999/RegionRestrictionCheck/main/check.sh)</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="hexo-shortcut"><a href="#hexo-shortcut" class="headerlink" title="# hexo shortcut"></a># hexo shortcut</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">alias</span> ht=<span class="string">&#x27;hexo clean &amp;&amp; hexo g &amp;&amp; hexo s&#x27;</span></span><br><span class="line">测试部署hexoBlog快捷键</span><br><span class="line"></span><br><span class="line"><span class="built_in">alias</span> hd=<span class="string">&#x27;hexo clean &amp;&amp; hexo deploy&#x27;</span></span><br><span class="line">部署到github快捷键</span><br><span class="line"></span><br><span class="line"><span class="built_in">alias</span> hnp=<span class="string">&#x27;hexo new post&#x27;</span></span><br><span class="line">新建博客</span><br><span class="line"></span><br><span class="line"><span class="built_in">alias</span> hnd=<span class="string">&#x27;hexo new draft&#x27;</span></span><br><span class="line">新建草稿</span><br><span class="line"></span><br><span class="line"><span class="built_in">alias</span> hp=<span class="string">&#x27;hexo publish&#x27;</span></span><br><span class="line">发布草稿</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h2 id="About-homebrew"><a href="#About-homebrew" class="headerlink" title="# About homebrew"></a># About homebrew</h2><blockquote>
+<h3 id="Is-suported-netflix"><a href="#Is-suported-netflix" class="headerlink" title="# Is suported netflix"></a># Is suported netflix</h3><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -L -s <span class="attr">https</span>:<span class="comment">//raw.githubusercontent.com/lmc999/RegionRestrictionCheck/main/check.sh)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="About-homebrew"><a href="#About-homebrew" class="headerlink" title="# About homebrew"></a># About homebrew</h3><blockquote>
 <p>update brew by proxy</p>
 </blockquote>
-<p>homebrew start up mysql: </p>
+<p>homebrew start up mysql:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew services start mysql</span><br></pre></td></tr></table></figure>
 
 <p>查询mysql安装路径:</p>
@@ -346,14 +471,14 @@
 <p>使用代理更新软件库:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ALL_PROXY=socks5://192.168.0.107:7890 brew upgrade</span><br></pre></td></tr></table></figure>
 <span id="more"></span>
-<h2 id="About-github"><a href="#About-github" class="headerlink" title="# About github"></a># About github</h2><p>git set proxy:</p>
+<h3 id="About-github"><a href="#About-github" class="headerlink" title="# About github"></a># About github</h3><p>git set proxy:</p>
 <p>git设完代理，shell也需要设置proxy</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//设置全局代理</span><br><span class="line">//http</span><br><span class="line">git config --global https.proxy http://192.168.0.107:7890</span><br><span class="line">//https</span><br><span class="line">git config --global https.proxy https://192.168.0.107:7890</span><br><span class="line"></span><br><span class="line">git config --global http.proxy socks5://192.168.0.107:7890</span><br><span class="line">git config --global https.proxy socks5://192.168.0.107:7890</span><br><span class="line"></span><br><span class="line">//只对github.com使用代理，其他仓库不走代理</span><br><span class="line">git config --global http.https://github.com.proxy socks5://127.0.0.1:7890</span><br><span class="line">git config --global https.https://github.com.proxy socks5://127.0.0.1:7890</span><br><span class="line">//取消github代理</span><br><span class="line">git config --global --<span class="built_in">unset</span> http.https://github.com.proxy</span><br><span class="line">git config --global --<span class="built_in">unset</span> https.https://github.com.proxy</span><br><span class="line"></span><br><span class="line">//取消全局代理</span><br><span class="line">git config --global --<span class="built_in">unset</span> http.proxy</span><br><span class="line">git config --global --<span class="built_in">unset</span> https.proxy</span><br><span class="line"><span class="comment">#查看git代理设置</span></span><br><span class="line">git config --global --list</span><br></pre></td></tr></table></figure>
 
 <p>将本地git仓库添加到远程仓库</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">git remote add origin https：//.........</span><br></pre></td></tr></table></figure>
 
-<h2 id="About-lunix"><a href="#About-lunix" class="headerlink" title="# About lunix"></a># About lunix</h2><ul>
+<h3 id="About-lunix"><a href="#About-lunix" class="headerlink" title="# About lunix"></a># About lunix</h3><ul>
 <li>ssh登录</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh root@8.131.231.XX</span><br><span class="line"><span class="comment">#设置ssh长时间连接服务器不断开</span></span><br><span class="line">vi /zhangyi/.ssh/config</span><br><span class="line"><span class="comment">#修改文件加入下面一句</span></span><br><span class="line">ServerAliveInterval 60</span><br><span class="line"><span class="comment">#保存退出，重新开启root用户的shell，则再ssh远程服务器的时候，不会因为长时间操作断开。</span></span><br><span class="line"><span class="comment">#登录阿里云服务器</span></span><br><span class="line">ssh acspace</span><br><span class="line"><span class="comment"># 设置别名登陆服务器</span></span><br><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br><span class="line">vi config</span><br><span class="line"><span class="comment">#config文件</span></span><br><span class="line">Host            acspace</span><br><span class="line">HostName        8.131.231.122</span><br><span class="line">Port            22</span><br><span class="line">User            root</span><br><span class="line">IdentityFile    ~/.ssh/wangchen.pem</span><br></pre></td></tr></table></figure>
@@ -385,18 +510,18 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">alias</span> goproxy=<span class="string">&#x27;export http_proxy=http://127.0.0.1:7890 https_proxy=http://127.0.0.1:7890&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> disproxy=<span class="string">&#x27;unset http_proxy https_proxy&#x27;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="Set-npm-registry"><a href="#Set-npm-registry" class="headerlink" title="# Set npm registry"></a># Set npm registry</h2><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">npm config set registry <span class="attr">http</span>:<span class="comment">//registry.npmjs.org/</span></span><br><span class="line">npm config set proxy <span class="attr">http</span>:<span class="comment">//127.0.0.1:7890</span></span><br><span class="line">npm config set https-proxy <span class="attr">http</span>:<span class="comment">//127.0.0.1:7890</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="Set-npm-registry"><a href="#Set-npm-registry" class="headerlink" title="# Set npm registry"></a># Set npm registry</h3><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">npm config set registry <span class="attr">http</span>:<span class="comment">//registry.npmjs.org/</span></span><br><span class="line">npm config set proxy <span class="attr">http</span>:<span class="comment">//127.0.0.1:7890</span></span><br><span class="line">npm config set https-proxy <span class="attr">http</span>:<span class="comment">//127.0.0.1:7890</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h2 id="Make-terminal-active-for-long-time-when-ssh-connect-to-ali"><a href="#Make-terminal-active-for-long-time-when-ssh-connect-to-ali" class="headerlink" title="# Make terminal active for long time when ssh connect to ali."></a># Make terminal active for long time when ssh connect to ali.</h2><blockquote>
+<h3 id="Make-terminal-active-for-long-time-when-ssh-connect-to-ali"><a href="#Make-terminal-active-for-long-time-when-ssh-connect-to-ali" class="headerlink" title="# Make terminal active for long time when ssh connect to ali"></a># Make terminal active for long time when ssh connect to ali</h3><blockquote>
 <p>we do it on client！</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">/root/.ssh/</span><br><span class="line"></span><br><span class="line">vi /root/.ssh/config</span><br><span class="line"></span><br><span class="line"><span class="comment"># setting this filed</span></span><br><span class="line">ServerAliveInterval <span class="number">60</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h2 id="About-python"><a href="#About-python" class="headerlink" title="# About python"></a># About python</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">python3 -m venv scrapy-env</span><br><span class="line"><span class="comment">#创建python虚拟环境scrapy-env</span></span><br><span class="line"><span class="comment">#激活虚拟环境</span></span><br><span class="line">source scrapy-env/<span class="built_in">bin</span>/activate</span><br><span class="line"><span class="comment">#取消激活python虚拟环境</span></span><br><span class="line">deactivate</span><br><span class="line"><span class="comment">#列出python安装包</span></span><br><span class="line">pip3 <span class="built_in">list</span></span><br><span class="line"><span class="comment">#列出虚拟环境python安装包</span></span><br><span class="line">pip3 freeze</span><br></pre></td></tr></table></figure>
+<h3 id="About-python"><a href="#About-python" class="headerlink" title="# About python"></a># About python</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">python3 -m venv scrapy-env</span><br><span class="line"><span class="comment">#创建python虚拟环境scrapy-env</span></span><br><span class="line"><span class="comment">#激活虚拟环境</span></span><br><span class="line">source scrapy-env/<span class="built_in">bin</span>/activate</span><br><span class="line"><span class="comment">#取消激活python虚拟环境</span></span><br><span class="line">deactivate</span><br><span class="line"><span class="comment">#列出python安装包</span></span><br><span class="line">pip3 <span class="built_in">list</span></span><br><span class="line"><span class="comment">#列出虚拟环境python安装包</span></span><br><span class="line">pip3 freeze</span><br></pre></td></tr></table></figure>
 
-<h2 id="About-ios"><a href="#About-ios" class="headerlink" title="# About ios"></a># About ios</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cat &lt;&lt; EOF &gt; Podfile &amp;&amp;</span><br><span class="line">platform :ios, <span class="string">&#x27;8.0&#x27;</span></span><br><span class="line">use_frameworks!</span><br><span class="line">target <span class="string">&#x27;myYoutubeApi&#x27;</span> do</span><br><span class="line">    pod <span class="string">&#x27;GoogleAPIClientForREST/YouTube&#x27;</span>, <span class="string">&#x27;~&gt; 1.2.1&#x27;</span></span><br><span class="line">    pod <span class="string">&#x27;Google/SignIn&#x27;</span>, <span class="string">&#x27;~&gt; 3.0.3&#x27;</span></span><br><span class="line">end</span><br><span class="line">EOF</span><br><span class="line">pod install &amp;&amp;</span><br><span class="line"><span class="built_in">open</span> myYoutubeApi.xcworkspace</span><br></pre></td></tr></table></figure>
+<h3 id="About-ios"><a href="#About-ios" class="headerlink" title="# About ios"></a># About ios</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cat &lt;&lt; EOF &gt; Podfile &amp;&amp;</span><br><span class="line">platform :ios, <span class="string">&#x27;8.0&#x27;</span></span><br><span class="line">use_frameworks!</span><br><span class="line">target <span class="string">&#x27;myYoutubeApi&#x27;</span> do</span><br><span class="line">    pod <span class="string">&#x27;GoogleAPIClientForREST/YouTube&#x27;</span>, <span class="string">&#x27;~&gt; 1.2.1&#x27;</span></span><br><span class="line">    pod <span class="string">&#x27;Google/SignIn&#x27;</span>, <span class="string">&#x27;~&gt; 3.0.3&#x27;</span></span><br><span class="line">end</span><br><span class="line">EOF</span><br><span class="line">pod install &amp;&amp;</span><br><span class="line"><span class="built_in">open</span> myYoutubeApi.xcworkspace</span><br></pre></td></tr></table></figure>
 
-<h2 id="About-yt-dlp-command"><a href="#About-yt-dlp-command" class="headerlink" title="# About yt-dlp command"></a># About yt-dlp command</h2><ul>
+<h3 id="About-yt-dlp-command"><a href="#About-yt-dlp-command" class="headerlink" title="# About yt-dlp command"></a># About yt-dlp command</h3><ul>
 <li>Only downlad mp3</li>
 </ul>
 <figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">yt-dlp -f <span class="string">&#x27;ba&#x27;</span> -x --audio-format mp3 <span class="attr">https</span>:<span class="comment">//www.youtube.com/watch?v=E338aF6QHu8 -o &quot;%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s&quot;</span></span><br></pre></td></tr></table></figure>
@@ -442,15 +567,14 @@
 <figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">yt-dlp  <span class="attr">https</span>:<span class="comment">//www.youtube.com/watch?v=d4lfTXXzQ-o -o &quot;%(title)s.%(ext)s&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p><a href="https://www.notion.so/e1ff8fadd7f0453e87c13825e9739460"></a></p>
-<h2 id="video-clipper"><a href="#video-clipper" class="headerlink" title="# video clipper"></a># video clipper</h2><p>Created: February 16, 2022<br>Created by: yi zhang<br>Tags: CC</p>
-<h3 id="1-Finalcut-souperted"><a href="#1-Finalcut-souperted" class="headerlink" title="1. Finalcut souperted"></a>1. Finalcut souperted</h3><ul>
+<h3 id="video-clipper"><a href="#video-clipper" class="headerlink" title="# video clipper"></a># video clipper</h3><h4 id="1-Finalcut-souperted"><a href="#1-Finalcut-souperted" class="headerlink" title="1. Finalcut souperted"></a>1. Finalcut souperted</h4><ul>
 <li>3GP</li>
 <li>MOV (QuickTime)</li>
 <li>MP4</li>
 <li>MTS&#x2F;M2TS</li>
 <li>MXF</li>
 </ul>
-<h3 id="2-Convert-video-fommate"><a href="#2-Convert-video-fommate" class="headerlink" title="2.Convert video fommate"></a>2.Convert video fommate</h3><ul>
+<h4 id="2-Convert-video-fommate"><a href="#2-Convert-video-fommate" class="headerlink" title="2.Convert video fommate"></a>2.Convert video fommate</h4><ul>
 <li>mkv to mp4</li>
 </ul>
 <figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> *.<span class="property">mpg</span>; <span class="keyword">do</span> ffmpeg -i <span class="string">&quot;$i&quot;</span> <span class="string">&quot;$&#123;i%.*&#125;.mp4&quot;</span>; done</span><br></pre></td></tr></table></figure>
@@ -489,24 +613,62 @@
       </tags>
   </entry>
   <entry>
+    <title>WhyWeShouldKnowAlgorithmsAndDataStructures</title>
+    <url>/2023/05/25/WhyWeShouldKnowAlgorithmsAndDataStructures/</url>
+    <content><![CDATA[<h2 id="What-is-Data-Structure-and-Algorithm"><a href="#What-is-Data-Structure-and-Algorithm" class="headerlink" title="# What is Data Structure and  Algorithm?"></a># What is Data Structure and  Algorithm?</h2><p>Algorithm is nothing but a mention of steps to solve a problem.If you don’t know algorithms well, you won’t be able to identify if you can optimize the code you are writing right now.</p>
+<p>Data Structure is used for organizing the data in memory. There are various ways of organizing the data in the memory, for eg. array, list, stack, queue, and many more.</p>
+<p>Data structures allow us to organize and store data, while algorithms allow us to process that data in a meaningful way. Learning data structure and algorithms will help you become a better programmer. You will be able to write code that is more efficient and more reliable. You will also be able to solve problems more quickly and more effectively.</p>
+<span id="more"></span>
+<p>Data structures and algorithms complement each other. The data structure exists for the algorithm, and an algorithm generally suits a specific data structure.</p>
+<p>Generally speaking, a data structure is a way to organize data, while an algorithm is a method or pattern for solving problems.</p>
+<p>To illustrate this, let’s say you want to find a specific book in a library.</p>
+<p><img src="/2023/05/25/WhyWeShouldKnowAlgorithmsAndDataStructures/library.jpg" alt="library"></p>
+<p>Because computer can only do simple thing,but it can do thing very fast;it can store large number data.so as a programmer we need Algorithm and Data structures.</p>
+<p>计算机只能做简单的事情，并且可以存储大量数据，因此需要程序员知道如何存储数据、读取数据，这就是涉及到我们的主题——数据结构和算法。计算机的内部实现类比图书馆，如何组织存放图书，如何快速查找图书。</p>
+<h2 id="What-thing-can-Data-Structure-and-Algorithm-do"><a href="#What-thing-can-Data-Structure-and-Algorithm-do" class="headerlink" title="# What thing can Data Structure and  Algorithm do ?"></a># What thing can Data Structure and  Algorithm do ?</h2><ul>
+<li><p>Organization of data in a computer’s memory</p>
+</li>
+<li><p>Representation of information in databases</p>
+</li>
+<li><p>Algorithms that search through data (such as a search engine)</p>
+</li>
+<li><p>algorithms that manipulate data (such as a word processor)</p>
+</li>
+<li><p>algorithms that analyze data (such as a data miner)</p>
+</li>
+<li><p>algorithms that generate data (such as a random number generator)</p>
+</li>
+<li><p>algorithms that compress and decompress data (such as a zip utility)</p>
+</li>
+<li><p>algorithms that encrypt and decrypt data (such as a security system)</p>
+</li>
+<li><p>software that manages files and directories (such as a file manager)</p>
+</li>
+<li><p>software that renders graphics (such as a web browser or 3D rendering software)</p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>softwareDevelopment</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>WhyWeShouldStudyEnglish</title>
     <url>/2023/05/05/WhyWeShouldStudyEnglish/</url>
-    <content><![CDATA[<h1 id="Why-We-Should-Study-English"><a href="#Why-We-Should-Study-English" class="headerlink" title="Why We Should Study English"></a>Why We Should Study English</h1><p>There are many, many reasons why learning a new language is a good idea. It allows you to communicate with new people. It helps you to see things from a different perspective, or get a deeper understanding of another culture. It helps you to become a better listener. It even has health benefits, as studies have shown that people who speak two or more languages have more active minds later in life!</p>
-<p>Those are all reasons to learn any language – but did you know that there are 6,500 languages still spoken in the world today? With such an enormous number to choose from, why pick English?</p>
+    <content><![CDATA[<h2 id="Why-We-Should-Study-English"><a href="#Why-We-Should-Study-English" class="headerlink" title="Why We Should Study English"></a>Why We Should Study English</h2><p>open your eyes ,you can find the new world of your own .</p>
+<p><img src="/2023/05/05/WhyWeShouldStudyEnglish/English03.jpeg" alt="english"></p>
+<blockquote>
+<p>There are many, many reasons why learning a new language is a good idea. It allows you to communicate with new people. It helps you to see things from a different perspective, or get a deeper understanding of another culture. It helps you to become a better listener. It even has health benefits, as studies have shown that people who speak two or more languages have more active minds later in life!</p>
+</blockquote>
 <p>Here are five big reasons that learning English can improve your life.</p>
-<p>It’s the Official Language of 53 Countries</p>
-<span id="more"></span>
+<h3 id="It’s-the-Official-Language-of-53-Countries"><a href="#It’s-the-Official-Language-of-53-Countries" class="headerlink" title="It’s the Official Language of 53 Countries"></a>It’s the Official Language of 53 Countries</h3><span id="more"></span>
 <p>400 million people around the world speak English as their first language. Not only that, but English is listed as one of the official languages in more than a quarter of the countries in the world. That’s a lot of new people you can communicate with just by improving one language!</p>
-<p>It’s the Most Widely Spoken Language in the World</p>
-<p>What’s more, English is the rest of the world’s “second language”. While Chinese Mandarin and Spanish are the mother tongues of more people overall, most people in the world choose to learn some English after their native language. In fact, one in five people on the planet speak or understand at least a little bit of English.</p>
+<h3 id="It’s-the-Most-Widely-Spoken-Language-in-the-World"><a href="#It’s-the-Most-Widely-Spoken-Language-in-the-World" class="headerlink" title="It’s the Most Widely Spoken Language in the World"></a>It’s the Most Widely Spoken Language in the World</h3><p>What’s more, English is the rest of the world’s “second language”. most people in the world choose to learn some English after their native language. In fact, one in five people on the planet speak or understand at least a little bit of English.</p>
 <p>This makes English one of the most useful languages you can learn. After all, you can’t learn all 6,500 languages in the world, but at least you will be able to communicate with people from all different countries using English.</p>
-<p>It Can Help You Get a Better Job</p>
-<p>Companies are becoming more international, and English is listed as an essential skill for more and more jobs. There are some organisations that now conduct all their business in English, no matter where in the world they are based. If you want the best paid opportunities, learning English is a great idea.</p>
-<p>It Makes It Easier to Travel</p>
-<p>As I said before, English is the world’s second language. This means that learning English makes it much easier to travel anywhere you want. For example, aeroplane announcements, train timetables, emergency information and street signs are often translated into English, particularly in countries that use a different type of alphabet. Plus, even if you don’t find other travellers or local people that speak your mother tongue, you are practically guaranteed to find someone who understands some English.</p>
-<p>It’s the Language of the Media</p>
-<p>Most of the content on the internet is written in English. Many of the world’s biggest news outlets, including TV, newspapers, magazines and radio, are produced in English. Some of your favourite films, TV shows and pop music are probably English-language. Go to any international film festival in the world and you will see that all films are either in English or have English subtitles.</p>
-<p>English is the international language of media and arts and so, if you want to access as much as possible for yourself, without relying on translations, it’s the most powerful language you can learn today!<br>Are you feeling inspired to improve your English skills? Take a look at our range of courses at <a href="http://www.eurocentres.com/">www.Eurocentres.com</a></p>
+<h3 id="It-Can-Help-You-Get-a-Better-Job"><a href="#It-Can-Help-You-Get-a-Better-Job" class="headerlink" title="It Can Help You Get a Better Job"></a>It Can Help You Get a Better Job</h3><p>Companies are becoming more international, and English is listed as an essential skill for more and more jobs. There are some organisations that now conduct all their business in English, no matter where in the world they are based. If you want the best paid opportunities, learning English is a great idea.</p>
+<h3 id="It-Makes-It-Easier-to-Travel"><a href="#It-Makes-It-Easier-to-Travel" class="headerlink" title="It Makes It Easier to Travel"></a>It Makes It Easier to Travel</h3><p>As I said before, English is the world’s second language. This means that learning English makes it much easier to travel anywhere you want. For example, aeroplane announcements, train timetables, emergency information and street signs are often translated into English, particularly in countries that use a different type of alphabet. Plus, even if you don’t find other travellers or local people that speak your mother tongue, you are practically guaranteed to find someone who understands some English.</p>
+<h3 id="It’s-the-Language-of-the-Media"><a href="#It’s-the-Language-of-the-Media" class="headerlink" title="It’s the Language of the Media"></a>It’s the Language of the Media</h3><p>Most of the content on the internet is written in English. Many of the world’s biggest news outlets, including TV, newspapers, magazines and radio, are produced in English. Some of your favourite films, TV shows and pop music are probably English-language. Go to any international film festival in the world and you will see that all films are either in English or have English subtitles.</p>
+<p>English is the international language of media and arts and so, if you want to access as much as possible for yourself, without relying on translations, it’s the most powerful language you can learn today!</p>
 ]]></content>
       <tags>
         <tag>other</tag>
