@@ -72,7 +72,6 @@ CPU和内存是由许多晶体管组成的电子部件，通常称为IC(Integrat
 | 1 | 0 | 1 | 1  | 1 |
 | 1 | 1 | 1 | 0  | 0 |
 
-
 ### \# RAM
 
 内存IC中有电源、地址信号、数据信号、控制信号等用于输入输出的大量引脚(IC 的引脚 )，通过为其指定地址(address )，来进行数据的读写。
@@ -121,7 +120,8 @@ SystemRoot: the system root directory.
 ## \# How to set Windows Environment Variables
 
  Set/Unset/Change an Environment Variable for the "Current" CMD Session
- ```
+
+ ```bash
  
 set varname  Display the value of the variable
 set varname=value Set or change the value of the variable (Note: no space before and after '=')
@@ -141,9 +141,7 @@ PATH=c:\myBin;[existing entries]
 
    Launch "Control Panel"
 
-
 ## \# How to set (macOS/Linux) Environment Variables
-
 
 Most of the Unixes (Ubuntu/macOS) use the so-called Bash shell. Under bash shell:
 
@@ -160,7 +158,7 @@ You can set an environment variable permanently by placing an export command in 
 
 For example, to add a directory to the PATH environment variable, add the following line at the end of "~/.bashrc" (or "~/.bash_profile", or "~/.profile"), where ~ denotes the home directory of the current user, or "/etc/profile" for ALL users.
 
-```
+```bash
 // Append a directory in front of the existing PATH
 export PATH=/usr/local/mysql/bin:$PATH
 // Refresh the bash shell

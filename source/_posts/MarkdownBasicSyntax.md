@@ -35,7 +35,6 @@ represent Ordered Lists
 represent Unordered Lists
 ```
 
-
 ## <font color="orange">\#</font> How to add images in markdown?
 
 ```bash
@@ -49,7 +48,6 @@ represent Unordered Lists
 ``` markdown
 Markdown basic syntax is [here](https://www.markdownguide.org/basic-syntax/)
 ```
-
 
 Markdown basic syntax is [here](https://www.markdownguide.org/basic-syntax/)
 
@@ -66,6 +64,13 @@ Markdown basic syntax is [here](https://www.markdownguide.org/basic-syntax/)
 ``` markdown
 :some strings:
 ```
+
 :x:,  :link:
 
 :link: The emoji list is [here](https://gist.github.com/rxaviers/7360908).
+
+## Paragraphs and Line Breaks
+
+To create paragraphs, use a blank line to separate one or more lines of text.
+
+To create a line break or new line , end a line with two or more spaces, and then type return.

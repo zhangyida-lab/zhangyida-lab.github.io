@@ -44,7 +44,7 @@ go: creating new go.mod: module go_test/test
  go mod tidy command to synchronize the example.com/hello module's dependencies.
  you can click this [link](https://go.dev/doc/tutorial/call-module-code) to see more detail.
 
-
+~~ cce ~~
 
 ``` go
  go list -f '{{.Target}}'
@@ -52,6 +52,3 @@ go: creating new go.mod: module go_test/test
 
 > <font color="gray"> *the limits of my language means the limits of my world* </font>
 > As a user, people should adapt to the machine; as a developer, the machine should adapt to humans
-
-
-  

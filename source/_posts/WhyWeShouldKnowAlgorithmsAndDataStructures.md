@@ -25,8 +25,6 @@ Because computer can only do simple thing,but it can do thing very fast;it can s
 
 计算机只能做简单的事情，并且可以存储大量数据，因此需要程序员知道如何存储数据、读取数据，这就是涉及到我们的主题——数据结构和算法。计算机的内部实现类比图书馆，如何组织存放图书，如何快速查找图书。
 
-
-
 ## \# What thing can Data Structure and  Algorithm do ?
 
 - Organization of data in a computer’s memory

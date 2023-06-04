@@ -6,38 +6,36 @@ tags: usefulcommand
 categories: command
 ---
 
-# Useful Commands
-
 
 
 ![usefulCommand](usefulCommand.jpg)
 
-
 (source:  [www.pexels.com](https://www.pexels.com/photo/crop-cyber-spy-hacking-system-while-typing-on-laptop-5935794/))
 
+>In this blog, i will list many useful command about homebrew/github/npm/linux/yt-dlp and son.
 
-
-In this blog, i will list many useful command about homebrew/github/npm/linux/yt-dlp and son.
-
-## \# bash shortcut
-
-~~ cce ~~
-测试部署hexoBlog快捷键
-
-```bash
-
-alias ht='hexo clean && hexo g && hexo s'
-
-```
-
-部署到github快捷键
+## \# hexo shortcut
 
 ``` bash
+
+alias ht='hexo clean && hexo g && hexo s'
+测试部署hexoBlog快捷键
+
 alias hd='hexo clean && hexo deploy'
+部署到github快捷键
+
+alias hnp='hexo new post'
+新建博客
+
+alias hnd='hexo new draft'
+新建草稿
+
+alias hp='hexo publish'
+发布草稿
 
 ```
 
-## \# Is suported netflix 
+## \# Is suported netflix
 
 ```jsx
 bash <(curl -L -s https://raw.githubusercontent.com/lmc999/RegionRestrictionCheck/main/check.sh)
@@ -47,7 +45,7 @@ bash <(curl -L -s https://raw.githubusercontent.com/lmc999/RegionRestrictionChec
 
 >update brew by proxy
 
-homebrew start up mysql: 
+homebrew start up mysql:
 
 ```bash
 brew services start mysql
@@ -199,8 +197,7 @@ npm config set https-proxy http://127.0.0.1:7890
 
 ```
 
-## \# Make terminal active for long time when ssh connect to ali.
-
+## \# Make terminal active for long time when ssh connect to ali
 
 > we do it on client！
 
@@ -305,11 +302,7 @@ yt-dlp  https://www.youtube.com/watch?v=d4lfTXXzQ-o -o "%(title)s.%(ext)s"
 
 [](https://www.notion.so/e1ff8fadd7f0453e87c13825e9739460)
 
-
-
-
 ## \# video clipper
-
 
 ### 1. Finalcut souperted
 
