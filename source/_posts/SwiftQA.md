@@ -24,3 +24,27 @@ Swift is a type-safe language, which means the language helps you to be clear ab
 |10.0.0.0 – 10.255.255.255|16,777,216|单个A类网络|10.0.0.0/8 (255.0.0.0)|24位|
 |172.16.0.0 – 172.31.255.255|1,048,576|16个连续B类网络|172.16.0.0/12 (255.240.0.0)|20位|
 |192.168.0.0 – 192.168.255.255|65,536|256个连续C类网络|192.168.0.0/16 (255.255.0.0)|16位|
+
+
+
+“An algorithm is a set of instructions for accomplishing a task”
+
+“There are three essential building blocks in all algorithms: sequencing, selection, and iteration”
+
+Organizing Data
+“Instances, Methods, and Properties”
+
+“Much of the code you write for an app is event-based, executing in response to a constantly changing environment.
+”
+
+“Apps receive all kinds of input: touches on their screens, files, sensor input (such as a camera), data from the internet. Inputs can even come from other programs. For example, you can use the Share sheet in your Photos app to send a photo to another editing app, or to include it in a message to your friend. When it comes to output, apps can return images, sounds, music, text, tactile sensations, and animations.
+”
+
+Excerpt From
+Develop in Swift AP CS Principles
+Apple Education
+https://books.apple.com/us/book/develop-in-swift-ap-cs-principles/id1511184045
+This material may be protected by copyright.
+
+
+DevelopInSwiftAP-CS-Principles
