@@ -4,8 +4,9 @@ tags: Blog
 categories: Hexo
 ---
 
+> 悟已往之不谏，知来者之可追。实迷途其未远，觉今是而昨非。——《归去来辞》
 
-> Hexo can help us to write blog by markdown,and then we can deploy my blog on github or other srevice.
+*Hexo can help us to write blog by markdown,and then we can deploy my blog on github or other srevice.*
 
 ![blog](blog.jpg)
 

@@ -2,7 +2,7 @@
 title: AboutClash
 tags: clash
 ---
-## <font color="green">\#</font> 代理工具的翻墙原理是这样滴
+## <font color="green">\#</font> 代理工具的翻墙原理是这样
 　　
 - 使用互联网的软件（例如浏览器、命令行）会把数据发送给你电脑中的代理工具（如clash）；
 - 该工具把数据进行【加密】，然后发送给【国外】的某个代理服务器（就是所谓的“机场”；

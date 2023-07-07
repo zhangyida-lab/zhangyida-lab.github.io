@@ -4,7 +4,7 @@ date: 2023-05-05 15:49:48
 tags: other
 ---
 
-
+> 圣人无常师。——《师说》
 
 open your eyes ,you can find the new world of your own .
 
@@ -17,6 +17,8 @@ open your eyes ,you can find the new world of your own .
 - Global Communication: English is the most widely spoken language in the world and serves as a common language for international communication. Learning English opens doors to connect and communicate with people from different countries and cultures, enabling Chinese individuals to participate in global conversations, trade, and collaborations.
 
 - Education and Academic Opportunities: English is the primary language used in many prestigious universities and academic institutions worldwide. Proficiency in English allows Chinese students to access a broader range of educational opportunities abroad, including scholarships, research programs, and exchange programs.
+  
+<!--more-->
 
 - Career Advancement: English proficiency is increasingly important in today's global job market. Many multinational companies require employees to have a good command of English, especially in fields such as business, technology, science, and tourism. Learning English can enhance career prospects and open up a wider range of job opportunities both within China and internationally.
 

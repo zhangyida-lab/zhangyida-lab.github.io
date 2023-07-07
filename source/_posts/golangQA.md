@@ -3,6 +3,9 @@ title: golangQA
 date: 2023-05-05 14:50:21
 tags: softwareDevelopment
 ---
+
+> 好读书，不求甚解，毎有会意，便欣然忘食。——《五柳先生传》
+
 ## \# What does "range" mean in golang?
 
 In each iterat ion of the loop, range produces a pair of values: the index and the value of the

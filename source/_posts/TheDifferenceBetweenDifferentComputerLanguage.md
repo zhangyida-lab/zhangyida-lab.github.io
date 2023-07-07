@@ -4,7 +4,7 @@ title: TheDifferenceBetweenDifferentComputerLanguage
 date: 2023-05-05 15:32:29
 tags: softwareDevelopment
 ---
-
+> 业精于勤，荒于嬉；行成于思，毁于随。——《进学解》
 
 ## \# What's the difference between Compiled language and Interpreted language?
   

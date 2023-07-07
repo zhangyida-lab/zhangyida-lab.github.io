@@ -12,7 +12,9 @@ categories: command
 
 (source:  [www.pexels.com](https://www.pexels.com/photo/crop-cyber-spy-hacking-system-while-typing-on-laptop-5935794/))
 
->In this blog, i will list many useful command about homebrew/github/npm/linux/yt-dlp and son.
+> 仰观宇宙之大，俯察品类之盛。所以游目骋怀，足以极视听之娱。——《兰亭集序》
+
+*In this blog, i will list many useful command about homebrew/github/npm/linux/yt-dlp and son.*
 
 ## \# hexo shortcut
 

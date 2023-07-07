@@ -21,14 +21,14 @@ some content in this book is  very useful ,you can clear your mind.
 such as : the explaination about "app","event:Function Callbacks、Delegates、Data Sources、Outlets and Actions"
 ,"debug","test"...
 
-### the structure of this book
+### the structure of "Develop in Swift Explorations"
 
 > - value
 > - algorithm
 > - Organizing Data
 > - building app
 
-### some content i think it's useful
+### some content i think it's useful in "Develop in Swift Explorations"
 
 - value
 Programming is all about inputs and outputs.
@@ -46,14 +46,14 @@ Apps receive all kinds of input: touches on their screens, files, sensor input (
 
 ## 2.Develop in Swift Fundamentals
 
-### the structure of this book
+### the structure of "Develop in Swift Fundamentals"
 
 > - getting started with app development
 > - introduction to UIkit
 > - navigation and workflow 
 > in every unit you can know basic swift and ios develop practice.
 
-### some content i think it's useful
+### some content i think it's useful in "Develop in Swift Fundamentals"
 
 - All properties must be set to initial values before completing initialization.
 
@@ -235,13 +235,13 @@ If you were the developer of this class, you’d know that anytime a ViewControl
 
 ## 3.Develop in Swift Data Collections
 
-### the structure of this book
+### the structure of "Develop in Swift Data Collections"
 
 > - table and persistence
 > - working with Web
 > - advanced data display
 
-### some content i think it's useful
+### some content i think it's useful in "Develop in Swift Data Collections"
 
 - Protocol and Delegation
 A protocol is a set of rules or procedures that define how things are done
