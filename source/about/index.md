@@ -8,12 +8,9 @@ date: 2023-04-14 22:26:24
 
 I’m Yi, I’ve been working as a architect for almost five years.
 
-
 To improve my writing, I try to write  post in english.
 
-
 To practice writing, I may write some random things.
-
 
 ### Most posts on this site will be related to these topics:
 

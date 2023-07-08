@@ -8,6 +8,8 @@ tags: code
 
 ![library](codeImage.jpg)
 
+> 天下有大勇者，卒然临之而不惊，无故加之而不怒，此其所挟持者甚大，而其志甚远也。——《留侯论》
+
 ## about program structure
 
 In any other programming language, one builds large programs from a small set of basic constructs. Variables store values. Simple expressions are combined into larger ones with operations like addition and subtraction. Basic types are collected into aggregates like arrays and structs. Expressions are used in statements whose execution order is determined by control-flow statements like if and for. Statements are grouped into functions for isolation and reuse. Functions are gathered into source files and packages.

@@ -38,7 +38,7 @@ represent Unordered Lists
 ## <font color="orange">\#</font> How to add images in markdown?
 
 ```bash
-![this is a message](AddImageToMd/Snipaste.png)
+![this is a message](Snipaste.png)
 ```
 
 ![this is a messag](https://s3.bmp.ovh/imgs/2023/05/04/363e4e279c367a69.png)

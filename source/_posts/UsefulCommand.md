@@ -302,7 +302,25 @@ yt-dlp -f 'bv[ext=mp4]+ba[ext=m4a]' https://www.youtube.com/watch?v=d4lfTXXzQ-o&
 yt-dlp  https://www.youtube.com/watch?v=d4lfTXXzQ-o -o "%(title)s.%(ext)s"
 ```
 
-[](https://www.notion.so/e1ff8fadd7f0453e87c13825e9739460)
+- Download auto-sub only
+  
+```shell
+yt-dlp --write-auto-sub --skip-download  https://m.youtube.com/watch?v=EN0mUrbiJP4
+```
+
+- Download auto-sub only and convert to str
+  
+```shell
+yt-dlp --write-auto-sub --skip-download --convert-sub=srt https://m.youtube.com/watch?v=EN0mUrbiJP4
+```
+
+- Download all-sub only
+  
+```shell
+yt-dlp --all-subs --skip-download https://m.youtube.com/watch?v=EN0mUrbiJP4
+```
+
+
 
 ## \# video clipper
 

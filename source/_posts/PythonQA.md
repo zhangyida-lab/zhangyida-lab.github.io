@@ -11,5 +11,4 @@ tags: softwareDevelopment
 
 >we can use python and youtube-api to analysis the youtuber data which you want to know.you can open this github repository.
 
-
 [youtube-api-analysis](https://github.com/thu-vu92/youtube-api-analysis)
