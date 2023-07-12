@@ -4,9 +4,7 @@ title: MarkdownBasicSyntax
 date: 2023-04-17 19:07:08
 tags: others
 ---
-
-
-# Q&A about markdown
+## Q&A about markdown
 
 ## <font color="green">\#</font> How to headings your word?
 
@@ -14,6 +12,7 @@ tags: others
  # Heading
  represent level 1
 ```
+<!--more-->
 
 ## <font color="green">\#</font> How to emphasis your word?
 
@@ -21,8 +20,6 @@ tags: others
  *heading* represent Italic
  **heading** represent Bold
 ```
-
-<!--more-->
 
 ## <font color="green">\#</font> How to lists your word?
 
@@ -74,3 +71,17 @@ Markdown basic syntax is [here](https://www.markdownguide.org/basic-syntax/)
 To create paragraphs, use a blank line to separate one or more lines of text.
 
 To create a line break or new line , end a line with two or more spaces, and then type return.
+
+## Markdown tabe
+
+```md
+|  表头   | 表头  |
+|  ----  | ----  |
+| 单元格  | 单元格 |
+| 单元格  | 单元格 |
+```
+
+|  表头   | 表头  |
+|  ----  | ----  |
+| 单元格  | 单元格 |
+| 单元格  | 单元格 |

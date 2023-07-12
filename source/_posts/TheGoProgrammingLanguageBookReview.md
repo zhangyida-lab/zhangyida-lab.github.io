@@ -4,7 +4,7 @@ date: 2023-06-19 19:30:59
 tags: bookReview
 ---
 
-> *你不体面，我来帮你体面*
+> 虽有尧舜之智，而无众人之助，大功不立——《韩非子》
 
 ## The structure of this book
 
@@ -16,6 +16,7 @@ tags: bookReview
   - Type Declarations
   - Packages and Files
   - Scope
+<!--more-->
 - **Basic Data Types**
   - Integers
   - Floating-Point Numbers
@@ -30,7 +31,6 @@ tags: bookReview
   - Structs
   - JSON
   - Text and HTML Template
-<!--more-->
 - **Functions**
   - Function Declarations
   - Recursion

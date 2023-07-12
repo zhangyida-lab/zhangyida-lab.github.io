@@ -4,22 +4,17 @@ title: AboutCode
 date: 2023-05-24 11:28:25
 tags: code
 ---
-
-
 ![library](codeImage.jpg)
-
 > 天下有大勇者，卒然临之而不惊，无故加之而不怒，此其所挟持者甚大，而其志甚远也。——《留侯论》
 
 ## about program structure
 
 In any other programming language, one builds large programs from a small set of basic constructs. Variables store values. Simple expressions are combined into larger ones with operations like addition and subtraction. Basic types are collected into aggregates like arrays and structs. Expressions are used in statements whose execution order is determined by control-flow statements like if and for. Statements are grouped into functions for isolation and reuse. Functions are gathered into source files and packages.
-
+<!--more-->
 ## about data type
 
 It’s all bits at the bottom, of course, but computers operate fundamentally on fixed-size numbers called words, which are interpreted as integers, floating-point numbers, bit sets, or memory addresses, then combined into larger aggregates that represent packets, pixels, portfolios,
 poetry, and everything else. Go offer savariety of ways to organize data, with a spectrum of data typ es that at one end match the features of the hardware and at the other end provide what programmers need to conveniently represent complicated data structures.
-
-<!--more-->
 
 ## about function
 

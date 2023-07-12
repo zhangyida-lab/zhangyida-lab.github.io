@@ -3,17 +3,12 @@ title: AppleBookAboutIOSDevelopment
 date: 2023-06-16 08:57:16
 tags: bookReview
 ---
-
 ![AppleBookAboutIOSDevelopment](iosDevelopment.jpg)
-
 > Don't call us,I will call you back.
-
 Apple book can give you a very standard way to CS develop and a good habit.if you are a beginner,even if you will not use swift language a few years later.
 when you want to learn ios development,there are three main book "Develop in Swift Explorations","Develop in Swift Fundamentals","Develop in Swift Data Collections".
 I will list some content in these books,I believe you will go to apple book to find them.
-
 <!--more-->
-
 ## 1.Develop in Swift Explorations
 
 the "Develop in Swift Explorations" in apple book is friendly for the reader who is beginner for CS developer.And this book is worth to reading many times.

@@ -3,22 +3,17 @@ title: EverythingAboutMysql
 tags: database
 date: 2023-05-25 16:18:49
 ---
-
-
 > This blog will record the thing I meetting when I learn mysql.
-
-![library](database-schema.png)
+![library](databaseschema.jpg)
 
 ## MySQL Data Types
 
 The proper definition of a table’s fields is critical to the overall optimization of your database. You should only utilise the type and size of the field that you truly require. For example, if you know you’ll only use two characters, don’t make a field 10 characters large. After the sort of data, you’ll be storing in those fields, these fields (or columns) are referred to as data types.
-
 MySQL makes use of a variety of data types that are divided into three groups.
 
 - Numeric
 - Date and Time
 - String Types.
-
 <!--more-->
 ## DDL
 

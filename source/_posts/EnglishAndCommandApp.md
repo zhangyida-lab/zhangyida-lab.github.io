@@ -16,7 +16,7 @@ tags: commandApp
 rm --force [file]
 verb adverb noun
 ```
-
+<!--more-->
 ```bash
 brew install hugo
 noun verb  noun
@@ -28,7 +28,6 @@ noun verb  noun
 - do more than one thing
 - collection of command
 
-<!--more-->
 ### 3. what does subCommand mean?
 
 - commandAPP are groups of command,such as

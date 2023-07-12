@@ -3,13 +3,11 @@ title: WhyWeShouldKnowAlgorithmsAndDataStructures
 tags: softwareDevelopment
 date: 2023-05-25 10:39:09
 ---
-
 > 夫夷以近，则遊者众；险以远，则至者少；而世之奇伟瑰怪非常之观，常在于险远，而人之所罕至焉。——《游褒禅山记录》
 
 ## \# What is Data Structure and  Algorithm?
 
 Algorithm is nothing but a mention of steps to solve a problem.If you don't know algorithms well, you won't be able to identify if you can optimize the code you are writing right now.
-
 Data Structure is used for organizing the data in memory. There are various ways of organizing the data in the memory, for eg. array, list, stack, queue, and many more.
 <!--more-->
 Data structures allow us to organize and store data, while algorithms allow us to process that data in a meaningful way. Learning data structure and algorithms will help you become a better programmer. You will be able to write code that is more efficient and more reliable. You will also be able to solve problems more quickly and more effectively.

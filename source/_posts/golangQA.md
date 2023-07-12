@@ -12,7 +12,7 @@ In each iterat ion of the loop, range produces a pair of values: the index and t
 element at that index.
 
 ## \# What is method in golang?
-
+<!--more-->
 An object-oriented program is one that uses methods to
 express the properties and operations of each data structure so that clients need not access the
 object’s representation directly.
@@ -36,8 +36,6 @@ associated with a particular type.
 |vers|ion print Go version|
 |vet |run go tool vet on packages|
 |clean| remove object files|
-
-<!--more-->
 
 ## \# What's the difference between "go run" "go build" and "go install" command?
 
@@ -140,3 +138,7 @@ An import path is a string used to import a package. A package's import path is 
 
 From the slices lesson, we learned that a slice holds the reference to an array. Similarly, we can say that an interface also works in a similar way by dynamically holding a reference to the underlying type.
 Interfaces are very useful in case of functions and methods where you need argument of dynamic types.
+
+--------
+
+There are some golang offical document you can click:[goDoc](https://go.dev/doc/),[glang playground](https://go.dev/play/),[the tour of golang](https://go.dev/tour/welcome/1)

@@ -3,7 +3,6 @@ title: HowToDeployGitLabByYourself
 date: 2023-07-07 15:11:43
 tags: git
 ---
-
 > “To go fast, go alone. To go far, go together.” - Proverb
 
 ## 0.What env  does this gitlab use?
@@ -13,7 +12,7 @@ tags: git
   - Ubuntu
   - docker-desktop
   - docker-desktop-data
-
+<!--more-->
 ## 1.Set gitlab workdir
 
 ``` shell
@@ -23,8 +22,6 @@ export GITLAB_HOME=/srv/gitlab
 ```
 
 ## 2.Create docker-compose.yml file
-
-<!--more-->
 
 if you deploy gitlab on your computer for test,you can set **"hostname"** and **"external_url"** as "127.0.0.1".
 

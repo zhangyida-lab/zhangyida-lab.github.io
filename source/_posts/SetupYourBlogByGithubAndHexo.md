@@ -3,11 +3,8 @@ title: How to setup your hexo blog
 tags: Blog
 categories: Hexo
 ---
-
 > 悟已往之不谏，知来者之可追。实迷途其未远，觉今是而昨非。——《归去来辞》
-
 *Hexo can help us to write blog by markdown,and then we can deploy my blog on github or other srevice.*
-
 ![blog](blog.jpg)
 
 ## [What is github page?](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages)
@@ -15,7 +12,7 @@ categories: Hexo
 >GitHub Pages is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository on GitHub, optionally runs the files through a build process, and publishes a website. you can set up what branch will the github page use,so that we can use deploy different branch,one branch to deploy our site,the other to write blog.
 
 ## [What is hexo?](https://hexo.io/docs/)
-
+<!--more-->
 >Hexo is a fast, simple and powerful blog framework. You write posts in Markdown (or other markup languages) and Hexo generates static files with a beautiful theme in seconds.
 and when you use "hexo deploy"command the generated file will be git push to git repository branch which you have set.
 
@@ -24,7 +21,7 @@ and when you use "hexo deploy"command the generated file will be git push to git
 ``` bash
 npm install -g hexo-cli
 ```
-<!--more-->
+
 ## How to create your site?
 
 ``` bash

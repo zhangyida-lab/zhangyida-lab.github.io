@@ -3,20 +3,16 @@ title: PresentationSkillsYouShouldKonw
 tags: speaking skill
 date: 2023-07-08 15:00:19
 ---
-
-
-
 ## How to improve your public speaking
 
 ![PresentationSkills](PresentationSkills.jpg)
-
 > 木欣欣以向荣，泉涓涓而始流。——《归去来辞》
 
 ## The Trouble with filler Words
 
 - The fillers get in the way of the emotional stories or fascinating research you’re trying to share.
 - If you want your audience to buy into your message, you have to make it clear, logical, and easy to follow.
-
+<!--more-->
 ## How to find your filler words
 
 - Record using your phone to identify your filler words.

@@ -5,38 +5,25 @@ date: 2023-04-17 19:08:48
 tags: usefulcommand
 categories: command
 ---
-
-
-
 ![usefulCommand](usefulCommand.jpg)
-
-(source:  [www.pexels.com](https://www.pexels.com/photo/crop-cyber-spy-hacking-system-while-typing-on-laptop-5935794/))
-
 > 仰观宇宙之大，俯察品类之盛。所以游目骋怀，足以极视听之娱。——《兰亭集序》
-
 *In this blog, i will list many useful command about homebrew/github/npm/linux/yt-dlp and son.*
 
 ## \# hexo shortcut
 
 ``` bash
-
 alias ht='hexo clean && hexo g && hexo s'
 测试部署hexoBlog快捷键
-
 alias hd='hexo clean && hexo deploy'
 部署到github快捷键
-
 alias hnp='hexo new post'
 新建博客
-
 alias hnd='hexo new draft'
 新建草稿
-
 alias hp='hexo publish'
 发布草稿
-
 ```
-
+<!--more-->
 ## \# Is suported netflix
 
 ```jsx
@@ -64,7 +51,7 @@ brew list mysql
 ```bash
 ALL_PROXY=socks5://192.168.0.107:7890 brew upgrade
 ```
-<!--more-->
+
 ## \# About github
 
 git set proxy:
