@@ -28,7 +28,7 @@
 <meta property="og:description" content="好读书，不求甚解，毎有会意，便欣然忘食。——《五柳先生传》  # What does “range” mean in golang?In each iterat ion of the loop, range produces a pair of values: the index and the value of theelement at that index. # What is metho">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-05-05T05:50:21.000Z">
-<meta property="article:modified_time" content="2023-07-07T12:06:45.846Z">
+<meta property="article:modified_time" content="2023-07-12T03:40:34.199Z">
 <meta property="article:author" content="YiDa">
 <meta property="article:tag" content="softwareDevelopment">
 <meta name="twitter:card" content="summary">
@@ -227,7 +227,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-07-07 21:06:45" itemprop="dateModified" datetime="2023-07-07T21:06:45+09:00">2023-07-07</time>
+                <time title="Modified: 2023-07-12 12:40:34" itemprop="dateModified" datetime="2023-07-12T12:40:34+09:00">2023-07-12</time>
               </span>
 
           
@@ -252,7 +252,8 @@
 <p>好读书，不求甚解，毎有会意，便欣然忘食。——《五柳先生传》</p>
 </blockquote>
 <h2 id="What-does-“range”-mean-in-golang"><a href="#What-does-“range”-mean-in-golang" class="headerlink" title="# What does “range” mean in golang?"></a># What does “range” mean in golang?</h2><p>In each iterat ion of the loop, range produces a pair of values: the index and the value of the<br>element at that index.</p>
-<h2 id="What-is-method-in-golang"><a href="#What-is-method-in-golang" class="headerlink" title="# What is method in golang?"></a># What is method in golang?</h2><p>An object-oriented program is one that uses methods to<br>express the properties and operations of each data structure so that clients need not access the<br>object’s representation directly.</p>
+<h2 id="What-is-method-in-golang"><a href="#What-is-method-in-golang" class="headerlink" title="# What is method in golang?"></a># What is method in golang?</h2><span id="more"></span>
+<p>An object-oriented program is one that uses methods to<br>express the properties and operations of each data structure so that clients need not access the<br>object’s representation directly.</p>
 <p>An object is simply a value or variable that has methods, and a method is a function<br>associated with a particular type.</p>
 <h2 id="What-can-go-command-do-in-golang"><a href="#What-can-go-command-do-in-golang" class="headerlink" title="# What can go command do in golang?"></a># What can go command do in golang?</h2><table>
 <thead>
@@ -310,8 +311,6 @@
 <td>remove object files</td>
 </tr>
 </tbody></table>
-<span id="more"></span>
-
 <h2 id="What’s-the-difference-between-“go-run”-“go-build”-and-“go-install”-command"><a href="#What’s-the-difference-between-“go-run”-“go-build”-and-“go-install”-command" class="headerlink" title="# What’s the difference between “go run” “go build” and “go install” command?"></a># What’s the difference between “go run” “go build” and “go install” command?</h2><p>While the go run command is a useful shortcut for compiling and running a program when you’re making frequent changes, it doesn’t generate a binary executable<br>The go build command compiles the packages, along with their dependencies, but it doesn’t install the results.You’ve compiled the application into an executable so you can run it. But to run it , your prompt needs to be in the executable’s directory.<br>if I go to the parent folder ,there will be an error like this;</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ./hellozhangyi</span><br><span class="line">bash: ./hellozhangyi: No such file or directory</span><br></pre></td></tr></table></figure>
 
@@ -344,6 +343,8 @@
 <p>Each module’s path not only serves as an import path prefix for its packages, but also indicates where the go command should look to download it. For example, in order to download the module golang.org&#x2F;x&#x2F;tools, the go command would consult the repository indicated by <a target="_blank" rel="noopener" href="https://golang.org/x/tools">https://golang.org/x/tools</a> (described more here).</p>
 <p>An import path is a string used to import a package. A package’s import path is its module path joined with its subdirectory within the module. For example, the module github.com&#x2F;google&#x2F;go-cmp contains a package in the directory cmp&#x2F;. That package’s import path is github.com&#x2F;google&#x2F;go-cmp&#x2F;cmp. Packages in the standard library do not have a module path prefix.</p>
 <h2 id="Is-slices-like-interface"><a href="#Is-slices-like-interface" class="headerlink" title="# Is slices  like interface?"></a># Is slices  like interface?</h2><p>From the slices lesson, we learned that a slice holds the reference to an array. Similarly, we can say that an interface also works in a similar way by dynamically holding a reference to the underlying type.<br>Interfaces are very useful in case of functions and methods where you need argument of dynamic types.</p>
+<hr>
+<p>There are some golang offical document you can click:<a target="_blank" rel="noopener" href="https://go.dev/doc/">goDoc</a>,<a target="_blank" rel="noopener" href="https://go.dev/play/">glang playground</a>,<a target="_blank" rel="noopener" href="https://go.dev/tour/welcome/1">the tour of golang</a></p>
 
     </div>
 

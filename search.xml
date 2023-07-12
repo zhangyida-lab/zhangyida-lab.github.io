@@ -1,34 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>AboutCode</title>
-    <url>/2023/05/24/AboutCode/</url>
-    <content><![CDATA[<p><img src="/2023/05/24/AboutCode/codeImage.jpg" alt="library"></p>
-<blockquote>
-<p>天下有大勇者，卒然临之而不惊，无故加之而不怒，此其所挟持者甚大，而其志甚远也。——《留侯论》</p>
-</blockquote>
-<h2 id="about-program-structure"><a href="#about-program-structure" class="headerlink" title="about program structure"></a>about program structure</h2><p>In any other programming language, one builds large programs from a small set of basic constructs. Variables store values. Simple expressions are combined into larger ones with operations like addition and subtraction. Basic types are collected into aggregates like arrays and structs. Expressions are used in statements whose execution order is determined by control-flow statements like if and for. Statements are grouped into functions for isolation and reuse. Functions are gathered into source files and packages.</p>
-<h2 id="about-data-type"><a href="#about-data-type" class="headerlink" title="about data type"></a>about data type</h2><p>It’s all bits at the bottom, of course, but computers operate fundamentally on fixed-size numbers called words, which are interpreted as integers, floating-point numbers, bit sets, or memory addresses, then combined into larger aggregates that represent packets, pixels, portfolios,<br>poetry, and everything else. Go offer savariety of ways to organize data, with a spectrum of data typ es that at one end match the features of the hardware and at the other end provide what programmers need to conveniently represent complicated data structures.</p>
-<span id="more"></span>
-
-<h2 id="about-function"><a href="#about-function" class="headerlink" title="about function"></a>about function</h2><p>A function lets us wrap upasequence of statements asaunit that can be called from else where<br>in a program, perhaps multiple times. Functions make it possible to breakabig job into smaller pieces that might well be written by different people sep arated by both time and space.<br>A function hides its implementation details from its users. For all of these reasons, functions areacritical part of any programming language.</p>
-<h2 id="about-interface"><a href="#about-interface" class="headerlink" title="about interface"></a>about interface</h2><p>Interface types express generalizations or abstractions about the behaviors of other types. By generalizing, interfaces let us write functions that are more flexible and adapt able because they are not tied to the details of one particular implementation</p>
-<p>《The Go Programming Language》 written by “Alan A. A. Donovan” and “Brian W. Kernighan”</p>
-]]></content>
-      <tags>
-        <tag>code</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>AppleBookAboutIOSDevelopment</title>
     <url>/2023/06/16/AppleBookAboutIOSDevelopment/</url>
     <content><![CDATA[<p><img src="/2023/06/16/AppleBookAboutIOSDevelopment/iosDevelopment.jpg" alt="AppleBookAboutIOSDevelopment"></p>
 <blockquote>
-<p>Don’t call us,I will call you back.</p>
+<p>Don’t call us,I will call you back.<br>Apple book can give you a very standard way to CS develop and a good habit.if you are a beginner,even if you will not use swift language a few years later.<br>when you want to learn ios development,there are three main book “Develop in Swift Explorations”,”Develop in Swift Fundamentals”,”Develop in Swift Data Collections”.<br>I will list some content in these books,I believe you will go to apple book to find them.</p>
 </blockquote>
-<p>Apple book can give you a very standard way to CS develop and a good habit.if you are a beginner,even if you will not use swift language a few years later.<br>when you want to learn ios development,there are three main book “Develop in Swift Explorations”,”Develop in Swift Fundamentals”,”Develop in Swift Data Collections”.<br>I will list some content in these books,I believe you will go to apple book to find them.</p>
 <span id="more"></span>
-
 <h2 id="1-Develop-in-Swift-Explorations"><a href="#1-Develop-in-Swift-Explorations" class="headerlink" title="1.Develop in Swift Explorations"></a>1.Develop in Swift Explorations</h2><p>the “Develop in Swift Explorations” in apple book is friendly for the reader who is beginner for CS developer.And this book is worth to reading many times.<br>some content in this book is  very useful ,you can clear your mind.<br>such as : the explaination about “app”,”event:Function Callbacks、Delegates、Data Sources、Outlets and Actions”<br>,”debug”,”test”…</p>
 <h3 id="the-structure-of-“Develop-in-Swift-Explorations”"><a href="#the-structure-of-“Develop-in-Swift-Explorations”" class="headerlink" title="the structure of “Develop in Swift Explorations”"></a>the structure of “Develop in Swift Explorations”</h3><blockquote>
 <ul>
@@ -152,47 +131,20 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>EnglishAndCommandApp</title>
-    <url>/2023/05/19/EnglishAndCommandApp/</url>
-    <content><![CDATA[<h2 id="English-And-CommandApp"><a href="#English-And-CommandApp" class="headerlink" title="English And CommandApp"></a>English And CommandApp</h2><p><img src="/2023/05/19/EnglishAndCommandApp/commandline.png" alt="command"></p>
-<blockquote>
-<p>In this bolg you will find a fact that commandline syntax is the same as the english syntax.  </p>
-</blockquote>
-<h3 id="1-the-english-we-used-in-our-daily-life"><a href="#1-the-english-we-used-in-our-daily-life" class="headerlink" title="1. the english we used in our daily life"></a>1. the english we used in our daily life</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> --force [file]</span><br><span class="line">verb adverb noun</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install hugo</span><br><span class="line">noun verb  noun</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-what-does-commandAPP-mean"><a href="#2-what-does-commandAPP-mean" class="headerlink" title="2. what does commandAPP mean?"></a>2. what does commandAPP mean?</h3><ul>
-<li>launch something</li>
-<li>do more than one thing</li>
-<li>collection of command</li>
-</ul>
-<span id="more"></span>
-<h3 id="3-what-does-subCommand-mean"><a href="#3-what-does-subCommand-mean" class="headerlink" title="3. what does subCommand mean?"></a>3. what does subCommand mean?</h3><ul>
-<li>commandAPP are groups of command,such as</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">svn add</span><br><span class="line">brew install</span><br><span class="line">npm search</span><br><span class="line">apt-get upgrade</span><br><span class="line">git <span class="built_in">clone</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>commandApp</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ComputerSystem</title>
     <url>/2023/05/24/ComputerSystem/</url>
     <content><![CDATA[<blockquote>
 <p>盖将自其变者而观之，则天地曾不能以一瞬；自其不变而观之，则物与我皆无尽也。——《前赤壁赋》</p>
 </blockquote>
 <h2 id="什么是计算机科学？"><a href="#什么是计算机科学？" class="headerlink" title="# 什么是计算机科学？"></a># 什么是计算机科学？</h2><p>计算机就是输入 计算 输出，对于常见的计算机设备输入设备就是键盘、鼠标、麦克风、摄像头，输出设备就是音响、屏幕等；计算设备就是CPU等。自下而上，从简单的原理构建出错综复杂的系统，自上而下循着足迹一步一步去解构大系统，这就是计算机科学的巨大魅力。</p>
-<h2 id="Hardware-about-CPU-and-RAM"><a href="#Hardware-about-CPU-and-RAM" class="headerlink" title="# Hardware about CPU and RAM"></a># Hardware about CPU and RAM</h2><blockquote>
+<h2 id="Hardware-about-CPU-and-RAM"><a href="#Hardware-about-CPU-and-RAM" class="headerlink" title="# Hardware about CPU and RAM"></a># Hardware about CPU and RAM</h2><span id="more"></span>
+<blockquote>
 <p>计算机科学，是逻辑、抽象、规则、协作的伟大发明，但是归根结底就是规则（协议）。在基础科学的基石上不断推进技术向纵深发展，形成一种文化，将人类的生活不断推向前进。</p>
 </blockquote>
 <p><img src="/2023/05/24/ComputerSystem/computerHardware.jpg" alt="computerHardware"></p>
 <h3 id="CPU"><a href="#CPU" class="headerlink" title="# CPU"></a># CPU</h3><p>CPU和内存是由许多晶体管组成的电子部件，通常称为IC(Integrated Circuit，集成电路)。CPU的内部由寄存器、控制器、运算器和时钟四个部分构成，各部分之间由电流信号相互连通。寄存器可用来暂存指令、数据等处理对象，可以将其看作是内存的一种。根据种类的不同，一个 CPU 内部会有20~100 个寄存器。控制器负责把内存上的指令、数据等读人寄存器并根据指令的执行结果来控制整个计算机。运算器负责运算从内存读入寄存器的数据。时钟负责发出 CPU 开始计时的时钟信号 。</p>
 <hr>
 <p>内存指的是计算机的主存储器(main memory),简称主存。主存通过控制片等与CPU相连主要负责存储指令和数据。主存由可读写的元素构成，每个字节(1字节 &#x3D;8位)都带有一个地址编号。CPU 可以通过该地址读取主存中的指令和数据，当然也可以写入数据。</p>
-<span id="more"></span>
-
 <hr>
 <p>我们可以将寄存器大致划分为八类可以看出，寄存器中存储的内容既可以是指令也可以是数据。其中，数据分为“用于运算的数值”和“表示内存地址的数值”两种。数据种类不同，存储该数值的寄存器也不同，CPU 中每个寄存器的功能都是不同的。用于运算的数值放在累加寄存器中存储，表示内存地址的数值则放在基址寄存器和变址寄存器中存储。</p>
 <hr>
@@ -354,67 +306,99 @@
       </tags>
   </entry>
   <entry>
-    <title>HowToDeployGitLabByYourself</title>
-    <url>/2023/07/07/HowToDeployGitLabByYourself/</url>
+    <title>CoreData</title>
+    <url>/2023/07/12/CoreData/</url>
     <content><![CDATA[<blockquote>
-<p>“To go fast, go alone. To go far, go together.” - Proverb</p>
+<p>“Core Data is a framework that you use to manage the model layer objects in your application” — Apple</p>
 </blockquote>
-<h2 id="0-What-env-does-this-gitlab-use"><a href="#0-What-env-does-this-gitlab-use" class="headerlink" title="0.What env  does this gitlab use?"></a>0.What env  does this gitlab use?</h2><ul>
-<li>docker desktop for windows</li>
-<li>wsl<ul>
-<li>Ubuntu</li>
-<li>docker-desktop</li>
-<li>docker-desktop-data</li>
-</ul>
+<h2 id="what-is-core-data"><a href="#what-is-core-data" class="headerlink" title="what is core data?"></a>what is core data?</h2><p>Core Data is a framework that lets you express what your model objects are and how they are related to one another. It then takes control of the lifetimes of these objects, making sure the relationships are kept up to date.<br>This collection of model objects is often called an object graph, as the objects can be thought of as nodes and the relationships as vertices in a mathematical graph.<strong>Often you will have Core Data save your object graph to a SQLite database</strong></p>
+<span id="more"></span>
+<p>Developers who are used to other SQL technologies might expect to treat Core Data like an object-relational mapping system,but this mindset will lead to confusion. Unlike an ORM, Core Data takes complete control of the storage, which just happens to be a relational database. You do not have to describe things like the database schema and foreign keys – Core Data does that. You just tell Core Data what needs storing and let it work out how to store it. Core Data gives you the ability to fetch and store data in a relational database without having to know the details of the underlying storage mechanism.</p>
+<p>A relational database has something called a table. A table represents a type: You can have a table of people. Each table has a number of columns to hold pieces of information about the type.Every row in the table represents an example of the type.</p>
+<p>This organization translates well to Swift. Every table is like a Swift type. Every column is one of the type’s properties. Every row is an instance of that type. Thus, Core Data’s job is to move data to and from these two representations.</p>
+<p>Core Data uses different terminology to describe these ideas: A table&#x2F;type is called an entity, and the columns&#x2F;properties are called attributes. A Core Data model file is the description of every entity along with its attributes in your application.</p>
+<h2 id="The-Core-Data-Stack"><a href="#The-Core-Data-Stack" class="headerlink" title="The Core Data Stack"></a>The Core Data Stack</h2><p>There are 4 main components : persistent container, managed object model, managed object context, and store coordinator.</p>
+<h3 id="The-Persistent-container"><a href="#The-Persistent-container" class="headerlink" title="The Persistent container"></a>The Persistent container</h3><p>The persistent container is the higher level abstraction class that encapsulates the most important components of the core data stack.</p>
+<h3 id="The-Managed-Object-Model"><a href="#The-Managed-Object-Model" class="headerlink" title="The Managed Object Model"></a>The Managed Object Model</h3><p> This is a programmatic representation of the .xcdatamodeld file. </p>
+<h3 id="The-Managed-Object-Context"><a href="#The-Managed-Object-Context" class="headerlink" title="The Managed Object Context"></a>The Managed Object Context</h3><p>The business layer of your application interacts with the Core Data Stack through the object contex</p>
+<h3 id="The-Persistent-Store-Coordinator"><a href="#The-Persistent-Store-Coordinator" class="headerlink" title="The Persistent Store Coordinator"></a>The Persistent Store Coordinator</h3><p>This acts as the bridge between the core data stack and the store(database). When an object context makes a request to fetch all the items in the database, the persistent coordinator is the one that loads them up from the SQLite store and passes them back to the object context.</p>
+<p>see more information on apple offical <strong><a href="https://developer.apple.com/documentation/coredata/creating_a_core_data_model">docment</a></strong> about core data.</p>
+<hr>
+<h2 id="what-is-ORM"><a href="#what-is-ORM" class="headerlink" title="what is ORM?"></a>what is ORM?</h2><p>Object Relational Mapping (ORM) is a technique used in creating a “bridge” between object-oriented programs and, in most cases, relational databases.</p>
+<p>using SQL</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">&quot;SELECT id, name, email, country, phone_number FROM users WHERE id = 20&quot;</span><br></pre></td></tr></table></figure>
+
+<p>using ORM</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line">users.<span class="type">GetById</span>(<span class="number">20</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="what-is-sqlite"><a href="#what-is-sqlite" class="headerlink" title="what is sqlite?"></a>what is sqlite?</h2><p>SQLite is a software library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine</p>
+<h3 id="Install-SQLite-on-Windows"><a href="#Install-SQLite-on-Windows" class="headerlink" title="Install SQLite on Windows"></a>Install SQLite on Windows</h3><ul>
+<li><p>Go to SQLite download page, and download precompiled binaries from Windows section</p>
+</li>
+<li><p>Download sqlite-shell-win32-<em>.zip and sqlite-dll-win32-</em>.zip zipped files</p>
+</li>
+<li><p>Create a folder C:&gt;sqlite and unzip above two zipped files in this folder, which will give you sqlite3.def, sqlite3.dll and sqlite3.exe files</p>
+</li>
+<li><p>Add C:&gt;sqlite in your PATH environment variable</p>
 </li>
 </ul>
-<h2 id="1-Set-gitlab-workdir"><a href="#1-Set-gitlab-workdir" class="headerlink" title="1.Set gitlab workdir"></a>1.Set gitlab workdir</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir -p /srv/gitlab</span><br><span class="line">chmod 777 -R /srv</span><br><span class="line">export GITLAB_HOME=/srv/gitlab</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>EnglishAndCommandApp</title>
+    <url>/2023/05/19/EnglishAndCommandApp/</url>
+    <content><![CDATA[<h2 id="English-And-CommandApp"><a href="#English-And-CommandApp" class="headerlink" title="English And CommandApp"></a>English And CommandApp</h2><p><img src="/2023/05/19/EnglishAndCommandApp/commandline.png" alt="command"></p>
+<blockquote>
+<p>In this bolg you will find a fact that commandline syntax is the same as the english syntax.  </p>
+</blockquote>
+<h3 id="1-the-english-we-used-in-our-daily-life"><a href="#1-the-english-we-used-in-our-daily-life" class="headerlink" title="1. the english we used in our daily life"></a>1. the english we used in our daily life</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> --force [file]</span><br><span class="line">verb adverb noun</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install hugo</span><br><span class="line">noun verb  noun</span><br></pre></td></tr></table></figure>
 
-<h2 id="2-Create-docker-compose-yml-file"><a href="#2-Create-docker-compose-yml-file" class="headerlink" title="2.Create docker-compose.yml file"></a>2.Create docker-compose.yml file</h2><span id="more"></span>
-
-<p>if you deploy gitlab on your computer for test,you can set <strong>“hostname”</strong> and <strong>“external_url”</strong> as “127.0.0.1”.</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3.6&#x27;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">web:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">&#x27;gitlab/gitlab-ce:latest&#x27;</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">hostname:</span> <span class="string">&#x27;gitlab.example.com&#x27;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">GITLAB_OMNIBUS_CONFIG:</span> <span class="string">|</span></span><br><span class="line"><span class="string">        external_url &#x27;https://gitlab.example.com&#x27;</span></span><br><span class="line"><span class="string">        # Add any other gitlab.rb configuration here, each on its own line</span></span><br><span class="line"><span class="string"></span>    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;80:80&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;443:443&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;22:22&#x27;</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;$GITLAB_HOME/config:/etc/gitlab&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;$GITLAB_HOME/logs:/var/log/gitlab&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;$GITLAB_HOME/data:/var/opt/gitlab&#x27;</span></span><br><span class="line">    <span class="attr">shm_size:</span> <span class="string">&#x27;256m&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="3-Change-docker-compose-yml-mod"><a href="#3-Change-docker-compose-yml-mod" class="headerlink" title="3.Change docker-compose.yml mod"></a>3.Change docker-compose.yml mod</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo chmod 755  docker-compose.yml</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-Pull-ang-deploy-gitlab"><a href="#4-Pull-ang-deploy-gitlab" class="headerlink" title="4.Pull ang deploy gitlab"></a>4.Pull ang deploy gitlab</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker-compose pull</span><br><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2023/07/07/HowToDeployGitLabByYourself/docker-compose.png" alt="docker-compose"></p>
-<h2 id="5-Find-root-password"><a href="#5-Find-root-password" class="headerlink" title="5.Find root password"></a>5.Find root password</h2><ul>
-<li>find containerID</li>
+<h3 id="2-what-does-commandAPP-mean"><a href="#2-what-does-commandAPP-mean" class="headerlink" title="2. what does commandAPP mean?"></a>2. what does commandAPP mean?</h3><ul>
+<li>launch something</li>
+<li>do more than one thing</li>
+<li>collection of command</li>
 </ul>
-<p><img src="/2023/07/07/HowToDeployGitLabByYourself/findContainerID.png" alt="findContainerID"></p>
-<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">docker exec -it containerID bash</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2023/07/07/HowToDeployGitLabByYourself/findRootPassword.png" alt="findRootPassword"></p>
-<p>use this command to exist docker container</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ctrl + p + q</span><br></pre></td></tr></table></figure>
-
-<h2 id="6-Login-root-account-and-approvel-user"><a href="#6-Login-root-account-and-approvel-user" class="headerlink" title="6.Login root account and approvel user"></a>6.Login root account and approvel user</h2><p>on this page ,you can not only approval user but also add user.<br><img src="/2023/07/07/HowToDeployGitLabByYourself/ROOTUI.png" alt="ROOTUI"></p>
-<h2 id="7-Set-gitlab-preferences"><a href="#7-Set-gitlab-preferences" class="headerlink" title="7.Set gitlab preferences"></a>7.Set gitlab preferences</h2><p>the origin language is English ,you can set other languages,such as Chinese French and so on.<br><img src="/2023/07/07/HowToDeployGitLabByYourself/englishUI.png" alt="englishUI"></p>
-<p>for example ,set the language to Chinese.</p>
-<p><img src="/2023/07/07/HowToDeployGitLabByYourself/chineseUI.png" alt="chineseUI.png"></p>
-<p>At last ,you can also find what you want on this [website] (<a href="https://docs.gitlab.com/">https://docs.gitlab.com/</a>).</p>
+<h3 id="3-what-does-subCommand-mean"><a href="#3-what-does-subCommand-mean" class="headerlink" title="3. what does subCommand mean?"></a>3. what does subCommand mean?</h3><ul>
+<li>commandAPP are groups of command,such as</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">svn add</span><br><span class="line">brew install</span><br><span class="line">npm search</span><br><span class="line">apt-get upgrade</span><br><span class="line">git <span class="built_in">clone</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
-        <tag>git</tag>
+        <tag>commandApp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AboutCode</title>
+    <url>/2023/05/24/AboutCode/</url>
+    <content><![CDATA[<p><img src="/2023/05/24/AboutCode/codeImage.jpg" alt="library"></p>
+<blockquote>
+<p>天下有大勇者，卒然临之而不惊，无故加之而不怒，此其所挟持者甚大，而其志甚远也。——《留侯论》</p>
+</blockquote>
+<h2 id="about-program-structure"><a href="#about-program-structure" class="headerlink" title="about program structure"></a>about program structure</h2><p>In any other programming language, one builds large programs from a small set of basic constructs. Variables store values. Simple expressions are combined into larger ones with operations like addition and subtraction. Basic types are collected into aggregates like arrays and structs. Expressions are used in statements whose execution order is determined by control-flow statements like if and for. Statements are grouped into functions for isolation and reuse. Functions are gathered into source files and packages.</p>
+<span id="more"></span>
+<h2 id="about-data-type"><a href="#about-data-type" class="headerlink" title="about data type"></a>about data type</h2><p>It’s all bits at the bottom, of course, but computers operate fundamentally on fixed-size numbers called words, which are interpreted as integers, floating-point numbers, bit sets, or memory addresses, then combined into larger aggregates that represent packets, pixels, portfolios,<br>poetry, and everything else. Go offer savariety of ways to organize data, with a spectrum of data typ es that at one end match the features of the hardware and at the other end provide what programmers need to conveniently represent complicated data structures.</p>
+<h2 id="about-function"><a href="#about-function" class="headerlink" title="about function"></a>about function</h2><p>A function lets us wrap upasequence of statements asaunit that can be called from else where<br>in a program, perhaps multiple times. Functions make it possible to breakabig job into smaller pieces that might well be written by different people sep arated by both time and space.<br>A function hides its implementation details from its users. For all of these reasons, functions areacritical part of any programming language.</p>
+<h2 id="about-interface"><a href="#about-interface" class="headerlink" title="about interface"></a>about interface</h2><p>Interface types express generalizations or abstractions about the behaviors of other types. By generalizing, interfaces let us write functions that are more flexible and adapt able because they are not tied to the details of one particular implementation</p>
+<p>《The Go Programming Language》 written by “Alan A. A. Donovan” and “Brian W. Kernighan”</p>
+]]></content>
+      <tags>
+        <tag>code</tag>
       </tags>
   </entry>
   <entry>
     <title>EverythingAboutMysql</title>
     <url>/2023/05/25/EverythingAboutMysql/</url>
     <content><![CDATA[<blockquote>
-<p>This blog will record the thing I meetting when I learn mysql.</p>
+<p>This blog will record the thing I meetting when I learn mysql.<br><img src="/2023/05/25/EverythingAboutMysql/databaseschema.jpg" alt="library"></p>
 </blockquote>
-<p><img src="/database-schema.png" alt="library"></p>
-<h2 id="MySQL-Data-Types"><a href="#MySQL-Data-Types" class="headerlink" title="MySQL Data Types"></a>MySQL Data Types</h2><p>The proper definition of a table’s fields is critical to the overall optimization of your database. You should only utilise the type and size of the field that you truly require. For example, if you know you’ll only use two characters, don’t make a field 10 characters large. After the sort of data, you’ll be storing in those fields, these fields (or columns) are referred to as data types.</p>
-<p>MySQL makes use of a variety of data types that are divided into three groups.</p>
+<h2 id="MySQL-Data-Types"><a href="#MySQL-Data-Types" class="headerlink" title="MySQL Data Types"></a>MySQL Data Types</h2><p>The proper definition of a table’s fields is critical to the overall optimization of your database. You should only utilise the type and size of the field that you truly require. For example, if you know you’ll only use two characters, don’t make a field 10 characters large. After the sort of data, you’ll be storing in those fields, these fields (or columns) are referred to as data types.<br>MySQL makes use of a variety of data types that are divided into three groups.</p>
 <ul>
 <li>Numeric</li>
 <li>Date and Time</li>
-<li>String Types.</li>
+<li>String Types.<span id="more"></span></li>
 </ul>
-<span id="more"></span>
 <h2 id="DDL"><a href="#DDL" class="headerlink" title="DDL"></a>DDL</h2><p>DDL or Data Definition Language consists of those commands which include defining the structure of database schema and database table. It mainly involves the structuring of database schema and the table.</p>
 <p>The commands included in DDL are: </p>
 <ul>
@@ -454,11 +438,57 @@
       </tags>
   </entry>
   <entry>
+    <title>HowToDeployGitLabByYourself</title>
+    <url>/2023/07/07/HowToDeployGitLabByYourself/</url>
+    <content><![CDATA[<blockquote>
+<p>“To go fast, go alone. To go far, go together.” - Proverb</p>
+</blockquote>
+<h2 id="0-What-env-does-this-gitlab-use"><a href="#0-What-env-does-this-gitlab-use" class="headerlink" title="0.What env  does this gitlab use?"></a>0.What env  does this gitlab use?</h2><ul>
+<li>docker desktop for windows</li>
+<li>wsl<ul>
+<li>Ubuntu</li>
+<li>docker-desktop</li>
+<li>docker-desktop-data<span id="more"></span></li>
+</ul>
+</li>
+</ul>
+<h2 id="1-Set-gitlab-workdir"><a href="#1-Set-gitlab-workdir" class="headerlink" title="1.Set gitlab workdir"></a>1.Set gitlab workdir</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir -p /srv/gitlab</span><br><span class="line">chmod 777 -R /srv</span><br><span class="line">export GITLAB_HOME=/srv/gitlab</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-Create-docker-compose-yml-file"><a href="#2-Create-docker-compose-yml-file" class="headerlink" title="2.Create docker-compose.yml file"></a>2.Create docker-compose.yml file</h2><p>if you deploy gitlab on your computer for test,you can set <strong>“hostname”</strong> and <strong>“external_url”</strong> as “127.0.0.1”.</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3.6&#x27;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">web:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">&#x27;gitlab/gitlab-ce:latest&#x27;</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">hostname:</span> <span class="string">&#x27;gitlab.example.com&#x27;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">GITLAB_OMNIBUS_CONFIG:</span> <span class="string">|</span></span><br><span class="line"><span class="string">        external_url &#x27;https://gitlab.example.com&#x27;</span></span><br><span class="line"><span class="string">        # Add any other gitlab.rb configuration here, each on its own line</span></span><br><span class="line"><span class="string"></span>    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;80:80&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;443:443&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;22:22&#x27;</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;$GITLAB_HOME/config:/etc/gitlab&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;$GITLAB_HOME/logs:/var/log/gitlab&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;$GITLAB_HOME/data:/var/opt/gitlab&#x27;</span></span><br><span class="line">    <span class="attr">shm_size:</span> <span class="string">&#x27;256m&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-Change-docker-compose-yml-mod"><a href="#3-Change-docker-compose-yml-mod" class="headerlink" title="3.Change docker-compose.yml mod"></a>3.Change docker-compose.yml mod</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo chmod 755  docker-compose.yml</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-Pull-ang-deploy-gitlab"><a href="#4-Pull-ang-deploy-gitlab" class="headerlink" title="4.Pull ang deploy gitlab"></a>4.Pull ang deploy gitlab</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker-compose pull</span><br><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/07/HowToDeployGitLabByYourself/docker-compose.png" alt="docker-compose"></p>
+<h2 id="5-Find-root-password"><a href="#5-Find-root-password" class="headerlink" title="5.Find root password"></a>5.Find root password</h2><ul>
+<li>find containerID</li>
+</ul>
+<p><img src="/2023/07/07/HowToDeployGitLabByYourself/findContainerID.png" alt="findContainerID"></p>
+<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">docker exec -it containerID bash</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/07/HowToDeployGitLabByYourself/findRootPassword.png" alt="findRootPassword"></p>
+<p>use this command to exist docker container</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ctrl + p + q</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-Login-root-account-and-approvel-user"><a href="#6-Login-root-account-and-approvel-user" class="headerlink" title="6.Login root account and approvel user"></a>6.Login root account and approvel user</h2><p>on this page ,you can not only approval user but also add user.<br><img src="/2023/07/07/HowToDeployGitLabByYourself/ROOTUI.png" alt="ROOTUI"></p>
+<h2 id="7-Set-gitlab-preferences"><a href="#7-Set-gitlab-preferences" class="headerlink" title="7.Set gitlab preferences"></a>7.Set gitlab preferences</h2><p>the origin language is English ,you can set other languages,such as Chinese French and so on.<br><img src="/2023/07/07/HowToDeployGitLabByYourself/englishUI.png" alt="englishUI"></p>
+<p>for example ,set the language to Chinese.</p>
+<p><img src="/2023/07/07/HowToDeployGitLabByYourself/chineseUI.png" alt="chineseUI.png"></p>
+<p>At last ,you can also find what you want on this [website] (<a href="https://docs.gitlab.com/">https://docs.gitlab.com/</a>).</p>
+]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JavaQA</title>
     <url>/2023/05/05/JavaQA/</url>
     <content><![CDATA[<blockquote>
 <p>盛衰之理，虽曰天命，岂非人事哉。 ——《五代史伶官传序》</p>
 </blockquote>
+<span id="more"></span>
 ]]></content>
       <tags>
         <tag>softwareDevelopment</tag>
@@ -467,11 +497,10 @@
   <entry>
     <title>MarkdownBasicSyntax</title>
     <url>/2023/04/17/MarkdownBasicSyntax/</url>
-    <content><![CDATA[<h1 id="Q-amp-A-about-markdown"><a href="#Q-amp-A-about-markdown" class="headerlink" title="Q&amp;A about markdown"></a>Q&amp;A about markdown</h1><h2 id="How-to-headings-your-word"><a href="#How-to-headings-your-word" class="headerlink" title="# How to headings your word?"></a><font color="green">#</font> How to headings your word?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># Heading</span></span><br><span class="line">represent level 1</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h2 id="Q-amp-A-about-markdown"><a href="#Q-amp-A-about-markdown" class="headerlink" title="Q&amp;A about markdown"></a>Q&amp;A about markdown</h2><h2 id="How-to-headings-your-word"><a href="#How-to-headings-your-word" class="headerlink" title="# How to headings your word?"></a><font color="green">#</font> How to headings your word?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># Heading</span></span><br><span class="line">represent level 1</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
 
 <h2 id="How-to-emphasis-your-word"><a href="#How-to-emphasis-your-word" class="headerlink" title="# How to emphasis your word?"></a><font color="green">#</font> How to emphasis your word?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="emphasis">*heading*</span> represent Italic</span><br><span class="line"><span class="strong">**heading**</span> represent Bold</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
 
 <h2 id="How-to-lists-your-word"><a href="#How-to-lists-your-word" class="headerlink" title="# How to lists your word?"></a><font color="green">#</font> How to lists your word?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet"> 1.</span> first</span><br><span class="line"><span class="bullet"> 2.</span> second </span><br><span class="line">represent Ordered Lists</span><br><span class="line"><span class="bullet"> -</span> first</span><br><span class="line"><span class="bullet"> -</span> second </span><br><span class="line">represent Unordered Lists</span><br></pre></td></tr></table></figure>
 
@@ -514,6 +543,21 @@
       </tags>
   </entry>
   <entry>
+    <title>PythonQA</title>
+    <url>/2023/05/05/PythonQA/</url>
+    <content><![CDATA[<blockquote>
+<p>古之立大事者，不惟有超世之才，亦必有坚忍不拔之志。—— 《鼂错论》</p>
+</blockquote>
+<h2 id="How-to-use-python-and-youtube-api-analysis"><a href="#How-to-use-python-and-youtube-api-analysis" class="headerlink" title="How to use python and youtube-api-analysis"></a>How to use python and youtube-api-analysis</h2><blockquote>
+<p>we can use python and youtube-api to analysis the youtuber data which you want to know.you can open this github repository.</p>
+</blockquote>
+<p><a href="https://github.com/thu-vu92/youtube-api-analysis">youtube-api-analysis</a></p>
+<span id="more"></span>]]></content>
+      <tags>
+        <tag>softwareDevelopment</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PresentationSkillsYouShouldKonw</title>
     <url>/2023/07/08/PresentationSkillsYouShouldKonw/</url>
     <content><![CDATA[<h2 id="How-to-improve-your-public-speaking"><a href="#How-to-improve-your-public-speaking" class="headerlink" title="How to improve your public speaking"></a>How to improve your public speaking</h2><p><img src="/2023/07/08/PresentationSkillsYouShouldKonw/PresentationSkills.jpg" alt="PresentationSkills"></p>
@@ -522,7 +566,7 @@
 </blockquote>
 <h2 id="The-Trouble-with-filler-Words"><a href="#The-Trouble-with-filler-Words" class="headerlink" title="The Trouble with filler Words"></a>The Trouble with filler Words</h2><ul>
 <li>The fillers get in the way of the emotional stories or fascinating research you’re trying to share.</li>
-<li>If you want your audience to buy into your message, you have to make it clear, logical, and easy to follow.</li>
+<li>If you want your audience to buy into your message, you have to make it clear, logical, and easy to follow.<span id="more"></span></li>
 </ul>
 <h2 id="How-to-find-your-filler-words"><a href="#How-to-find-your-filler-words" class="headerlink" title="How to find your filler words"></a>How to find your filler words</h2><ul>
 <li><p>Record using your phone to identify your filler words.</p>
@@ -555,36 +599,20 @@
       </tags>
   </entry>
   <entry>
-    <title>PythonQA</title>
-    <url>/2023/05/05/PythonQA/</url>
-    <content><![CDATA[<blockquote>
-<p>古之立大事者，不惟有超世之才，亦必有坚忍不拔之志。—— 《鼂错论》</p>
-</blockquote>
-<h2 id="How-to-use-python-and-youtube-api-analysis"><a href="#How-to-use-python-and-youtube-api-analysis" class="headerlink" title="How to use python and youtube-api-analysis"></a>How to use python and youtube-api-analysis</h2><blockquote>
-<p>we can use python and youtube-api to analysis the youtuber data which you want to know.you can open this github repository.</p>
-</blockquote>
-<p><a href="https://github.com/thu-vu92/youtube-api-analysis">youtube-api-analysis</a></p>
-]]></content>
-      <tags>
-        <tag>softwareDevelopment</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>How to setup your hexo blog</title>
     <url>/2023/05/12/SetupYourBlogByGithubAndHexo/</url>
     <content><![CDATA[<blockquote>
-<p>悟已往之不谏，知来者之可追。实迷途其未远，觉今是而昨非。——《归去来辞》</p>
+<p>悟已往之不谏，知来者之可追。实迷途其未远，觉今是而昨非。——《归去来辞》<br><em>Hexo can help us to write blog by markdown,and then we can deploy my blog on github or other srevice.</em><br><img src="/2023/05/12/SetupYourBlogByGithubAndHexo/blog.jpg" alt="blog"></p>
 </blockquote>
-<p><em>Hexo can help us to write blog by markdown,and then we can deploy my blog on github or other srevice.</em></p>
-<p><img src="/2023/05/12/SetupYourBlogByGithubAndHexo/blog.jpg" alt="blog"></p>
 <h2 id="What-is-github-page"><a href="#What-is-github-page" class="headerlink" title="What is github page?"></a><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages">What is github page?</a></h2><blockquote>
 <p>GitHub Pages is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository on GitHub, optionally runs the files through a build process, and publishes a website. you can set up what branch will the github page use,so that we can use deploy different branch,one branch to deploy our site,the other to write blog.</p>
 </blockquote>
-<h2 id="What-is-hexo"><a href="#What-is-hexo" class="headerlink" title="What is hexo?"></a><a href="https://hexo.io/docs/">What is hexo?</a></h2><blockquote>
+<h2 id="What-is-hexo"><a href="#What-is-hexo" class="headerlink" title="What is hexo?"></a><a href="https://hexo.io/docs/">What is hexo?</a></h2><span id="more"></span>
+<blockquote>
 <p>Hexo is a fast, simple and powerful blog framework. You write posts in Markdown (or other markup languages) and Hexo generates static files with a beautiful theme in seconds.<br>and when you use “hexo deploy”command the generated file will be git push to git repository branch which you have set.</p>
 </blockquote>
 <h2 id="How-to-install-hexo"><a href="#How-to-install-hexo" class="headerlink" title="How to install hexo?"></a>How to install hexo?</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
+
 <h2 id="How-to-create-your-site"><a href="#How-to-create-your-site" class="headerlink" title="How to create your site?"></a>How to create your site?</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init &lt;folder&gt;</span><br><span class="line"><span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
 
 <h2 id="What-is-floder-structure-in-hexo"><a href="#What-is-floder-structure-in-hexo" class="headerlink" title="What is floder structure in hexo?"></a>What is floder structure in hexo?</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── <span class="built_in">source</span></span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
@@ -644,6 +672,35 @@
       </tags>
   </entry>
   <entry>
+    <title>SwiftQA</title>
+    <url>/2023/05/05/SwiftQA/</url>
+    <content><![CDATA[<blockquote>
+<p>Brevity is the soul of wit.<br><img src="/2023/05/05/SwiftQA/PLQA.jpg" alt="SwiftQA"></p>
+</blockquote>
+<h2 id="How-to-use-swift-to-development-an-ios-APP"><a href="#How-to-use-swift-to-development-an-ios-APP" class="headerlink" title="How to use swift to development an ios APP"></a>How to use swift to development an ios APP</h2><h2 id="The-idea-of-this-application"><a href="#The-idea-of-this-application" class="headerlink" title="The idea of this application"></a>The idea of this application</h2><h2 id="What-is-first-class-type"><a href="#What-is-first-class-type" class="headerlink" title="What is first-class type ?"></a>What is first-class type ?</h2><p>Functions are a first-class type. This means that a function can return another function as its value.</p>
+<h2 id="What-is-type-safe-language"><a href="#What-is-type-safe-language" class="headerlink" title="What is type-safe language?"></a>What is type-safe language?</h2><span id="more"></span>
+<p>Swift is a type-safe language, which means the language helps you to be clear about the types of values your code can work with. If part of your code requires a String, type safety prevents you from passing it an Int by mistake. Likewise, type safety prevents you from accidentally passing an optional String to a piece of code that requires a non-optional String. Type safety helps you catch and fix errors as early as possible in the development process</p>
+<p>“An algorithm is a set of instructions for accomplishing a task”</p>
+<p>“There are three essential building blocks in all algorithms: sequencing, selection, and iteration”</p>
+<p>Organizing Data<br>“Instances, Methods, and Properties”</p>
+<p>“Much of the code you write for an app is event-based, executing in response to a constantly changing environment.<br>”</p>
+<p>“Apps receive all kinds of input: touches on their screens, files, sensor input (such as a camera), data from the internet. Inputs can even come from other programs. For example, you can use the Share sheet in your Photos app to send a photo to another editing app, or to include it in a message to your friend. When it comes to output, apps can return images, sounds, music, text, tactile sensations, and animations.<br>”</p>
+<h2 id="what-is-clourse"><a href="#what-is-clourse" class="headerlink" title="what is clourse?"></a>what is clourse?</h2><figure class="highlight swift"><table><tr><td class="code"><pre><span class="line">&#123;(parameters) -&gt; <span class="keyword">return</span> type <span class="keyword">in</span></span><br><span class="line"> <span class="comment">// Code</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>Closures can take advantage of Swift’s type inference system, so you can clean up your closure even more by trimming<br>out the type information.</p>
+<p>Closures that appear at the end of the argument list can be written outside of and after the function’s<br>parentheses; this is called trailing closure syntax.<br>If doing so would leave an empty pair of parentheses<br>behind, you may remove them entirely.</p>
+<p>Notice that when the closure moves outside the parentheses, its argument label is removed from the<br>call. If there are multiple trailing closures, this only applies to the first; subsequent trailing closures<br>retain their argument labels. For example, a function whose signature looks like this:</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">doAwesomeWork</span>(<span class="params">on</span> <span class="params">input</span>: <span class="type">String</span>,</span><br><span class="line"> <span class="params">using</span> <span class="params">transformer</span>: () -&gt; <span class="type">Void</span>,</span><br><span class="line"><span class="params">then</span> <span class="params">completion</span>: () -&gt; <span class="type">Void</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="type">Would</span> be called using trailing closure syntax like this:</span><br><span class="line"></span><br><span class="line">```swift</span><br><span class="line">doAwesomeWork(on: <span class="string">&quot;My Project&quot;</span>) &#123;</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Doing work on <span class="subst">\(input)</span> in `transformer`&quot;</span>)</span><br><span class="line">&#125; then: &#123;</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Finishing up in `completion`&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>see more information on apple offical <strong><a href="https://developer.apple.com/documentation/Swift">docment</a></strong> about swift.</p>
+]]></content>
+      <tags>
+        <tag>softwareDevelopment</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>TheDifferenceBetweenDifferentComputerLanguage</title>
     <url>/2023/05/05/TheDifferenceBetweenDifferentComputerLanguage/</url>
     <content><![CDATA[<blockquote>
@@ -651,10 +708,7 @@
 </blockquote>
 <h2 id="What’s-the-difference-between-Compiled-language-and-Interpreted-language"><a href="#What’s-the-difference-between-Compiled-language-and-Interpreted-language" class="headerlink" title="# What’s the difference between Compiled language and Interpreted language?"></a># What’s the difference between Compiled language and Interpreted language?</h2><ul>
 <li>A compiled language is converted into machine code so that the processor can execute it.</li>
-<li>An interpreted language is a language in which the implementations execute instructions directly without earlier compiling a program into machine language.</li>
-</ul>
-<span id="more"></span>
-
+<li>An interpreted language is a language in which the implementations execute instructions directly without earlier compiling a program into machine language.<span id="more"></span>
 <table>
 <thead>
 <tr>
@@ -691,22 +745,156 @@
 <td>The main difference between C and C++ is that C++ support classes and objects, while C does not</td>
 </tr>
 </tbody></table>
+</li>
+</ul>
 ]]></content>
       <tags>
         <tag>softwareDevelopment</tag>
       </tags>
   </entry>
   <entry>
+    <title>TheGoProgrammingLanguageBookReview</title>
+    <url>/2023/06/19/TheGoProgrammingLanguageBookReview/</url>
+    <content><![CDATA[<blockquote>
+<p>虽有尧舜之智，而无众人之助，大功不立——《韩非子》</p>
+</blockquote>
+<h2 id="The-structure-of-this-book"><a href="#The-structure-of-this-book" class="headerlink" title="The structure of this book"></a>The structure of this book</h2><ul>
+<li><p><strong>Programm Structure</strong></p>
+<ul>
+<li>Names</li>
+<li>Declarations</li>
+<li>Variables</li>
+<li>Assignments</li>
+<li>Type Declarations</li>
+<li>Packages and Files</li>
+<li>Scope<span id="more"></span></li>
+</ul>
+</li>
+<li><p><strong>Basic Data Types</strong></p>
+<ul>
+<li>Integers</li>
+<li>Floating-Point Numbers</li>
+<li>Complex Numbers</li>
+<li>Booleans</li>
+<li>Strings</li>
+<li>Constants</li>
+</ul>
+</li>
+<li><p><strong>Composite Types</strong></p>
+<ul>
+<li>Arrays</li>
+<li>Slices</li>
+<li>Maps</li>
+<li>Structs</li>
+<li>JSON</li>
+<li>Text and HTML Template</li>
+</ul>
+</li>
+<li><p><strong>Functions</strong></p>
+<ul>
+<li>Function Declarations</li>
+<li>Recursion</li>
+<li>Multiple Return Values</li>
+<li>Errors</li>
+<li>Function Values</li>
+<li>Anonymous Functions</li>
+<li>Variadic Functions</li>
+<li>Deferred Function Calls</li>
+<li>Panic</li>
+<li>Recover</li>
+</ul>
+</li>
+<li><p><strong>Methods</strong></p>
+<ul>
+<li>Method Declarations</li>
+<li>Methods with a Pointer Receiver</li>
+<li>Composing Types byStruct Embedding</li>
+<li>Method Values and Expressions</li>
+<li>Example: Bit Vector Type</li>
+<li>Encapsulation</li>
+</ul>
+</li>
+<li><p><strong>Interfaces</strong></p>
+<ul>
+<li>Interfaces as Contracts</li>
+<li>Interface Types</li>
+<li>Interface Satisfaction</li>
+<li>Parsing Flags with flag. Value</li>
+<li>Interface Values</li>
+<li>Sorting with sort Interface</li>
+<li>The http. Handler Interface</li>
+<li>The error nterface</li>
+<li>Example: Expression Evaluator</li>
+<li>Type Assertions</li>
+<li>Discriminating Errors with Type Assertions</li>
+<li>Querying Behaviors with Interface Type Assertions</li>
+<li>Type Switches</li>
+<li>Example: Token Based XML Decoding</li>
+<li>A Few Words of Advice</li>
+</ul>
+</li>
+<li><p><strong>Goroutines and channels</strong></p>
+<ul>
+<li>Goroutines</li>
+<li>Example: Concurrent Clock Server</li>
+<li>Example: Concurrent Echo Server</li>
+<li>Channels</li>
+<li>Looping in Paralle</li>
+<li>Example: Concurrent Web Crawler</li>
+<li>Multiplexing with select</li>
+<li>Example: Concurrent Directory Traversal</li>
+<li>Cancellation</li>
+</ul>
+</li>
+<li><p><strong>Concurrency with Shared Variables</strong></p>
+<ul>
+<li>Race Conditions</li>
+<li>Mutual Exclusion: sync. Mutex</li>
+<li>Read&#x2F;Write Mutexes: sync. RWMutex</li>
+<li>Memory Synchronization</li>
+<li>Lazy lnitialization: sync.Once</li>
+<li>The Race Detector</li>
+<li>Example: Concurrent Non-Blocking Cache</li>
+<li>Goroutinesand Threads</li>
+</ul>
+</li>
+<li><p><strong>Packages and the Go Tool</strong></p>
+<ul>
+<li>Introduction</li>
+<li>Import Paths</li>
+<li>The Package Declaration</li>
+<li>Import Declarations</li>
+<li>Blank Imports</li>
+<li>Packages and Naming</li>
+<li>The Go Tool</li>
+</ul>
+</li>
+<li><p><strong>Testing</strong></p>
+<ul>
+<li>The go test Tool</li>
+<li>Test Functions</li>
+<li>Coverage</li>
+<li>Benchmark Functions</li>
+<li>Profiling</li>
+<li>Example Functions</li>
+</ul>
+</li>
+</ul>
+<p><strong>You don’t need care about the UI.</strong></p>
+]]></content>
+      <tags>
+        <tag>bookReview</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>UsefulCommand</title>
     <url>/2023/04/17/UsefulCommand/</url>
     <content><![CDATA[<p><img src="/2023/04/17/UsefulCommand/usefulCommand.jpg" alt="usefulCommand"></p>
-<p>(source:  <a href="https://www.pexels.com/photo/crop-cyber-spy-hacking-system-while-typing-on-laptop-5935794/">www.pexels.com</a>)</p>
 <blockquote>
-<p>仰观宇宙之大，俯察品类之盛。所以游目骋怀，足以极视听之娱。——《兰亭集序》</p>
+<p>仰观宇宙之大，俯察品类之盛。所以游目骋怀，足以极视听之娱。——《兰亭集序》<br><em>In this blog, i will list many useful command about homebrew&#x2F;github&#x2F;npm&#x2F;linux&#x2F;yt-dlp and son.</em></p>
 </blockquote>
-<p><em>In this blog, i will list many useful command about homebrew&#x2F;github&#x2F;npm&#x2F;linux&#x2F;yt-dlp and son.</em></p>
-<h2 id="hexo-shortcut"><a href="#hexo-shortcut" class="headerlink" title="# hexo shortcut"></a># hexo shortcut</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">alias</span> ht=<span class="string">&#x27;hexo clean &amp;&amp; hexo g &amp;&amp; hexo s&#x27;</span></span><br><span class="line">测试部署hexoBlog快捷键</span><br><span class="line"></span><br><span class="line"><span class="built_in">alias</span> hd=<span class="string">&#x27;hexo clean &amp;&amp; hexo deploy&#x27;</span></span><br><span class="line">部署到github快捷键</span><br><span class="line"></span><br><span class="line"><span class="built_in">alias</span> hnp=<span class="string">&#x27;hexo new post&#x27;</span></span><br><span class="line">新建博客</span><br><span class="line"></span><br><span class="line"><span class="built_in">alias</span> hnd=<span class="string">&#x27;hexo new draft&#x27;</span></span><br><span class="line">新建草稿</span><br><span class="line"></span><br><span class="line"><span class="built_in">alias</span> hp=<span class="string">&#x27;hexo publish&#x27;</span></span><br><span class="line">发布草稿</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+<h2 id="hexo-shortcut"><a href="#hexo-shortcut" class="headerlink" title="# hexo shortcut"></a># hexo shortcut</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">alias</span> ht=<span class="string">&#x27;hexo clean &amp;&amp; hexo g &amp;&amp; hexo s&#x27;</span></span><br><span class="line">测试部署hexoBlog快捷键</span><br><span class="line"><span class="built_in">alias</span> hd=<span class="string">&#x27;hexo clean &amp;&amp; hexo deploy&#x27;</span></span><br><span class="line">部署到github快捷键</span><br><span class="line"><span class="built_in">alias</span> hnp=<span class="string">&#x27;hexo new post&#x27;</span></span><br><span class="line">新建博客</span><br><span class="line"><span class="built_in">alias</span> hnd=<span class="string">&#x27;hexo new draft&#x27;</span></span><br><span class="line">新建草稿</span><br><span class="line"><span class="built_in">alias</span> hp=<span class="string">&#x27;hexo publish&#x27;</span></span><br><span class="line">发布草稿</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
 <h2 id="Is-suported-netflix"><a href="#Is-suported-netflix" class="headerlink" title="# Is suported netflix"></a># Is suported netflix</h2><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -L -s <span class="attr">https</span>:<span class="comment">//raw.githubusercontent.com/lmc999/RegionRestrictionCheck/main/check.sh)</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="About-homebrew"><a href="#About-homebrew" class="headerlink" title="# About homebrew"></a># About homebrew</h2><blockquote>
@@ -720,7 +908,7 @@
 
 <p>使用代理更新软件库:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ALL_PROXY=socks5://192.168.0.107:7890 brew upgrade</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
+
 <h2 id="About-github"><a href="#About-github" class="headerlink" title="# About github"></a># About github</h2><p>git set proxy:</p>
 <p>git设完代理，shell也需要设置proxy</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//设置全局代理</span><br><span class="line">//http</span><br><span class="line">git config --global https.proxy http://192.168.0.107:7890</span><br><span class="line">//https</span><br><span class="line">git config --global https.proxy https://192.168.0.107:7890</span><br><span class="line"></span><br><span class="line">git config --global http.proxy socks5://192.168.0.107:7890</span><br><span class="line">git config --global https.proxy socks5://192.168.0.107:7890</span><br><span class="line"></span><br><span class="line">//只对github.com使用代理，其他仓库不走代理</span><br><span class="line">git config --global http.https://github.com.proxy socks5://127.0.0.1:7890</span><br><span class="line">git config --global https.https://github.com.proxy socks5://127.0.0.1:7890</span><br><span class="line">//取消github代理</span><br><span class="line">git config --global --<span class="built_in">unset</span> http.https://github.com.proxy</span><br><span class="line">git config --global --<span class="built_in">unset</span> https.https://github.com.proxy</span><br><span class="line"></span><br><span class="line">//取消全局代理</span><br><span class="line">git config --global --<span class="built_in">unset</span> http.proxy</span><br><span class="line">git config --global --<span class="built_in">unset</span> https.proxy</span><br><span class="line"><span class="comment">#查看git代理设置</span></span><br><span class="line">git config --global --list</span><br></pre></td></tr></table></figure>
@@ -879,76 +1067,12 @@
       </tags>
   </entry>
   <entry>
-    <title>WhyWeShouldStudyEnglish</title>
-    <url>/2023/05/05/WhyWeShouldStudyEnglish/</url>
-    <content><![CDATA[<blockquote>
-<p>圣人无常师。——《师说》</p>
-</blockquote>
-<p>open your eyes ,you can find the new world of your own .</p>
-<p><img src="/2023/05/05/WhyWeShouldStudyEnglish/English03.jpeg" alt="english"></p>
-<blockquote>
-<p>There are many, many reasons why learning a new language is a good idea. It allows you to communicate with new people. It helps you to see things from a different perspective, or get a deeper understanding of another culture. It helps you to become a better listener. It even has health benefits, as studies have shown that people who speak two or more languages have more active minds later in life!</p>
-</blockquote>
-<h2 id="There-are-several-reasons-why-Chinese-people-may-choose-to-learn-English"><a href="#There-are-several-reasons-why-Chinese-people-may-choose-to-learn-English" class="headerlink" title="There are several reasons why Chinese people may choose to learn English:"></a>There are several reasons why Chinese people may choose to learn English:</h2><ul>
-<li><p>Global Communication: English is the most widely spoken language in the world and serves as a common language for international communication. Learning English opens doors to connect and communicate with people from different countries and cultures, enabling Chinese individuals to participate in global conversations, trade, and collaborations.</p>
-</li>
-<li><p>Education and Academic Opportunities: English is the primary language used in many prestigious universities and academic institutions worldwide. Proficiency in English allows Chinese students to access a broader range of educational opportunities abroad, including scholarships, research programs, and exchange programs.</p>
-</li>
-</ul>
-<span id="more"></span>
-
-<ul>
-<li><p>Career Advancement: English proficiency is increasingly important in today’s global job market. Many multinational companies require employees to have a good command of English, especially in fields such as business, technology, science, and tourism. Learning English can enhance career prospects and open up a wider range of job opportunities both within China and internationally.</p>
-</li>
-<li><p>Travel and Tourism: English is widely spoken in many popular tourist destinations around the world. Knowing English can greatly enhance the travel experience for Chinese tourists, making it easier to navigate, communicate with locals, and understand cultural nuances.</p>
-</li>
-<li><p>Access to Information and Resources: A significant portion of the world’s information, literature, and resources are in English. By learning English, Chinese individuals can access a vast array of knowledge, including books, research papers, websites, and online resources that are not readily available in Chinese.</p>
-</li>
-<li><p>Personal Development: Learning a foreign language like English can be intellectually stimulating and provide personal growth opportunities. It broadens one’s perspective, fosters cross-cultural understanding, and allows for the exploration of different ideas, literature, and perspectives.</p>
-</li>
-<li><p>Entertainment and Media: English is the dominant language in the global entertainment industry. By understanding English, Chinese individuals can enjoy a wide range of English-language movies, TV shows, music, and literature without relying on translations or subtitles.</p>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>other</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SwiftQA</title>
-    <url>/2023/05/05/SwiftQA/</url>
-    <content><![CDATA[<blockquote>
-<p>Brevity is the soul of wit.</p>
-</blockquote>
-<p><img src="/2023/05/05/SwiftQA/PLQA.jpg" alt="SwiftQA"></p>
-<h2 id="How-to-use-swift-to-development-an-ios-APP"><a href="#How-to-use-swift-to-development-an-ios-APP" class="headerlink" title="How to use swift to development an ios APP"></a>How to use swift to development an ios APP</h2><h2 id="The-idea-of-this-application"><a href="#The-idea-of-this-application" class="headerlink" title="The idea of this application"></a>The idea of this application</h2><h2 id="What-is-first-class-type"><a href="#What-is-first-class-type" class="headerlink" title="What is first-class type ?"></a>What is first-class type ?</h2><p>Functions are a first-class type. This means that a function can return another function as its value.</p>
-<h2 id="What-is-type-safe-language"><a href="#What-is-type-safe-language" class="headerlink" title="What is type-safe language?"></a>What is type-safe language?</h2><p>Swift is a type-safe language, which means the language helps you to be clear about the types of values your code can work with. If part of your code requires a String, type safety prevents you from passing it an Int by mistake. Likewise, type safety prevents you from accidentally passing an optional String to a piece of code that requires a non-optional String. Type safety helps you catch and fix errors as early as possible in the development process</p>
-<p>“An algorithm is a set of instructions for accomplishing a task”</p>
-<p>“There are three essential building blocks in all algorithms: sequencing, selection, and iteration”</p>
-<p>Organizing Data<br>“Instances, Methods, and Properties”</p>
-<p>“Much of the code you write for an app is event-based, executing in response to a constantly changing environment.<br>”</p>
-<p>“Apps receive all kinds of input: touches on their screens, files, sensor input (such as a camera), data from the internet. Inputs can even come from other programs. For example, you can use the Share sheet in your Photos app to send a photo to another editing app, or to include it in a message to your friend. When it comes to output, apps can return images, sounds, music, text, tactile sensations, and animations.<br>”</p>
-<h2 id="what-is-clourse"><a href="#what-is-clourse" class="headerlink" title="what is clourse?"></a>what is clourse?</h2><figure class="highlight swift"><table><tr><td class="code"><pre><span class="line">&#123;(parameters) -&gt; <span class="keyword">return</span> type <span class="keyword">in</span></span><br><span class="line"> <span class="comment">// Code</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-<p>Closures can take advantage of Swift’s type inference system, so you can clean up your closure even more by trimming<br>out the type information.</p>
-<p>Closures that appear at the end of the argument list can be written outside of and after the function’s<br>parentheses; this is called trailing closure syntax.<br>If doing so would leave an empty pair of parentheses<br>behind, you may remove them entirely.</p>
-<p>Notice that when the closure moves outside the parentheses, its argument label is removed from the<br>call. If there are multiple trailing closures, this only applies to the first; subsequent trailing closures<br>retain their argument labels. For example, a function whose signature looks like this:</p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">doAwesomeWork</span>(<span class="params">on</span> <span class="params">input</span>: <span class="type">String</span>,</span><br><span class="line"> <span class="params">using</span> <span class="params">transformer</span>: () -&gt; <span class="type">Void</span>,</span><br><span class="line"><span class="params">then</span> <span class="params">completion</span>: () -&gt; <span class="type">Void</span>)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="type">Would</span> be called using trailing closure syntax like this:</span><br><span class="line"></span><br><span class="line">```swift</span><br><span class="line"> doAwesomeWork(on: <span class="string">&quot;My Project&quot;</span>) &#123;</span><br><span class="line"> <span class="built_in">print</span>(<span class="string">&quot;Doing work on <span class="subst">\(input)</span> in `transformer`&quot;</span>)</span><br><span class="line"> &#125; then: &#123;</span><br><span class="line"> <span class="built_in">print</span>(<span class="string">&quot;Finishing up in `completion`&quot;</span>)</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>softwareDevelopment</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>WhyWeShouldKnowAlgorithmsAndDataStructures</title>
     <url>/2023/05/25/WhyWeShouldKnowAlgorithmsAndDataStructures/</url>
     <content><![CDATA[<blockquote>
 <p>夫夷以近，则遊者众；险以远，则至者少；而世之奇伟瑰怪非常之观，常在于险远，而人之所罕至焉。——《游褒禅山记录》</p>
 </blockquote>
-<h2 id="What-is-Data-Structure-and-Algorithm"><a href="#What-is-Data-Structure-and-Algorithm" class="headerlink" title="# What is Data Structure and  Algorithm?"></a># What is Data Structure and  Algorithm?</h2><p>Algorithm is nothing but a mention of steps to solve a problem.If you don’t know algorithms well, you won’t be able to identify if you can optimize the code you are writing right now.</p>
-<p>Data Structure is used for organizing the data in memory. There are various ways of organizing the data in the memory, for eg. array, list, stack, queue, and many more.</p>
+<h2 id="What-is-Data-Structure-and-Algorithm"><a href="#What-is-Data-Structure-and-Algorithm" class="headerlink" title="# What is Data Structure and  Algorithm?"></a># What is Data Structure and  Algorithm?</h2><p>Algorithm is nothing but a mention of steps to solve a problem.If you don’t know algorithms well, you won’t be able to identify if you can optimize the code you are writing right now.<br>Data Structure is used for organizing the data in memory. There are various ways of organizing the data in the memory, for eg. array, list, stack, queue, and many more.</p>
 <span id="more"></span>
 <p>Data structures allow us to organize and store data, while algorithms allow us to process that data in a meaningful way. Learning data structure and algorithms will help you become a better programmer. You will be able to write code that is more efficient and more reliable. You will also be able to solve problems more quickly and more effectively.</p>
 <p>Data structures and algorithms complement each other. The data structure exists for the algorithm, and an algorithm generally suits a specific data structure.</p>
@@ -990,137 +1114,30 @@
       </tags>
   </entry>
   <entry>
-    <title>TheGoProgrammingLanguageBookReview</title>
-    <url>/2023/06/19/TheGoProgrammingLanguageBookReview/</url>
+    <title>WhyWeShouldStudyEnglish</title>
+    <url>/2023/05/05/WhyWeShouldStudyEnglish/</url>
     <content><![CDATA[<blockquote>
-<p><em>你不体面，我来帮你体面</em></p>
+<p>圣人无常师。——《师说》<br><img src="/2023/05/05/WhyWeShouldStudyEnglish/English03.jpeg" alt="english"><br>There are many, many reasons why learning a new language is a good idea. It allows you to communicate with new people. It helps you to see things from a different perspective, or get a deeper understanding of another culture. It helps you to become a better listener. It even has health benefits, as studies have shown that people who speak two or more languages have more active minds later in life!</p>
 </blockquote>
-<h2 id="The-structure-of-this-book"><a href="#The-structure-of-this-book" class="headerlink" title="The structure of this book"></a>The structure of this book</h2><ul>
-<li><p><strong>Programm Structure</strong></p>
-<ul>
-<li>Names</li>
-<li>Declarations</li>
-<li>Variables</li>
-<li>Assignments</li>
-<li>Type Declarations</li>
-<li>Packages and Files</li>
-<li>Scope</li>
-</ul>
+<h2 id="There-are-several-reasons-why-Chinese-people-may-choose-to-learn-English"><a href="#There-are-several-reasons-why-Chinese-people-may-choose-to-learn-English" class="headerlink" title="There are several reasons why Chinese people may choose to learn English:"></a>There are several reasons why Chinese people may choose to learn English:</h2><ul>
+<li><p>Global Communication: English is the most widely spoken language in the world and serves as a common language for international communication. Learning English opens doors to connect and communicate with people from different countries and cultures, enabling Chinese individuals to participate in global conversations, trade, and collaborations.</p>
+<span id="more"></span></li>
+<li><p>Education and Academic Opportunities: English is the primary language used in many prestigious universities and academic institutions worldwide. Proficiency in English allows Chinese students to access a broader range of educational opportunities abroad, including scholarships, research programs, and exchange programs.</p>
 </li>
-<li><p><strong>Basic Data Types</strong></p>
-<ul>
-<li>Integers</li>
-<li>Floating-Point Numbers</li>
-<li>Complex Numbers</li>
-<li>Booleans</li>
-<li>Strings</li>
-<li>Constants</li>
-</ul>
+<li><p>Career Advancement: English proficiency is increasingly important in today’s global job market. Many multinational companies require employees to have a good command of English, especially in fields such as business, technology, science, and tourism. Learning English can enhance career prospects and open up a wider range of job opportunities both within China and internationally.</p>
 </li>
-<li><p><strong>Composite Types</strong></p>
-<ul>
-<li>Arrays</li>
-<li>Slices</li>
-<li>Maps</li>
-<li>Structs</li>
-<li>JSON</li>
-<li>Text and HTML Template<span id="more"></span></li>
-</ul>
+<li><p>Travel and Tourism: English is widely spoken in many popular tourist destinations around the world. Knowing English can greatly enhance the travel experience for Chinese tourists, making it easier to navigate, communicate with locals, and understand cultural nuances.</p>
 </li>
-<li><p><strong>Functions</strong></p>
-<ul>
-<li>Function Declarations</li>
-<li>Recursion</li>
-<li>Multiple Return Values</li>
-<li>Errors</li>
-<li>Function Values</li>
-<li>Anonymous Functions</li>
-<li>Variadic Functions</li>
-<li>Deferred Function Calls</li>
-<li>Panic</li>
-<li>Recover</li>
-</ul>
+<li><p>Access to Information and Resources: A significant portion of the world’s information, literature, and resources are in English. By learning English, Chinese individuals can access a vast array of knowledge, including books, research papers, websites, and online resources that are not readily available in Chinese.</p>
 </li>
-<li><p><strong>Methods</strong></p>
-<ul>
-<li>Method Declarations</li>
-<li>Methods with a Pointer Receiver</li>
-<li>Composing Types byStruct Embedding</li>
-<li>Method Values and Expressions</li>
-<li>Example: Bit Vector Type</li>
-<li>Encapsulation</li>
-</ul>
+<li><p>Personal Development: Learning a foreign language like English can be intellectually stimulating and provide personal growth opportunities. It broadens one’s perspective, fosters cross-cultural understanding, and allows for the exploration of different ideas, literature, and perspectives.</p>
 </li>
-<li><p><strong>Interfaces</strong></p>
-<ul>
-<li>Interfaces as Contracts</li>
-<li>Interface Types</li>
-<li>Interface Satisfaction</li>
-<li>Parsing Flags with flag. Value</li>
-<li>Interface Values</li>
-<li>Sorting with sort Interface</li>
-<li>The http. Handler Interface</li>
-<li>The error nterface</li>
-<li>Example: Expression Evaluator</li>
-<li>Type Assertions</li>
-<li>Discriminating Errors with Type Assertions</li>
-<li>Querying Behaviors with Interface Type Assertions</li>
-<li>Type Switches</li>
-<li>Example: Token Based XML Decoding</li>
-<li>A Few Words of Advice</li>
-</ul>
-</li>
-<li><p><strong>Goroutines and channels</strong></p>
-<ul>
-<li>Goroutines</li>
-<li>Example: Concurrent Clock Server</li>
-<li>Example: Concurrent Echo Server</li>
-<li>Channels</li>
-<li>Looping in Paralle</li>
-<li>Example: Concurrent Web Crawler</li>
-<li>Multiplexing with select</li>
-<li>Example: Concurrent Directory Traversal</li>
-<li>Cancellation</li>
-</ul>
-</li>
-<li><p><strong>Concurrency with Shared Variables</strong></p>
-<ul>
-<li>Race Conditions</li>
-<li>Mutual Exclusion: sync. Mutex</li>
-<li>Read&#x2F;Write Mutexes: sync. RWMutex</li>
-<li>Memory Synchronization</li>
-<li>Lazy lnitialization: sync.Once</li>
-<li>The Race Detector</li>
-<li>Example: Concurrent Non-Blocking Cache</li>
-<li>Goroutinesand Threads</li>
-</ul>
-</li>
-<li><p><strong>Packages and the Go Tool</strong></p>
-<ul>
-<li>Introduction</li>
-<li>Import Paths</li>
-<li>The Package Declaration</li>
-<li>Import Declarations</li>
-<li>Blank Imports</li>
-<li>Packages and Naming</li>
-<li>The Go Tool</li>
-</ul>
-</li>
-<li><p><strong>Testing</strong></p>
-<ul>
-<li>The go test Tool</li>
-<li>Test Functions</li>
-<li>Coverage</li>
-<li>Benchmark Functions</li>
-<li>Profiling</li>
-<li>Example Functions</li>
-</ul>
+<li><p>Entertainment and Media: English is the dominant language in the global entertainment industry. By understanding English, Chinese individuals can enjoy a wide range of English-language movies, TV shows, music, and literature without relying on translations or subtitles.</p>
 </li>
 </ul>
-<p><strong>You don’t need care about the UI.</strong></p>
 ]]></content>
       <tags>
-        <tag>bookReview</tag>
+        <tag>other</tag>
       </tags>
   </entry>
   <entry>
@@ -1130,7 +1147,8 @@
 <p>好读书，不求甚解，毎有会意，便欣然忘食。——《五柳先生传》</p>
 </blockquote>
 <h2 id="What-does-“range”-mean-in-golang"><a href="#What-does-“range”-mean-in-golang" class="headerlink" title="# What does “range” mean in golang?"></a># What does “range” mean in golang?</h2><p>In each iterat ion of the loop, range produces a pair of values: the index and the value of the<br>element at that index.</p>
-<h2 id="What-is-method-in-golang"><a href="#What-is-method-in-golang" class="headerlink" title="# What is method in golang?"></a># What is method in golang?</h2><p>An object-oriented program is one that uses methods to<br>express the properties and operations of each data structure so that clients need not access the<br>object’s representation directly.</p>
+<h2 id="What-is-method-in-golang"><a href="#What-is-method-in-golang" class="headerlink" title="# What is method in golang?"></a># What is method in golang?</h2><span id="more"></span>
+<p>An object-oriented program is one that uses methods to<br>express the properties and operations of each data structure so that clients need not access the<br>object’s representation directly.</p>
 <p>An object is simply a value or variable that has methods, and a method is a function<br>associated with a particular type.</p>
 <h2 id="What-can-go-command-do-in-golang"><a href="#What-can-go-command-do-in-golang" class="headerlink" title="# What can go command do in golang?"></a># What can go command do in golang?</h2><table>
 <thead>
@@ -1188,8 +1206,6 @@
 <td>remove object files</td>
 </tr>
 </tbody></table>
-<span id="more"></span>
-
 <h2 id="What’s-the-difference-between-“go-run”-“go-build”-and-“go-install”-command"><a href="#What’s-the-difference-between-“go-run”-“go-build”-and-“go-install”-command" class="headerlink" title="# What’s the difference between “go run” “go build” and “go install” command?"></a># What’s the difference between “go run” “go build” and “go install” command?</h2><p>While the go run command is a useful shortcut for compiling and running a program when you’re making frequent changes, it doesn’t generate a binary executable<br>The go build command compiles the packages, along with their dependencies, but it doesn’t install the results.You’ve compiled the application into an executable so you can run it. But to run it , your prompt needs to be in the executable’s directory.<br>if I go to the parent folder ,there will be an error like this;</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line">$ ./hellozhangyi</span><br><span class="line">bash: ./hellozhangyi: No such file or directory</span><br></pre></td></tr></table></figure>
 
@@ -1222,6 +1238,8 @@
 <p>Each module’s path not only serves as an import path prefix for its packages, but also indicates where the go command should look to download it. For example, in order to download the module golang.org&#x2F;x&#x2F;tools, the go command would consult the repository indicated by <a href="https://golang.org/x/tools">https://golang.org/x/tools</a> (described more here).</p>
 <p>An import path is a string used to import a package. A package’s import path is its module path joined with its subdirectory within the module. For example, the module github.com&#x2F;google&#x2F;go-cmp contains a package in the directory cmp&#x2F;. That package’s import path is github.com&#x2F;google&#x2F;go-cmp&#x2F;cmp. Packages in the standard library do not have a module path prefix.</p>
 <h2 id="Is-slices-like-interface"><a href="#Is-slices-like-interface" class="headerlink" title="# Is slices  like interface?"></a># Is slices  like interface?</h2><p>From the slices lesson, we learned that a slice holds the reference to an array. Similarly, we can say that an interface also works in a similar way by dynamically holding a reference to the underlying type.<br>Interfaces are very useful in case of functions and methods where you need argument of dynamic types.</p>
+<hr>
+<p>There are some golang offical document you can click:<a href="https://go.dev/doc/">goDoc</a>,<a href="https://go.dev/play/">glang playground</a>,<a href="https://go.dev/tour/welcome/1">the tour of golang</a></p>
 ]]></content>
       <tags>
         <tag>softwareDevelopment</tag>
@@ -1231,16 +1249,15 @@
     <title>iosProgramming</title>
     <url>/2023/07/06/iosProgramming/</url>
     <content><![CDATA[<blockquote>
-<p>老当益壮，宁移白首之心；穷且益坚，不坠青云之志。——《滕王阁序》</p>
+<p>老当益壮，宁移白首之心；穷且益坚，不坠青云之志。——《滕王阁序》<br><img src="/2023/07/06/iosProgramming/iosProgramming01.jpg" alt="iosProgramming01"></p>
 </blockquote>
-<p><img src="/2023/07/06/iosProgramming/iosProgramming01.jpg" alt="iosProgramming01"></p>
 <h2 id="The-View-Hierarchy"><a href="#The-View-Hierarchy" class="headerlink" title="The View Hierarchy"></a>The View Hierarchy</h2><ul>
-<li>The View Hierarchy<br>Every application has a single instance of UIWindow that serves as the container for all the views in the<br>application. UIWindow is a subclass of UIView, so the window is itself a view. The window is created<br>when the application launches. Once the window is created, other views can be added to it.</li>
-<li>add view program</li>
-</ul>
+<li><p>The View Hierarchy<br>Every application has a single instance of UIWindow that serves as the container for all the views in the<br>application. UIWindow is a subclass of UIView, so the window is itself a view. The window is created<br>when the application launches. Once the window is created, other views can be added to it.</p>
+</li>
+<li><p>add view program</p>
+<span id="more"></span>
 <figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ViewController</span>: <span class="title class_">UIViewController</span> &#123;</span><br><span class="line"> <span class="keyword">override</span> <span class="keyword">func</span> <span class="title function_">viewDidLoad</span>() &#123;</span><br><span class="line"><span class="keyword">super</span>.viewDidLoad()</span><br><span class="line"><span class="keyword">let</span> firstFrame <span class="operator">=</span> <span class="type">CGRect</span>(x: <span class="number">160</span>, y: <span class="number">240</span>, width: <span class="number">100</span>, height: <span class="number">150</span>)</span><br><span class="line"><span class="keyword">let</span> firstView <span class="operator">=</span> <span class="type">UIView</span>(frame: firstFrame)</span><br><span class="line">firstView.backgroundColor <span class="operator">=</span> <span class="type">UIColor</span>.blue</span><br><span class="line">view.addSubview(firstView)</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
+</li>
 <li><p>There are two ways that a view controller can create its view hierarchy:</p>
 <ul>
 <li><p>in Interface Builder, by using an interface file such as a storyboard</p>
@@ -1348,6 +1365,7 @@
 
 <p>In Swift,exceptions are nearly always used to indicate programmer error. When an exception is thrown, the information about what went wrong is in an NSException object. That information is usually just a hint to the programmer, like, “You tried to access the seventh object in this array, but there are only two.”</p>
 <p>When do you use exceptions, and when do you use error handling? If you are writing a method that should only be called with an odd number as an argument, throw an exception if it is called with an even number – the caller is making an error and you want to help that programmer find the error. If<br>you are writing a method that wants to read the contents of a particular directory but does not have the necessary privileges, use Swift’s error handling and throw an error to the caller to indicate why you were unable to fulfill this very reasonable request.</p>
+<p>see more information on apple offical <strong><a href="https://developer.apple.com/documentation/uikit/uiviewcontroller">docment</a></strong> about uikit.</p>
 ]]></content>
       <tags>
         <tag>iosProgramming</tag>
