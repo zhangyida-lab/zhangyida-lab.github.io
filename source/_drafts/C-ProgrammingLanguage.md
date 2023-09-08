@@ -17,7 +17,7 @@ tags:
 
 In C, the semicolon is a statement terminator, rather than a separator as it is in languages like
 Pascal
-
+<!--more-->
 ## File Descriptors
 
 All information about an open file is maintained by the system; the user program refers to the file only by the file descriptor.

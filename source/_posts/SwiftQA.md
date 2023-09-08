@@ -283,4 +283,20 @@ Array uses Element as its placeholder type name. Optional uses Wrapped. It is co
 
 -----
 
+## swift omit return
+
+The return keyword can now be omitted when declaring functions and computed properties that only contain a single expression.
+
+```swift
+extension MarkdownReader {
+    var isAtStart: Bool { index == string.startIndex }
+    var didReachEnd: Bool { index == string.endIndex }
+    var currentCharacter: Character { string[index] }
+    
+    func encodeCurrentCharacter() -> String {
+        currentCharacter.encoded()
+    }
+}
+```
+
 see more information on apple offical **[docment](https://developer.apple.com/documentation/Swift)** about swift.
