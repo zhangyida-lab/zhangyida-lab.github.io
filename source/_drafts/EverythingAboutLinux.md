@@ -16,3 +16,32 @@ tags: operatingSystem
 - Provision of a system call application programming interface
 - Provision of virtual private computer
 
+## linux command 
+
+| command | ful name | remark |
+| ---- | ---- | ---- |
+| SAR | System Activity Reporter | sudo apt-get install sysstat |
+|LDD |List Dynamic Dependencies|
+
+## how to use proxy on your wsl system
+
+- create a file named .wslconfig in this folder:
+
+  ``` shell
+  C:\Users\ %USERPROFILE%\.wslconfig 
+  ```
+
+- the .wslconfig content is this:
+
+``` shell
+[experimental]
+autoMemoryReclaim=gradual  # gradual  | dropcache | disabled
+networkingMode=mirrored 
+dnsTunneling=true
+firewall=true
+autoProxy=true
+
+```
+
+- shut down your wsl system using this command
+- use wget command test your proxy
