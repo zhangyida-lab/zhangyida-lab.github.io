@@ -108,7 +108,7 @@ deploy:
   type: git
   repo: https://github.com/zhangyida-lab/zhangyida-lab.github.io.git
   branch: main
-  token: ghp_nYRibQVCjT1NqQadZPdRvetD1bhoLq3rUJ5H
+  token: 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
 
 # Local search config
 search:
