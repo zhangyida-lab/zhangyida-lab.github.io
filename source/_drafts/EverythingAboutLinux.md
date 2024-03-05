@@ -45,3 +45,24 @@ autoProxy=true
 
 - shut down your wsl system using this command
 - use wget command test your proxy
+
+
+
+## monunt disk
+
+- lsblk 
+  list the block device
+
+- mount the device to the directory you create
+
+```shell
+sudo mount dev/sdb2 /media/mydrivename
+```
+
+
+
+## LINUX SHORT NAME
+
+|fullName|shortName|description|---|---|
+|----|---|---|---|---|
+|Teletypewriter |tty|---|---|---|
