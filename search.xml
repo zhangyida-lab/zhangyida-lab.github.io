@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>AboutCode</title>
+    <url>/2023/05/24/AboutCode/</url>
+    <content><![CDATA[<p><img src="/2023/05/24/AboutCode/codeImage.jpg" alt="library"></p>
+<blockquote>
+<p>天下有大勇者，卒然临之而不惊，无故加之而不怒，此其所挟持者甚大，而其志甚远也。——《留侯论》</p>
+</blockquote>
+<h2 id="about-program-structure"><a href="#about-program-structure" class="headerlink" title="about program structure"></a>about program structure</h2><p>In any other programming language, one builds large programs from a small set of basic constructs. Variables store values. Simple expressions are combined into larger ones with operations like addition and subtraction. Basic types are collected into aggregates like arrays and structs. Expressions are used in statements whose execution order is determined by control-flow statements like if and for. Statements are grouped into functions for isolation and reuse. Functions are gathered into source files and packages.</p>
+<span id="more"></span>
+<h2 id="about-data-type"><a href="#about-data-type" class="headerlink" title="about data type"></a>about data type</h2><p>It’s all bits at the bottom, of course, but computers operate fundamentally on fixed-size numbers called words, which are interpreted as integers, floating-point numbers, bit sets, or memory addresses, then combined into larger aggregates that represent packets, pixels, portfolios,<br>poetry, and everything else. Go offer savariety of ways to organize data, with a spectrum of data typ es that at one end match the features of the hardware and at the other end provide what programmers need to conveniently represent complicated data structures.</p>
+<h2 id="about-function"><a href="#about-function" class="headerlink" title="about function"></a>about function</h2><p>A function lets us wrap upasequence of statements asaunit that can be called from else where<br>in a program, perhaps multiple times. Functions make it possible to breakabig job into smaller pieces that might well be written by different people sep arated by both time and space.<br>A function hides its implementation details from its users. For all of these reasons, functions areacritical part of any programming language.</p>
+<h2 id="about-interface"><a href="#about-interface" class="headerlink" title="about interface"></a>about interface</h2><p>Interface types express generalizations or abstractions about the behaviors of other types. By generalizing, interfaces let us write functions that are more flexible and adapt able because they are not tied to the details of one particular implementation</p>
+<p>《The Go Programming Language》 written by “Alan A. A. Donovan” and “Brian W. Kernighan”</p>
+]]></content>
+      <tags>
+        <tag>code</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>AppleBookAboutIOSDevelopment</title>
     <url>/2023/06/16/AppleBookAboutIOSDevelopment/</url>
     <content><![CDATA[<p><img src="/2023/06/16/AppleBookAboutIOSDevelopment/iosDevelopment.jpg" alt="AppleBookAboutIOSDevelopment"></p>
@@ -124,6 +142,16 @@
       <tags>
         <tag>bookReview</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>ComputerNetwork</title>
+    <url>/2023/06/19/ComputerNetwork/</url>
+    <content><![CDATA[<blockquote>
+<p>A <strong>pointer</strong> is a variable that stores the memory address of <strong>another</strong> variable as its value.</p>
+</blockquote>
+<p>Best Practices for Using Multiple Network Interfaces,yon can click <a href="https://www.ni.com/en-us/support/documentation/supplemental/11/best-practices-for-using-multiple-network-interfaces--nics--with.html">here</a>.</p>
+<h2 id="Internet-firewal"><a href="#Internet-firewal" class="headerlink" title="Internet firewal"></a>Internet firewal</h2><p><a href="https://aws.amazon.com/cn/what-is/ipsec/">IPSec and sslVPN</a>.</p>
+]]></content>
   </entry>
   <entry>
     <title>ComputerSystem</title>
@@ -301,21 +329,78 @@
       </tags>
   </entry>
   <entry>
-    <title>AboutCode</title>
-    <url>/2023/05/24/AboutCode/</url>
-    <content><![CDATA[<p><img src="/2023/05/24/AboutCode/codeImage.jpg" alt="library"></p>
+    <title>EnglishAndCommandApp</title>
+    <url>/2023/05/19/EnglishAndCommandApp/</url>
+    <content><![CDATA[<h2 id="English-And-CommandApp"><a href="#English-And-CommandApp" class="headerlink" title="English And CommandApp"></a>English And CommandApp</h2><p><img src="/2023/05/19/EnglishAndCommandApp/commandline.png" alt="command"></p>
 <blockquote>
-<p>天下有大勇者，卒然临之而不惊，无故加之而不怒，此其所挟持者甚大，而其志甚远也。——《留侯论》</p>
+<p>In this bolg you will find a fact that commandline syntax is the same as the english syntax.  </p>
 </blockquote>
-<h2 id="about-program-structure"><a href="#about-program-structure" class="headerlink" title="about program structure"></a>about program structure</h2><p>In any other programming language, one builds large programs from a small set of basic constructs. Variables store values. Simple expressions are combined into larger ones with operations like addition and subtraction. Basic types are collected into aggregates like arrays and structs. Expressions are used in statements whose execution order is determined by control-flow statements like if and for. Statements are grouped into functions for isolation and reuse. Functions are gathered into source files and packages.</p>
+<h3 id="1-the-english-we-used-in-our-daily-life"><a href="#1-the-english-we-used-in-our-daily-life" class="headerlink" title="1. the english we used in our daily life"></a>1. the english we used in our daily life</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> --force [file]</span><br><span class="line">verb adverb noun</span><br></pre></td></tr></table></figure>
 <span id="more"></span>
-<h2 id="about-data-type"><a href="#about-data-type" class="headerlink" title="about data type"></a>about data type</h2><p>It’s all bits at the bottom, of course, but computers operate fundamentally on fixed-size numbers called words, which are interpreted as integers, floating-point numbers, bit sets, or memory addresses, then combined into larger aggregates that represent packets, pixels, portfolios,<br>poetry, and everything else. Go offer savariety of ways to organize data, with a spectrum of data typ es that at one end match the features of the hardware and at the other end provide what programmers need to conveniently represent complicated data structures.</p>
-<h2 id="about-function"><a href="#about-function" class="headerlink" title="about function"></a>about function</h2><p>A function lets us wrap upasequence of statements asaunit that can be called from else where<br>in a program, perhaps multiple times. Functions make it possible to breakabig job into smaller pieces that might well be written by different people sep arated by both time and space.<br>A function hides its implementation details from its users. For all of these reasons, functions areacritical part of any programming language.</p>
-<h2 id="about-interface"><a href="#about-interface" class="headerlink" title="about interface"></a>about interface</h2><p>Interface types express generalizations or abstractions about the behaviors of other types. By generalizing, interfaces let us write functions that are more flexible and adapt able because they are not tied to the details of one particular implementation</p>
-<p>《The Go Programming Language》 written by “Alan A. A. Donovan” and “Brian W. Kernighan”</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install hugo</span><br><span class="line">noun verb  noun</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-what-does-commandAPP-mean"><a href="#2-what-does-commandAPP-mean" class="headerlink" title="2. what does commandAPP mean?"></a>2. what does commandAPP mean?</h3><ul>
+<li>launch something</li>
+<li>do more than one thing</li>
+<li>collection of command</li>
+</ul>
+<h3 id="3-what-does-subCommand-mean"><a href="#3-what-does-subCommand-mean" class="headerlink" title="3. what does subCommand mean?"></a>3. what does subCommand mean?</h3><ul>
+<li>commandAPP are groups of command,such as</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">svn add</span><br><span class="line">brew install</span><br><span class="line">npm search</span><br><span class="line">apt-get upgrade</span><br><span class="line">git <span class="built_in">clone</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
-        <tag>code</tag>
+        <tag>commandApp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>EverythingAboutMysql</title>
+    <url>/2023/05/25/EverythingAboutMysql/</url>
+    <content><![CDATA[<blockquote>
+<p>This blog will record the thing I meetting when I learn mysql.<br><img src="/2023/05/25/EverythingAboutMysql/databaseschema.jpg" alt="library"></p>
+</blockquote>
+<h2 id="MySQL-Data-Types"><a href="#MySQL-Data-Types" class="headerlink" title="MySQL Data Types"></a>MySQL Data Types</h2><p>The proper definition of a table’s fields is critical to the overall optimization of your database. You should only utilise the type and size of the field that you truly require. For example, if you know you’ll only use two characters, don’t make a field 10 characters large. After the sort of data, you’ll be storing in those fields, these fields (or columns) are referred to as data types.<br>MySQL makes use of a variety of data types that are divided into three groups.</p>
+<ul>
+<li>Numeric</li>
+<li>Date and Time</li>
+<li>String Types.<span id="more"></span></li>
+</ul>
+<h2 id="DDL"><a href="#DDL" class="headerlink" title="DDL"></a>DDL</h2><p>DDL or Data Definition Language consists of those commands which include defining the structure of database schema and database table. It mainly involves the structuring of database schema and the table.</p>
+<p>The commands included in DDL are: </p>
+<ul>
+<li>Create – Used to create the table schema</li>
+<li>Drop – Drop the database from the memory</li>
+<li>Alter – Alter the structure of the table schema</li>
+<li>Truncate – Delete all the data from the database schema</li>
+<li>Comment – These statements are meant only for understanding the schema structure. They do not contribute to the actual database structure</li>
+<li>Rename – Used to rename the database table</li>
+</ul>
+<h2 id="DML"><a href="#DML" class="headerlink" title="DML"></a>DML</h2><p>DML or Data Manipulation Language consists of those commands which include manipulating the data of the database table. It involves creating and manipulating the data of the database table.</p>
+<p>The commands included in DML are</p>
+<ul>
+<li>Select: Used to extract the information from the database table  </li>
+<li>Insert: Used to insert the data into the database table</li>
+<li>Update: Update the existing data in the database table where a particular condition is defined.</li>
+<li>Delete: Delete the data from the database table</li>
+</ul>
+<h2 id="DCL"><a href="#DCL" class="headerlink" title="DCL"></a>DCL</h2><p>DCL or Data Control Language consists of those commands to deal with the rights, permissions, or other controls of the database system. It involves specific rights to the specific users to access the database.</p>
+<p>The commands included in DCL are</p>
+<ul>
+<li><p>Grant : Used to give permissions to a specific user to access the database with read or write permissions.</p>
+</li>
+<li><p>Revoke : Used to remove the permissions from a specific user to access the database.</p>
+</li>
+</ul>
+<h2 id="TCL"><a href="#TCL" class="headerlink" title="TCL"></a>TCL</h2><p>TCL or Transaction Control Language consists of those commands that deal with the transactions of the database.These include collection of statements between specific client and server.</p>
+<p>The commands included in TCL are:</p>
+<ul>
+<li>Commit : Used to store the previous data.</li>
+<li>Rollback : Used to restore the previous deleted data or tables.</li>
+<li>Savepoint : Used to create a point in the database also known as checkpoint. It is used to rollback the transaction.</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>database</tag>
       </tags>
   </entry>
   <entry>
@@ -403,6 +488,18 @@
 ]]></content>
   </entry>
   <entry>
+    <title>JavaQA</title>
+    <url>/2023/05/05/JavaQA/</url>
+    <content><![CDATA[<blockquote>
+<p>盛衰之理，虽曰天命，岂非人事哉。 ——《五代史伶官传序》</p>
+</blockquote>
+<span id="more"></span>
+]]></content>
+      <tags>
+        <tag>softwareDevelopment</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PresentationSkillsYouShouldKonw</title>
     <url>/2023/07/08/PresentationSkillsYouShouldKonw/</url>
     <content><![CDATA[<h2 id="How-to-improve-your-public-speaking"><a href="#How-to-improve-your-public-speaking" class="headerlink" title="How to improve your public speaking"></a>How to improve your public speaking</h2><p><img src="/2023/07/08/PresentationSkillsYouShouldKonw/PresentationSkills.jpg" alt="PresentationSkills"></p>
@@ -444,63 +541,66 @@
       </tags>
   </entry>
   <entry>
-    <title>ComputerNetwork</title>
-    <url>/2023/06/19/ComputerNetwork/</url>
-    <content><![CDATA[<blockquote>
-<p>A <strong>pointer</strong> is a variable that stores the memory address of <strong>another</strong> variable as its value.</p>
-</blockquote>
-<p>Best Practices for Using Multiple Network Interfaces,yon can click <a href="https://www.ni.com/en-us/support/documentation/supplemental/11/best-practices-for-using-multiple-network-interfaces--nics--with.html">here</a>.</p>
-<h2 id="Internet-firewal"><a href="#Internet-firewal" class="headerlink" title="Internet firewal"></a>Internet firewal</h2><p><a href="https://aws.amazon.com/cn/what-is/ipsec/">IPSec and sslVPN</a>.</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>EverythingAboutMysql</title>
-    <url>/2023/05/25/EverythingAboutMysql/</url>
-    <content><![CDATA[<blockquote>
-<p>This blog will record the thing I meetting when I learn mysql.<br><img src="/2023/05/25/EverythingAboutMysql/databaseschema.jpg" alt="library"></p>
-</blockquote>
-<h2 id="MySQL-Data-Types"><a href="#MySQL-Data-Types" class="headerlink" title="MySQL Data Types"></a>MySQL Data Types</h2><p>The proper definition of a table’s fields is critical to the overall optimization of your database. You should only utilise the type and size of the field that you truly require. For example, if you know you’ll only use two characters, don’t make a field 10 characters large. After the sort of data, you’ll be storing in those fields, these fields (or columns) are referred to as data types.<br>MySQL makes use of a variety of data types that are divided into three groups.</p>
-<ul>
-<li>Numeric</li>
-<li>Date and Time</li>
-<li>String Types.<span id="more"></span></li>
-</ul>
-<h2 id="DDL"><a href="#DDL" class="headerlink" title="DDL"></a>DDL</h2><p>DDL or Data Definition Language consists of those commands which include defining the structure of database schema and database table. It mainly involves the structuring of database schema and the table.</p>
-<p>The commands included in DDL are: </p>
-<ul>
-<li>Create – Used to create the table schema</li>
-<li>Drop – Drop the database from the memory</li>
-<li>Alter – Alter the structure of the table schema</li>
-<li>Truncate – Delete all the data from the database schema</li>
-<li>Comment – These statements are meant only for understanding the schema structure. They do not contribute to the actual database structure</li>
-<li>Rename – Used to rename the database table</li>
-</ul>
-<h2 id="DML"><a href="#DML" class="headerlink" title="DML"></a>DML</h2><p>DML or Data Manipulation Language consists of those commands which include manipulating the data of the database table. It involves creating and manipulating the data of the database table.</p>
-<p>The commands included in DML are</p>
-<ul>
-<li>Select: Used to extract the information from the database table  </li>
-<li>Insert: Used to insert the data into the database table</li>
-<li>Update: Update the existing data in the database table where a particular condition is defined.</li>
-<li>Delete: Delete the data from the database table</li>
-</ul>
-<h2 id="DCL"><a href="#DCL" class="headerlink" title="DCL"></a>DCL</h2><p>DCL or Data Control Language consists of those commands to deal with the rights, permissions, or other controls of the database system. It involves specific rights to the specific users to access the database.</p>
-<p>The commands included in DCL are</p>
-<ul>
-<li><p>Grant : Used to give permissions to a specific user to access the database with read or write permissions.</p>
-</li>
-<li><p>Revoke : Used to remove the permissions from a specific user to access the database.</p>
-</li>
-</ul>
-<h2 id="TCL"><a href="#TCL" class="headerlink" title="TCL"></a>TCL</h2><p>TCL or Transaction Control Language consists of those commands that deal with the transactions of the database.These include collection of statements between specific client and server.</p>
-<p>The commands included in TCL are:</p>
-<ul>
-<li>Commit : Used to store the previous data.</li>
-<li>Rollback : Used to restore the previous deleted data or tables.</li>
-<li>Savepoint : Used to create a point in the database also known as checkpoint. It is used to rollback the transaction.</li>
-</ul>
+    <title>MarkdownBasicSyntax</title>
+    <url>/2023/04/17/MarkdownBasicSyntax/</url>
+    <content><![CDATA[<h2 id="Q-amp-A-about-markdown"><a href="#Q-amp-A-about-markdown" class="headerlink" title="Q&amp;A about markdown"></a>Q&amp;A about markdown</h2><h2 id="How-to-headings-your-word"><a href="#How-to-headings-your-word" class="headerlink" title="# How to headings your word?"></a><font color="green">#</font> How to headings your word?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># Heading</span></span><br><span class="line">represent level 1</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
+<h2 id="How-to-emphasis-your-word"><a href="#How-to-emphasis-your-word" class="headerlink" title="# How to emphasis your word?"></a><font color="green">#</font> How to emphasis your word?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="emphasis">*heading*</span> represent Italic</span><br><span class="line"><span class="strong">**heading**</span> represent Bold</span><br></pre></td></tr></table></figure>
+
+<h2 id="How-to-lists-your-word"><a href="#How-to-lists-your-word" class="headerlink" title="# How to lists your word?"></a><font color="green">#</font> How to lists your word?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet"> 1.</span> first</span><br><span class="line"><span class="bullet"> 2.</span> second </span><br><span class="line">represent Ordered Lists</span><br><span class="line"><span class="bullet"> -</span> first</span><br><span class="line"><span class="bullet"> -</span> second </span><br><span class="line">represent Unordered Lists</span><br></pre></td></tr></table></figure>
+
+<h2 id="How-to-add-images-in-markdown"><a href="#How-to-add-images-in-markdown" class="headerlink" title="# How to add images in markdown?"></a><font color="orange">#</font> How to add images in markdown?</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">![this is a message](Snipaste.png)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s3.bmp.ovh/imgs/2023/05/04/363e4e279c367a69.png" alt="this is a messag"></p>
+<h2 id="How-to-add-links-in-markdow"><a href="#How-to-add-links-in-markdow" class="headerlink" title="# How to add links in markdow?"></a><font color="green">#</font> How to add links in markdow?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">Markdown basic syntax is [<span class="string">here</span>](<span class="link">https://www.markdownguide.org/basic-syntax/</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Markdown basic syntax is <a href="https://www.markdownguide.org/basic-syntax/">here</a></p>
+<h2 id="How-to-color-your-word-in-markdown"><a href="#How-to-color-your-word-in-markdown" class="headerlink" title="# How to color your word in markdown?"></a><font color="green">#</font> How to color your word in markdown?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">&quot;green&quot;</span>&gt;</span></span> i am green <span class="language-xml"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><font color="green"> I am GREEN </font></p>
+<h2 id="How-to-use-emoji-in-markdown"><a href="#How-to-use-emoji-in-markdown" class="headerlink" title="# How to use emoji in markdown?"></a><font color="green">#</font> How to use emoji in markdown?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">:some strings:</span><br></pre></td></tr></table></figure>
+
+<p>:x:,  :link:</p>
+<p>:link: The emoji list is <a href="https://gist.github.com/rxaviers/7360908">here</a>.</p>
+<h2 id="Paragraphs-and-Line-Breaks"><a href="#Paragraphs-and-Line-Breaks" class="headerlink" title="Paragraphs and Line Breaks"></a>Paragraphs and Line Breaks</h2><p>To create paragraphs, use a blank line to separate one or more lines of text.</p>
+<p>To create a line break or new line , end a line with two or more spaces, and then type return.</p>
+<h2 id="Markdown-tabe"><a href="#Markdown-tabe" class="headerlink" title="Markdown tabe"></a>Markdown tabe</h2><figure class="highlight md"><table><tr><td class="code"><pre><span class="line">|  表头   | 表头  |</span><br><span class="line">|  ----  | ----  |</span><br><span class="line">| 单元格  | 单元格 |</span><br><span class="line">| 单元格  | 单元格 |</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>表头</th>
+<th>表头</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+<tr>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+</tbody></table>
 ]]></content>
       <tags>
-        <tag>database</tag>
+        <tag>others</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PythonQA</title>
+    <url>/2023/05/05/PythonQA/</url>
+    <content><![CDATA[<blockquote>
+<p>古之立大事者，不惟有超世之才，亦必有坚忍不拔之志。—— 《鼂错论》</p>
+</blockquote>
+<h2 id="How-to-use-python-and-youtube-api-analysis"><a href="#How-to-use-python-and-youtube-api-analysis" class="headerlink" title="How to use python and youtube-api-analysis"></a>How to use python and youtube-api-analysis</h2><blockquote>
+<p>we can use python and youtube-api to analysis the youtuber data which you want to know.you can open this github repository.</p>
+</blockquote>
+<p><a href="https://github.com/thu-vu92/youtube-api-analysis">youtube-api-analysis</a></p>
+<span id="more"></span>]]></content>
+      <tags>
+        <tag>softwareDevelopment</tag>
       </tags>
   </entry>
   <entry>
@@ -574,81 +674,6 @@
       </categories>
       <tags>
         <tag>Blog</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PythonQA</title>
-    <url>/2023/05/05/PythonQA/</url>
-    <content><![CDATA[<blockquote>
-<p>古之立大事者，不惟有超世之才，亦必有坚忍不拔之志。—— 《鼂错论》</p>
-</blockquote>
-<h2 id="How-to-use-python-and-youtube-api-analysis"><a href="#How-to-use-python-and-youtube-api-analysis" class="headerlink" title="How to use python and youtube-api-analysis"></a>How to use python and youtube-api-analysis</h2><blockquote>
-<p>we can use python and youtube-api to analysis the youtuber data which you want to know.you can open this github repository.</p>
-</blockquote>
-<p><a href="https://github.com/thu-vu92/youtube-api-analysis">youtube-api-analysis</a></p>
-<span id="more"></span>]]></content>
-      <tags>
-        <tag>softwareDevelopment</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JavaQA</title>
-    <url>/2023/05/05/JavaQA/</url>
-    <content><![CDATA[<blockquote>
-<p>盛衰之理，虽曰天命，岂非人事哉。 ——《五代史伶官传序》</p>
-</blockquote>
-<span id="more"></span>
-]]></content>
-      <tags>
-        <tag>softwareDevelopment</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MarkdownBasicSyntax</title>
-    <url>/2023/04/17/MarkdownBasicSyntax/</url>
-    <content><![CDATA[<h2 id="Q-amp-A-about-markdown"><a href="#Q-amp-A-about-markdown" class="headerlink" title="Q&amp;A about markdown"></a>Q&amp;A about markdown</h2><h2 id="How-to-headings-your-word"><a href="#How-to-headings-your-word" class="headerlink" title="# How to headings your word?"></a><font color="green">#</font> How to headings your word?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># Heading</span></span><br><span class="line">represent level 1</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-
-<h2 id="How-to-emphasis-your-word"><a href="#How-to-emphasis-your-word" class="headerlink" title="# How to emphasis your word?"></a><font color="green">#</font> How to emphasis your word?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="emphasis">*heading*</span> represent Italic</span><br><span class="line"><span class="strong">**heading**</span> represent Bold</span><br></pre></td></tr></table></figure>
-
-<h2 id="How-to-lists-your-word"><a href="#How-to-lists-your-word" class="headerlink" title="# How to lists your word?"></a><font color="green">#</font> How to lists your word?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet"> 1.</span> first</span><br><span class="line"><span class="bullet"> 2.</span> second </span><br><span class="line">represent Ordered Lists</span><br><span class="line"><span class="bullet"> -</span> first</span><br><span class="line"><span class="bullet"> -</span> second </span><br><span class="line">represent Unordered Lists</span><br></pre></td></tr></table></figure>
-
-<h2 id="How-to-add-images-in-markdown"><a href="#How-to-add-images-in-markdown" class="headerlink" title="# How to add images in markdown?"></a><font color="orange">#</font> How to add images in markdown?</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">![this is a message](Snipaste.png)</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://s3.bmp.ovh/imgs/2023/05/04/363e4e279c367a69.png" alt="this is a messag"></p>
-<h2 id="How-to-add-links-in-markdow"><a href="#How-to-add-links-in-markdow" class="headerlink" title="# How to add links in markdow?"></a><font color="green">#</font> How to add links in markdow?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">Markdown basic syntax is [<span class="string">here</span>](<span class="link">https://www.markdownguide.org/basic-syntax/</span>)</span><br></pre></td></tr></table></figure>
-
-<p>Markdown basic syntax is <a href="https://www.markdownguide.org/basic-syntax/">here</a></p>
-<h2 id="How-to-color-your-word-in-markdown"><a href="#How-to-color-your-word-in-markdown" class="headerlink" title="# How to color your word in markdown?"></a><font color="green">#</font> How to color your word in markdown?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">&quot;green&quot;</span>&gt;</span></span> i am green <span class="language-xml"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<p><font color="green"> I am GREEN </font></p>
-<h2 id="How-to-use-emoji-in-markdown"><a href="#How-to-use-emoji-in-markdown" class="headerlink" title="# How to use emoji in markdown?"></a><font color="green">#</font> How to use emoji in markdown?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">:some strings:</span><br></pre></td></tr></table></figure>
-
-<p>:x:,  :link:</p>
-<p>:link: The emoji list is <a href="https://gist.github.com/rxaviers/7360908">here</a>.</p>
-<h2 id="Paragraphs-and-Line-Breaks"><a href="#Paragraphs-and-Line-Breaks" class="headerlink" title="Paragraphs and Line Breaks"></a>Paragraphs and Line Breaks</h2><p>To create paragraphs, use a blank line to separate one or more lines of text.</p>
-<p>To create a line break or new line , end a line with two or more spaces, and then type return.</p>
-<h2 id="Markdown-tabe"><a href="#Markdown-tabe" class="headerlink" title="Markdown tabe"></a>Markdown tabe</h2><figure class="highlight md"><table><tr><td class="code"><pre><span class="line">|  表头   | 表头  |</span><br><span class="line">|  ----  | ----  |</span><br><span class="line">| 单元格  | 单元格 |</span><br><span class="line">| 单元格  | 单元格 |</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>表头</th>
-<th>表头</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>单元格</td>
-<td>单元格</td>
-</tr>
-<tr>
-<td>单元格</td>
-<td>单元格</td>
-</tr>
-</tbody></table>
-]]></content>
-      <tags>
-        <tag>others</tag>
       </tags>
   </entry>
   <entry>
@@ -877,50 +902,6 @@
       </tags>
   </entry>
   <entry>
-    <title>WhatIsDiscreteManufacturing</title>
-    <url>/2023/07/12/WhatIsDiscreteManufacturing/</url>
-    <content><![CDATA[<h2 id="what-is-discrete-manufacturing"><a href="#what-is-discrete-manufacturing" class="headerlink" title="what is discrete manufacturing?"></a>what is discrete manufacturing?</h2><p>Discrete manufacturing is an industry term for the manufacturing of finished products that are distinct items capable of being easily counted, touched or seen. Discrete manufacturing involves parts and systems like nuts and bolts, brackets, wires, assemblies and individual products.</p>
-<p>Examples of products made from discrete manufacturing include automobiles, furniture, airplanes, toys, smartphones and defense systems. In theory, a discrete product can be broken down at the end of its lifecycle so its basic components can be recycled.</p>
-<p>Discrete vs. process manufacturing<br>Discrete manufacturing contrasts with process manufacturing. In process manufacturing, the product is created by using a formula or recipe to refine raw ingredients and the final product cannot be broken down to its basic components.</p>
-<p>Examples of goods produced by process manufacturing include pharmaceuticals, food and beverages, refined oil and paints.</p>
-<p>Discrete manufacturers use a bill of materials (BOM) and production follows a route, such as an assembly line, whereas process manufacturing uses a recipe and the ingredients are blended or refined in batches.</p>
-<table>
-<thead>
-<tr>
-<th>Discrete manufacturing</th>
-<th>Process manufacturing</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Products that are comprised of parts thatcan be easily touched, counted, sourced,etc</td>
-<td>Products that are created using a formula to refine raw materials</td>
-</tr>
-<tr>
-<td>Parts can be broken down and disposed ofor recycled at the end of the product lifecycle</td>
-<td>Products cannot be broken down into constituent parts.</td>
-</tr>
-<tr>
-<td>Uses a bill of materials (BOM)</td>
-<td>Uses a formula or recipe</td>
-</tr>
-<tr>
-<td>Assembles in a linear or routing way.</td>
-<td>Blends in a batch</td>
-</tr>
-<tr>
-<td>Examples are automobiles, computers, etc</td>
-<td>Examples are drugs or food products</td>
-</tr>
-</tbody></table>
-<h2 id="Discrete-manufacturing-and-ERP-systems"><a href="#Discrete-manufacturing-and-ERP-systems" class="headerlink" title="Discrete manufacturing and ERP systems"></a>Discrete manufacturing and ERP systems</h2><p>ERP systems, then called manufacturing resource planning (MRP), were originally developed to manage discrete manufacturing processes. These ERP systems let companies control and get visibility into the manufacturing process, helping to eliminate waste and reducing the time required to produce the goods.</p>
-<p>Typical functions in these systems include inventory or materials management, sales order management, supply chain management financial management and CRM. The ERP systems are often tailored for the specific discrete manufacturing needs in various industries, such as automotive, aerospace, defense, industrial equipment and electronics. The systems are then typically customized to meet a manufacturer’s specific needs.</p>
-<p><em>This post come from this<a href="https://www.techtarget.com/searcherp/definition/discrete-manufacturing">website</a>.</em></p>
-]]></content>
-      <tags>
-        <tag>Manufacturing</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>TheDifferenceBetweenDifferentComputerLanguage</title>
     <url>/2023/05/05/TheDifferenceBetweenDifferentComputerLanguage/</url>
     <content><![CDATA[<blockquote>
@@ -971,85 +952,6 @@
       <tags>
         <tag>softwareDevelopment</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>WhyWeShouldKnowAlgorithmsAndDataStructures</title>
-    <url>/2023/05/25/WhyWeShouldKnowAlgorithmsAndDataStructures/</url>
-    <content><![CDATA[<blockquote>
-<p>夫夷以近，则遊者众；险以远，则至者少；而世之奇伟瑰怪非常之观，常在于险远，而人之所罕至焉。——《游褒禅山记录》</p>
-</blockquote>
-<h2 id="What-is-Data-Structure-and-Algorithm"><a href="#What-is-Data-Structure-and-Algorithm" class="headerlink" title="# What is Data Structure and  Algorithm?"></a># What is Data Structure and  Algorithm?</h2><p>Algorithm is nothing but a mention of steps to solve a problem.If you don’t know algorithms well, you won’t be able to identify if you can optimize the code you are writing right now.<br>Data Structure is used for organizing the data in memory. There are various ways of organizing the data in the memory, for eg. array, list, stack, queue, and many more.</p>
-<span id="more"></span>
-<p>Data structures allow us to organize and store data, while algorithms allow us to process that data in a meaningful way. Learning data structure and algorithms will help you become a better programmer. You will be able to write code that is more efficient and more reliable. You will also be able to solve problems more quickly and more effectively.</p>
-<p>Data structures and algorithms complement each other. The data structure exists for the algorithm, and an algorithm generally suits a specific data structure.</p>
-<p>Generally speaking, a data structure is a way to organize data, while an algorithm is a method or pattern for solving problems.</p>
-<p>To illustrate this, let’s say you want to find a specific book in a library.</p>
-<p><img src="/2023/05/25/WhyWeShouldKnowAlgorithmsAndDataStructures/library.jpg" alt="library"></p>
-<p>Because computer can only do simple thing,but it can do thing very fast;it can store large number data.so as a programmer we need Algorithm and Data structures.</p>
-<p>计算机只能做简单的事情，并且可以存储大量数据，因此需要程序员知道如何存储数据、读取数据，这就是涉及到我们的主题——数据结构和算法。计算机的内部实现类比图书馆，如何组织存放图书，如何快速查找图书。</p>
-<h2 id="What-thing-can-Data-Structure-and-Algorithm-do-on-computer-science"><a href="#What-thing-can-Data-Structure-and-Algorithm-do-on-computer-science" class="headerlink" title="# What thing can Data Structure and  Algorithm do on computer science?"></a># What thing can Data Structure and  Algorithm do on computer science?</h2><ul>
-<li><p>Organization of data in a computer’s memory</p>
-</li>
-<li><p>Representation of information in databases</p>
-</li>
-<li><p>Algorithms that search through data (such as a search engine)</p>
-</li>
-<li><p>algorithms that manipulate data (such as a word processor)</p>
-</li>
-<li><p>algorithms that analyze data (such as a data miner)</p>
-</li>
-<li><p>algorithms that generate data (such as a random number generator)</p>
-</li>
-<li><p>algorithms that compress and decompress data (such as a zip utility)</p>
-</li>
-<li><p>algorithms that encrypt and decrypt data (such as a security system)</p>
-</li>
-<li><p>software that manages files and directories (such as a file manager)</p>
-</li>
-<li><p>software that renders graphics (such as a web browser or 3D rendering software)</p>
-</li>
-</ul>
-<h2 id="What-thing-can-Data-Structure-and-Algorithm-do-on-daily-life"><a href="#What-thing-can-Data-Structure-and-Algorithm-do-on-daily-life" class="headerlink" title="# What thing can Data Structure and  Algorithm do on daily life?"></a># What thing can Data Structure and  Algorithm do on daily life?</h2><ul>
-<li>change the way you remember things</li>
-<li>find a more efficient solution</li>
-<li>you can bulid your own <strong>“tree”</strong></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>softwareDevelopment</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>WhyWeShouldStudyEnglish</title>
-    <url>/2023/05/05/WhyWeShouldStudyEnglish/</url>
-    <content><![CDATA[<blockquote>
-<p>圣人无常师。——《师说》<br><img src="/2023/05/05/WhyWeShouldStudyEnglish/English03.jpeg" alt="english"><br>There are many, many reasons why learning a new language is a good idea. It allows you to communicate with new people. It helps you to see things from a different perspective, or get a deeper understanding of another culture. It helps you to become a better listener. It even has health benefits, as studies have shown that people who speak two or more languages have more active minds later in life!</p>
-</blockquote>
-<h2 id="There-are-several-reasons-why-Chinese-people-may-choose-to-learn-English"><a href="#There-are-several-reasons-why-Chinese-people-may-choose-to-learn-English" class="headerlink" title="There are several reasons why Chinese people may choose to learn English:"></a>There are several reasons why Chinese people may choose to learn English:</h2><ul>
-<li><p>Global Communication: English is the most widely spoken language in the world and serves as a common language for international communication. Learning English opens doors to connect and communicate with people from different countries and cultures, enabling Chinese individuals to participate in global conversations, trade, and collaborations.</p>
-<span id="more"></span></li>
-<li><p>Education and Academic Opportunities: English is the primary language used in many prestigious universities and academic institutions worldwide. Proficiency in English allows Chinese students to access a broader range of educational opportunities abroad, including scholarships, research programs, and exchange programs.</p>
-</li>
-<li><p>Career Advancement: English proficiency is increasingly important in today’s global job market. Many multinational companies require employees to have a good command of English, especially in fields such as business, technology, science, and tourism. Learning English can enhance career prospects and open up a wider range of job opportunities both within China and internationally.</p>
-</li>
-<li><p>Travel and Tourism: English is widely spoken in many popular tourist destinations around the world. Knowing English can greatly enhance the travel experience for Chinese tourists, making it easier to navigate, communicate with locals, and understand cultural nuances.</p>
-</li>
-<li><p>Access to Information and Resources: A significant portion of the world’s information, literature, and resources are in English. By learning English, Chinese individuals can access a vast array of knowledge, including books, research papers, websites, and online resources that are not readily available in Chinese.</p>
-</li>
-<li><p>Personal Development: Learning a foreign language like English can be intellectually stimulating and provide personal growth opportunities. It broadens one’s perspective, fosters cross-cultural understanding, and allows for the exploration of different ideas, literature, and perspectives.</p>
-</li>
-<li><p>Entertainment and Media: English is the dominant language in the global entertainment industry. By understanding English, Chinese individuals can enjoy a wide range of English-language movies, TV shows, music, and literature without relying on translations or subtitles.</p>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>other</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>大设计</title>
-    <url>/2024/03/05/%E5%A4%A7%E8%AE%BE%E8%AE%A1/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>UsefulCommand</title>
@@ -1232,34 +1134,227 @@
       </tags>
   </entry>
   <entry>
-    <title>EnglishAndCommandApp</title>
-    <url>/2023/05/19/EnglishAndCommandApp/</url>
-    <content><![CDATA[<h2 id="English-And-CommandApp"><a href="#English-And-CommandApp" class="headerlink" title="English And CommandApp"></a>English And CommandApp</h2><p><img src="/2023/05/19/EnglishAndCommandApp/commandline.png" alt="command"></p>
-<blockquote>
-<p>In this bolg you will find a fact that commandline syntax is the same as the english syntax.  </p>
-</blockquote>
-<h3 id="1-the-english-we-used-in-our-daily-life"><a href="#1-the-english-we-used-in-our-daily-life" class="headerlink" title="1. the english we used in our daily life"></a>1. the english we used in our daily life</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> --force [file]</span><br><span class="line">verb adverb noun</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install hugo</span><br><span class="line">noun verb  noun</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-what-does-commandAPP-mean"><a href="#2-what-does-commandAPP-mean" class="headerlink" title="2. what does commandAPP mean?"></a>2. what does commandAPP mean?</h3><ul>
-<li>launch something</li>
-<li>do more than one thing</li>
-<li>collection of command</li>
-</ul>
-<h3 id="3-what-does-subCommand-mean"><a href="#3-what-does-subCommand-mean" class="headerlink" title="3. what does subCommand mean?"></a>3. what does subCommand mean?</h3><ul>
-<li>commandAPP are groups of command,such as</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">svn add</span><br><span class="line">brew install</span><br><span class="line">npm search</span><br><span class="line">apt-get upgrade</span><br><span class="line">git <span class="built_in">clone</span></span><br></pre></td></tr></table></figure>
+    <title>WhatIsDiscreteManufacturing</title>
+    <url>/2023/07/12/WhatIsDiscreteManufacturing/</url>
+    <content><![CDATA[<h2 id="what-is-discrete-manufacturing"><a href="#what-is-discrete-manufacturing" class="headerlink" title="what is discrete manufacturing?"></a>what is discrete manufacturing?</h2><p>Discrete manufacturing is an industry term for the manufacturing of finished products that are distinct items capable of being easily counted, touched or seen. Discrete manufacturing involves parts and systems like nuts and bolts, brackets, wires, assemblies and individual products.</p>
+<p>Examples of products made from discrete manufacturing include automobiles, furniture, airplanes, toys, smartphones and defense systems. In theory, a discrete product can be broken down at the end of its lifecycle so its basic components can be recycled.</p>
+<p>Discrete vs. process manufacturing<br>Discrete manufacturing contrasts with process manufacturing. In process manufacturing, the product is created by using a formula or recipe to refine raw ingredients and the final product cannot be broken down to its basic components.</p>
+<p>Examples of goods produced by process manufacturing include pharmaceuticals, food and beverages, refined oil and paints.</p>
+<p>Discrete manufacturers use a bill of materials (BOM) and production follows a route, such as an assembly line, whereas process manufacturing uses a recipe and the ingredients are blended or refined in batches.</p>
+<table>
+<thead>
+<tr>
+<th>Discrete manufacturing</th>
+<th>Process manufacturing</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Products that are comprised of parts thatcan be easily touched, counted, sourced,etc</td>
+<td>Products that are created using a formula to refine raw materials</td>
+</tr>
+<tr>
+<td>Parts can be broken down and disposed ofor recycled at the end of the product lifecycle</td>
+<td>Products cannot be broken down into constituent parts.</td>
+</tr>
+<tr>
+<td>Uses a bill of materials (BOM)</td>
+<td>Uses a formula or recipe</td>
+</tr>
+<tr>
+<td>Assembles in a linear or routing way.</td>
+<td>Blends in a batch</td>
+</tr>
+<tr>
+<td>Examples are automobiles, computers, etc</td>
+<td>Examples are drugs or food products</td>
+</tr>
+</tbody></table>
+<h2 id="Discrete-manufacturing-and-ERP-systems"><a href="#Discrete-manufacturing-and-ERP-systems" class="headerlink" title="Discrete manufacturing and ERP systems"></a>Discrete manufacturing and ERP systems</h2><p>ERP systems, then called manufacturing resource planning (MRP), were originally developed to manage discrete manufacturing processes. These ERP systems let companies control and get visibility into the manufacturing process, helping to eliminate waste and reducing the time required to produce the goods.</p>
+<p>Typical functions in these systems include inventory or materials management, sales order management, supply chain management financial management and CRM. The ERP systems are often tailored for the specific discrete manufacturing needs in various industries, such as automotive, aerospace, defense, industrial equipment and electronics. The systems are then typically customized to meet a manufacturer’s specific needs.</p>
+<p><em>This post come from this<a href="https://www.techtarget.com/searcherp/definition/discrete-manufacturing">website</a>.</em></p>
 ]]></content>
       <tags>
-        <tag>commandApp</tag>
+        <tag>Manufacturing</tag>
       </tags>
   </entry>
   <entry>
-    <title>建筑物理</title>
-    <url>/2024/03/05/%E5%BB%BA%E7%AD%91%E7%89%A9%E7%90%86/</url>
-    <content><![CDATA[]]></content>
+    <title>WhyWeShouldKnowAlgorithmsAndDataStructures</title>
+    <url>/2023/05/25/WhyWeShouldKnowAlgorithmsAndDataStructures/</url>
+    <content><![CDATA[<blockquote>
+<p>夫夷以近，则遊者众；险以远，则至者少；而世之奇伟瑰怪非常之观，常在于险远，而人之所罕至焉。——《游褒禅山记录》</p>
+</blockquote>
+<h2 id="What-is-Data-Structure-and-Algorithm"><a href="#What-is-Data-Structure-and-Algorithm" class="headerlink" title="# What is Data Structure and  Algorithm?"></a># What is Data Structure and  Algorithm?</h2><p>Algorithm is nothing but a mention of steps to solve a problem.If you don’t know algorithms well, you won’t be able to identify if you can optimize the code you are writing right now.<br>Data Structure is used for organizing the data in memory. There are various ways of organizing the data in the memory, for eg. array, list, stack, queue, and many more.</p>
+<span id="more"></span>
+<p>Data structures allow us to organize and store data, while algorithms allow us to process that data in a meaningful way. Learning data structure and algorithms will help you become a better programmer. You will be able to write code that is more efficient and more reliable. You will also be able to solve problems more quickly and more effectively.</p>
+<p>Data structures and algorithms complement each other. The data structure exists for the algorithm, and an algorithm generally suits a specific data structure.</p>
+<p>Generally speaking, a data structure is a way to organize data, while an algorithm is a method or pattern for solving problems.</p>
+<p>To illustrate this, let’s say you want to find a specific book in a library.</p>
+<p><img src="/2023/05/25/WhyWeShouldKnowAlgorithmsAndDataStructures/library.jpg" alt="library"></p>
+<p>Because computer can only do simple thing,but it can do thing very fast;it can store large number data.so as a programmer we need Algorithm and Data structures.</p>
+<p>计算机只能做简单的事情，并且可以存储大量数据，因此需要程序员知道如何存储数据、读取数据，这就是涉及到我们的主题——数据结构和算法。计算机的内部实现类比图书馆，如何组织存放图书，如何快速查找图书。</p>
+<h2 id="What-thing-can-Data-Structure-and-Algorithm-do-on-computer-science"><a href="#What-thing-can-Data-Structure-and-Algorithm-do-on-computer-science" class="headerlink" title="# What thing can Data Structure and  Algorithm do on computer science?"></a># What thing can Data Structure and  Algorithm do on computer science?</h2><ul>
+<li><p>Organization of data in a computer’s memory</p>
+</li>
+<li><p>Representation of information in databases</p>
+</li>
+<li><p>Algorithms that search through data (such as a search engine)</p>
+</li>
+<li><p>algorithms that manipulate data (such as a word processor)</p>
+</li>
+<li><p>algorithms that analyze data (such as a data miner)</p>
+</li>
+<li><p>algorithms that generate data (such as a random number generator)</p>
+</li>
+<li><p>algorithms that compress and decompress data (such as a zip utility)</p>
+</li>
+<li><p>algorithms that encrypt and decrypt data (such as a security system)</p>
+</li>
+<li><p>software that manages files and directories (such as a file manager)</p>
+</li>
+<li><p>software that renders graphics (such as a web browser or 3D rendering software)</p>
+</li>
+</ul>
+<h2 id="What-thing-can-Data-Structure-and-Algorithm-do-on-daily-life"><a href="#What-thing-can-Data-Structure-and-Algorithm-do-on-daily-life" class="headerlink" title="# What thing can Data Structure and  Algorithm do on daily life?"></a># What thing can Data Structure and  Algorithm do on daily life?</h2><ul>
+<li>change the way you remember things</li>
+<li>find a more efficient solution</li>
+<li>you can bulid your own <strong>“tree”</strong></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>softwareDevelopment</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>WhyWeShouldStudyEnglish</title>
+    <url>/2023/05/05/WhyWeShouldStudyEnglish/</url>
+    <content><![CDATA[<blockquote>
+<p>圣人无常师。——《师说》<br><img src="/2023/05/05/WhyWeShouldStudyEnglish/English03.jpeg" alt="english"><br>There are many, many reasons why learning a new language is a good idea. It allows you to communicate with new people. It helps you to see things from a different perspective, or get a deeper understanding of another culture. It helps you to become a better listener. It even has health benefits, as studies have shown that people who speak two or more languages have more active minds later in life!</p>
+</blockquote>
+<h2 id="There-are-several-reasons-why-Chinese-people-may-choose-to-learn-English"><a href="#There-are-several-reasons-why-Chinese-people-may-choose-to-learn-English" class="headerlink" title="There are several reasons why Chinese people may choose to learn English:"></a>There are several reasons why Chinese people may choose to learn English:</h2><ul>
+<li><p>Global Communication: English is the most widely spoken language in the world and serves as a common language for international communication. Learning English opens doors to connect and communicate with people from different countries and cultures, enabling Chinese individuals to participate in global conversations, trade, and collaborations.</p>
+<span id="more"></span></li>
+<li><p>Education and Academic Opportunities: English is the primary language used in many prestigious universities and academic institutions worldwide. Proficiency in English allows Chinese students to access a broader range of educational opportunities abroad, including scholarships, research programs, and exchange programs.</p>
+</li>
+<li><p>Career Advancement: English proficiency is increasingly important in today’s global job market. Many multinational companies require employees to have a good command of English, especially in fields such as business, technology, science, and tourism. Learning English can enhance career prospects and open up a wider range of job opportunities both within China and internationally.</p>
+</li>
+<li><p>Travel and Tourism: English is widely spoken in many popular tourist destinations around the world. Knowing English can greatly enhance the travel experience for Chinese tourists, making it easier to navigate, communicate with locals, and understand cultural nuances.</p>
+</li>
+<li><p>Access to Information and Resources: A significant portion of the world’s information, literature, and resources are in English. By learning English, Chinese individuals can access a vast array of knowledge, including books, research papers, websites, and online resources that are not readily available in Chinese.</p>
+</li>
+<li><p>Personal Development: Learning a foreign language like English can be intellectually stimulating and provide personal growth opportunities. It broadens one’s perspective, fosters cross-cultural understanding, and allows for the exploration of different ideas, literature, and perspectives.</p>
+</li>
+<li><p>Entertainment and Media: English is the dominant language in the global entertainment industry. By understanding English, Chinese individuals can enjoy a wide range of English-language movies, TV shows, music, and literature without relying on translations or subtitles.</p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>other</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>golangQA</title>
+    <url>/2023/05/05/golangQA/</url>
+    <content><![CDATA[<blockquote>
+<p>好读书，不求甚解，毎有会意，便欣然忘食。——《五柳先生传》</p>
+</blockquote>
+<h2 id="What-does-“range”-mean-in-golang"><a href="#What-does-“range”-mean-in-golang" class="headerlink" title="# What does “range” mean in golang?"></a># What does “range” mean in golang?</h2><p>In each iterat ion of the loop, range produces a pair of values: the index and the value of the<br>element at that index.</p>
+<h2 id="What-is-method-in-golang"><a href="#What-is-method-in-golang" class="headerlink" title="# What is method in golang?"></a># What is method in golang?</h2><span id="more"></span>
+<p>An object-oriented program is one that uses methods to<br>express the properties and operations of each data structure so that clients need not access the<br>object’s representation directly.</p>
+<p>An object is simply a value or variable that has methods, and a method is a function<br>associated with a particular type.</p>
+<h2 id="What-can-go-command-do-in-golang"><a href="#What-can-go-command-do-in-golang" class="headerlink" title="# What can go command do in golang?"></a># What can go command do in golang?</h2><table>
+<thead>
+<tr>
+<th>GO COMMAND</th>
+<th>USAGE</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>build</td>
+<td>compile packages and dependencies</td>
+</tr>
+<tr>
+<td>doc</td>
+<td>show documentation for package or symbol</td>
+</tr>
+<tr>
+<td>env</td>
+<td>print Go environment information</td>
+</tr>
+<tr>
+<td>fmt</td>
+<td>run gofmt on package sources</td>
+</tr>
+<tr>
+<td>get</td>
+<td>download and install packages and dependencies</td>
+</tr>
+<tr>
+<td>install</td>
+<td>compile and install packages and dependencies</td>
+</tr>
+<tr>
+<td>list</td>
+<td>list packages</td>
+</tr>
+<tr>
+<td>run</td>
+<td>compile and run Go program</td>
+</tr>
+<tr>
+<td>test</td>
+<td>test packages</td>
+</tr>
+<tr>
+<td>vers</td>
+<td>ion print Go version</td>
+</tr>
+<tr>
+<td>vet</td>
+<td>run go tool vet on packages</td>
+</tr>
+<tr>
+<td>clean</td>
+<td>remove object files</td>
+</tr>
+</tbody></table>
+<h2 id="What’s-the-difference-between-“go-run”-“go-build”-and-“go-install”-command"><a href="#What’s-the-difference-between-“go-run”-“go-build”-and-“go-install”-command" class="headerlink" title="# What’s the difference between “go run” “go build” and “go install” command?"></a># What’s the difference between “go run” “go build” and “go install” command?</h2><p>While the go run command is a useful shortcut for compiling and running a program when you’re making frequent changes, it doesn’t generate a binary executable<br>The go build command compiles the packages, along with their dependencies, but it doesn’t install the results.You’ve compiled the application into an executable so you can run it. But to run it , your prompt needs to be in the executable’s directory.<br>if I go to the parent folder ,there will be an error like this;</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">$ ./hellozhangyi</span><br><span class="line">bash: ./hellozhangyi: No such file or directory</span><br></pre></td></tr></table></figure>
+
+<p>if I run the command in current folder ,it will be ok,like this:</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">$ ./hellozhangyi</span><br><span class="line">Hello, World!</span><br></pre></td></tr></table></figure>
+
+<p>The go install command compiles and installs the packages.you’ll install the executable so you can run it without specifying its path.<br>what does “install” mean? it means you can use your go program everywhere,if you  add the Go install directory to your system’s shell path.<br>in your go project run this command ,to find out your  install path.</p>
+<h2 id="What-does-GOPATH-do-in-golang"><a href="#What-does-GOPATH-do-in-golang" class="headerlink" title="# What does GOPATH do in golang?"></a># What does GOPATH do in golang?</h2><p>The only configuration most users ever need is the GOPATH environment variable, which specifies the root of the workspace. </p>
+<h2 id="What-does-“import-path”-do-in-golang"><a href="#What-does-“import-path”-do-in-golang" class="headerlink" title="# What does “import path” do in golang?"></a># What does “import path” do in golang?</h2><p>Each package is identified by aunique string called its import pa h. Import paths are the<br>strings that appear in import declarations.<br>When using the go tool, a package’s import path indicates not only where to find it in the local<br>workspace, but where to find it on the Internet so that go get can retrieve and update it.</p>
+<h2 id="Where-go-get-download-file"><a href="#Where-go-get-download-file" class="headerlink" title="# Where go get download file?"></a># Where go get download file?</h2><p>go get module caches the module in GOPATH&#x2F;pkg&#x2F;mod.</p>
+<h2 id="How-to-use-the-resource-by-the-golang-book"><a href="#How-to-use-the-resource-by-the-golang-book" class="headerlink" title="# How to use the resource by the golang book?"></a># How to use the resource by the golang book?</h2><p>You can download, build, and run the programs with the following commands:</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">$ export GOPATH=$HOME/gobook            # choose workspace directory</span><br><span class="line">$ <span class="keyword">go</span> get gopl.io/ch1/helloworld         # fetch, build, install</span><br><span class="line">$ $GOPATH/bin/helloworld                # run</span><br><span class="line">Hello, 世界</span><br></pre></td></tr></table></figure>
+
+<h2 id="What-CS-language-consisit-of-normally"><a href="#What-CS-language-consisit-of-normally" class="headerlink" title="# What CS language consisit of normally?"></a># What CS language consisit of normally?</h2><p>A language typically consists of the language specifications (syntax), standard library, a runtime environment, and a compiler.</p>
+<h2 id="What-is-go-workspace"><a href="#What-is-go-workspace" class="headerlink" title="# What is go workspace?"></a># What is go workspace?</h2><p>A workspace is Go’s way to facilitate project management. A workspace, in a nutshell, is a directory on your system where Go looks for source code files, manages dependency packages and build distribution binary files.</p>
+<p>Whenever a Go program encounters an import statement, it looks for the package in the Go’s standard library ($GOROOT&#x2F;src). If the package is not available there, then Go refers to the system’s environment variable GOPATH which is the path to Go workspace directory and looks for packages in $GOPATH&#x2F;src directory.</p>
+<blockquote>
+<p><strong>You can have as many workspaces as you want, as long as you keep GOPATH environment variable pointed to the current working workspace directory whenever you are working on the given project.</strong></p>
+</blockquote>
+<blockquote>
+<p>Similar to $GOROOT, $GOPATH by default points to $HOME&#x2F;go directory in UNIX and %USERPROFILE%\go on windows. Hence, it is not absolutely necessary to setup GOPATH environment variable.</p>
+</blockquote>
+<h2 id="What-about-interface"><a href="#What-about-interface" class="headerlink" title="# What about interface?"></a># What about interface?</h2><p>Any data type that implements an interface can also be represented as a type of that interface (polymorphism)</p>
+<h2 id="What-is-utf8"><a href="#What-is-utf8" class="headerlink" title="# What is utf8?"></a># What is utf8?</h2><p> UTF-8 character can be defined in memory size from 1 byte (ASCII compatible) to 4 bytes. Hence in Go, all characters are represented in int32 (size of 4 bytes) data type.<br>  A code unit is the number of bits an encoding uses for one single unit cell. So UTF-8 uses 8 bits and UTF-16 uses 16 bits for a code unit, that means UTF-8 needs minimum 8 bits or 1 byte to represent a character.</p>
+<p>  As character represented in single quotes in Go is rune and rune can be compared because they represent Unicode code points (int32 values).</p>
+<h2 id="What-is-popcount"><a href="#What-is-popcount" class="headerlink" title="# What is popcount?"></a># What is popcount?</h2><p>  popcount（population count），也叫 sideways sum，是计算一个整数的二进制表示有多少位是1</p>
+<h2 id="How-does-go-code-organization"><a href="#How-does-go-code-organization" class="headerlink" title="# How does go code organization?"></a># How does go code organization?</h2><p> Go programs are organized into packages. A package is a collection of source files in the same directory that are compiled together. Functions, types, variables, and constants defined in one source file are visible to all other source files within the same package.</p>
+<p>A repository contains one or more modules. A module is a collection of related Go packages that are released together. A Go repository typically contains only one module, located at the root of the repository. A file named go.mod there declares the module path: the import path prefix for all packages within the module. The module contains the packages in the directory containing its go.mod file as well as subdirectories of that directory, up to the next subdirectory containing another go.mod file (if any).</p>
+<p>Note that you don’t need to publish your code to a remote repository before you can build it. A module can be defined locally without belonging to a repository. However, it’s a good habit to organize your code as if you will publish it someday.</p>
+<p>Each module’s path not only serves as an import path prefix for its packages, but also indicates where the go command should look to download it. For example, in order to download the module golang.org&#x2F;x&#x2F;tools, the go command would consult the repository indicated by <a href="https://golang.org/x/tools">https://golang.org/x/tools</a> (described more here).</p>
+<p>An import path is a string used to import a package. A package’s import path is its module path joined with its subdirectory within the module. For example, the module github.com&#x2F;google&#x2F;go-cmp contains a package in the directory cmp&#x2F;. That package’s import path is github.com&#x2F;google&#x2F;go-cmp&#x2F;cmp. Packages in the standard library do not have a module path prefix.</p>
+<h2 id="Is-slices-like-interface"><a href="#Is-slices-like-interface" class="headerlink" title="# Is slices  like interface?"></a># Is slices  like interface?</h2><p>From the slices lesson, we learned that a slice holds the reference to an array. Similarly, we can say that an interface also works in a similar way by dynamically holding a reference to the underlying type.<br>Interfaces are very useful in case of functions and methods where you need argument of dynamic types.</p>
+<hr>
+<p>There are some golang offical document you can click:<a href="https://go.dev/doc/">goDoc</a>,<a href="https://go.dev/play/">glang playground</a>,<a href="https://go.dev/tour/welcome/1">the tour of golang</a></p>
+]]></content>
+      <tags>
+        <tag>softwareDevelopment</tag>
+      </tags>
   </entry>
   <entry>
     <title>iosProgramming</title>
@@ -1389,108 +1484,13 @@
       </tags>
   </entry>
   <entry>
-    <title>golangQA</title>
-    <url>/2023/05/05/golangQA/</url>
-    <content><![CDATA[<blockquote>
-<p>好读书，不求甚解，毎有会意，便欣然忘食。——《五柳先生传》</p>
-</blockquote>
-<h2 id="What-does-“range”-mean-in-golang"><a href="#What-does-“range”-mean-in-golang" class="headerlink" title="# What does “range” mean in golang?"></a># What does “range” mean in golang?</h2><p>In each iterat ion of the loop, range produces a pair of values: the index and the value of the<br>element at that index.</p>
-<h2 id="What-is-method-in-golang"><a href="#What-is-method-in-golang" class="headerlink" title="# What is method in golang?"></a># What is method in golang?</h2><span id="more"></span>
-<p>An object-oriented program is one that uses methods to<br>express the properties and operations of each data structure so that clients need not access the<br>object’s representation directly.</p>
-<p>An object is simply a value or variable that has methods, and a method is a function<br>associated with a particular type.</p>
-<h2 id="What-can-go-command-do-in-golang"><a href="#What-can-go-command-do-in-golang" class="headerlink" title="# What can go command do in golang?"></a># What can go command do in golang?</h2><table>
-<thead>
-<tr>
-<th>GO COMMAND</th>
-<th>USAGE</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>build</td>
-<td>compile packages and dependencies</td>
-</tr>
-<tr>
-<td>doc</td>
-<td>show documentation for package or symbol</td>
-</tr>
-<tr>
-<td>env</td>
-<td>print Go environment information</td>
-</tr>
-<tr>
-<td>fmt</td>
-<td>run gofmt on package sources</td>
-</tr>
-<tr>
-<td>get</td>
-<td>download and install packages and dependencies</td>
-</tr>
-<tr>
-<td>install</td>
-<td>compile and install packages and dependencies</td>
-</tr>
-<tr>
-<td>list</td>
-<td>list packages</td>
-</tr>
-<tr>
-<td>run</td>
-<td>compile and run Go program</td>
-</tr>
-<tr>
-<td>test</td>
-<td>test packages</td>
-</tr>
-<tr>
-<td>vers</td>
-<td>ion print Go version</td>
-</tr>
-<tr>
-<td>vet</td>
-<td>run go tool vet on packages</td>
-</tr>
-<tr>
-<td>clean</td>
-<td>remove object files</td>
-</tr>
-</tbody></table>
-<h2 id="What’s-the-difference-between-“go-run”-“go-build”-and-“go-install”-command"><a href="#What’s-the-difference-between-“go-run”-“go-build”-and-“go-install”-command" class="headerlink" title="# What’s the difference between “go run” “go build” and “go install” command?"></a># What’s the difference between “go run” “go build” and “go install” command?</h2><p>While the go run command is a useful shortcut for compiling and running a program when you’re making frequent changes, it doesn’t generate a binary executable<br>The go build command compiles the packages, along with their dependencies, but it doesn’t install the results.You’ve compiled the application into an executable so you can run it. But to run it , your prompt needs to be in the executable’s directory.<br>if I go to the parent folder ,there will be an error like this;</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">$ ./hellozhangyi</span><br><span class="line">bash: ./hellozhangyi: No such file or directory</span><br></pre></td></tr></table></figure>
-
-<p>if I run the command in current folder ,it will be ok,like this:</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">$ ./hellozhangyi</span><br><span class="line">Hello, World!</span><br></pre></td></tr></table></figure>
-
-<p>The go install command compiles and installs the packages.you’ll install the executable so you can run it without specifying its path.<br>what does “install” mean? it means you can use your go program everywhere,if you  add the Go install directory to your system’s shell path.<br>in your go project run this command ,to find out your  install path.</p>
-<h2 id="What-does-GOPATH-do-in-golang"><a href="#What-does-GOPATH-do-in-golang" class="headerlink" title="# What does GOPATH do in golang?"></a># What does GOPATH do in golang?</h2><p>The only configuration most users ever need is the GOPATH environment variable, which specifies the root of the workspace. </p>
-<h2 id="What-does-“import-path”-do-in-golang"><a href="#What-does-“import-path”-do-in-golang" class="headerlink" title="# What does “import path” do in golang?"></a># What does “import path” do in golang?</h2><p>Each package is identified by aunique string called its import pa h. Import paths are the<br>strings that appear in import declarations.<br>When using the go tool, a package’s import path indicates not only where to find it in the local<br>workspace, but where to find it on the Internet so that go get can retrieve and update it.</p>
-<h2 id="Where-go-get-download-file"><a href="#Where-go-get-download-file" class="headerlink" title="# Where go get download file?"></a># Where go get download file?</h2><p>go get module caches the module in GOPATH&#x2F;pkg&#x2F;mod.</p>
-<h2 id="How-to-use-the-resource-by-the-golang-book"><a href="#How-to-use-the-resource-by-the-golang-book" class="headerlink" title="# How to use the resource by the golang book?"></a># How to use the resource by the golang book?</h2><p>You can download, build, and run the programs with the following commands:</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">$ export GOPATH=$HOME/gobook            # choose workspace directory</span><br><span class="line">$ <span class="keyword">go</span> get gopl.io/ch1/helloworld         # fetch, build, install</span><br><span class="line">$ $GOPATH/bin/helloworld                # run</span><br><span class="line">Hello, 世界</span><br></pre></td></tr></table></figure>
-
-<h2 id="What-CS-language-consisit-of-normally"><a href="#What-CS-language-consisit-of-normally" class="headerlink" title="# What CS language consisit of normally?"></a># What CS language consisit of normally?</h2><p>A language typically consists of the language specifications (syntax), standard library, a runtime environment, and a compiler.</p>
-<h2 id="What-is-go-workspace"><a href="#What-is-go-workspace" class="headerlink" title="# What is go workspace?"></a># What is go workspace?</h2><p>A workspace is Go’s way to facilitate project management. A workspace, in a nutshell, is a directory on your system where Go looks for source code files, manages dependency packages and build distribution binary files.</p>
-<p>Whenever a Go program encounters an import statement, it looks for the package in the Go’s standard library ($GOROOT&#x2F;src). If the package is not available there, then Go refers to the system’s environment variable GOPATH which is the path to Go workspace directory and looks for packages in $GOPATH&#x2F;src directory.</p>
-<blockquote>
-<p><strong>You can have as many workspaces as you want, as long as you keep GOPATH environment variable pointed to the current working workspace directory whenever you are working on the given project.</strong></p>
-</blockquote>
-<blockquote>
-<p>Similar to $GOROOT, $GOPATH by default points to $HOME&#x2F;go directory in UNIX and %USERPROFILE%\go on windows. Hence, it is not absolutely necessary to setup GOPATH environment variable.</p>
-</blockquote>
-<h2 id="What-about-interface"><a href="#What-about-interface" class="headerlink" title="# What about interface?"></a># What about interface?</h2><p>Any data type that implements an interface can also be represented as a type of that interface (polymorphism)</p>
-<h2 id="What-is-utf8"><a href="#What-is-utf8" class="headerlink" title="# What is utf8?"></a># What is utf8?</h2><p> UTF-8 character can be defined in memory size from 1 byte (ASCII compatible) to 4 bytes. Hence in Go, all characters are represented in int32 (size of 4 bytes) data type.<br>  A code unit is the number of bits an encoding uses for one single unit cell. So UTF-8 uses 8 bits and UTF-16 uses 16 bits for a code unit, that means UTF-8 needs minimum 8 bits or 1 byte to represent a character.</p>
-<p>  As character represented in single quotes in Go is rune and rune can be compared because they represent Unicode code points (int32 values).</p>
-<h2 id="What-is-popcount"><a href="#What-is-popcount" class="headerlink" title="# What is popcount?"></a># What is popcount?</h2><p>  popcount（population count），也叫 sideways sum，是计算一个整数的二进制表示有多少位是1</p>
-<h2 id="How-does-go-code-organization"><a href="#How-does-go-code-organization" class="headerlink" title="# How does go code organization?"></a># How does go code organization?</h2><p> Go programs are organized into packages. A package is a collection of source files in the same directory that are compiled together. Functions, types, variables, and constants defined in one source file are visible to all other source files within the same package.</p>
-<p>A repository contains one or more modules. A module is a collection of related Go packages that are released together. A Go repository typically contains only one module, located at the root of the repository. A file named go.mod there declares the module path: the import path prefix for all packages within the module. The module contains the packages in the directory containing its go.mod file as well as subdirectories of that directory, up to the next subdirectory containing another go.mod file (if any).</p>
-<p>Note that you don’t need to publish your code to a remote repository before you can build it. A module can be defined locally without belonging to a repository. However, it’s a good habit to organize your code as if you will publish it someday.</p>
-<p>Each module’s path not only serves as an import path prefix for its packages, but also indicates where the go command should look to download it. For example, in order to download the module golang.org&#x2F;x&#x2F;tools, the go command would consult the repository indicated by <a href="https://golang.org/x/tools">https://golang.org/x/tools</a> (described more here).</p>
-<p>An import path is a string used to import a package. A package’s import path is its module path joined with its subdirectory within the module. For example, the module github.com&#x2F;google&#x2F;go-cmp contains a package in the directory cmp&#x2F;. That package’s import path is github.com&#x2F;google&#x2F;go-cmp&#x2F;cmp. Packages in the standard library do not have a module path prefix.</p>
-<h2 id="Is-slices-like-interface"><a href="#Is-slices-like-interface" class="headerlink" title="# Is slices  like interface?"></a># Is slices  like interface?</h2><p>From the slices lesson, we learned that a slice holds the reference to an array. Similarly, we can say that an interface also works in a similar way by dynamically holding a reference to the underlying type.<br>Interfaces are very useful in case of functions and methods where you need argument of dynamic types.</p>
-<hr>
-<p>There are some golang offical document you can click:<a href="https://go.dev/doc/">goDoc</a>,<a href="https://go.dev/play/">glang playground</a>,<a href="https://go.dev/tour/welcome/1">the tour of golang</a></p>
-]]></content>
-      <tags>
-        <tag>softwareDevelopment</tag>
-      </tags>
+    <title>建筑物理</title>
+    <url>/2024/03/05/%E5%BB%BA%E7%AD%91%E7%89%A9%E7%90%86/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>大设计</title>
+    <url>/2024/03/05/%E5%A4%A7%E8%AE%BE%E8%AE%A1/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
