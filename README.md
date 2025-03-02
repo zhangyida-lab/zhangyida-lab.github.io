@@ -37,4 +37,7 @@ alias hnd='hexo new draft'
 
 alias hp='hexo publish'
 发布草稿
+
+alias gp='git add .&& git commit -m "update" && git push -f'
+
 ```
