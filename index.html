@@ -193,6 +193,336 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/02/%E5%9C%A8xcode%E4%B8%8A%E9%80%9A%E8%BF%87swift%E8%AF%AD%E8%A8%80%E7%BC%96%E5%86%99%E7%9A%84ios%E7%A8%8B%E5%BA%8F%E5%9C%A8%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%83%8C%E5%90%8E%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="You Find Your Own Tree.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/03/02/%E5%9C%A8xcode%E4%B8%8A%E9%80%9A%E8%BF%87swift%E8%AF%AD%E8%A8%80%E7%BC%96%E5%86%99%E7%9A%84ios%E7%A8%8B%E5%BA%8F%E5%9C%A8%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%83%8C%E5%90%8E%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/" class="post-title-link" itemprop="url">在xcode上通过swift语言编写的ios程序在编译过程中计算机背后发生了什么</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2025-03-02 15:17:13 / Modified: 17:09:25" itemprop="dateCreated datePublished" datetime="2025-03-02T15:17:13+09:00">2025-03-02</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="在xcode上通过swift语言编写的ios程序在编译过程中计算机背后发生了什么"><a href="#在xcode上通过swift语言编写的ios程序在编译过程中计算机背后发生了什么" class="headerlink" title="在xcode上通过swift语言编写的ios程序在编译过程中计算机背后发生了什么"></a>在xcode上通过swift语言编写的ios程序在编译过程中计算机背后发生了什么</h1><p> 在 Xcode 上使用 Swift 编写的 iOS 应用在编译过程中，计算机背后发生了一系列复杂的步骤，主要包括以下几个阶段：</p>
+<h3 id="1-代码解析（Lexing-amp-Parsing）"><a href="#1-代码解析（Lexing-amp-Parsing）" class="headerlink" title="1. 代码解析（Lexing &amp; Parsing）"></a>1. <strong>代码解析（Lexing &amp; Parsing）</strong></h3><ul>
+<li>Swift 源代码首先会经过 <strong>词法分析（Lexing）</strong>，Swift 编译器（Swift Compiler，swiftc）会将代码拆解成一系列的 <strong>标记（Tokens）</strong>，如关键字、标识符、操作符等。</li>
+<li>之后，<strong>语法解析（Parsing）</strong> 会将这些 Tokens 组织成 <strong>抽象语法树（AST, Abstract Syntax Tree）</strong>，这是一种结构化的代码表示形式，能帮助编译器理解代码的层次结构。</li>
+</ul>
+<h3 id="2-语义分析（Semantic-Analysis）"><a href="#2-语义分析（Semantic-Analysis）" class="headerlink" title="2. 语义分析（Semantic Analysis）"></a>2. <strong>语义分析（Semantic Analysis）</strong></h3><ul>
+<li>编译器会检查代码的语义，比如类型检查、变量作用域、函数调用的匹配等。</li>
+<li>Swift 使用 <strong>类型推导</strong>，因此编译器会尝试推断变量和表达式的类型。</li>
+<li>此外，Swift 采用了 <strong>自动内存管理（ARC, Automatic Reference Counting）</strong>，所以编译器会在这个阶段插入合适的 retain&#x2F;release 代码来管理对象的生命周期。</li>
+</ul>
+<h3 id="3-中间表示（IR-Intermediate-Representation）生成"><a href="#3-中间表示（IR-Intermediate-Representation）生成" class="headerlink" title="3. 中间表示（IR, Intermediate Representation）生成"></a>3. <strong>中间表示（IR, Intermediate Representation）生成</strong></h3><ul>
+<li>经过语义分析后，Swift 代码会被转换为 <strong>LLVM IR（Intermediate Representation）</strong>，一种低级但仍可读的中间语言。</li>
+<li>LLVM IR 是跨平台的，并且可以被进一步优化。</li>
+</ul>
+<h3 id="4-优化（Optimization）"><a href="#4-优化（Optimization）" class="headerlink" title="4. 优化（Optimization）"></a>4. <strong>优化（Optimization）</strong></h3><ul>
+<li>LLVM 进行各种优化，比如：<strong>常量折叠（Constant Folding）</strong>：计算编译时可确定的表达式，减少运行时计算量。<strong>内联展开（Function Inlining）</strong>：将小函数的调用替换为实际的函数体，以减少函数调用的开销。<strong>死代码消除（Dead Code Elimination）</strong>：移除未使用的代码，以减小最终二进制文件的体积。</li>
+</ul>
+<h3 id="5-目标代码生成（Code-Generation）"><a href="#5-目标代码生成（Code-Generation）" class="headerlink" title="5. 目标代码生成（Code Generation）"></a>5. <strong>目标代码生成（Code Generation）</strong></h3><ul>
+<li>LLVM IR 被转换为特定架构的 <strong>汇编代码</strong>（比如 ARM64 用于 iPhone）。</li>
+<li>汇编代码进一步转换为 <strong>机器码（Machine Code）</strong>，这个阶段称为 <strong>汇编（Assembling）</strong>，最终生成可执行文件。</li>
+</ul>
+<h3 id="6-链接（Linking）"><a href="#6-链接（Linking）" class="headerlink" title="6. 链接（Linking）"></a>6. <strong>链接（Linking）</strong></h3><ul>
+<li>生成的目标文件（.o 文件）会与标准库（如 Swift 标准库、UIKit 框架等）和第三方库链接，形成最终的 <strong>可执行文件</strong>。</li>
+<li>如果项目包含 Swift 的动态库（如 swiftCore），Xcode 还需要处理 Swift 运行时的动态链接。</li>
+</ul>
+<h3 id="7-代码签名（Code-Signing）"><a href="#7-代码签名（Code-Signing）" class="headerlink" title="7. 代码签名（Code Signing）"></a>7. <strong>代码签名（Code Signing）</strong></h3><ul>
+<li>iOS 应用必须经过 <strong>代码签名</strong> 才能在设备上运行。Xcode 会使用开发者的证书对应用进行签名，以确保应用的完整性和安全性。</li>
+</ul>
+<h3 id="8-打包（Packaging）"><a href="#8-打包（Packaging）" class="headerlink" title="8. 打包（Packaging）"></a>8. <strong>打包（Packaging）</strong></h3><ul>
+<li>Xcode 生成 .app 包，并将所有资源（图片、音频、Storyboard、Plist 文件等）打包到 IPA（iOS 应用包）中。</li>
+</ul>
+<h3 id="9-模拟器或真机部署"><a href="#9-模拟器或真机部署" class="headerlink" title="9. 模拟器或真机部署"></a>9. <strong>模拟器或真机部署</strong></h3><ul>
+<li>如果选择在 <strong>模拟器</strong> 运行，Xcode 会编译适用于 x86_64 架构的代码。</li>
+<li>如果选择在 <strong>真机</strong> 运行，Xcode 会编译适用于 ARM64 架构的代码，并通过 USB 或无线方式安装到 iPhone 上。</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>整个编译流程从 Swift 源代码到可执行文件大致经历：</p>
+<ol>
+<li><strong>词法 &amp; 语法分析</strong>（构造 AST）</li>
+<li><strong>语义分析 &amp; 类型检查</strong></li>
+<li><strong>LLVM IR 生成</strong></li>
+<li><strong>优化</strong></li>
+<li><strong>目标代码生成</strong></li>
+<li><strong>链接</strong></li>
+<li><strong>代码签名</strong></li>
+<li><strong>打包</strong></li>
+<li><strong>部署到设备</strong><br>这个过程中，Swift 编译器（<code>swiftc</code>）、LLVM、Xcode 构建系统、链接器（<code>ld</code>）等多个工具协同工作，最终将 Swift 代码转换为 iOS 设备可运行的应用。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/02/swift%E4%B8%ADsome%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E7%90%86%E8%A7%A3%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="You Find Your Own Tree.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/03/02/swift%E4%B8%ADsome%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E7%90%86%E8%A7%A3%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/" class="post-title-link" itemprop="url">swift中some关键字的理解及其应用场景</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2025-03-02 15:00:31 / Modified: 16:00:41" itemprop="dateCreated datePublished" datetime="2025-03-02T15:00:31+09:00">2025-03-02</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="用swift中some关键字的理解及其应用场景"><a href="#用swift中some关键字的理解及其应用场景" class="headerlink" title="用swift中some关键字的理解及其应用场景"></a>用swift中some关键字的理解及其应用场景</h1><p> swift中some关键字的理解及其应用场景 </p>
+<p> 在 Swift 中，<code>some</code> 关键字主要用于 <strong>返回值的类型擦除</strong> 和 <strong>泛型简化</strong>，它在 Swift 5.1 版本中引入，属于 <strong>Opaque Types（不透明类型）</strong> 的一部分。它的核心作用是隐藏具体的返回类型，但仍然保证返回的类型是一致的。</p>
+<h2 id="1-some-关键字的作用"><a href="#1-some-关键字的作用" class="headerlink" title="1. some 关键字的作用"></a><strong>1. some 关键字的作用</strong></h2><p><code>some</code> 主要用于：</p>
+<ul>
+<li><strong>简化泛型代码</strong>，避免使用复杂的泛型声明。</li>
+<li><strong>隐藏具体类型</strong>，但保证返回值的类型一致。</li>
+<li><strong>提高类型安全性</strong>，避免使用 Any 造成的类型不安全问题。</li>
+</ul>
+<h2 id="2-some-的应用场景"><a href="#2-some-的应用场景" class="headerlink" title="2. some 的应用场景"></a><strong>2. some 的应用场景</strong></h2><h3 id="（1）作为返回值，隐藏具体类型"><a href="#（1）作为返回值，隐藏具体类型" class="headerlink" title="（1）作为返回值，隐藏具体类型"></a><strong>（1）作为返回值，隐藏具体类型</strong></h3><p>在不使用 <code>some</code> 之前，如果一个方法的返回值是某个协议类型，通常会使用 <code>protocol</code> 作为返回类型：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protocol</span> <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">area</span>() -&gt; <span class="type">Double</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Circle</span>: <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> radius: <span class="type">Double</span></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">area</span>() -&gt; <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> .pi <span class="operator">*</span> radius <span class="operator">*</span> radius</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">makeShape</span>() -&gt; <span class="type">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="type">Circle</span>(radius: <span class="number">5</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里 <code>makeShape()</code> 返回的是 <code>Shape</code> 协议类型，但它 <strong>丢失了具体的 Circle 类型信息</strong>，导致 Swift 无法进行类型优化。</p>
+<p><strong>使用 some 改写：</strong></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">makeShape</span>() -&gt; <span class="keyword">some</span> <span class="type">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="type">Circle</span>(radius: <span class="number">5</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>some Shape 表示返回的类型遵循 Shape 协议，但具体是什么类型编译器知道，调用者不需要关心。</li>
+<li>这样就 <strong>保留了具体类型信息</strong>，比返回 protocol 方式性能更好。</li>
+</ul>
+<h3 id="（2）SwiftUI-中-some-关键字的应用"><a href="#（2）SwiftUI-中-some-关键字的应用" class="headerlink" title="（2）SwiftUI 中 some 关键字的应用"></a><strong>（2）SwiftUI 中 some 关键字的应用</strong></h3><p>SwiftUI 组件通常是 <code>View</code>，但它们的具体类型是复杂的嵌套结构，因此 Apple 使用 <code>some View</code> 来隐藏具体类型，同时确保类型安全：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">Text</span>(<span class="string">&quot;Hello, SwiftUI!&quot;</span>)</span><br><span class="line">            .font(.largeTitle)</span><br><span class="line">            .foregroundColor(.blue)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>some View 让 SwiftUI 视图可以是任何 View 类型，但类型信息仍然保留，避免了 AnyView 可能带来的性能损失。</li>
+</ul>
+<h3 id="（3）泛型简化"><a href="#（3）泛型简化" class="headerlink" title="（3）泛型简化"></a><strong>（3）泛型简化</strong></h3><p>在泛型函数中，<code>some</code> 也可以简化代码，例如：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">makeNumber</span>() -&gt; <span class="keyword">some</span> <span class="type">Numeric</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">10</span> <span class="comment">// 这里可以是 Int、Double 等</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>some Numeric 说明返回的值遵循 Numeric 协议，但具体类型编译器知道，调用者不需要关心。</li>
+<li>这样比直接返回 Numeric 更高效，因为 Numeric 是一个协议，不能直接实例化，而 some 可以保证返回的是<strong>同一种</strong>具体类型。</li>
+</ul>
+<h2 id="3-some-的局限性"><a href="#3-some-的局限性" class="headerlink" title="3. some 的局限性"></a><strong>3. some 的局限性</strong></h2><ol>
+<li><strong>不能返回不同的类型</strong><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">makeShape</span>(<span class="params">condition</span>: <span class="type">Bool</span>) -&gt; <span class="keyword">some</span> <span class="type">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> condition &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">Circle</span>(radius: <span class="number">5</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">Rectangle</span>(width: <span class="number">3</span>, height: <span class="number">4</span>) <span class="comment">// ❌ 报错</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li>不能返回不同的类型，即使它们都符合 Shape 协议。</li>
+<li>some 只能保证返回 <strong>同一类型</strong>，编译器必须能推导出唯一的类型。</li>
+</ul>
+<ol start="2">
+<li><strong>不能用于存储属性</strong><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Example</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> shape: <span class="keyword">some</span> <span class="type">Shape</span> <span class="comment">// ❌ 不能用 some 作为属性类型</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li>some 只能用于返回值，不能用于存储属性，因为存储属性需要有具体类型，而 some 只是类型擦除的方式。</li>
+</ul>
+<h2 id="4-some-vs-Any-vs-泛型"><a href="#4-some-vs-Any-vs-泛型" class="headerlink" title="4. some vs Any vs 泛型"></a><strong>4. some vs Any vs 泛型</strong></h2><p>| 关键字 | 适用场景 | 类型信息 | 运行时开销 |<br>|———|———|———|<br>| <code>some</code> | 返回值 | 保留 | 低 |<br>| <code>Any</code> | 任意类型存储、参数 | 丢失 | 高（类型检查） |<br>| 泛型 | 泛型函数、类型参数 | 保留 | 低 |</p>
+<h3 id="对比："><a href="#对比：" class="headerlink" title="对比："></a><strong>对比：</strong></h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">makeShape</span>() -&gt; <span class="keyword">some</span> <span class="type">Shape</span> &#123; <span class="type">Circle</span>(radius: <span class="number">5</span>) &#125;  <span class="comment">// ✅ 高效，保留类型信息</span></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">makeAnyShape</span>() -&gt; <span class="keyword">Any</span> &#123; <span class="type">Circle</span>(radius: <span class="number">5</span>) &#125;     <span class="comment">// ❌ 类型丢失，运行时开销大</span></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">makeGenericShape</span>() -&gt; <span class="type">T</span> &#123; <span class="operator">...</span> &#125;       <span class="comment">// ✅ 泛型，灵活性更高</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="5-适合使用-some-的情况"><a href="#5-适合使用-some-的情况" class="headerlink" title="5. 适合使用 some 的情况"></a><strong>5. 适合使用 some 的情况</strong></h2><p>✅ 适用于：</p>
+<ul>
+<li><p><strong>SwiftUI 视图</strong>：some View</p>
+</li>
+<li><p><strong>协议类型返回值</strong>，但需要保留具体类型信息</p>
+</li>
+<li><p><strong>提升类型安全性</strong>，避免 Any 造成的类型丢失</p>
+</li>
+<li><p><strong>简化泛型代码</strong><br>❌ 不适用于：</p>
+</li>
+<li><p>需要返回 <strong>不同类型</strong> 的情况</p>
+</li>
+<li><p><strong>存储属性</strong>（除非是 var body: some View 这种特殊情况）</p>
+</li>
+</ul>
+<h2 id="6-总结"><a href="#6-总结" class="headerlink" title="6. 总结"></a><strong>6. 总结</strong></h2><ul>
+<li>some 关键字用于 <strong>返回值</strong>，隐藏具体类型，同时保证类型一致性。</li>
+<li>SwiftUI 中广泛使用 some View 来优化视图类型。</li>
+<li>some 提供了一种比 Any 更安全、更高效的方式来处理协议类型返回值。</li>
+<li>不能用于 <strong>存储属性</strong>，且不能返回多个不同类型。<br>这样理解后，<code>some</code> 在 Swift 中的使用就会更加得心应手！ 🚀</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/02/swift%E4%B8%ADself%E7%9A%84%E6%AD%A3%E7%A1%AE%E7%90%86%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="You Find Your Own Tree.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/03/02/swift%E4%B8%ADself%E7%9A%84%E6%AD%A3%E7%A1%AE%E7%90%86%E8%A7%A3/" class="post-title-link" itemprop="url">swift中self的正确理解</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2025-03-02 14:55:13 / Modified: 15:55:26" itemprop="dateCreated datePublished" datetime="2025-03-02T14:55:13+09:00">2025-03-02</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="swift中self的正确理解"><a href="#swift中self的正确理解" class="headerlink" title="swift中self的正确理解"></a>swift中self的正确理解</h1><p> 在 Swift 中，<code>self</code> 主要有以下几种用法，具体取决于上下文：</p>
+<h3 id="1-区分属性和局部变量"><a href="#1-区分属性和局部变量" class="headerlink" title="1. 区分属性和局部变量"></a>1. <strong>区分属性和局部变量</strong></h3><p>在实例方法或构造方法中，如果参数或局部变量的名称与实例属性相同，<code>self</code> 用于区分它们。例如：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> name: <span class="type">String</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">init</span>(<span class="params">name</span>: <span class="type">String</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.name <span class="operator">=</span> name  <span class="comment">// self.name 指的是实例属性，而 name 是方法参数</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果不加 <code>self</code>，Swift 默认会优先使用作用域内的局部变量或方法参数，而不是实例属性。</p>
+<h3 id="2-在闭包中显式捕获-self"><a href="#2-在闭包中显式捕获-self" class="headerlink" title="2. 在闭包中显式捕获 self"></a>2. <strong>在闭包中显式捕获 self</strong></h3><p>在闭包内部访问实例属性或方法时，通常需要显式使用 <code>self</code>，尤其是在 <strong>逃逸闭包（escaping closure）</strong> 中，以避免强引用循环（retain cycle）：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ViewController</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> titleText <span class="operator">=</span> <span class="string">&quot;Hello&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">fetchData</span>(<span class="params">completion</span>: <span class="keyword">@escaping</span> () -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line">        <span class="type">DispatchQueue</span>.global().async &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="keyword">self</span>.titleText)  <span class="comment">// 必须显式使用 self</span></span><br><span class="line">            completion()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果闭包会长期持有 <code>self</code>，可以使用 <code>[weak self]</code> 或 <code>[unowned self]</code> 来防止循环引用：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ViewController</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> titleText <span class="operator">=</span> <span class="string">&quot;Hello&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">fetchData</span>(<span class="params">completion</span>: <span class="keyword">@escaping</span> () -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line">        <span class="type">DispatchQueue</span>.global().async &#123; [<span class="keyword">weak</span> <span class="keyword">self</span>] <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">guard</span> <span class="keyword">let</span> <span class="keyword">self</span> <span class="operator">=</span> <span class="keyword">self</span> <span class="keyword">else</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">            <span class="built_in">print</span>(<span class="keyword">self</span>.titleText)</span><br><span class="line">            completion()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-在扩展（extension）中调用自身方法"><a href="#3-在扩展（extension）中调用自身方法" class="headerlink" title="3. 在扩展（extension）中调用自身方法"></a>3. <strong>在扩展（extension）中调用自身方法</strong></h3><p>在扩展中调用自身的方法或属性时，可以省略 <code>self</code>，但如果在闭包内部访问，则通常需要显式使用 <code>self</code>。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extension</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">printName</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="keyword">self</span>.name)  <span class="comment">// 这里 self 可加可不加</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-在类型方法或静态方法中使用-self-访问类型本身"><a href="#4-在类型方法或静态方法中使用-self-访问类型本身" class="headerlink" title="4. 在类型方法或静态方法中使用 self 访问类型本身"></a>4. <strong>在类型方法或静态方法中使用 self 访问类型本身</strong></h3><p>在 <strong>静态方法（static method）</strong> 或 <strong>类方法（class method）</strong> 中，<code>self</code> 代表的是类型本身，而不是实例。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MathUtil</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> pi <span class="operator">=</span> <span class="number">3.14159</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">func</span> <span class="title function_">printPi</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="keyword">self</span>.pi)  <span class="comment">// 这里 self 指的是 MathUtil</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果是 <code>class</code> 修饰的方法，<code>self</code> 允许在子类中重写访问：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Parent</span> &#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">func</span> <span class="title class_">describe</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;I am <span class="subst">\(<span class="keyword">self</span>)</span>&quot;</span>)  <span class="comment">// self 代表调用此方法的类型</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Child</span>: <span class="title class_">Parent</span> &#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="type">Child</span>.describe()  <span class="comment">// 输出：I am Child</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-在构造方法中调用其他构造方法"><a href="#5-在构造方法中调用其他构造方法" class="headerlink" title="5. 在构造方法中调用其他构造方法"></a>5. <strong>在构造方法中调用其他构造方法</strong></h3><p>在同一个类的构造方法中，可以使用 <code>self.init(...)</code> 来调用另一个构造方法（<strong>构造方法委托</strong>）：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Rectangle</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> width: <span class="type">Double</span></span><br><span class="line">    <span class="keyword">var</span> height: <span class="type">Double</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">init</span>(<span class="params">width</span>: <span class="type">Double</span>, <span class="params">height</span>: <span class="type">Double</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.width <span class="operator">=</span> width</span><br><span class="line">        <span class="keyword">self</span>.height <span class="operator">=</span> height</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">convenience</span> <span class="keyword">init</span>(<span class="params">size</span>: <span class="type">Double</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.<span class="keyword">init</span>(width: size, height: size)  <span class="comment">// 调用指定构造方法</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-作为当前实例的引用传递"><a href="#6-作为当前实例的引用传递" class="headerlink" title="6. 作为当前实例的引用传递"></a>6. <strong>作为当前实例的引用传递</strong></h3><p>在某些情况下，我们可以将 <code>self</code> 作为参数传递给其他方法或闭包：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Car</span> &#123;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">start</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Car started&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">setup</span>(<span class="params">action</span>: (<span class="type">Car</span>) -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line">        action(<span class="keyword">self</span>)  <span class="comment">// 传递当前实例</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> myCar <span class="operator">=</span> <span class="type">Car</span>()</span><br><span class="line">myCar.setup &#123; car <span class="keyword">in</span></span><br><span class="line">    car.start()  <span class="comment">// 访问实例方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-在结构体（struct）或枚举（enum）中修改自身"><a href="#7-在结构体（struct）或枚举（enum）中修改自身" class="headerlink" title="7. 在结构体（struct）或枚举（enum）中修改自身"></a>7. <strong>在结构体（struct）或枚举（enum）中修改自身</strong></h3><p>由于结构体（<code>struct</code>）和枚举（<code>enum</code>）是值类型，想要在方法中修改 <code>self</code>，必须用 <code>mutating</code> 关键字：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Counter</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> count <span class="operator">=</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">mutating</span> <span class="keyword">func</span> <span class="title function_">increment</span>() &#123;</span><br><span class="line">        <span class="keyword">self</span>.count <span class="operator">+=</span> <span class="number">1</span>  <span class="comment">// 需要 `mutating` 允许修改自身</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-在协议默认实现中访问-self"><a href="#8-在协议默认实现中访问-self" class="headerlink" title="8. 在协议默认实现中访问 self"></a>8. <strong>在协议默认实现中访问 self</strong></h3><p>在协议扩展中，<code>self</code> 可以指代符合协议的当前实例：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protocol</span> <span class="title class_">Describable</span> &#123;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">describe</span>() -&gt; <span class="type">String</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">extension</span> <span class="title class_">Describable</span> &#123;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">printDescription</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="keyword">self</span>.describe())  <span class="comment">// self 代表当前实例</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Person</span>: <span class="title class_">Describable</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> name: <span class="type">String</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">describe</span>() -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;My name is <span class="subst">\(name)</span>&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> p <span class="operator">=</span> <span class="type">Person</span>(name: <span class="string">&quot;Alice&quot;</span>)</span><br><span class="line">p.printDescription()  <span class="comment">// 输出：My name is Alice</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li><strong>实例属性和方法</strong>：使用 self 以区分局部变量和实例属性。</li>
+<li><strong>闭包中使用 self</strong>：在逃逸闭包中访问 self 时，需显式使用，并考虑 [weak self] 避免循环引用。</li>
+<li><strong>类型方法中使用 self</strong>：指代类型本身（如 static 和 class 方法）。</li>
+<li><strong>构造方法中调用其他构造方法</strong>：用 self.init(…)。</li>
+<li><strong>结构体&#x2F;枚举中修改 self</strong>：方法必须加 mutating。</li>
+<li><strong>作为参数传递</strong>：可以用 self 传递当前实例。<br>在大多数情况下，<code>self</code> 可以省略，除非有歧义或必须显式使用。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/02/swiftui%E8%A7%86%E5%9B%BE%E6%9B%B4%E6%96%B0%E4%B8%ADid%E7%9A%84%E4%BD%9C%E7%94%A8%E5%8F%8A%E5%85%B6%E4%BB%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1689,243 +2019,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/22/myContentIdea/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="YiDa">
-      <meta itemprop="description" content="You Find Your Own Tree.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yi's Lab">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/07/22/myContentIdea/" class="post-title-link" itemprop="url">myContentIdea</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2024-07-22 10:18:25" itemprop="dateCreated datePublished" datetime="2024-07-22T10:18:25+09:00">2024-07-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-03-02 12:46:50" itemprop="dateModified" datetime="2025-03-02T12:46:50+09:00">2025-03-02</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>什么是硬件<br>什么是软件<br>什么是api<br>什么是数字化<br>什么是信息化<br>什么是网络集成<br>什么是协议<br>信息技术抽象的原因<br>什么是面向过程<br>什么是面向对象<br>什么是iot<br>为什么计算机许多案例可以用现实生活中的其他例子类比<br>资本与技术发展<br>农业社会的本质<br>工业社会的本质<br>信息化社会的本质<br>计算机中的时钟</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/05/%E5%A4%A7%E8%AE%BE%E8%AE%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="YiDa">
-      <meta itemprop="description" content="You Find Your Own Tree.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yi's Lab">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/03/05/%E5%A4%A7%E8%AE%BE%E8%AE%A1/" class="post-title-link" itemprop="url">大设计</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2024-03-05 11:29:45" itemprop="dateCreated datePublished" datetime="2024-03-05T11:29:45+09:00">2024-03-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-03-02 12:46:50" itemprop="dateModified" datetime="2025-03-02T12:46:50+09:00">2025-03-02</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/05/%E5%BB%BA%E7%AD%91%E7%89%A9%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="YiDa">
-      <meta itemprop="description" content="You Find Your Own Tree.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yi's Lab">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/03/05/%E5%BB%BA%E7%AD%91%E7%89%A9%E7%90%86/" class="post-title-link" itemprop="url">建筑物理</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2024-03-05 11:29:15" itemprop="dateCreated datePublished" datetime="2024-03-05T11:29:15+09:00">2024-03-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-03-02 12:46:50" itemprop="dateModified" datetime="2025-03-02T12:46:50+09:00">2025-03-02</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="建筑声学"><a href="#建筑声学" class="headerlink" title="建筑声学"></a>建筑声学</h2><h3 id="3dB"><a href="#3dB" class="headerlink" title="3dB"></a>3dB</h3><ol>
-<li>两个相同声压级叠加，总的是单个增加3dB</li>
-<li>无限长线声源，测点距离增加一倍，声压级衰弱3dB</li>
-<li>在噪声环境中，声压级的最高极限是85dB，声压级每增加3dB，工作时间减半</li>
-<li>在吸声减噪处理中，房间中的平均吸声系数增加一倍（或者房间的总吸声量增加一倍或者房间内的混响时间减少一倍）室内噪声减少3dB</li>
-</ol>
-<h3 id="4dB"><a href="#4dB" class="headerlink" title="4dB"></a>4dB</h3><ol>
-<li>有限长线声源，测点与声源的距离增加1倍，声压级衰弱4dB</li>
-</ol>
-<h3 id="6dB"><a href="#6dB" class="headerlink" title="6dB"></a>6dB</h3><ol>
-<li>一个声音的声压增加1倍，其声压级增加6dB</li>
-<li>点声源，测点距离增加1倍，声压级衰减6dB</li>
-<li>墙体对空气声的隔绝，如果墙体的厚度增加一倍，墙体隔声量增加6dB(隔声质量定律 R&#x3D;20lgm+20lgf-48 面密度越大，隔声量越好，m或者f增加1倍，隔声量都增加6dB，如果质量和频率都增加一倍，那就是增加12dB)</li>
-</ol>
-<h3 id="10dB"><a href="#10dB" class="headerlink" title="10dB"></a>10dB</h3><ol>
-<li>一个声音的声压级增加10 dB，人耳感觉响度增加一倍</li>
-<li>两个声音的声压级超过10 dB，其总声压级近似等于大的声音的声压级</li>
-<li>10个声压级相同的声音叠加，其总的声压级比单个声音的声压级多10 dB</li>
-<li>组合墙（即带有门或者窗的隔墙）中，墙的隔声量应比门窗的隔声量高10dB才能有效隔声</li>
-<li>住宅建筑室内允许噪声限值，应低于所在区域环境噪声标准值的10dB</li>
-</ol>
-<h3 id="500Hz"><a href="#500Hz" class="headerlink" title="500Hz"></a>500Hz</h3><ol>
-<li>混响时间</li>
-<li>空气声隔声指数（计权隔声量）</li>
-<li>撞击声隔声指数（计权标准化撞击声级）</li>
-</ol>
-<h3 id="1000-Hz"><a href="#1000-Hz" class="headerlink" title="1000 Hz"></a>1000 Hz</h3><p>1.响度级：1000 Hz纯音的声压级与响度级方相等<br>2.NR曲线：1000Hz纯音的声压级与噪声评价指数N相等(NR数是指噪声评价曲线的号数，它是中心频率等于<br>1000Hz时倍布带声压级的分贝数)</p>
-<h3 id="2000-Hz"><a href="#2000-Hz" class="headerlink" title="2000 Hz"></a>2000 Hz</h3><p>用伊林公式计算混响时间时，2000 Hz以上的声音（或高频声）要考虑空气吸收系数的影响</p>
-<h3 id="其他dB"><a href="#其他dB" class="headerlink" title="其他dB"></a>其他dB</h3><ol>
-<li>用松散的吸声材料填充空气层，可提高双层轻质墙隔声量的2~8dB</li>
-<li>设有活动隔断的会议室、多功能大厅，其活动隔断的空气声计权隔声量不应低于35dB</li>
-<li>住宅的空气声计权隔声量，分户墙应不小于45dB，分隔住宅和非居住用途的楼板不应小于51dB，民用建筑隔声设计规范 GB50118-2010(4.2.1)，住宅设计规范GB50096-2011（7.3.2）和住宅建筑规范GB50368-2005有冲突的，以此为准交通干线两侧卧室起居室的窗不应小于30dB，其他窗不应小于25dB（4.2.5）户门应不小于25dB（4.2.6）</li>
-<li>室内噪声限值低于所在区域标准值10dB声环境质量标准GB3096-2008</li>
-<li>我国城市居民、文教区的昼间环境噪声等效声级的限值标准是55dB</li>
-<li>工业企业的生产车间和作业场所的工作地点噪声标准为85dB(A) 工业企业噪声控制设计规范GB&#x2F;T50087-2013</li>
-<li>混响时间是声音自稳态声压级衰减了60dB所经历的时间</li>
-<li>住宅楼板撞击声隔声指数应小于或者等于75dB民用建筑隔声设计规范 GB50118-2010 (4.2.7)</li>
-<li>在室内噪声较高的房间采用“吸声降噪”的方法进行噪声控制，一般降噪效果约为6~10dB</li>
-</ol>
-<h3 id="隔声频率"><a href="#隔声频率" class="headerlink" title="隔声频率"></a>隔声频率</h3><p>1.尺度较大的障板，反射对中高频声波的影响大。<br>2.等响度曲线反映了人耳对低频声音感受不太敏感。<br>3.用隔声屏障的方法控制城市噪声，对降低高频的噪声最为有利。<br>4.楼板表面铺设柔软材料，对降低高频的撞击声最为显著。<br>5.在计算室内混响时间时，空气对声波的吸收影响主要在高频频带。<br>6.一般多孔性吸声材料主要吸收中高频，厚度一般为50MM。<br>(多孔吸声材料的罩面材料一般是厚度＜0.05的塑料薄膜，穿孔率＞20%的穿孔板，金属板、窗<br>纱、防火布、玻璃丝布)<br>如果背后留有空气层还能吸收低频声。<br>7.适当增加多孔性吸声材料的厚度，会提高它对低频的吸声能力。<br>8.建筑中使用的薄板构造中，其共振频率主要集中在低频。<br>9.机械设备采用的隔振机座，对建筑物内防止中高频的噪声干扰较为有效。<br>金属弹簧器件容易出现高频失效</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
