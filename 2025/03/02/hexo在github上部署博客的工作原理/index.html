@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|consolas:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","Muse | Mist":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="hexo在github上部署博客的工作原理 Hexo 是一个基于 Node.js 的静态博客框架，它可以将 Markdown 文章生成静态网页，并部署到 GitHub Pages。以下是 Hexo 在 GitHub 上部署博客的基本工作原理： 1. Hexo 生成静态网页 Hexo 采用 Markdown 作为文章编写格式，并使用主题渲染为 HTML 页面。 运行 hexo generate (h">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo在github上部署博客的工作原理">
+<meta property="og:url" content="http://example.com/2025/03/02/hexo%E5%9C%A8github%E4%B8%8A%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/index.html">
+<meta property="og:site_name" content="Yi&#39;s Lab">
+<meta property="og:description" content="hexo在github上部署博客的工作原理 Hexo 是一个基于 Node.js 的静态博客框架，它可以将 Markdown 文章生成静态网页，并部署到 GitHub Pages。以下是 Hexo 在 GitHub 上部署博客的基本工作原理： 1. Hexo 生成静态网页 Hexo 采用 Markdown 作为文章编写格式，并使用主题渲染为 HTML 页面。 运行 hexo generate (h">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-03-02T10:14:52.000Z">
+<meta property="article:modified_time" content="2025-03-02T11:16:53.700Z">
+<meta property="article:author" content="YiDa">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2025/03/02/hexo%E5%9C%A8github%E4%B8%8A%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>hexo在github上部署博客的工作原理 | Yi's Lab</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Yi's Lab</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section">Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section">About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section">Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section">Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section">Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/zhangyida-lab" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/02/hexo%E5%9C%A8github%E4%B8%8A%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="You Find Your Own Tree.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          hexo在github上部署博客的工作原理
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2025-03-02 19:14:52 / Modified: 20:16:53" itemprop="dateCreated datePublished" datetime="2025-03-02T19:14:52+09:00">2025-03-02</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="hexo在github上部署博客的工作原理"><a href="#hexo在github上部署博客的工作原理" class="headerlink" title="hexo在github上部署博客的工作原理"></a>hexo在github上部署博客的工作原理</h1><p> Hexo 是一个基于 Node.js 的静态博客框架，它可以将 Markdown 文章生成静态网页，并部署到 GitHub Pages。以下是 Hexo 在 GitHub 上部署博客的基本工作原理：</p>
+<h3 id="1-Hexo-生成静态网页"><a href="#1-Hexo-生成静态网页" class="headerlink" title="1. Hexo 生成静态网页"></a>1. <strong>Hexo 生成静态网页</strong></h3><ul>
+<li>Hexo 采用 Markdown 作为文章编写格式，并使用主题渲染为 HTML 页面。</li>
+<li>运行 hexo generate (hexo g) 时，Hexo 会解析 Markdown 文件并根据主题生成静态网页，存放在 public&#x2F; 目录下。</li>
+</ul>
+<h3 id="2-GitHub-Pages-作为托管平台"><a href="#2-GitHub-Pages-作为托管平台" class="headerlink" title="2. GitHub Pages 作为托管平台"></a>2. <strong>GitHub Pages 作为托管平台</strong></h3><ul>
+<li>GitHub Pages 提供静态网页托管服务，可以直接将 public&#x2F; 目录的内容托管到 GitHub 上，使其通过 <username>.github.io 访问。</li>
+</ul>
+<h3 id="3-Hexo-部署机制"><a href="#3-Hexo-部署机制" class="headerlink" title="3. Hexo 部署机制"></a>3. <strong>Hexo 部署机制</strong></h3><p>Hexo 使用 <code>hexo-deployer-git</code> 插件将 <code>public/</code> 目录推送到 GitHub Pages 仓库：</p>
+<ul>
+<li>运行 hexo deploy (hexo d) 后，Hexo 会：先执行 hexo generate 生成最新的静态网页。切换到 public&#x2F; 目录，并初始化 Git 仓库（如果尚未初始化）。将 public&#x2F; 目录中的内容提交到 GitHub 指定分支（通常是 gh-pages 或 main）。GitHub Pages 自动更新网站内容，使博客上线。</li>
+</ul>
+<h3 id="4-配置-GitHub-Pages"><a href="#4-配置-GitHub-Pages" class="headerlink" title="4. 配置 GitHub Pages"></a>4. <strong>配置 GitHub Pages</strong></h3><p>需要在 Hexo 的 <code>_config.yml</code> 中配置 GitHub 仓库信息，例如：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/your-username/your-repo.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">gh-pages</span>  <span class="comment"># 或者 main</span></span><br></pre></td></tr></table></figure>
+
+<p>这样在执行 <code>hexo d</code> 时，Hexo 就会自动推送 <code>public/</code> 目录的内容到指定分支。</p>
+<h3 id="5-访问博客"><a href="#5-访问博客" class="headerlink" title="5. 访问博客"></a>5. <strong>访问博客</strong></h3><ul>
+<li>部署完成后，用户可以通过 <a target="_blank" rel="noopener" href="https://your-username.github.io/">https://your-username.github.io/</a> 访问博客。</li>
+<li>也可以绑定自定义域名，使其解析到 GitHub Pages。<br><strong>总结：</strong><br>Hexo 通过 <code>hexo generate</code> 生成静态网页，并使用 <code>hexo deploy</code> 将 <code>public/</code> 目录推送到 GitHub Pages 指定分支，GitHub Pages 自动提供访问入口，实现博客托管。</li>
+</ul>
+<h1 id="用户问题"><a href="#用户问题" class="headerlink" title="用户问题"></a>用户问题</h1><p> 需要多电脑使用该仓库撰写博客，要给该仓库创建其他分支的原因是什么？ </p>
+<h1 id="chatGPT"><a href="#chatGPT" class="headerlink" title="chatGPT"></a>chatGPT</h1><p> 当你需要在多台电脑上撰写和维护 Hexo 博客时，通常会使用 <strong>多个分支</strong> 来区分博客的源码（Hexo 项目文件）和生成的静态网页（<code>public/</code> 目录）。这主要是为了更好地管理代码，并适应 GitHub Pages 的部署方式。</p>
+<h3 id="为什么需要多个分支？"><a href="#为什么需要多个分支？" class="headerlink" title="为什么需要多个分支？"></a><strong>为什么需要多个分支？</strong></h3><ol>
+<li><strong>区分博客源码和生成的静态网页</strong></li>
+</ol>
+<ul>
+<li>Hexo 的源码（Markdown 文章、主题、配置文件等）需要进行版本控制，便于多台电脑同步编辑。</li>
+<li>public&#x2F; 目录是 Hexo 生成的静态网页，GitHub Pages 只需要这一部分，而不需要 Hexo 的源码。</li>
+</ul>
+<ol start="2">
+<li><strong>不同分支的职责</strong><br>通常会使用两个分支：</li>
+</ol>
+<ul>
+<li>hexoSource：存放 Hexo 的 <strong>源码</strong>（Markdown 文章、主题等），多台电脑都可以克隆该分支进行撰写和管理。</li>
+<li>main：存放 Hexo 生成的 <strong>静态网页</strong>，由 Hexo 部署时自动生成，不需要手动修改。</li>
+</ul>
+<ol start="3">
+<li><strong>GitHub Pages 只能托管静态网页</strong></li>
+</ol>
+<ul>
+<li>GitHub Pages 通常会指定一个分支（如 main）来托管静态网页，而 Hexo 的源码并不是静态网页，所以需要单独一个分支存放 public&#x2F; 目录。</li>
+</ul>
+<h1 id="我想使用main仓库存放生成的静态网页，新建分支名为hexoSource，我该如何操作"><a href="#我想使用main仓库存放生成的静态网页，新建分支名为hexoSource，我该如何操作" class="headerlink" title="我想使用main仓库存放生成的静态网页，新建分支名为hexoSource，我该如何操作"></a>我想使用main仓库存放生成的静态网页，新建分支名为hexoSource，我该如何操作</h1><p> 如果你想 <strong>让 main 分支存放 Hexo 生成的静态网页</strong>，而 <strong>新建 hexoSource 分支存放 Hexo 源码</strong>，可以按照以下步骤进行操作：</p>
+<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a><strong>操作步骤</strong></h2><h3 id="1-备份当前博客源码"><a href="#1-备份当前博客源码" class="headerlink" title="1. 备份当前博客源码"></a><strong>1. 备份当前博客源码</strong></h3><p><strong>（如果仓库已有内容，建议先备份代码，以防误操作导致数据丢失）</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/your-username/your-repo.git</span><br><span class="line"><span class="built_in">cp</span> -r your-repo your-repo-backup  <span class="comment"># 备份代码</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-切换-main-分支为存放静态网页"><a href="#2-切换-main-分支为存放静态网页" class="headerlink" title="2. 切换 main 分支为存放静态网页"></a><strong>2. 切换 main 分支为存放静态网页</strong></h3><ol>
+<li><strong>进入你的 Hexo 目录</strong>：<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> your-repo</span><br></pre></td></tr></table></figure></li>
+<li><strong>新建 hexoSource 分支存放 Hexo 源码</strong>：<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b hexoSource</span><br><span class="line">git push origin hexoSource  <span class="comment"># 推送新分支到远程</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>切换回 main 分支并清空文件</strong><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git checkout main</span><br><span class="line">git <span class="built_in">rm</span> -rf .  <span class="comment"># 删除所有文件</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Hello GitHub Pages&quot;</span> &gt; index.html  <span class="comment"># 创建占位文件，防止仓库为空</span></span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;Initialize GitHub Pages branch&quot;</span></span><br><span class="line">git push origin main --force  <span class="comment"># 强制推送（清空原有内容）</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="3-配置-Hexo"><a href="#3-配置-Hexo" class="headerlink" title="3. 配置 Hexo"></a><strong>3. 配置 Hexo</strong></h3><ol>
+<li><strong>切换到 hexoSource 分支，并安装 Hexo</strong><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout hexoSource</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></li>
+<li><strong>修改 Hexo 配置 _config.yml</strong><br>将 <code>deploy</code> 部分改为：<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/your-username/your-repo.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure>
+<strong>这样 Hexo 生成的静态网页将被推送到 main 分支</strong>。</li>
+</ol>
+<h3 id="4-生成并部署博客"><a href="#4-生成并部署博客" class="headerlink" title="4. 生成并部署博客"></a><strong>4. 生成并部署博客</strong></h3><ol>
+<li><strong>清理旧文件</strong><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure></li>
+<li><strong>生成静态网页</strong><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure></li>
+<li><strong>部署到 GitHub Pages</strong><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+<strong>Hexo 会自动将 public&#x2F; 目录的内容推送到 main 分支</strong>，而 <code>hexoSource</code> 分支仍然保留 Hexo 的源码。</li>
+</ol>
+<h3 id="5-在其他电脑上同步博客"><a href="#5-在其他电脑上同步博客" class="headerlink" title="5. 在其他电脑上同步博客"></a><strong>5. 在其他电脑上同步博客</strong></h3><h4 id="如果要在另一台电脑上撰写博客"><a href="#如果要在另一台电脑上撰写博客" class="headerlink" title="如果要在另一台电脑上撰写博客"></a><strong>如果要在另一台电脑上撰写博客</strong></h4><ol>
+<li><strong>克隆 hexoSource 分支（Hexo 源码）</strong><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> -b hexoSource https://github.com/your-username/your-repo.git</span><br><span class="line"><span class="built_in">cd</span> your-repo</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></li>
+<li><strong>写文章</strong><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>本地预览</strong><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure></li>
+<li><strong>提交 Hexo 源码</strong><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;Update blog post&quot;</span></span><br><span class="line">git push origin hexoSource</span><br></pre></td></tr></table></figure></li>
+<li><strong>部署博客</strong><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy</span><br></pre></td></tr></table></figure>
+<strong>这样 hexoSource 分支保存源码，main 分支用于 GitHub Pages 托管博客。</strong></li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><ul>
+<li>hexoSource 分支 <strong>存放 Hexo 源码</strong>，用于撰写博客，多台电脑同步该分支即可写作。</li>
+<li>main 分支 <strong>存放静态网页</strong>，Hexo 生成的 public&#x2F; 目录会自动部署到该分支，并被 GitHub Pages 托管。</li>
+<li>Hexo _config.yml 需修改 deploy.branch: main，让 Hexo 部署到 main 分支。<br>这样，你的博客就能在多台设备上协同编辑，并且 GitHub Pages 仍然能正常访问你的博客！ 🚀</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/03/02/%E5%9C%A8xcode%E4%B8%8A%E9%80%9A%E8%BF%87swift%E8%AF%AD%E8%A8%80%E7%BC%96%E5%86%99%E7%9A%84ios%E7%A8%8B%E5%BA%8F%E5%9C%A8%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%83%8C%E5%90%8E%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/" rel="prev" title="在xcode上通过swift语言编写的ios程序在编译过程中计算机背后发生了什么">
+      <i class="fa fa-chevron-left"></i> 在xcode上通过swift语言编写的ios程序在编译过程中计算机背后发生了什么
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo%E5%9C%A8github%E4%B8%8A%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-text">hexo在github上部署博客的工作原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Hexo-%E7%94%9F%E6%88%90%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5"><span class="nav-text">1. Hexo 生成静态网页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-GitHub-Pages-%E4%BD%9C%E4%B8%BA%E6%89%98%E7%AE%A1%E5%B9%B3%E5%8F%B0"><span class="nav-text">2. GitHub Pages 作为托管平台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Hexo-%E9%83%A8%E7%BD%B2%E6%9C%BA%E5%88%B6"><span class="nav-text">3. Hexo 部署机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E9%85%8D%E7%BD%AE-GitHub-Pages"><span class="nav-text">4. 配置 GitHub Pages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E8%AE%BF%E9%97%AE%E5%8D%9A%E5%AE%A2"><span class="nav-text">5. 访问博客</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E9%97%AE%E9%A2%98"><span class="nav-text">用户问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chatGPT"><span class="nav-text">chatGPT</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%A4%9A%E4%B8%AA%E5%88%86%E6%94%AF%EF%BC%9F"><span class="nav-text">为什么需要多个分支？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%88%91%E6%83%B3%E4%BD%BF%E7%94%A8main%E4%BB%93%E5%BA%93%E5%AD%98%E6%94%BE%E7%94%9F%E6%88%90%E7%9A%84%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5%EF%BC%8C%E6%96%B0%E5%BB%BA%E5%88%86%E6%94%AF%E5%90%8D%E4%B8%BAhexoSource%EF%BC%8C%E6%88%91%E8%AF%A5%E5%A6%82%E4%BD%95%E6%93%8D%E4%BD%9C"><span class="nav-text">我想使用main仓库存放生成的静态网页，新建分支名为hexoSource，我该如何操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4"><span class="nav-text">操作步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%A4%87%E4%BB%BD%E5%BD%93%E5%89%8D%E5%8D%9A%E5%AE%A2%E6%BA%90%E7%A0%81"><span class="nav-text">1. 备份当前博客源码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%88%87%E6%8D%A2-main-%E5%88%86%E6%94%AF%E4%B8%BA%E5%AD%98%E6%94%BE%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5"><span class="nav-text">2. 切换 main 分支为存放静态网页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E9%85%8D%E7%BD%AE-Hexo"><span class="nav-text">3. 配置 Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E7%94%9F%E6%88%90%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2"><span class="nav-text">4. 生成并部署博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E5%9C%A8%E5%85%B6%E4%BB%96%E7%94%B5%E8%84%91%E4%B8%8A%E5%90%8C%E6%AD%A5%E5%8D%9A%E5%AE%A2"><span class="nav-text">5. 在其他电脑上同步博客</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E8%A6%81%E5%9C%A8%E5%8F%A6%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E6%92%B0%E5%86%99%E5%8D%9A%E5%AE%A2"><span class="nav-text">如果要在另一台电脑上撰写博客</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">YiDa</p>
+  <div class="site-description" itemprop="description">You Find Your Own Tree.</div>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2023 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YiDa</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

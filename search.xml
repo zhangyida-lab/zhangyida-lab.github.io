@@ -443,18 +443,6 @@
       </tags>
   </entry>
   <entry>
-    <title>JavaQA</title>
-    <url>/2023/05/05/JavaQA/</url>
-    <content><![CDATA[<blockquote>
-<p>盛衰之理，虽曰天命，岂非人事哉。 ——《五代史伶官传序》</p>
-</blockquote>
-<span id="more"></span>
-]]></content>
-      <tags>
-        <tag>softwareDevelopment</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>HowToDeployGitLabByYourself</title>
     <url>/2023/07/07/HowToDeployGitLabByYourself/</url>
     <content><![CDATA[<blockquote>
@@ -497,6 +485,66 @@
 ]]></content>
       <tags>
         <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaQA</title>
+    <url>/2023/05/05/JavaQA/</url>
+    <content><![CDATA[<blockquote>
+<p>盛衰之理，虽曰天命，岂非人事哉。 ——《五代史伶官传序》</p>
+</blockquote>
+<span id="more"></span>
+]]></content>
+      <tags>
+        <tag>softwareDevelopment</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MarkdownBasicSyntax</title>
+    <url>/2023/04/17/MarkdownBasicSyntax/</url>
+    <content><![CDATA[<h2 id="Q-amp-A-about-markdown"><a href="#Q-amp-A-about-markdown" class="headerlink" title="Q&amp;A about markdown"></a>Q&amp;A about markdown</h2><h2 id="How-to-headings-your-word"><a href="#How-to-headings-your-word" class="headerlink" title="# How to headings your word?"></a><font color="green">#</font> How to headings your word?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># Heading</span></span><br><span class="line">represent level 1</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
+<h2 id="How-to-emphasis-your-word"><a href="#How-to-emphasis-your-word" class="headerlink" title="# How to emphasis your word?"></a><font color="green">#</font> How to emphasis your word?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="emphasis">*heading*</span> represent Italic</span><br><span class="line"><span class="strong">**heading**</span> represent Bold</span><br></pre></td></tr></table></figure>
+
+<h2 id="How-to-lists-your-word"><a href="#How-to-lists-your-word" class="headerlink" title="# How to lists your word?"></a><font color="green">#</font> How to lists your word?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet"> 1.</span> first</span><br><span class="line"><span class="bullet"> 2.</span> second </span><br><span class="line">represent Ordered Lists</span><br><span class="line"><span class="bullet"> -</span> first</span><br><span class="line"><span class="bullet"> -</span> second </span><br><span class="line">represent Unordered Lists</span><br></pre></td></tr></table></figure>
+
+<h2 id="How-to-add-images-in-markdown"><a href="#How-to-add-images-in-markdown" class="headerlink" title="# How to add images in markdown?"></a><font color="orange">#</font> How to add images in markdown?</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">![this is a message](Snipaste.png)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s3.bmp.ovh/imgs/2023/05/04/363e4e279c367a69.png" alt="this is a messag"></p>
+<h2 id="How-to-add-links-in-markdow"><a href="#How-to-add-links-in-markdow" class="headerlink" title="# How to add links in markdow?"></a><font color="green">#</font> How to add links in markdow?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">Markdown basic syntax is [<span class="string">here</span>](<span class="link">https://www.markdownguide.org/basic-syntax/</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Markdown basic syntax is <a href="https://www.markdownguide.org/basic-syntax/">here</a></p>
+<h2 id="How-to-color-your-word-in-markdown"><a href="#How-to-color-your-word-in-markdown" class="headerlink" title="# How to color your word in markdown?"></a><font color="green">#</font> How to color your word in markdown?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">&quot;green&quot;</span>&gt;</span></span> i am green <span class="language-xml"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><font color="green"> I am GREEN </font></p>
+<h2 id="How-to-use-emoji-in-markdown"><a href="#How-to-use-emoji-in-markdown" class="headerlink" title="# How to use emoji in markdown?"></a><font color="green">#</font> How to use emoji in markdown?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">:some strings:</span><br></pre></td></tr></table></figure>
+
+<p>:x:,  :link:</p>
+<p>:link: The emoji list is <a href="https://gist.github.com/rxaviers/7360908">here</a>.</p>
+<h2 id="Paragraphs-and-Line-Breaks"><a href="#Paragraphs-and-Line-Breaks" class="headerlink" title="Paragraphs and Line Breaks"></a>Paragraphs and Line Breaks</h2><p>To create paragraphs, use a blank line to separate one or more lines of text.</p>
+<p>To create a line break or new line , end a line with two or more spaces, and then type return.</p>
+<h2 id="Markdown-tabe"><a href="#Markdown-tabe" class="headerlink" title="Markdown tabe"></a>Markdown tabe</h2><figure class="highlight md"><table><tr><td class="code"><pre><span class="line">|  表头   | 表头  |</span><br><span class="line">|  ----  | ----  |</span><br><span class="line">| 单元格  | 单元格 |</span><br><span class="line">| 单元格  | 单元格 |</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>表头</th>
+<th>表头</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+<tr>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+</tbody></table>
+]]></content>
+      <tags>
+        <tag>others</tag>
       </tags>
   </entry>
   <entry>
@@ -553,54 +601,6 @@
 <span id="more"></span>]]></content>
       <tags>
         <tag>softwareDevelopment</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MarkdownBasicSyntax</title>
-    <url>/2023/04/17/MarkdownBasicSyntax/</url>
-    <content><![CDATA[<h2 id="Q-amp-A-about-markdown"><a href="#Q-amp-A-about-markdown" class="headerlink" title="Q&amp;A about markdown"></a>Q&amp;A about markdown</h2><h2 id="How-to-headings-your-word"><a href="#How-to-headings-your-word" class="headerlink" title="# How to headings your word?"></a><font color="green">#</font> How to headings your word?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># Heading</span></span><br><span class="line">represent level 1</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-
-<h2 id="How-to-emphasis-your-word"><a href="#How-to-emphasis-your-word" class="headerlink" title="# How to emphasis your word?"></a><font color="green">#</font> How to emphasis your word?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="emphasis">*heading*</span> represent Italic</span><br><span class="line"><span class="strong">**heading**</span> represent Bold</span><br></pre></td></tr></table></figure>
-
-<h2 id="How-to-lists-your-word"><a href="#How-to-lists-your-word" class="headerlink" title="# How to lists your word?"></a><font color="green">#</font> How to lists your word?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet"> 1.</span> first</span><br><span class="line"><span class="bullet"> 2.</span> second </span><br><span class="line">represent Ordered Lists</span><br><span class="line"><span class="bullet"> -</span> first</span><br><span class="line"><span class="bullet"> -</span> second </span><br><span class="line">represent Unordered Lists</span><br></pre></td></tr></table></figure>
-
-<h2 id="How-to-add-images-in-markdown"><a href="#How-to-add-images-in-markdown" class="headerlink" title="# How to add images in markdown?"></a><font color="orange">#</font> How to add images in markdown?</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">![this is a message](Snipaste.png)</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://s3.bmp.ovh/imgs/2023/05/04/363e4e279c367a69.png" alt="this is a messag"></p>
-<h2 id="How-to-add-links-in-markdow"><a href="#How-to-add-links-in-markdow" class="headerlink" title="# How to add links in markdow?"></a><font color="green">#</font> How to add links in markdow?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">Markdown basic syntax is [<span class="string">here</span>](<span class="link">https://www.markdownguide.org/basic-syntax/</span>)</span><br></pre></td></tr></table></figure>
-
-<p>Markdown basic syntax is <a href="https://www.markdownguide.org/basic-syntax/">here</a></p>
-<h2 id="How-to-color-your-word-in-markdown"><a href="#How-to-color-your-word-in-markdown" class="headerlink" title="# How to color your word in markdown?"></a><font color="green">#</font> How to color your word in markdown?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">&quot;green&quot;</span>&gt;</span></span> i am green <span class="language-xml"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<p><font color="green"> I am GREEN </font></p>
-<h2 id="How-to-use-emoji-in-markdown"><a href="#How-to-use-emoji-in-markdown" class="headerlink" title="# How to use emoji in markdown?"></a><font color="green">#</font> How to use emoji in markdown?</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">:some strings:</span><br></pre></td></tr></table></figure>
-
-<p>:x:,  :link:</p>
-<p>:link: The emoji list is <a href="https://gist.github.com/rxaviers/7360908">here</a>.</p>
-<h2 id="Paragraphs-and-Line-Breaks"><a href="#Paragraphs-and-Line-Breaks" class="headerlink" title="Paragraphs and Line Breaks"></a>Paragraphs and Line Breaks</h2><p>To create paragraphs, use a blank line to separate one or more lines of text.</p>
-<p>To create a line break or new line , end a line with two or more spaces, and then type return.</p>
-<h2 id="Markdown-tabe"><a href="#Markdown-tabe" class="headerlink" title="Markdown tabe"></a>Markdown tabe</h2><figure class="highlight md"><table><tr><td class="code"><pre><span class="line">|  表头   | 表头  |</span><br><span class="line">|  ----  | ----  |</span><br><span class="line">| 单元格  | 单元格 |</span><br><span class="line">| 单元格  | 单元格 |</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>表头</th>
-<th>表头</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>单元格</td>
-<td>单元格</td>
-</tr>
-<tr>
-<td>单元格</td>
-<td>单元格</td>
-</tr>
-</tbody></table>
-]]></content>
-      <tags>
-        <tag>others</tag>
       </tags>
   </entry>
   <entry>
@@ -1357,6 +1357,86 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo在github上部署博客的工作原理</title>
+    <url>/2025/03/02/hexo%E5%9C%A8github%E4%B8%8A%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/</url>
+    <content><![CDATA[<h1 id="hexo在github上部署博客的工作原理"><a href="#hexo在github上部署博客的工作原理" class="headerlink" title="hexo在github上部署博客的工作原理"></a>hexo在github上部署博客的工作原理</h1><p> Hexo 是一个基于 Node.js 的静态博客框架，它可以将 Markdown 文章生成静态网页，并部署到 GitHub Pages。以下是 Hexo 在 GitHub 上部署博客的基本工作原理：</p>
+<h3 id="1-Hexo-生成静态网页"><a href="#1-Hexo-生成静态网页" class="headerlink" title="1. Hexo 生成静态网页"></a>1. <strong>Hexo 生成静态网页</strong></h3><ul>
+<li>Hexo 采用 Markdown 作为文章编写格式，并使用主题渲染为 HTML 页面。</li>
+<li>运行 hexo generate (hexo g) 时，Hexo 会解析 Markdown 文件并根据主题生成静态网页，存放在 public&#x2F; 目录下。</li>
+</ul>
+<h3 id="2-GitHub-Pages-作为托管平台"><a href="#2-GitHub-Pages-作为托管平台" class="headerlink" title="2. GitHub Pages 作为托管平台"></a>2. <strong>GitHub Pages 作为托管平台</strong></h3><ul>
+<li>GitHub Pages 提供静态网页托管服务，可以直接将 public&#x2F; 目录的内容托管到 GitHub 上，使其通过 <username>.github.io 访问。</li>
+</ul>
+<h3 id="3-Hexo-部署机制"><a href="#3-Hexo-部署机制" class="headerlink" title="3. Hexo 部署机制"></a>3. <strong>Hexo 部署机制</strong></h3><p>Hexo 使用 <code>hexo-deployer-git</code> 插件将 <code>public/</code> 目录推送到 GitHub Pages 仓库：</p>
+<ul>
+<li>运行 hexo deploy (hexo d) 后，Hexo 会：先执行 hexo generate 生成最新的静态网页。切换到 public&#x2F; 目录，并初始化 Git 仓库（如果尚未初始化）。将 public&#x2F; 目录中的内容提交到 GitHub 指定分支（通常是 gh-pages 或 main）。GitHub Pages 自动更新网站内容，使博客上线。</li>
+</ul>
+<h3 id="4-配置-GitHub-Pages"><a href="#4-配置-GitHub-Pages" class="headerlink" title="4. 配置 GitHub Pages"></a>4. <strong>配置 GitHub Pages</strong></h3><p>需要在 Hexo 的 <code>_config.yml</code> 中配置 GitHub 仓库信息，例如：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/your-username/your-repo.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">gh-pages</span>  <span class="comment"># 或者 main</span></span><br></pre></td></tr></table></figure>
+
+<p>这样在执行 <code>hexo d</code> 时，Hexo 就会自动推送 <code>public/</code> 目录的内容到指定分支。</p>
+<h3 id="5-访问博客"><a href="#5-访问博客" class="headerlink" title="5. 访问博客"></a>5. <strong>访问博客</strong></h3><ul>
+<li>部署完成后，用户可以通过 <a href="https://your-username.github.io/">https://your-username.github.io/</a> 访问博客。</li>
+<li>也可以绑定自定义域名，使其解析到 GitHub Pages。<br><strong>总结：</strong><br>Hexo 通过 <code>hexo generate</code> 生成静态网页，并使用 <code>hexo deploy</code> 将 <code>public/</code> 目录推送到 GitHub Pages 指定分支，GitHub Pages 自动提供访问入口，实现博客托管。</li>
+</ul>
+<h1 id="用户问题"><a href="#用户问题" class="headerlink" title="用户问题"></a>用户问题</h1><p> 需要多电脑使用该仓库撰写博客，要给该仓库创建其他分支的原因是什么？ </p>
+<h1 id="chatGPT"><a href="#chatGPT" class="headerlink" title="chatGPT"></a>chatGPT</h1><p> 当你需要在多台电脑上撰写和维护 Hexo 博客时，通常会使用 <strong>多个分支</strong> 来区分博客的源码（Hexo 项目文件）和生成的静态网页（<code>public/</code> 目录）。这主要是为了更好地管理代码，并适应 GitHub Pages 的部署方式。</p>
+<h3 id="为什么需要多个分支？"><a href="#为什么需要多个分支？" class="headerlink" title="为什么需要多个分支？"></a><strong>为什么需要多个分支？</strong></h3><ol>
+<li><strong>区分博客源码和生成的静态网页</strong></li>
+</ol>
+<ul>
+<li>Hexo 的源码（Markdown 文章、主题、配置文件等）需要进行版本控制，便于多台电脑同步编辑。</li>
+<li>public&#x2F; 目录是 Hexo 生成的静态网页，GitHub Pages 只需要这一部分，而不需要 Hexo 的源码。</li>
+</ul>
+<ol start="2">
+<li><strong>不同分支的职责</strong><br>通常会使用两个分支：</li>
+</ol>
+<ul>
+<li>hexoSource：存放 Hexo 的 <strong>源码</strong>（Markdown 文章、主题等），多台电脑都可以克隆该分支进行撰写和管理。</li>
+<li>main：存放 Hexo 生成的 <strong>静态网页</strong>，由 Hexo 部署时自动生成，不需要手动修改。</li>
+</ul>
+<ol start="3">
+<li><strong>GitHub Pages 只能托管静态网页</strong></li>
+</ol>
+<ul>
+<li>GitHub Pages 通常会指定一个分支（如 main）来托管静态网页，而 Hexo 的源码并不是静态网页，所以需要单独一个分支存放 public&#x2F; 目录。</li>
+</ul>
+<h1 id="我想使用main仓库存放生成的静态网页，新建分支名为hexoSource，我该如何操作"><a href="#我想使用main仓库存放生成的静态网页，新建分支名为hexoSource，我该如何操作" class="headerlink" title="我想使用main仓库存放生成的静态网页，新建分支名为hexoSource，我该如何操作"></a>我想使用main仓库存放生成的静态网页，新建分支名为hexoSource，我该如何操作</h1><p> 如果你想 <strong>让 main 分支存放 Hexo 生成的静态网页</strong>，而 <strong>新建 hexoSource 分支存放 Hexo 源码</strong>，可以按照以下步骤进行操作：</p>
+<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a><strong>操作步骤</strong></h2><h3 id="1-备份当前博客源码"><a href="#1-备份当前博客源码" class="headerlink" title="1. 备份当前博客源码"></a><strong>1. 备份当前博客源码</strong></h3><p><strong>（如果仓库已有内容，建议先备份代码，以防误操作导致数据丢失）</strong></p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/your-username/your-repo.git</span><br><span class="line"><span class="built_in">cp</span> -r your-repo your-repo-backup  <span class="comment"># 备份代码</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-切换-main-分支为存放静态网页"><a href="#2-切换-main-分支为存放静态网页" class="headerlink" title="2. 切换 main 分支为存放静态网页"></a><strong>2. 切换 main 分支为存放静态网页</strong></h3><ol>
+<li><strong>进入你的 Hexo 目录</strong>：<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> your-repo</span><br></pre></td></tr></table></figure></li>
+<li><strong>新建 hexoSource 分支存放 Hexo 源码</strong>：<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git checkout -b hexoSource</span><br><span class="line">git push origin hexoSource  <span class="comment"># 推送新分支到远程</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>切换回 main 分支并清空文件</strong><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git checkout main</span><br><span class="line">git <span class="built_in">rm</span> -rf .  <span class="comment"># 删除所有文件</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Hello GitHub Pages&quot;</span> &gt; index.html  <span class="comment"># 创建占位文件，防止仓库为空</span></span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;Initialize GitHub Pages branch&quot;</span></span><br><span class="line">git push origin main --force  <span class="comment"># 强制推送（清空原有内容）</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="3-配置-Hexo"><a href="#3-配置-Hexo" class="headerlink" title="3. 配置 Hexo"></a><strong>3. 配置 Hexo</strong></h3><ol>
+<li><strong>切换到 hexoSource 分支，并安装 Hexo</strong><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git checkout hexoSource</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></li>
+<li><strong>修改 Hexo 配置 _config.yml</strong><br>将 <code>deploy</code> 部分改为：<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/your-username/your-repo.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure>
+<strong>这样 Hexo 生成的静态网页将被推送到 main 分支</strong>。</li>
+</ol>
+<h3 id="4-生成并部署博客"><a href="#4-生成并部署博客" class="headerlink" title="4. 生成并部署博客"></a><strong>4. 生成并部署博客</strong></h3><ol>
+<li><strong>清理旧文件</strong><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure></li>
+<li><strong>生成静态网页</strong><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure></li>
+<li><strong>部署到 GitHub Pages</strong><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+<strong>Hexo 会自动将 public&#x2F; 目录的内容推送到 main 分支</strong>，而 <code>hexoSource</code> 分支仍然保留 Hexo 的源码。</li>
+</ol>
+<h3 id="5-在其他电脑上同步博客"><a href="#5-在其他电脑上同步博客" class="headerlink" title="5. 在其他电脑上同步博客"></a><strong>5. 在其他电脑上同步博客</strong></h3><h4 id="如果要在另一台电脑上撰写博客"><a href="#如果要在另一台电脑上撰写博客" class="headerlink" title="如果要在另一台电脑上撰写博客"></a><strong>如果要在另一台电脑上撰写博客</strong></h4><ol>
+<li><strong>克隆 hexoSource 分支（Hexo 源码）</strong><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> -b hexoSource https://github.com/your-username/your-repo.git</span><br><span class="line"><span class="built_in">cd</span> your-repo</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></li>
+<li><strong>写文章</strong><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>本地预览</strong><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure></li>
+<li><strong>提交 Hexo 源码</strong><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;Update blog post&quot;</span></span><br><span class="line">git push origin hexoSource</span><br></pre></td></tr></table></figure></li>
+<li><strong>部署博客</strong><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy</span><br></pre></td></tr></table></figure>
+<strong>这样 hexoSource 分支保存源码，main 分支用于 GitHub Pages 托管博客。</strong></li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><ul>
+<li>hexoSource 分支 <strong>存放 Hexo 源码</strong>，用于撰写博客，多台电脑同步该分支即可写作。</li>
+<li>main 分支 <strong>存放静态网页</strong>，Hexo 生成的 public&#x2F; 目录会自动部署到该分支，并被 GitHub Pages 托管。</li>
+<li>Hexo _config.yml 需修改 deploy.branch: main，让 Hexo 部署到 main 分支。<br>这样，你的博客就能在多台设备上协同编辑，并且 GitHub Pages 仍然能正常访问你的博客！ 🚀</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>iosProgramming</title>
     <url>/2025/03/02/iosProgramming/</url>
     <content><![CDATA[<blockquote>
@@ -1487,129 +1567,6 @@
     <title>myContentIdea</title>
     <url>/2024/07/22/myContentIdea/</url>
     <content><![CDATA[<p>什么是硬件<br>什么是软件<br>什么是api<br>什么是数字化<br>什么是信息化<br>什么是网络集成<br>什么是协议<br>信息技术抽象的原因<br>什么是面向过程<br>什么是面向对象<br>什么是iot<br>为什么计算机许多案例可以用现实生活中的其他例子类比<br>资本与技术发展<br>农业社会的本质<br>工业社会的本质<br>信息化社会的本质<br>计算机中的时钟</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>swiftui布局及point</title>
-    <url>/2025/03/02/swiftui%E5%B8%83%E5%B1%80%E5%8F%8Apoint/</url>
-    <content><![CDATA[<h1 id="swift-默认padding-以及point"><a href="#swift-默认padding-以及point" class="headerlink" title="swift 默认padding 以及point"></a>swift 默认padding 以及point</h1><p> 在 SwiftUI 中，默认的 <code>padding()</code> 行为如下：</p>
-<ol>
-<li><strong>默认值</strong>：</li>
-</ol>
-<ul>
-<li>padding() 默认会在所有方向（top, bottom, leading, trailing）添加 16 点的填充。</li>
-<li>示例：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">Text</span>(<span class="string">&quot;Hello, SwiftUI!&quot;</span>)</span><br><span class="line">    .padding() <span class="comment">// 默认 16 点内边距</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<ol start="2">
-<li><strong>指定方向的 padding</strong>：</li>
-</ol>
-<ul>
-<li>你可以只对特定方向添加 padding：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">Text</span>(<span class="string">&quot;Hello, SwiftUI!&quot;</span>)</span><br><span class="line">    .padding(.horizontal, <span class="number">20</span>) <span class="comment">// 左右各 20 点</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<ol start="3">
-<li><strong>完全自定义 padding</strong>：</li>
-</ol>
-<ul>
-<li>你可以指定每个方向的 padding 值：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">Text</span>(<span class="string">&quot;Hello, SwiftUI!&quot;</span>)</span><br><span class="line">    .padding(.<span class="keyword">init</span>(top: <span class="number">10</span>, leading: <span class="number">20</span>, bottom: <span class="number">5</span>, trailing: <span class="number">15</span>))</span><br></pre></td></tr></table></figure>
-如果你觉得某个 UI 组件的 <code>padding</code> 不符合预期，可以试试手动设置 <code>padding</code> 或者 <code>frame</code> 来调整布局。</li>
-</ul>
-<h1 id="用户问题"><a href="#用户问题" class="headerlink" title="用户问题"></a>用户问题</h1><p> swiftui是根据什么保证不通过设备之间的界面同意的 </p>
-<p> SwiftUI 通过以下机制确保界面在不同设备上保持一致性和适应性：</p>
-<h3 id="1-自适应布局系统（Adaptive-Layout）"><a href="#1-自适应布局系统（Adaptive-Layout）" class="headerlink" title="1. 自适应布局系统（Adaptive Layout）"></a>1. <strong>自适应布局系统</strong>（Adaptive Layout）</h3><ul>
-<li>SwiftUI 采用 <strong>自动布局</strong> 机制，UI 组件会根据父视图、屏幕大小以及内容大小自动调整尺寸。</li>
-<li>例如，VStack, HStack, ZStack 会自动排列子视图，而 Spacer() 可用于动态填充空间。</li>
-<li>示例：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">VStack</span> &#123;</span><br><span class="line">    <span class="type">Text</span>(<span class="string">&quot;Hello, SwiftUI!&quot;</span>)</span><br><span class="line">    <span class="type">Spacer</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>这种布局方式使得 UI 在不同设备上都能保持良好的适配性。</li>
-</ul>
-<h3 id="2-相对单位和-frame"><a href="#2-相对单位和-frame" class="headerlink" title="2. 相对单位和 frame"></a>2. <strong>相对单位和 frame</strong></h3><ul>
-<li>SwiftUI 推荐使用 <strong>相对尺寸</strong> 而非固定像素值，例如 .frame(maxWidth: .infinity) 使得组件在不同屏幕宽度上都能自适应。</li>
-<li>示例：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">Text</span>(<span class="string">&quot;自适应文本&quot;</span>)</span><br><span class="line">    .frame(maxWidth: .infinity, maxHeight: .infinity)</span><br><span class="line">    .background(<span class="type">Color</span>.blue)</span><br></pre></td></tr></table></figure></li>
-<li>这样可以确保文本视图填充整个屏幕，无论设备屏幕大小如何变化。</li>
-</ul>
-<h3 id="3-动态类型和可访问性支持"><a href="#3-动态类型和可访问性支持" class="headerlink" title="3. 动态类型和可访问性支持"></a>3. <strong>动态类型和可访问性支持</strong></h3><ul>
-<li>SwiftUI 内置 <strong>动态字体</strong>，能根据用户的字体偏好自动调整大小：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">Text</span>(<span class="string">&quot;动态字体&quot;</span>)</span><br><span class="line">    .font(.title)</span><br><span class="line">    .dynamicTypeSize(.large)</span><br></pre></td></tr></table></figure></li>
-<li>这样即使用户在“设置”中调整了字体大小，界面仍然能自动适配。</li>
-</ul>
-<h3 id="4-使用-GeometryReader-进行屏幕适配"><a href="#4-使用-GeometryReader-进行屏幕适配" class="headerlink" title="4. 使用 GeometryReader 进行屏幕适配"></a>4. <strong>使用 GeometryReader 进行屏幕适配</strong></h3><ul>
-<li>GeometryReader 允许获取屏幕尺寸，以此调整布局：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">GeometryReader</span> &#123; geometry <span class="keyword">in</span></span><br><span class="line">    <span class="type">Text</span>(<span class="string">&quot;屏幕宽度: <span class="subst">\(geometry.size.width)</span>&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>这样可以在不同屏幕尺寸下自适应布局。</li>
-</ul>
-<h3 id="5-SF-Symbols-amp-矢量图标"><a href="#5-SF-Symbols-amp-矢量图标" class="headerlink" title="5. SF Symbols &amp; 矢量图标"></a>5. <strong>SF Symbols &amp; 矢量图标</strong></h3><ul>
-<li>SwiftUI 支持 SF Symbols，它们会根据设备大小自动调整：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">Image</span>(systemName: <span class="string">&quot;star.fill&quot;</span>)</span><br><span class="line">    .imageScale(.large)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="6-Handoff-设计原则"><a href="#6-Handoff-设计原则" class="headerlink" title="6. Handoff 设计原则"></a>6. <strong>Handoff 设计原则</strong></h3><ul>
-<li>SwiftUI 遵循 Apple 的 <strong>Handoff 设计原则</strong>，确保在 iPhone、iPad 和 Mac 上界面保持一致，同时适应不同设备的特点。</li>
-</ul>
-<h3 id="7-适配不同设备的-Layout-方式"><a href="#7-适配不同设备的-Layout-方式" class="headerlink" title="7. 适配不同设备的 Layout 方式"></a>7. <strong>适配不同设备的 Layout 方式</strong></h3><ul>
-<li>@Environment(.horizontalSizeClass) 可用于区分设备是 compact（iPhone 竖屏）还是 regular（iPad），从而调整布局：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">AdaptiveView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@Environment</span>(\.horizontalSizeClass) <span class="keyword">var</span> sizeClass</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> sizeClass <span class="operator">==</span> .compact &#123;</span><br><span class="line">            <span class="type">VStack</span> &#123; <span class="type">Text</span>(<span class="string">&quot;iPhone 竖屏布局&quot;</span>) &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="type">HStack</span> &#123; <span class="type">Text</span>(<span class="string">&quot;iPad 横屏布局&quot;</span>) &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><p>SwiftUI 主要通过 <strong>自适应布局、相对单位、动态类型、GeometryReader、SF Symbols 和环境变量</strong> 来确保界面在不同设备上保持一致，同时能适配不同的屏幕尺寸和用户偏好。</p>
-<h1 id="用户问题-1"><a href="#用户问题-1" class="headerlink" title="用户问题"></a>用户问题</h1><p> ios编程中point的概念 </p>
-<p> 在 iOS 编程中，<strong>Point（点）</strong> 是 <strong>UIKit 和 SwiftUI 坐标系统</strong> 中用于表示 <strong>屏幕上的位置</strong> 的基本单位。它是一个 <strong>逻辑单位（Logical Unit）</strong>，而不是物理像素（Pixel）。</p>
-<h2 id="1-Point-vs-Pixel（点-vs-像素）"><a href="#1-Point-vs-Pixel（点-vs-像素）" class="headerlink" title="1. Point vs. Pixel（点 vs. 像素）"></a>1. <strong>Point vs. Pixel（点 vs. 像素）</strong></h2><p>在 iOS 设备上，<strong>1 Point ≠ 1 Pixel</strong>，因为不同设备的 <strong>屏幕像素密度（PPI, Pixels Per Inch）</strong> 不同。为了适配不同的屏幕分辨率，iOS 使用 <strong>点（Point）</strong> 作为通用测量单位，并根据 <strong>屏幕缩放因子（Scale Factor）</strong> 自动转换为实际像素（Pixel）。</p>
-<ul>
-<li><strong>标准分辨率设备（@1x，比如旧款 iPhone）</strong>: 1 Point &#x3D; 1 Pixel</li>
-<li><strong>Retina 设备（@2x，比如 iPhone SE, iPhone 8）</strong>: 1 Point &#x3D; 2×2 Pixels</li>
-<li><strong>Super Retina 设备（@3x，比如 iPhone 14 Pro）</strong>: 1 Point &#x3D; 3×3 Pixels<br>🔹 <strong>示例</strong>：在 @3x 屏幕上，一个 <code>100x100</code> <strong>点</strong> 的视图实际上占据 <code>300x300</code> <strong>像素</strong>。</li>
-</ul>
-<h2 id="2-CGPoint：表示一个点的位置"><a href="#2-CGPoint：表示一个点的位置" class="headerlink" title="2. CGPoint：表示一个点的位置"></a>2. <strong>CGPoint：表示一个点的位置</strong></h2><p>在 <code>UIKit</code> 中，使用 <code>CGPoint</code> 来表示屏幕上的 <strong>一个点的坐标</strong>：</p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> point <span class="operator">=</span> <span class="type">CGPoint</span>(x: <span class="number">50</span>, y: <span class="number">100</span>)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>x：表示 <strong>水平方向</strong>（从左到右）</li>
-<li>y：表示 <strong>垂直方向</strong>（从上到下）<br>👉 <strong>坐标原点（0,0）在左上角</strong>，<code>x</code> 轴向右增长，<code>y</code> 轴向下增长。</li>
-</ul>
-<h2 id="3-CGRect-和-CGSize"><a href="#3-CGRect-和-CGSize" class="headerlink" title="3. CGRect 和 CGSize"></a>3. <strong>CGRect 和 CGSize</strong></h2><p>除了 <code>CGPoint</code>，UIKit 还有两个相关结构：</p>
-<ul>
-<li>CGSize：表示宽度和高度，例如 CGSize(width: 100, height: 50)</li>
-<li>CGRect：表示一个矩形区域，包含 <strong>起始点（origin: CGPoint）+ 尺寸（size: CGSize）</strong><figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> rect <span class="operator">=</span> <span class="type">CGRect</span>(x: <span class="number">50</span>, y: <span class="number">100</span>, width: <span class="number">200</span>, height: <span class="number">150</span>)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="4-SwiftUI-中的-GeometryReader"><a href="#4-SwiftUI-中的-GeometryReader" class="headerlink" title="4. SwiftUI 中的 GeometryReader"></a>4. <strong>SwiftUI 中的 GeometryReader</strong></h2><p>SwiftUI 使用 <code>GeometryReader</code> 来获取 <strong>Point</strong> 坐标：</p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">GeometryReader</span> &#123; geometry <span class="keyword">in</span></span><br><span class="line">    <span class="type">Text</span>(<span class="string">&quot;Center&quot;</span>)</span><br><span class="line">        .position(x: geometry.size.width <span class="operator">/</span> <span class="number">2</span>, y: geometry.size.height <span class="operator">/</span> <span class="number">2</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里 <code>position(x:, y:)</code> 也是 <strong>以 Point 计算的</strong>。</p>
-<h2 id="5-点的转换（UIKit-示例）"><a href="#5-点的转换（UIKit-示例）" class="headerlink" title="5. 点的转换（UIKit 示例）"></a>5. <strong>点的转换（UIKit 示例）</strong></h2><h3 id="5-1-视图内部的点转换："><a href="#5-1-视图内部的点转换：" class="headerlink" title="5.1 视图内部的点转换："></a>5.1 视图内部的点转换：</h3><figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> localPoint <span class="operator">=</span> myView.convert(<span class="type">CGPoint</span>(x: <span class="number">10</span>, y: <span class="number">20</span>), to: anotherView)</span><br></pre></td></tr></table></figure>
-
-<p>把 <code>myView</code> 内部的 <code>(10,20)</code> 点 <strong>转换</strong> 到 <code>anotherView</code> 的坐标系统。</p>
-<h3 id="5-2-屏幕坐标系："><a href="#5-2-屏幕坐标系：" class="headerlink" title="5.2 屏幕坐标系："></a>5.2 屏幕坐标系：</h3><figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> screenPoint <span class="operator">=</span> myView.convert(myView.bounds.origin, to: <span class="literal">nil</span>)</span><br></pre></td></tr></table></figure>
-
-<p>把 <code>myView</code> 的原点转换到 <strong>屏幕坐标系（Screen Coordinates）</strong>。</p>
-<h2 id="6-总结"><a href="#6-总结" class="headerlink" title="6. 总结"></a>6. <strong>总结</strong></h2><ul>
-<li><strong>Point 是 iOS 的逻辑单位</strong>，不等于物理像素。</li>
-<li><strong>CGPoint 表示 2D 坐标（x, y）</strong>，单位是 <strong>点（Point）</strong>。</li>
-<li><strong>CGRect 结合 CGPoint 和 CGSize 来表示矩形区域</strong>。</li>
-<li><strong>UIKit 以左上角 (0,0) 为原点，x 轴向右，y 轴向下增长</strong>。</li>
-<li><strong>SwiftUI 使用 GeometryReader 计算动态坐标</strong>。<br>你是在处理具体的 <code>CGPoint</code> 计算，还是在做屏幕适配相关的工作？</li>
-</ul>
-<h1 id="用户问题-2"><a href="#用户问题-2" class="headerlink" title="用户问题"></a>用户问题</h1><p> 把本次对话导出markdown </p>
-<p> 这里是本次对话的 Markdown 版本：<br>Ios Point Concept</p>
-<h2 id="iOS-编程中-Point-的概念"><a href="#iOS-编程中-Point-的概念" class="headerlink" title="iOS 编程中 Point 的概念"></a>iOS 编程中 Point 的概念</h2><p>在 iOS 编程中，<strong>Point（点）</strong> 是 <strong>UIKit 和 SwiftUI 坐标系统</strong> 中用于表示 <strong>屏幕上的位置</strong> 的基本单位。它是一个 <strong>逻辑单位（Logical Unit）</strong>，而不是物理像素（Pixel）。</p>
-<h3 id="1-Point-vs-Pixel（点-vs-像素）-1"><a href="#1-Point-vs-Pixel（点-vs-像素）-1" class="headerlink" title="1. Point vs. Pixel（点 vs. 像素）"></a>1. Point vs. Pixel（点 vs. 像素）</h3><p>在 iOS 设备上，<strong>1 Point \u2260 1 Pixel</strong>，因为不同设备的 <strong>屏幕像素密度（PPI, Pixels Per Inch）</strong> 不同。为了适配不同的屏幕分辨率，iOS 使用 <strong>点（Point）</strong> 作为通用测量单位，并根据 <strong>屏幕缩放因子（Scale Factor）</strong> 自动转换为实际像素（Pixel）。</p>
-<ul>
-<li><strong>标准分辨率设备（@1x，比如旧款 iPhone）</strong>: 1 Point &#x3D; 1 Pixel</li>
-<li><strong>Retina 设备（@2x，比如 iPhone SE, iPhone 8）</strong>: 1 Point &#x3D; 2×2 Pixels</li>
-<li><strong>Super Retina 设备（@3x，比如 iPhone 14 Pro）</strong>: 1 Point &#x3D; 3×3 Pixels<br>示例：在 @3x 屏幕上，一个 <code>100x100</code> <strong>点</strong> 的视图实际上占据 <code>300x300</code> <strong>像素</strong>。</li>
-</ul>
-<h3 id="2-CGPoint：表示一个点的位置-1"><a href="#2-CGPoint：表示一个点的位置-1" class="headerlink" title="2. CGPoint：表示一个点的位置"></a>2. CGPoint：表示一个点的位置</h3><p>在 <code>UIKit</code> 中，使用 <code>CGPoint</code> 来表示屏幕上的 <strong>一个点的坐标</strong>：<br>let point &#x3D; CGPoint(x: 50, y: 100)</p>
-<ul>
-<li><code>x</code>：表示 <strong>水平方向</strong>（从左到右）</li>
-<li><code>y</code>：表示 <strong>垂直方向</strong>（从上到下）<br>👉 <strong>坐标原点（0,0）在左上角</strong>，<code>x</code> 轴向右增长，<code>y</code> 轴向下增长。</li>
-</ul>
-<h3 id="3-CGRect-和-CGSize-1"><a href="#3-CGRect-和-CGSize-1" class="headerlink" title="3. CGRect 和 CGSize"></a>3. CGRect 和 CGSize</h3><p>除了 <code>CGPoint</code>，UIKit 还有两个相关结构：</p>
-<ul>
-<li><code>CGSize</code>：表示宽度和高度，例如 <code>CGSize(width: 100, height: 50)</code></li>
-<li><code>CGRect</code>：表示一个矩形区域，包含 <strong>起始点（origin: CGPoint）+ 尺寸（size: CGSize）</strong>let rect &#x3D; CGRect(x: 50, y: 100, width: 200, height: 150)</li>
-</ul>
-<h3 id="4-SwiftUI-中的-GeometryReader-1"><a href="#4-SwiftUI-中的-GeometryReader-1" class="headerlink" title="4. SwiftUI 中的 GeometryReader"></a>4. SwiftUI 中的 GeometryReader</h3><p>SwiftUI 使用 <code>GeometryReader</code> 来获取 <strong>Point</strong> 坐标：<br>GeometryReader { geometry in    Text(“Center”)        .position(x: geometry.size.width &#x2F; 2, y: geometry.size.height &#x2F; 2)}<br>这里 <code>position(x:, y:)</code> 也是 <strong>以 Point 计算的</strong>。</p>
-<h3 id="5-点的转换（UIKit-示例）-1"><a href="#5-点的转换（UIKit-示例）-1" class="headerlink" title="5. 点的转换（UIKit 示例）"></a>5. 点的转换（UIKit 示例）</h3><h4 id="5-1-视图内部的点转换：-1"><a href="#5-1-视图内部的点转换：-1" class="headerlink" title="5.1 视图内部的点转换："></a>5.1 视图内部的点转换：</h4><p>let localPoint &#x3D; myView.convert(CGPoint(x: 10, y: 20), to: anotherView)<br>把 <code>myView</code> 内部的 <code>(10,20)</code> 点 <strong>转换</strong> 到 <code>anotherView</code> 的坐标系统。</p>
-<h4 id="5-2-屏幕坐标系：-1"><a href="#5-2-屏幕坐标系：-1" class="headerlink" title="5.2 屏幕坐标系："></a>5.2 屏幕坐标系：</h4><p>let screenPoint &#x3D; myView.convert(myView.bounds.origin, to: nil)<br>把 <code>myView</code> 的原点转换到 <strong>屏幕坐标系（Screen Coordinates）</strong>。</p>
-<h3 id="6-总结-1"><a href="#6-总结-1" class="headerlink" title="6. 总结"></a>6. 总结</h3><ul>
-<li><strong>Point 是 iOS 的逻辑单位</strong>，不等于物理像素。</li>
-<li><strong>CGPoint 表示 2D 坐标（x, y）</strong>，单位是 <strong>点（Point）</strong>。</li>
-<li><strong>CGRect 结合 CGPoint 和 CGSize 来表示矩形区域</strong>。</li>
-<li><strong>UIKit 以左上角 (0,0) 为原点，x 轴向右，y 轴向下增长</strong>。</li>
-<li><strong>SwiftUI 使用 GeometryReader 计算动态坐标</strong>。</li>
-</ul>
 ]]></content>
   </entry>
   <entry>
@@ -2042,6 +1999,129 @@
 <li><strong>自己动手做项目</strong>最好的学习方式之一是通过实践。在开发自己的项目时，尽量使用 SwiftUI 来管理数据流和视图状态。你可以从简单的计数器应用、待办事项应用开始，逐渐增加功能来学习数据流动的管理方式。</li>
 </ul>
 <h3 id="总结-5"><a href="#总结-5" class="headerlink" title="总结"></a>总结</h3><p>要掌握 SwiftUI 中的数据流动，首先可以从 Apple 的官方文档和教程开始，了解基础的属性包装器，如 <code>@State</code>、<code>@Binding</code>、<code>@ObservedObject</code> 等的用法。接着，阅读一些经典的书籍（如《SwiftUI 实战》）和在线资源（如 Hacking with Swift 和 Medium），并通过实践来巩固这些概念。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>swiftui布局及point</title>
+    <url>/2025/03/02/swiftui%E5%B8%83%E5%B1%80%E5%8F%8Apoint/</url>
+    <content><![CDATA[<h1 id="swift-默认padding-以及point"><a href="#swift-默认padding-以及point" class="headerlink" title="swift 默认padding 以及point"></a>swift 默认padding 以及point</h1><p> 在 SwiftUI 中，默认的 <code>padding()</code> 行为如下：</p>
+<ol>
+<li><strong>默认值</strong>：</li>
+</ol>
+<ul>
+<li>padding() 默认会在所有方向（top, bottom, leading, trailing）添加 16 点的填充。</li>
+<li>示例：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">Text</span>(<span class="string">&quot;Hello, SwiftUI!&quot;</span>)</span><br><span class="line">    .padding() <span class="comment">// 默认 16 点内边距</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="2">
+<li><strong>指定方向的 padding</strong>：</li>
+</ol>
+<ul>
+<li>你可以只对特定方向添加 padding：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">Text</span>(<span class="string">&quot;Hello, SwiftUI!&quot;</span>)</span><br><span class="line">    .padding(.horizontal, <span class="number">20</span>) <span class="comment">// 左右各 20 点</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="3">
+<li><strong>完全自定义 padding</strong>：</li>
+</ol>
+<ul>
+<li>你可以指定每个方向的 padding 值：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">Text</span>(<span class="string">&quot;Hello, SwiftUI!&quot;</span>)</span><br><span class="line">    .padding(.<span class="keyword">init</span>(top: <span class="number">10</span>, leading: <span class="number">20</span>, bottom: <span class="number">5</span>, trailing: <span class="number">15</span>))</span><br></pre></td></tr></table></figure>
+如果你觉得某个 UI 组件的 <code>padding</code> 不符合预期，可以试试手动设置 <code>padding</code> 或者 <code>frame</code> 来调整布局。</li>
+</ul>
+<h1 id="用户问题"><a href="#用户问题" class="headerlink" title="用户问题"></a>用户问题</h1><p> swiftui是根据什么保证不通过设备之间的界面同意的 </p>
+<p> SwiftUI 通过以下机制确保界面在不同设备上保持一致性和适应性：</p>
+<h3 id="1-自适应布局系统（Adaptive-Layout）"><a href="#1-自适应布局系统（Adaptive-Layout）" class="headerlink" title="1. 自适应布局系统（Adaptive Layout）"></a>1. <strong>自适应布局系统</strong>（Adaptive Layout）</h3><ul>
+<li>SwiftUI 采用 <strong>自动布局</strong> 机制，UI 组件会根据父视图、屏幕大小以及内容大小自动调整尺寸。</li>
+<li>例如，VStack, HStack, ZStack 会自动排列子视图，而 Spacer() 可用于动态填充空间。</li>
+<li>示例：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">VStack</span> &#123;</span><br><span class="line">    <span class="type">Text</span>(<span class="string">&quot;Hello, SwiftUI!&quot;</span>)</span><br><span class="line">    <span class="type">Spacer</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>这种布局方式使得 UI 在不同设备上都能保持良好的适配性。</li>
+</ul>
+<h3 id="2-相对单位和-frame"><a href="#2-相对单位和-frame" class="headerlink" title="2. 相对单位和 frame"></a>2. <strong>相对单位和 frame</strong></h3><ul>
+<li>SwiftUI 推荐使用 <strong>相对尺寸</strong> 而非固定像素值，例如 .frame(maxWidth: .infinity) 使得组件在不同屏幕宽度上都能自适应。</li>
+<li>示例：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">Text</span>(<span class="string">&quot;自适应文本&quot;</span>)</span><br><span class="line">    .frame(maxWidth: .infinity, maxHeight: .infinity)</span><br><span class="line">    .background(<span class="type">Color</span>.blue)</span><br></pre></td></tr></table></figure></li>
+<li>这样可以确保文本视图填充整个屏幕，无论设备屏幕大小如何变化。</li>
+</ul>
+<h3 id="3-动态类型和可访问性支持"><a href="#3-动态类型和可访问性支持" class="headerlink" title="3. 动态类型和可访问性支持"></a>3. <strong>动态类型和可访问性支持</strong></h3><ul>
+<li>SwiftUI 内置 <strong>动态字体</strong>，能根据用户的字体偏好自动调整大小：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">Text</span>(<span class="string">&quot;动态字体&quot;</span>)</span><br><span class="line">    .font(.title)</span><br><span class="line">    .dynamicTypeSize(.large)</span><br></pre></td></tr></table></figure></li>
+<li>这样即使用户在“设置”中调整了字体大小，界面仍然能自动适配。</li>
+</ul>
+<h3 id="4-使用-GeometryReader-进行屏幕适配"><a href="#4-使用-GeometryReader-进行屏幕适配" class="headerlink" title="4. 使用 GeometryReader 进行屏幕适配"></a>4. <strong>使用 GeometryReader 进行屏幕适配</strong></h3><ul>
+<li>GeometryReader 允许获取屏幕尺寸，以此调整布局：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">GeometryReader</span> &#123; geometry <span class="keyword">in</span></span><br><span class="line">    <span class="type">Text</span>(<span class="string">&quot;屏幕宽度: <span class="subst">\(geometry.size.width)</span>&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>这样可以在不同屏幕尺寸下自适应布局。</li>
+</ul>
+<h3 id="5-SF-Symbols-amp-矢量图标"><a href="#5-SF-Symbols-amp-矢量图标" class="headerlink" title="5. SF Symbols &amp; 矢量图标"></a>5. <strong>SF Symbols &amp; 矢量图标</strong></h3><ul>
+<li>SwiftUI 支持 SF Symbols，它们会根据设备大小自动调整：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">Image</span>(systemName: <span class="string">&quot;star.fill&quot;</span>)</span><br><span class="line">    .imageScale(.large)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="6-Handoff-设计原则"><a href="#6-Handoff-设计原则" class="headerlink" title="6. Handoff 设计原则"></a>6. <strong>Handoff 设计原则</strong></h3><ul>
+<li>SwiftUI 遵循 Apple 的 <strong>Handoff 设计原则</strong>，确保在 iPhone、iPad 和 Mac 上界面保持一致，同时适应不同设备的特点。</li>
+</ul>
+<h3 id="7-适配不同设备的-Layout-方式"><a href="#7-适配不同设备的-Layout-方式" class="headerlink" title="7. 适配不同设备的 Layout 方式"></a>7. <strong>适配不同设备的 Layout 方式</strong></h3><ul>
+<li>@Environment(.horizontalSizeClass) 可用于区分设备是 compact（iPhone 竖屏）还是 regular（iPad），从而调整布局：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">AdaptiveView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@Environment</span>(\.horizontalSizeClass) <span class="keyword">var</span> sizeClass</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> sizeClass <span class="operator">==</span> .compact &#123;</span><br><span class="line">            <span class="type">VStack</span> &#123; <span class="type">Text</span>(<span class="string">&quot;iPhone 竖屏布局&quot;</span>) &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="type">HStack</span> &#123; <span class="type">Text</span>(<span class="string">&quot;iPad 横屏布局&quot;</span>) &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><p>SwiftUI 主要通过 <strong>自适应布局、相对单位、动态类型、GeometryReader、SF Symbols 和环境变量</strong> 来确保界面在不同设备上保持一致，同时能适配不同的屏幕尺寸和用户偏好。</p>
+<h1 id="用户问题-1"><a href="#用户问题-1" class="headerlink" title="用户问题"></a>用户问题</h1><p> ios编程中point的概念 </p>
+<p> 在 iOS 编程中，<strong>Point（点）</strong> 是 <strong>UIKit 和 SwiftUI 坐标系统</strong> 中用于表示 <strong>屏幕上的位置</strong> 的基本单位。它是一个 <strong>逻辑单位（Logical Unit）</strong>，而不是物理像素（Pixel）。</p>
+<h2 id="1-Point-vs-Pixel（点-vs-像素）"><a href="#1-Point-vs-Pixel（点-vs-像素）" class="headerlink" title="1. Point vs. Pixel（点 vs. 像素）"></a>1. <strong>Point vs. Pixel（点 vs. 像素）</strong></h2><p>在 iOS 设备上，<strong>1 Point ≠ 1 Pixel</strong>，因为不同设备的 <strong>屏幕像素密度（PPI, Pixels Per Inch）</strong> 不同。为了适配不同的屏幕分辨率，iOS 使用 <strong>点（Point）</strong> 作为通用测量单位，并根据 <strong>屏幕缩放因子（Scale Factor）</strong> 自动转换为实际像素（Pixel）。</p>
+<ul>
+<li><strong>标准分辨率设备（@1x，比如旧款 iPhone）</strong>: 1 Point &#x3D; 1 Pixel</li>
+<li><strong>Retina 设备（@2x，比如 iPhone SE, iPhone 8）</strong>: 1 Point &#x3D; 2×2 Pixels</li>
+<li><strong>Super Retina 设备（@3x，比如 iPhone 14 Pro）</strong>: 1 Point &#x3D; 3×3 Pixels<br>🔹 <strong>示例</strong>：在 @3x 屏幕上，一个 <code>100x100</code> <strong>点</strong> 的视图实际上占据 <code>300x300</code> <strong>像素</strong>。</li>
+</ul>
+<h2 id="2-CGPoint：表示一个点的位置"><a href="#2-CGPoint：表示一个点的位置" class="headerlink" title="2. CGPoint：表示一个点的位置"></a>2. <strong>CGPoint：表示一个点的位置</strong></h2><p>在 <code>UIKit</code> 中，使用 <code>CGPoint</code> 来表示屏幕上的 <strong>一个点的坐标</strong>：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> point <span class="operator">=</span> <span class="type">CGPoint</span>(x: <span class="number">50</span>, y: <span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>x：表示 <strong>水平方向</strong>（从左到右）</li>
+<li>y：表示 <strong>垂直方向</strong>（从上到下）<br>👉 <strong>坐标原点（0,0）在左上角</strong>，<code>x</code> 轴向右增长，<code>y</code> 轴向下增长。</li>
+</ul>
+<h2 id="3-CGRect-和-CGSize"><a href="#3-CGRect-和-CGSize" class="headerlink" title="3. CGRect 和 CGSize"></a>3. <strong>CGRect 和 CGSize</strong></h2><p>除了 <code>CGPoint</code>，UIKit 还有两个相关结构：</p>
+<ul>
+<li>CGSize：表示宽度和高度，例如 CGSize(width: 100, height: 50)</li>
+<li>CGRect：表示一个矩形区域，包含 <strong>起始点（origin: CGPoint）+ 尺寸（size: CGSize）</strong><figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> rect <span class="operator">=</span> <span class="type">CGRect</span>(x: <span class="number">50</span>, y: <span class="number">100</span>, width: <span class="number">200</span>, height: <span class="number">150</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="4-SwiftUI-中的-GeometryReader"><a href="#4-SwiftUI-中的-GeometryReader" class="headerlink" title="4. SwiftUI 中的 GeometryReader"></a>4. <strong>SwiftUI 中的 GeometryReader</strong></h2><p>SwiftUI 使用 <code>GeometryReader</code> 来获取 <strong>Point</strong> 坐标：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">GeometryReader</span> &#123; geometry <span class="keyword">in</span></span><br><span class="line">    <span class="type">Text</span>(<span class="string">&quot;Center&quot;</span>)</span><br><span class="line">        .position(x: geometry.size.width <span class="operator">/</span> <span class="number">2</span>, y: geometry.size.height <span class="operator">/</span> <span class="number">2</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里 <code>position(x:, y:)</code> 也是 <strong>以 Point 计算的</strong>。</p>
+<h2 id="5-点的转换（UIKit-示例）"><a href="#5-点的转换（UIKit-示例）" class="headerlink" title="5. 点的转换（UIKit 示例）"></a>5. <strong>点的转换（UIKit 示例）</strong></h2><h3 id="5-1-视图内部的点转换："><a href="#5-1-视图内部的点转换：" class="headerlink" title="5.1 视图内部的点转换："></a>5.1 视图内部的点转换：</h3><figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> localPoint <span class="operator">=</span> myView.convert(<span class="type">CGPoint</span>(x: <span class="number">10</span>, y: <span class="number">20</span>), to: anotherView)</span><br></pre></td></tr></table></figure>
+
+<p>把 <code>myView</code> 内部的 <code>(10,20)</code> 点 <strong>转换</strong> 到 <code>anotherView</code> 的坐标系统。</p>
+<h3 id="5-2-屏幕坐标系："><a href="#5-2-屏幕坐标系：" class="headerlink" title="5.2 屏幕坐标系："></a>5.2 屏幕坐标系：</h3><figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> screenPoint <span class="operator">=</span> myView.convert(myView.bounds.origin, to: <span class="literal">nil</span>)</span><br></pre></td></tr></table></figure>
+
+<p>把 <code>myView</code> 的原点转换到 <strong>屏幕坐标系（Screen Coordinates）</strong>。</p>
+<h2 id="6-总结"><a href="#6-总结" class="headerlink" title="6. 总结"></a>6. <strong>总结</strong></h2><ul>
+<li><strong>Point 是 iOS 的逻辑单位</strong>，不等于物理像素。</li>
+<li><strong>CGPoint 表示 2D 坐标（x, y）</strong>，单位是 <strong>点（Point）</strong>。</li>
+<li><strong>CGRect 结合 CGPoint 和 CGSize 来表示矩形区域</strong>。</li>
+<li><strong>UIKit 以左上角 (0,0) 为原点，x 轴向右，y 轴向下增长</strong>。</li>
+<li><strong>SwiftUI 使用 GeometryReader 计算动态坐标</strong>。<br>你是在处理具体的 <code>CGPoint</code> 计算，还是在做屏幕适配相关的工作？</li>
+</ul>
+<h1 id="用户问题-2"><a href="#用户问题-2" class="headerlink" title="用户问题"></a>用户问题</h1><p> 把本次对话导出markdown </p>
+<p> 这里是本次对话的 Markdown 版本：<br>Ios Point Concept</p>
+<h2 id="iOS-编程中-Point-的概念"><a href="#iOS-编程中-Point-的概念" class="headerlink" title="iOS 编程中 Point 的概念"></a>iOS 编程中 Point 的概念</h2><p>在 iOS 编程中，<strong>Point（点）</strong> 是 <strong>UIKit 和 SwiftUI 坐标系统</strong> 中用于表示 <strong>屏幕上的位置</strong> 的基本单位。它是一个 <strong>逻辑单位（Logical Unit）</strong>，而不是物理像素（Pixel）。</p>
+<h3 id="1-Point-vs-Pixel（点-vs-像素）-1"><a href="#1-Point-vs-Pixel（点-vs-像素）-1" class="headerlink" title="1. Point vs. Pixel（点 vs. 像素）"></a>1. Point vs. Pixel（点 vs. 像素）</h3><p>在 iOS 设备上，<strong>1 Point \u2260 1 Pixel</strong>，因为不同设备的 <strong>屏幕像素密度（PPI, Pixels Per Inch）</strong> 不同。为了适配不同的屏幕分辨率，iOS 使用 <strong>点（Point）</strong> 作为通用测量单位，并根据 <strong>屏幕缩放因子（Scale Factor）</strong> 自动转换为实际像素（Pixel）。</p>
+<ul>
+<li><strong>标准分辨率设备（@1x，比如旧款 iPhone）</strong>: 1 Point &#x3D; 1 Pixel</li>
+<li><strong>Retina 设备（@2x，比如 iPhone SE, iPhone 8）</strong>: 1 Point &#x3D; 2×2 Pixels</li>
+<li><strong>Super Retina 设备（@3x，比如 iPhone 14 Pro）</strong>: 1 Point &#x3D; 3×3 Pixels<br>示例：在 @3x 屏幕上，一个 <code>100x100</code> <strong>点</strong> 的视图实际上占据 <code>300x300</code> <strong>像素</strong>。</li>
+</ul>
+<h3 id="2-CGPoint：表示一个点的位置-1"><a href="#2-CGPoint：表示一个点的位置-1" class="headerlink" title="2. CGPoint：表示一个点的位置"></a>2. CGPoint：表示一个点的位置</h3><p>在 <code>UIKit</code> 中，使用 <code>CGPoint</code> 来表示屏幕上的 <strong>一个点的坐标</strong>：<br>let point &#x3D; CGPoint(x: 50, y: 100)</p>
+<ul>
+<li><code>x</code>：表示 <strong>水平方向</strong>（从左到右）</li>
+<li><code>y</code>：表示 <strong>垂直方向</strong>（从上到下）<br>👉 <strong>坐标原点（0,0）在左上角</strong>，<code>x</code> 轴向右增长，<code>y</code> 轴向下增长。</li>
+</ul>
+<h3 id="3-CGRect-和-CGSize-1"><a href="#3-CGRect-和-CGSize-1" class="headerlink" title="3. CGRect 和 CGSize"></a>3. CGRect 和 CGSize</h3><p>除了 <code>CGPoint</code>，UIKit 还有两个相关结构：</p>
+<ul>
+<li><code>CGSize</code>：表示宽度和高度，例如 <code>CGSize(width: 100, height: 50)</code></li>
+<li><code>CGRect</code>：表示一个矩形区域，包含 <strong>起始点（origin: CGPoint）+ 尺寸（size: CGSize）</strong>let rect &#x3D; CGRect(x: 50, y: 100, width: 200, height: 150)</li>
+</ul>
+<h3 id="4-SwiftUI-中的-GeometryReader-1"><a href="#4-SwiftUI-中的-GeometryReader-1" class="headerlink" title="4. SwiftUI 中的 GeometryReader"></a>4. SwiftUI 中的 GeometryReader</h3><p>SwiftUI 使用 <code>GeometryReader</code> 来获取 <strong>Point</strong> 坐标：<br>GeometryReader { geometry in    Text(“Center”)        .position(x: geometry.size.width &#x2F; 2, y: geometry.size.height &#x2F; 2)}<br>这里 <code>position(x:, y:)</code> 也是 <strong>以 Point 计算的</strong>。</p>
+<h3 id="5-点的转换（UIKit-示例）-1"><a href="#5-点的转换（UIKit-示例）-1" class="headerlink" title="5. 点的转换（UIKit 示例）"></a>5. 点的转换（UIKit 示例）</h3><h4 id="5-1-视图内部的点转换：-1"><a href="#5-1-视图内部的点转换：-1" class="headerlink" title="5.1 视图内部的点转换："></a>5.1 视图内部的点转换：</h4><p>let localPoint &#x3D; myView.convert(CGPoint(x: 10, y: 20), to: anotherView)<br>把 <code>myView</code> 内部的 <code>(10,20)</code> 点 <strong>转换</strong> 到 <code>anotherView</code> 的坐标系统。</p>
+<h4 id="5-2-屏幕坐标系：-1"><a href="#5-2-屏幕坐标系：-1" class="headerlink" title="5.2 屏幕坐标系："></a>5.2 屏幕坐标系：</h4><p>let screenPoint &#x3D; myView.convert(myView.bounds.origin, to: nil)<br>把 <code>myView</code> 的原点转换到 <strong>屏幕坐标系（Screen Coordinates）</strong>。</p>
+<h3 id="6-总结-1"><a href="#6-总结-1" class="headerlink" title="6. 总结"></a>6. 总结</h3><ul>
+<li><strong>Point 是 iOS 的逻辑单位</strong>，不等于物理像素。</li>
+<li><strong>CGPoint 表示 2D 坐标（x, y）</strong>，单位是 <strong>点（Point）</strong>。</li>
+<li><strong>CGRect 结合 CGPoint 和 CGSize 来表示矩形区域</strong>。</li>
+<li><strong>UIKit 以左上角 (0,0) 为原点，x 轴向右，y 轴向下增长</strong>。</li>
+<li><strong>SwiftUI 使用 GeometryReader 计算动态坐标</strong>。</li>
+</ul>
 ]]></content>
   </entry>
   <entry>
@@ -2692,11 +2772,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>大设计</title>
-    <url>/2024/03/05/%E5%A4%A7%E8%AE%BE%E8%AE%A1/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>在xcode上通过swift语言编写的ios程序在编译过程中计算机背后发生了什么</title>
     <url>/2025/03/02/%E5%9C%A8xcode%E4%B8%8A%E9%80%9A%E8%BF%87swift%E8%AF%AD%E8%A8%80%E7%BC%96%E5%86%99%E7%9A%84ios%E7%A8%8B%E5%BA%8F%E5%9C%A8%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%83%8C%E5%90%8E%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/</url>
     <content><![CDATA[<h1 id="在xcode上通过swift语言编写的ios程序在编译过程中计算机背后发生了什么"><a href="#在xcode上通过swift语言编写的ios程序在编译过程中计算机背后发生了什么" class="headerlink" title="在xcode上通过swift语言编写的ios程序在编译过程中计算机背后发生了什么"></a>在xcode上通过swift语言编写的ios程序在编译过程中计算机背后发生了什么</h1><p> 在 Xcode 上使用 Swift 编写的 iOS 应用在编译过程中，计算机背后发生了一系列复杂的步骤，主要包括以下几个阶段：</p>
@@ -2747,6 +2822,11 @@
 <li><strong>部署到设备</strong><br>这个过程中，Swift 编译器（<code>swiftc</code>）、LLVM、Xcode 构建系统、链接器（<code>ld</code>）等多个工具协同工作，最终将 Swift 代码转换为 iOS 设备可运行的应用。</li>
 </ol>
 ]]></content>
+  </entry>
+  <entry>
+    <title>大设计</title>
+    <url>/2024/03/05/%E5%A4%A7%E8%AE%BE%E8%AE%A1/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>建筑物理</title>

@@ -193,6 +193,97 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/02/swift%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="You Find Your Own Tree.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/03/02/swift%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6/" class="post-title-link" itemprop="url">swift错误处理机制</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2025-03-02 12:10:11 / Modified: 14:06:18" itemprop="dateCreated datePublished" datetime="2025-03-02T12:10:11+09:00">2025-03-02</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="swift-错误处理机制"><a href="#swift-错误处理机制" class="headerlink" title="swift 错误处理机制"></a>swift 错误处理机制</h1><p> Swift 的错误处理（Error Handling）采用了 <strong>throw、try、catch</strong> 机制，类似于其他语言（如 Python、Java）的异常处理，但 Swift 更加严格，要求显式处理错误。其核心原理如下：</p>
+<h3 id="1-定义错误类型"><a href="#1-定义错误类型" class="headerlink" title="1. 定义错误类型"></a>1. <strong>定义错误类型</strong></h3><p>Swift 的错误类型需要遵循 <code>Error</code> 协议，通常用 <code>enum</code> 来定义：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">VideoError</span>: <span class="title class_">Error</span> &#123;</span><br><span class="line">    <span class="keyword">case</span> fileNotFound</span><br><span class="line">    <span class="keyword">case</span> invalidFormat</span><br><span class="line">    <span class="keyword">case</span> networkError(message: <span class="type">String</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-抛出错误（throw）"><a href="#2-抛出错误（throw）" class="headerlink" title="2. 抛出错误（throw）"></a>2. <strong>抛出错误（throw）</strong></h3><p>使用 <code>throw</code> 关键字来抛出错误：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">loadVideo</span>(<span class="params">filename</span>: <span class="type">String</span>) <span class="keyword">throws</span> &#123;</span><br><span class="line">    <span class="keyword">guard</span> filename.hasSuffix(<span class="string">&quot;.mp4&quot;</span>) <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="type">VideoError</span>.invalidFormat</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 其他处理逻辑...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-捕获错误（do-catch）"><a href="#3-捕获错误（do-catch）" class="headerlink" title="3. 捕获错误（do-catch）"></a>3. <strong>捕获错误（do-catch）</strong></h3><p>调用可能抛出错误的函数时，需要使用 <code>try</code> 关键字，并用 <code>do-catch</code> 捕获错误：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> loadVideo(filename: <span class="string">&quot;video.avi&quot;</span>)</span><br><span class="line">&#125; <span class="keyword">catch</span> <span class="type">VideoError</span>.invalidFormat &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;错误：视频格式不正确&quot;</span>)</span><br><span class="line">&#125; <span class="keyword">catch</span> <span class="type">VideoError</span>.fileNotFound &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;错误：文件未找到&quot;</span>)</span><br><span class="line">&#125; <span class="keyword">catch</span> <span class="keyword">let</span> <span class="type">VideoError</span>.networkError(message) &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;网络错误：<span class="subst">\(message)</span>&quot;</span>)</span><br><span class="line">&#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;发生了未知错误：<span class="subst">\(error)</span>&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-可选-try-（转换为-nil）"><a href="#4-可选-try-（转换为-nil）" class="headerlink" title="4. 可选 try?（转换为 nil）"></a>4. <strong>可选 try?（转换为 nil）</strong></h3><p>如果不关心具体错误，只想在失败时返回 <code>nil</code>，可以使用 <code>try?</code>：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> result <span class="operator">=</span> <span class="keyword">try?</span> loadVideo(filename: <span class="string">&quot;video.avi&quot;</span>) <span class="comment">// 失败时 result 为 nil</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-强制-try-（不推荐）"><a href="#5-强制-try-（不推荐）" class="headerlink" title="5. 强制 try!（不推荐）"></a>5. <strong>强制 try!（不推荐）</strong></h3><p>如果确定不会发生错误，可以使用 <code>try!</code>，但如果出错会直接导致程序崩溃：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> result <span class="operator">=</span> <span class="keyword">try!</span> loadVideo(filename: <span class="string">&quot;video.mp4&quot;</span>) <span class="comment">// 发生错误会崩溃</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="6-throws-关键字不会传播到-closure-外部"><a href="#6-throws-关键字不会传播到-closure-外部" class="headerlink" title="6. throws 关键字不会传播到 closure 外部"></a>6. <strong>throws 关键字不会传播到 closure 外部</strong></h3><p>在 <code>closure</code> 内部使用 <code>throws</code> 需要额外处理，例如：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> operation <span class="operator">=</span> &#123; (filename: <span class="type">String</span>) <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">try?</span> loadVideo(filename: filename)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果闭包本身需要 <code>throws</code>，则要显式声明：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> operation: (<span class="type">String</span>) <span class="keyword">throws</span> -&gt; <span class="type">Void</span> <span class="operator">=</span> &#123; filename <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">try</span> loadVideo(filename: filename)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-defer-处理资源释放"><a href="#7-defer-处理资源释放" class="headerlink" title="7. defer 处理资源释放"></a>7. <strong>defer 处理资源释放</strong></h3><p>Swift 提供 <code>defer</code> 关键字，无论是否抛出错误，都会在函数退出前执行：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">processVideo</span>(<span class="params">filename</span>: <span class="type">String</span>) <span class="keyword">throws</span> &#123;</span><br><span class="line">    <span class="keyword">defer</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;释放资源&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">try</span> loadVideo(filename: filename)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><ul>
+<li>throws 用于声明可能抛出错误的函数</li>
+<li>throw 用于抛出错误</li>
+<li>try 关键字调用 throws 方法，配合 do-catch 处理错误</li>
+<li>try? 将错误转换为 nil</li>
+<li>try! 忽略错误（慎用）</li>
+<li>defer 适用于资源释放<br>这种错误处理机制让 Swift 代码更加安全，避免了许多隐藏的异常问题。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/22/myContentIdea/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -889,81 +980,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2023/06/19/TheGoProgrammingLanguageBookReview/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/16/AppleBookAboutIOSDevelopment/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="YiDa">
-      <meta itemprop="description" content="You Find Your Own Tree.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yi's Lab">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/06/16/AppleBookAboutIOSDevelopment/" class="post-title-link" itemprop="url">AppleBookAboutIOSDevelopment</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-06-16 08:57:16" itemprop="dateCreated datePublished" datetime="2023-06-16T08:57:16+09:00">2023-06-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-03-02 12:46:50" itemprop="dateModified" datetime="2025-03-02T12:46:50+09:00">2025-03-02</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="/2023/06/16/AppleBookAboutIOSDevelopment/iosDevelopment.jpg" alt="AppleBookAboutIOSDevelopment"></p>
-<blockquote>
-<p>Don’t call us,I will call you back.<br>Apple book can give you a very standard way to CS develop and a good habit.if you are a beginner,even if you will not use swift language a few years later.<br>when you want to learn ios development,there are three main book “Develop in Swift Explorations”,”Develop in Swift Fundamentals”,”Develop in Swift Data Collections”.<br>I will list some content in these books,I believe you will go to apple book to find them.</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/06/16/AppleBookAboutIOSDevelopment/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
