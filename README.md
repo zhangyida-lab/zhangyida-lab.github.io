@@ -10,7 +10,7 @@
 6.use below conmmand to deploy your hexo-blog enviroment
 
 ```bash
-git clone https://github.com/zhangyida-lab/zhangyida-lab.github.io.git.github.io.git
+git clone https://github.com/zhangyida-lab/zhangyida-lab.github.io.git
 # install hexo
 npm install hexo-cli -g
 # install dependent library
