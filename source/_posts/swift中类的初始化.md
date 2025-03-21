@@ -1,7 +1,7 @@
 ---
 title: swift中类的初始化
 date: 2025-03-02 13:04:05
-tags:
+tags: swift编程
 ---
 
 

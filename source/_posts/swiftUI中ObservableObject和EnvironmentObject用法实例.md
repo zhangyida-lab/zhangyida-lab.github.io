@@ -1,7 +1,7 @@
 ---
 title: swiftUI中ObservableObject和EnvironmentObject用法实例
 date: 2025-03-15 10:48:13
-tags:
+tags: swift编程
 ---
 
 # 应用场景
