@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|consolas:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","Muse | Mist":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="用swift中some关键字的理解及其应用场景 swift中some关键字的理解及其应用场景   在 Swift 中，some 关键字主要用于 返回值的类型擦除 和 泛型简化，它在 Swift 5.1 版本中引入，属于 Opaque Types（不透明类型） 的一部分。它的核心作用是隐藏具体的返回类型，但仍然保证返回的类型是一致的。 1. some 关键字的作用some 主要用于：  简化泛型代码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="swift中some关键字的理解及其应用场景">
+<meta property="og:url" content="http://example.com/2025/03/02/swift%E4%B8%ADsome%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E7%90%86%E8%A7%A3%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/index.html">
+<meta property="og:site_name" content="Yi&#39;s Lab">
+<meta property="og:description" content="用swift中some关键字的理解及其应用场景 swift中some关键字的理解及其应用场景   在 Swift 中，some 关键字主要用于 返回值的类型擦除 和 泛型简化，它在 Swift 5.1 版本中引入，属于 Opaque Types（不透明类型） 的一部分。它的核心作用是隐藏具体的返回类型，但仍然保证返回的类型是一致的。 1. some 关键字的作用some 主要用于：  简化泛型代码">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-03-02T06:00:31.000Z">
+<meta property="article:modified_time" content="2025-03-21T09:49:24.294Z">
+<meta property="article:author" content="YiDa">
+<meta property="article:tag" content="swift编程">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2025/03/02/swift%E4%B8%ADsome%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E7%90%86%E8%A7%A3%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>swift中some关键字的理解及其应用场景 | Yi's Lab</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Yi's Lab</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section">Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section">About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section">Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section">Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section">Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/zhangyida-lab" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/02/swift%E4%B8%ADsome%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E7%90%86%E8%A7%A3%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="You Find Your Own Tree.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          swift中some关键字的理解及其应用场景
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2025-03-02 15:00:31" itemprop="dateCreated datePublished" datetime="2025-03-02T15:00:31+09:00">2025-03-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2025-03-21 18:49:24" itemprop="dateModified" datetime="2025-03-21T18:49:24+09:00">2025-03-21</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="用swift中some关键字的理解及其应用场景"><a href="#用swift中some关键字的理解及其应用场景" class="headerlink" title="用swift中some关键字的理解及其应用场景"></a>用swift中some关键字的理解及其应用场景</h1><p> swift中some关键字的理解及其应用场景 </p>
+<p> 在 Swift 中，<code>some</code> 关键字主要用于 <strong>返回值的类型擦除</strong> 和 <strong>泛型简化</strong>，它在 Swift 5.1 版本中引入，属于 <strong>Opaque Types（不透明类型）</strong> 的一部分。它的核心作用是隐藏具体的返回类型，但仍然保证返回的类型是一致的。</p>
+<h2 id="1-some-关键字的作用"><a href="#1-some-关键字的作用" class="headerlink" title="1. some 关键字的作用"></a><strong>1. some 关键字的作用</strong></h2><p><code>some</code> 主要用于：</p>
+<ul>
+<li><strong>简化泛型代码</strong>，避免使用复杂的泛型声明。</li>
+<li><strong>隐藏具体类型</strong>，但保证返回值的类型一致。</li>
+<li><strong>提高类型安全性</strong>，避免使用 Any 造成的类型不安全问题。</li>
+</ul>
+<h2 id="2-some-的应用场景"><a href="#2-some-的应用场景" class="headerlink" title="2. some 的应用场景"></a><strong>2. some 的应用场景</strong></h2><h3 id="（1）作为返回值，隐藏具体类型"><a href="#（1）作为返回值，隐藏具体类型" class="headerlink" title="（1）作为返回值，隐藏具体类型"></a><strong>（1）作为返回值，隐藏具体类型</strong></h3><p>在不使用 <code>some</code> 之前，如果一个方法的返回值是某个协议类型，通常会使用 <code>protocol</code> 作为返回类型：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protocol</span> <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">area</span>() -&gt; <span class="type">Double</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Circle</span>: <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> radius: <span class="type">Double</span></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">area</span>() -&gt; <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> .pi <span class="operator">*</span> radius <span class="operator">*</span> radius</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">makeShape</span>() -&gt; <span class="type">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="type">Circle</span>(radius: <span class="number">5</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里 <code>makeShape()</code> 返回的是 <code>Shape</code> 协议类型，但它 <strong>丢失了具体的 Circle 类型信息</strong>，导致 Swift 无法进行类型优化。</p>
+<p><strong>使用 some 改写：</strong></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">makeShape</span>() -&gt; <span class="keyword">some</span> <span class="type">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="type">Circle</span>(radius: <span class="number">5</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>some Shape 表示返回的类型遵循 Shape 协议，但具体是什么类型编译器知道，调用者不需要关心。</li>
+<li>这样就 <strong>保留了具体类型信息</strong>，比返回 protocol 方式性能更好。</li>
+</ul>
+<h3 id="（2）SwiftUI-中-some-关键字的应用"><a href="#（2）SwiftUI-中-some-关键字的应用" class="headerlink" title="（2）SwiftUI 中 some 关键字的应用"></a><strong>（2）SwiftUI 中 some 关键字的应用</strong></h3><p>SwiftUI 组件通常是 <code>View</code>，但它们的具体类型是复杂的嵌套结构，因此 Apple 使用 <code>some View</code> 来隐藏具体类型，同时确保类型安全：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">Text</span>(<span class="string">&quot;Hello, SwiftUI!&quot;</span>)</span><br><span class="line">            .font(.largeTitle)</span><br><span class="line">            .foregroundColor(.blue)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>some View 让 SwiftUI 视图可以是任何 View 类型，但类型信息仍然保留，避免了 AnyView 可能带来的性能损失。</li>
+</ul>
+<h3 id="（3）泛型简化"><a href="#（3）泛型简化" class="headerlink" title="（3）泛型简化"></a><strong>（3）泛型简化</strong></h3><p>在泛型函数中，<code>some</code> 也可以简化代码，例如：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">makeNumber</span>() -&gt; <span class="keyword">some</span> <span class="type">Numeric</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">10</span> <span class="comment">// 这里可以是 Int、Double 等</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>some Numeric 说明返回的值遵循 Numeric 协议，但具体类型编译器知道，调用者不需要关心。</li>
+<li>这样比直接返回 Numeric 更高效，因为 Numeric 是一个协议，不能直接实例化，而 some 可以保证返回的是<strong>同一种</strong>具体类型。</li>
+</ul>
+<h2 id="3-some-的局限性"><a href="#3-some-的局限性" class="headerlink" title="3. some 的局限性"></a><strong>3. some 的局限性</strong></h2><ol>
+<li><strong>不能返回不同的类型</strong><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">makeShape</span>(<span class="params">condition</span>: <span class="type">Bool</span>) -&gt; <span class="keyword">some</span> <span class="type">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> condition &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">Circle</span>(radius: <span class="number">5</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">Rectangle</span>(width: <span class="number">3</span>, height: <span class="number">4</span>) <span class="comment">// ❌ 报错</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li>不能返回不同的类型，即使它们都符合 Shape 协议。</li>
+<li>some 只能保证返回 <strong>同一类型</strong>，编译器必须能推导出唯一的类型。</li>
+</ul>
+<ol start="2">
+<li><strong>不能用于存储属性</strong><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Example</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> shape: <span class="keyword">some</span> <span class="type">Shape</span> <span class="comment">// ❌ 不能用 some 作为属性类型</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li>some 只能用于返回值，不能用于存储属性，因为存储属性需要有具体类型，而 some 只是类型擦除的方式。</li>
+</ul>
+<h2 id="4-some-vs-Any-vs-泛型"><a href="#4-some-vs-Any-vs-泛型" class="headerlink" title="4. some vs Any vs 泛型"></a><strong>4. some vs Any vs 泛型</strong></h2><p>| 关键字 | 适用场景 | 类型信息 | 运行时开销 |<br>|———|———|———|<br>| <code>some</code> | 返回值 | 保留 | 低 |<br>| <code>Any</code> | 任意类型存储、参数 | 丢失 | 高（类型检查） |<br>| 泛型 | 泛型函数、类型参数 | 保留 | 低 |</p>
+<h3 id="对比："><a href="#对比：" class="headerlink" title="对比："></a><strong>对比：</strong></h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">makeShape</span>() -&gt; <span class="keyword">some</span> <span class="type">Shape</span> &#123; <span class="type">Circle</span>(radius: <span class="number">5</span>) &#125;  <span class="comment">// ✅ 高效，保留类型信息</span></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">makeAnyShape</span>() -&gt; <span class="keyword">Any</span> &#123; <span class="type">Circle</span>(radius: <span class="number">5</span>) &#125;     <span class="comment">// ❌ 类型丢失，运行时开销大</span></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">makeGenericShape</span>() -&gt; <span class="type">T</span> &#123; <span class="operator">...</span> &#125;       <span class="comment">// ✅ 泛型，灵活性更高</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="5-适合使用-some-的情况"><a href="#5-适合使用-some-的情况" class="headerlink" title="5. 适合使用 some 的情况"></a><strong>5. 适合使用 some 的情况</strong></h2><p>✅ 适用于：</p>
+<ul>
+<li><p><strong>SwiftUI 视图</strong>：some View</p>
+</li>
+<li><p><strong>协议类型返回值</strong>，但需要保留具体类型信息</p>
+</li>
+<li><p><strong>提升类型安全性</strong>，避免 Any 造成的类型丢失</p>
+</li>
+<li><p><strong>简化泛型代码</strong><br>❌ 不适用于：</p>
+</li>
+<li><p>需要返回 <strong>不同类型</strong> 的情况</p>
+</li>
+<li><p><strong>存储属性</strong>（除非是 var body: some View 这种特殊情况）</p>
+</li>
+</ul>
+<h2 id="6-总结"><a href="#6-总结" class="headerlink" title="6. 总结"></a><strong>6. 总结</strong></h2><ul>
+<li>some 关键字用于 <strong>返回值</strong>，隐藏具体类型，同时保证类型一致性。</li>
+<li>SwiftUI 中广泛使用 some View 来优化视图类型。</li>
+<li>some 提供了一种比 Any 更安全、更高效的方式来处理协议类型返回值。</li>
+<li>不能用于 <strong>存储属性</strong>，且不能返回多个不同类型。<br>这样理解后，<code>some</code> 在 Swift 中的使用就会更加得心应手！ 🚀</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/swift%E7%BC%96%E7%A8%8B/" rel="tag"># swift编程</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/03/02/swift%E4%B8%ADself%E7%9A%84%E6%AD%A3%E7%A1%AE%E7%90%86%E8%A7%A3/" rel="prev" title="swift中self的正确理解">
+      <i class="fa fa-chevron-left"></i> swift中self的正确理解
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2025/03/02/%E5%9C%A8xcode%E4%B8%8A%E9%80%9A%E8%BF%87swift%E8%AF%AD%E8%A8%80%E7%BC%96%E5%86%99%E7%9A%84ios%E7%A8%8B%E5%BA%8F%E5%9C%A8%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%83%8C%E5%90%8E%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/" rel="next" title="在xcode上通过swift语言编写的ios程序在编译过程中计算机背后发生了什么">
+      在xcode上通过swift语言编写的ios程序在编译过程中计算机背后发生了什么 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%A8swift%E4%B8%ADsome%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E7%90%86%E8%A7%A3%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">用swift中some关键字的理解及其应用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-some-%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-text">1. some 关键字的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-some-%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">2. some 的应用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E4%BD%9C%E4%B8%BA%E8%BF%94%E5%9B%9E%E5%80%BC%EF%BC%8C%E9%9A%90%E8%97%8F%E5%85%B7%E4%BD%93%E7%B1%BB%E5%9E%8B"><span class="nav-text">（1）作为返回值，隐藏具体类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%882%EF%BC%89SwiftUI-%E4%B8%AD-some-%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-text">（2）SwiftUI 中 some 关键字的应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E6%B3%9B%E5%9E%8B%E7%AE%80%E5%8C%96"><span class="nav-text">（3）泛型简化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-some-%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="nav-text">3. some 的局限性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-some-vs-Any-vs-%E6%B3%9B%E5%9E%8B"><span class="nav-text">4. some vs Any vs 泛型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94%EF%BC%9A"><span class="nav-text">对比：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E9%80%82%E5%90%88%E4%BD%BF%E7%94%A8-some-%E7%9A%84%E6%83%85%E5%86%B5"><span class="nav-text">5. 适合使用 some 的情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E6%80%BB%E7%BB%93"><span class="nav-text">6. 总结</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">YiDa</p>
+  <div class="site-description" itemprop="description">You Find Your Own Tree.</div>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2023 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YiDa</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
