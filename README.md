@@ -41,3 +41,13 @@ alias hp='hexo publish'
 alias gp='git add .&& git commit -m "update" && git push -f'
 
 ```
+
+## 添加多个tag的方法
+
+'''
+---
+title: swift中async/await工作原理
+date: 2025-03-22 22:30:17
+tags: [swift编程,异步编程]
+---
+'''

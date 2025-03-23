@@ -1,7 +1,7 @@
 ---
 title: 深入理解mvvm设计模式
 date: 2025-03-21 18:01:43
-tags: swift编程
+tags: [swift编程,设计模式]
 ---
 
 

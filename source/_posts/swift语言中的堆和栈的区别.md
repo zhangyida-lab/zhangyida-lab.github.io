@@ -1,7 +1,7 @@
 ---
 title: swift语言中的堆和栈的区别
 date: 2025-03-21 17:55:32
-tags: swift编程
+tags: [swift编程,内存原理]
 ---
 
 
