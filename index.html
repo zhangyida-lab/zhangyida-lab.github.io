@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -39,7 +39,7 @@
     sidebar: "",
     isHome : true,
     isPost : false,
-    lang   : 'zh-cn'
+    lang   : 'zh-CN'
   };
 </script>
 
@@ -83,7 +83,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
+    <div class="toggle" aria-label="切换导航栏">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -113,31 +113,31 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section">Home</a>
+    <a href="/" rel="section">首页</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section">About</a>
+    <a href="/about/" rel="section">关于</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section">Tags</a>
+    <a href="/tags/" rel="section">标签</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section">Categories</a>
+    <a href="/categories/" rel="section">分类</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section">Archives</a>
+    <a href="/archives/" rel="section">归档</a>
 
   </li>
       <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger">Search
+        <a role="button" class="popup-trigger">搜索
         </a>
       </li>
   </ul>
@@ -153,7 +153,7 @@
   </span>
   <div class="search-input-container">
     <input autocomplete="off" autocapitalize="off"
-           placeholder="Searching..." spellcheck="false"
+           placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
   <span class="popup-btn-close">
@@ -192,7 +192,7 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/22/swift%E4%B8%ADasync-await%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -215,16 +215,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">发表于</span>
 
-              <time title="Created: 2025-03-22 22:30:17" itemprop="dateCreated datePublished" datetime="2025-03-22T22:30:17+09:00">2025-03-22</time>
+              <time title="创建时间：2025-03-22 22:30:17" itemprop="dateCreated datePublished" datetime="2025-03-22T22:30:17+09:00">2025-03-22</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-03-23 16:27:08" itemprop="dateModified" datetime="2025-03-23T16:27:08+09:00">2025-03-23</time>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-03-23 19:28:34" itemprop="dateModified" datetime="2025-03-23T19:28:34+09:00">2025-03-23</time>
               </span>
 
           
@@ -239,53 +239,15 @@
 
       
           <h1 id="swift-中async-x2F-await-工作原理"><a href="#swift-中async-x2F-await-工作原理" class="headerlink" title="swift 中async&#x2F;await 工作原理"></a>swift 中async&#x2F;await 工作原理</h1><p>在 Swift 5.5 中引入的 async&#x2F;await 是 Swift Concurrency 模型的核心部分，它让开发者可以用类似同步代码的方式编写异步逻辑，同时又能充分利用并发优势。下面是其主要工作原理和关键概念：</p>
-<h3 id="1-编译器转换为状态机"><a href="#1-编译器转换为状态机" class="headerlink" title="1. 编译器转换为状态机"></a>1. 编译器转换为状态机</h3><ul>
-<li><strong>语法糖</strong>：当你在一个标记为 async 的函数中使用 await 时，编译器会将这个函数转换为一个状态机。这种转换方式让函数可以在等待异步操作时暂停，并在操作完成后恢复继续执行，就像在多线程环境中挂起和恢复任务一样。</li>
-<li><strong>状态保存</strong>：在遇到 await 时，函数的当前状态（包括局部变量、执行位置等）会被保存下来，待异步操作完成后，状态机会恢复执行，这就避免了回调地狱，使代码更清晰。</li>
-</ul>
-<h3 id="2-任务（Task）和并发执行"><a href="#2-任务（Task）和并发执行" class="headerlink" title="2. 任务（Task）和并发执行"></a>2. 任务（Task）和并发执行</h3><ul>
-<li><strong>任务封装</strong>：每个异步函数可以视为一个独立的任务。你可以显式创建任务（例如使用 Task { … }）来启动异步操作。</li>
-<li><strong>调度器</strong>：Swift 的运行时会根据当前系统的负载和任务的优先级，在可用线程上调度这些任务。调度器决定任务何时执行，以及如何高效利用系统资源。</li>
-<li><strong>结构化并发</strong>：Swift 强调任务之间的结构化关系。例如，通过 TaskGroup 你可以启动一组相关联的任务，并等待所有任务完成。这种结构化并发可以帮助管理任务的生命周期，并自动处理错误传播。</li>
-</ul>
-<h3 id="3-协程和继续（Continuation）"><a href="#3-协程和继续（Continuation）" class="headerlink" title="3. 协程和继续（Continuation）"></a>3. 协程和继续（Continuation）</h3><ul>
-<li><strong>协程（Coroutines）</strong>：异步函数本质上是协程，允许在执行过程中暂停和恢复。await 会挂起当前协程，释放执行线程，使其他任务可以运行，从而提高资源利用率。</li>
-<li><strong>继续（Continuation）</strong>：当被等待的异步操作完成时，Swift 会恢复之前挂起的协程。这个过程类似于将工作“续接”到合适的点，继续处理后续逻辑。</li>
-</ul>
-<h3 id="4-错误处理和取消"><a href="#4-错误处理和取消" class="headerlink" title="4. 错误处理和取消"></a>4. 错误处理和取消</h3><ul>
-<li><strong>错误传播</strong>：async&#x2F;await 支持与传统的错误处理（try&#x2F;catch）无缝结合。如果异步操作失败，可以抛出错误，并在调用处捕获处理。</li>
-<li><strong>任务取消</strong>：Swift Concurrency 允许任务在需要时被取消，取消信号会被传播给所有相关的子任务，确保任务能够在适当的时候终止，避免不必要的资源占用。</li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>Swift 的 async&#x2F;await 工作原理依赖于编译器将异步函数转换为状态机，通过任务和调度器管理并发执行。它利用协程暂停和恢复机制，以及结构化并发的思想，使得编写、调试和维护异步代码变得更加直观和高效。这一机制在提供性能优势的同时，也确保了代码的可读性和安全性。</p>
-<p>在 Swift 中，<code>async/await</code> 是用于处理异步任务的一种简洁和高效的方式，通常用来简化异步编程和避免回调地狱（callback hell）。它是基于协程（coroutines）的概念，允许以同步的方式书写异步代码。这里是其工作原理的简要说明：</p>
-<h3 id="1-async-关键字"><a href="#1-async-关键字" class="headerlink" title="1. async 关键字"></a>1. async 关键字</h3><ul>
-<li>当一个函数被标记为 async 时，它表示这个函数是异步的，可能会进行长时间运行的操作（如网络请求、文件读取等），并且它的执行可能会被挂起（暂停），直到操作完成。</li>
-<li>async 函数不会立即返回结果，而是返回一个“未来的值”或者说是一个“任务（Task）”，它会在未来某个时刻完成。</li>
-</ul>
-<h3 id="2-await-关键字"><a href="#2-await-关键字" class="headerlink" title="2. await 关键字"></a>2. await 关键字</h3><ul>
-<li>await 用于等待一个 async 函数的执行结果，它会暂停当前的函数，直到异步操作完成，接着继续执行后面的代码。</li>
-<li>await 只能在 async 函数内部使用。</li>
-</ul>
-<h3 id="3-异步任务的调度"><a href="#3-异步任务的调度" class="headerlink" title="3. 异步任务的调度"></a>3. 异步任务的调度</h3><ul>
-<li>当你调用一个 async 函数并使用 await 时，函数会在后台线程中执行异步任务。它会“挂起”当前线程（不阻塞主线程），直到任务完成。挂起期间，线程可以去执行其他的任务。</li>
-<li>这种挂起和恢复的机制是通过 Swift 的“任务（Task）”和“调度器（Scheduler）”来实现的，任务会被调度到合适的线程上继续执行。</li>
-</ul>
-<h3 id="4-错误处理"><a href="#4-错误处理" class="headerlink" title="4. 错误处理"></a>4. 错误处理</h3><ul>
-<li>async 函数可以抛出错误，使用 throw 来表示错误。与同步函数不同，你可以用 try await 来调用一个可能抛出错误的 async 函数，并且必须处理这个错误。</li>
-</ul>
-<h3 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个异步函数</span></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">fetchData</span>() <span class="keyword">async</span> <span class="operator">-&amp;</span>gt; <span class="type">String</span> &#123;</span><br><span class="line">    <span class="comment">// 模拟异步操作</span></span><br><span class="line">    <span class="keyword">await</span> <span class="type">Task</span>.sleep(<span class="number">2</span> <span class="operator">*</span> <span class="number">1_000_000_000</span>) <span class="comment">// 等待2秒</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;数据获取成功&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用异步函数</span></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">performTask</span>() <span class="keyword">async</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> result <span class="operator">=</span> <span class="keyword">await</span> fetchData() <span class="comment">// 使用 await 等待 fetchData 完成</span></span><br><span class="line">    <span class="built_in">print</span>(result)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在主线程执行异步任务</span></span><br><span class="line"><span class="type">Task</span> &#123;</span><br><span class="line">    <span class="keyword">await</span> performTask() <span class="comment">// 启动异步任务</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="工作流程："><a href="#工作流程：" class="headerlink" title="工作流程："></a>工作流程：</h3><ol>
-<li>fetchData() 是一个异步函数，表示它会执行异步操作。在这个例子中，使用 Task.sleep 模拟了一个 2 秒的延时操作。</li>
-<li>performTask() 中使用 await fetchData() 来调用异步函数，并等待其返回结果。</li>
-<li>使用 Task {} 启动异步任务，在主线程中执行 performTask()。</li>
-</ol>
-<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><ul>
-<li>async&#x2F;await 提供了一个非常简洁的方式来处理异步代码，避免了传统的回调函数（callback）的层层嵌套。</li>
-<li>它通过“任务”和“调度”的机制，让异步代码的书写和理解都变得更直观。</li>
-</ul>
-
+<h3 id="1-编译器转换为状态机"><a href="#1-编译器转换为状态机" class="headerlink" title="1. 编译器转换为状态机"></a>1. 编译器转换为状态机</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/03/22/swift%E4%B8%ADasync-await%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -303,7 +265,7 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/22/swift%E4%B8%AD%E7%9A%84%E8%AF%AD%E6%B3%95%E7%B3%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -326,11 +288,17 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
+              <span class="post-meta-item-text">发表于</span>
 
-              <time title="Created: 2025-03-22 18:15:54 / Modified: 19:16:55" itemprop="dateCreated datePublished" datetime="2025-03-22T18:15:54+09:00">2025-03-22</time>
+              <time title="创建时间：2025-03-22 18:15:54" itemprop="dateCreated datePublished" datetime="2025-03-22T18:15:54+09:00">2025-03-22</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-03-23 19:28:07" itemprop="dateModified" datetime="2025-03-23T19:28:07+09:00">2025-03-23</time>
+              </span>
 
           
 
@@ -344,71 +312,15 @@
 
       
           <h1 id="swift-编程中的语法糖"><a href="#swift-编程中的语法糖" class="headerlink" title="swift 编程中的语法糖"></a>swift 编程中的语法糖</h1><p>Swift 作为一门现代化编程语言，提供了大量的 <strong>语法糖（syntactic sugar）</strong>，使得代码更加简洁、直观和易读。以下是 Swift 中一些常见的语法糖：</p>
-<h2 id="1-类型推断（Type-Inference）"><a href="#1-类型推断（Type-Inference）" class="headerlink" title="1. 类型推断（Type Inference）"></a>1. <strong>类型推断（Type Inference）</strong></h2><p>Swift 可以自动推断变量或常量的类型，无需显式声明类型：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name <span class="operator">=</span> <span class="string">&quot;Swift&quot;</span>  <span class="comment">// 自动推断为 String</span></span><br><span class="line"><span class="keyword">var</span> age <span class="operator">=</span> <span class="number">25</span>        <span class="comment">// 自动推断为 Int</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="2-简化闭包（Closures）"><a href="#2-简化闭包（Closures）" class="headerlink" title="2. 简化闭包（Closures）"></a>2. <strong>简化闭包（Closures）</strong></h2><p>闭包的语法可以逐步简化，使代码更简洁：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 完整写法</span></span><br><span class="line"><span class="keyword">let</span> numbers <span class="operator">=</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line"><span class="keyword">let</span> squared <span class="operator">=</span> numbers.map(&#123; (number: <span class="type">Int</span>) <span class="operator">-&amp;</span>gt; <span class="type">Int</span> <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">return</span> number <span class="operator">*</span> number</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 省略参数类型和 return 关键字</span></span><br><span class="line"><span class="keyword">let</span> squared2 <span class="operator">=</span> numbers.map &#123; number <span class="keyword">in</span> number <span class="operator">*</span> number &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 $0 省略参数名</span></span><br><span class="line"><span class="keyword">let</span> squared3 <span class="operator">=</span> numbers.map &#123; <span class="variable">$0</span> <span class="operator">*</span> <span class="variable">$0</span> &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="3-隐式返回（Implicit-Return）"><a href="#3-隐式返回（Implicit-Return）" class="headerlink" title="3. 隐式返回（Implicit Return）"></a>3. <strong>隐式返回（Implicit Return）</strong></h2><p>如果函数或闭包只有一行代码，可以省略 <code>return</code>：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">square</span>(<span class="keyword">_</span> <span class="params">x</span>: <span class="type">Int</span>) <span class="operator">-&amp;</span>gt; <span class="type">Int</span> &#123; x <span class="operator">*</span> x &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="4-合并可选值（Nil-Coalescing-Operator-）"><a href="#4-合并可选值（Nil-Coalescing-Operator-）" class="headerlink" title="4. 合并可选值（Nil-Coalescing Operator ??）"></a>4. <strong>合并可选值（Nil-Coalescing Operator ??）</strong></h2><p>用于提供默认值：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> username: <span class="type">String</span>? <span class="operator">=</span> <span class="literal">nil</span></span><br><span class="line"><span class="keyword">let</span> displayName <span class="operator">=</span> username <span class="operator">??</span> <span class="string">&quot;Guest&quot;</span>  <span class="comment">// 如果 username 为 nil，则使用 &quot;Guest&quot;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="5-可选绑定的简化-if-let"><a href="#5-可选绑定的简化-if-let" class="headerlink" title="5. 可选绑定的简化 if let"></a>5. <strong>可选绑定的简化 if let</strong></h2><p>Swift 5.7 之后可以这样写：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> name &#123; <span class="built_in">print</span>(name) &#125;  <span class="comment">// 等价于 if let name = name</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="6-简化-guard-语句"><a href="#6-简化-guard-语句" class="headerlink" title="6. 简化 guard 语句"></a>6. <strong>简化 guard 语句</strong></h2><p>在 <code>guard</code> 语句中，也可以省略显式的 <code>return</code>：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">printName</span>(<span class="keyword">_</span> <span class="params">name</span>: <span class="type">String</span>?) &#123;</span><br><span class="line">    <span class="keyword">guard</span> <span class="keyword">let</span> name <span class="keyword">else</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">    <span class="built_in">print</span>(name)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="7-for-in-简化遍历"><a href="#7-for-in-简化遍历" class="headerlink" title="7. for-in 简化遍历"></a>7. <strong>for-in 简化遍历</strong></h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> array <span class="operator">=</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="keyword">for</span> number <span class="keyword">in</span> array &#123; <span class="built_in">print</span>(number) &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="8-switch-省略-break"><a href="#8-switch-省略-break" class="headerlink" title="8. switch 省略 break"></a>8. <strong>switch 省略 break</strong></h2><p>Swift 的 <code>switch</code> 语句不需要 <code>break</code>，因为匹配到的 case 语句默认不会穿透：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fruit <span class="operator">=</span> <span class="string">&quot;apple&quot;</span></span><br><span class="line"><span class="keyword">switch</span> fruit &#123;</span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;apple&quot;</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;This is an apple.&quot;</span>)</span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;banana&quot;</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;This is a banana.&quot;</span>)</span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Unknown fruit.&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="9-struct-自动合成构造函数"><a href="#9-struct-自动合成构造函数" class="headerlink" title="9. struct 自动合成构造函数"></a>9. <strong>struct 自动合成构造函数</strong></h2><p>如果 <code>struct</code> 没有手动定义 <code>init</code>，Swift 会自动生成：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> name: <span class="type">String</span></span><br><span class="line">    <span class="keyword">let</span> age: <span class="type">Int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> p <span class="operator">=</span> <span class="type">Person</span>(name: <span class="string">&quot;Alice&quot;</span>, age: <span class="number">30</span>)  <span class="comment">// 直接调用自动合成的构造函数</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="10-计算属性简写"><a href="#10-计算属性简写" class="headerlink" title="10. 计算属性简写"></a>10. <strong>计算属性简写</strong></h2><p>计算属性可以省略 <code>get</code>：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Circle</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> radius: <span class="type">Double</span></span><br><span class="line">    <span class="keyword">var</span> area: <span class="type">Double</span> &#123; radius <span class="operator">*</span> radius <span class="operator">*</span> <span class="number">3.14</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="11-KeyPath-简化访问"><a href="#11-KeyPath-简化访问" class="headerlink" title="11. KeyPath 简化访问"></a>11. <strong>KeyPath 简化访问</strong></h2><p>Swift 提供了 <strong>KeyPath 语法糖</strong>，可以直接访问属性：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">User</span> &#123; <span class="keyword">let</span> name: <span class="type">String</span> &#125;</span><br><span class="line"><span class="keyword">let</span> users <span class="operator">=</span> [<span class="type">User</span>(name: <span class="string">&quot;Alice&quot;</span>), <span class="type">User</span>(name: <span class="string">&quot;Bob&quot;</span>)]</span><br><span class="line"><span class="keyword">let</span> names <span class="operator">=</span> users.map(\.name)  <span class="comment">// 等价于 users.map &#123; $0.name &#125;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="12-ResultBuilder"><a href="#12-ResultBuilder" class="headerlink" title="12. @ResultBuilder"></a>12. <strong>@ResultBuilder</strong></h2><p>Swift 的 <code>@ResultBuilder</code> 让 DSL（比如 SwiftUI）更简洁：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@resultBuilder</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">StringBuilder</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">func</span> <span class="title function_">buildBlock</span>(<span class="keyword">_</span> <span class="params">components</span>: <span class="type">String</span>...) <span class="operator">-&amp;</span>gt; <span class="type">String</span> &#123;</span><br><span class="line">        components.joined(separator: <span class="string">&quot; &quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@StringBuilder</span></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">createSentence</span>() <span class="operator">-&amp;</span>gt; <span class="type">String</span> &#123;</span><br><span class="line">    <span class="string">&quot;Swift&quot;</span></span><br><span class="line">    <span class="string">&quot;is&quot;</span></span><br><span class="line">    <span class="string">&quot;awesome!&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(createSentence())  <span class="comment">// Swift is awesome!</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="SwiftUI-语法糖示例"><a href="#SwiftUI-语法糖示例" class="headerlink" title="SwiftUI 语法糖示例"></a><strong>SwiftUI 语法糖示例</strong></h3><p>由于你希望深入了解 SwiftUI，这里列举一些 SwiftUI 中的语法糖：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> count <span class="operator">=</span> <span class="number">0</span>  <span class="comment">// @State 省去手动管理状态</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">VStack</span> &#123;</span><br><span class="line">            <span class="type">Text</span>(<span class="string">&quot;Count: <span class="subst">\(count)</span>&quot;</span>)</span><br><span class="line">            <span class="type">Button</span>(<span class="string">&quot;Increment&quot;</span>) &#123; count <span class="operator">+=</span> <span class="number">1</span> &#125;  <span class="comment">// 简化闭包语法</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p>SwiftUI 使用 <code>some View</code> 作为 <strong>返回类型的语法糖</strong>，避免显式声明复杂的返回类型。</p>
-
+<h2 id="1-类型推断（Type-Inference）"><a href="#1-类型推断（Type-Inference）" class="headerlink" title="1. 类型推断（Type Inference）"></a>1. <strong>类型推断（Type Inference）</strong></h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/03/22/swift%E4%B8%AD%E7%9A%84%E8%AF%AD%E6%B3%95%E7%B3%96/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -426,7 +338,7 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/22/swift%E4%B8%AD%E7%9A%84%E5%85%B3%E9%94%AE%E5%AD%97%E5%8F%8A%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -449,16 +361,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">发表于</span>
 
-              <time title="Created: 2025-03-22 18:00:25" itemprop="dateCreated datePublished" datetime="2025-03-22T18:00:25+09:00">2025-03-22</time>
+              <time title="创建时间：2025-03-22 18:00:25" itemprop="dateCreated datePublished" datetime="2025-03-22T18:00:25+09:00">2025-03-22</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-03-23 16:37:15" itemprop="dateModified" datetime="2025-03-23T16:37:15+09:00">2025-03-23</time>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-03-23 19:28:14" itemprop="dateModified" datetime="2025-03-23T19:28:14+09:00">2025-03-23</time>
               </span>
 
           
@@ -473,169 +385,15 @@
 
       
           <h1 id="swift中的关键字及应用实例"><a href="#swift中的关键字及应用实例" class="headerlink" title="swift中的关键字及应用实例"></a>swift中的关键字及应用实例</h1><p>Swift 编程语言包含许多关键字（keywords），它们用于定义变量、控制流程、声明类型、管理内存等。以下是 Swift 的关键字分类及其作用：</p>
-<h3 id="1-变量和常量"><a href="#1-变量和常量" class="headerlink" title="1. 变量和常量"></a><strong>1. 变量和常量</strong></h3><ul>
-<li>var —— 变量</li>
-<li>let —— 常量</li>
-</ul>
-<h3 id="2-数据类型声明"><a href="#2-数据类型声明" class="headerlink" title="2. 数据类型声明"></a><strong>2. 数据类型声明</strong></h3><ul>
-<li>class —— 定义类</li>
-<li>struct —— 定义结构体</li>
-<li>enum —— 定义枚举</li>
-<li>protocol —— 定义协议</li>
-<li>typealias —— 类型别名</li>
-<li>associatedtype —— 关联类型（用于协议）</li>
-<li>extension —— 扩展类型</li>
-<li>func —— 定义函数</li>
-<li>init —— 构造方法</li>
-<li>deinit —— 析构方法</li>
-<li>subscript —— 下标操作</li>
-</ul>
-<h3 id="3-访问控制"><a href="#3-访问控制" class="headerlink" title="3. 访问控制"></a><strong>3. 访问控制</strong></h3><ul>
-<li>private —— 仅在当前作用域可访问</li>
-<li>fileprivate —— 仅在当前文件可访问</li>
-<li>internal —— 仅在当前模块可访问（默认）</li>
-<li>public —— 允许外部模块访问</li>
-<li>open —— 允许外部模块继承和重写（比 public 更开放）</li>
-</ul>
-<h3 id="4-流程控制"><a href="#4-流程控制" class="headerlink" title="4. 流程控制"></a><strong>4. 流程控制</strong></h3><ul>
-<li>if —— 条件语句</li>
-<li>else —— 条件语句</li>
-<li>switch —— 多分支选择</li>
-<li>case —— switch 语句中的分支</li>
-<li>default —— switch 的默认分支</li>
-<li>guard —— 预先条件检查</li>
-<li>for —— 循环</li>
-<li>while —— 循环</li>
-<li>repeat —— do-while 循环</li>
-<li>break —— 跳出循环</li>
-<li>continue —— 继续下一次循环</li>
-<li>return —— 返回值</li>
-<li>fallthrough —— 继续执行下一个 case</li>
-<li>throw —— 抛出错误</li>
-<li>catch —— 捕获错误</li>
-<li>do —— 捕获错误的代码块</li>
-<li>try —— 可能抛出错误的代码</li>
-<li>throws —— 声明函数可能抛出错误</li>
-<li>rethrows —— 声明函数在其参数抛出错误时，才会抛出错误</li>
-</ul>
-<h3 id="5-并发"><a href="#5-并发" class="headerlink" title="5. 并发"></a><strong>5. 并发</strong></h3><ul>
-<li>async —— 异步方法</li>
-<li>await —— 等待异步方法返回</li>
-<li>actor —— 线程安全的类</li>
-<li>yield —— 生成器（用于 async 序列）</li>
-</ul>
-<h3 id="6-运算符"><a href="#6-运算符" class="headerlink" title="6. 运算符"></a><strong>6. 运算符</strong></h3><ul>
-<li>as —— 类型转换</li>
-<li>as? —— 可选类型转换</li>
-<li>as! —— 强制类型转换</li>
-<li>is —— 类型检查</li>
-<li>try? —— 可选错误处理</li>
-<li>try! —— 强制错误处理</li>
-</ul>
-<h3 id="7-属性和方法"><a href="#7-属性和方法" class="headerlink" title="7. 属性和方法"></a><strong>7. 属性和方法</strong></h3><ul>
-<li>self —— 代表当前实例</li>
-<li>super —— 访问父类</li>
-<li>static —— 静态属性或方法</li>
-<li>class —— 类级属性或方法（允许子类重写）</li>
-<li>mutating —— 允许 struct 或 enum 的方法修改 self</li>
-<li>nonmutating —— 结构体或枚举方法不修改 self</li>
-<li>required —— 强制子类实现构造器</li>
-<li>convenience —— 便利构造器</li>
-<li>final —— 禁止重写</li>
-<li>override —— 重写父类方法或属性</li>
-<li>lazy —— 延迟加载属性</li>
-<li>dynamic —— 允许动态派发（Objective-C 兼容）</li>
-<li>optional —— 可选协议方法（Objective-C 兼容）</li>
-</ul>
-<h3 id="8-泛型"><a href="#8-泛型" class="headerlink" title="8. 泛型"></a><strong>8. 泛型</strong></h3><ul>
-<li>where —— 泛型约束</li>
-<li>some —— 返回不透明类型</li>
-<li>inout —— 传递参数时修改其值</li>
-</ul>
-<h3 id="9-其他"><a href="#9-其他" class="headerlink" title="9. 其他"></a><strong>9. 其他</strong></h3><ul>
-<li>import —— 导入模块</li>
-<li>nil —— 空值</li>
-<li>true &#x2F; false —— 布尔值</li>
-<li>_ —— 占位符（可用于忽略值）</li>
-<li>#file、#line、#column、#function —— 调试信息</li>
-<li>#available —— 检测 API 可用性</li>
-<li>#selector —— 获取 Objective-C 方法选择器</li>
-<li>#keyPath —— 获取属性键路径</li>
-</ul>
-<p>Swift 的关键字用于各种场景，掌握它们能更好地编写 Swift 代码。你具体想深入了解哪部分关键字的用法？</p>
-<p>以下是 Swift 关键字的详细解释和代码示例，涵盖最重要的关键字及其实际应用：</p>
-<h2 id="1-变量和常量-1"><a href="#1-变量和常量-1" class="headerlink" title="1. 变量和常量"></a><strong>1. 变量和常量</strong></h2><h3 id="var（变量，可变）"><a href="#var（变量，可变）" class="headerlink" title="var（变量，可变）"></a>var（变量，可变）</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> age <span class="operator">=</span> <span class="number">25</span></span><br><span class="line">age <span class="operator">=</span> <span class="number">30</span>  <span class="comment">// 变量值可以更改</span></span><br><span class="line"><span class="built_in">print</span>(age)  <span class="comment">// 输出 30</span></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="let（常量，不可变）"><a href="#let（常量，不可变）" class="headerlink" title="let（常量，不可变）"></a>let（常量，不可变）</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name <span class="operator">=</span> <span class="string">&quot;Swift&quot;</span></span><br><span class="line"><span class="comment">// name = &quot;New Swift&quot; // ❌ 错误：常量不能更改</span></span><br><span class="line"><span class="built_in">print</span>(name)</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="2-数据类型声明-1"><a href="#2-数据类型声明-1" class="headerlink" title="2. 数据类型声明"></a><strong>2. 数据类型声明</strong></h2><h3 id="class（类）"><a href="#class（类）" class="headerlink" title="class（类）"></a>class（类）</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> name: <span class="type">String</span></span><br><span class="line">    <span class="keyword">init</span>(<span class="params">name</span>: <span class="type">String</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.name <span class="operator">=</span> name</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">greet</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Hello, <span class="subst">\(name)</span>!&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> p <span class="operator">=</span> <span class="type">Person</span>(name: <span class="string">&quot;Alice&quot;</span>)</span><br><span class="line">p.greet()  <span class="comment">// 输出：Hello, Alice!</span></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="struct（结构体）"><a href="#struct（结构体）" class="headerlink" title="struct（结构体）"></a>struct（结构体）</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Point</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> x: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> y: <span class="type">Int</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> point <span class="operator">=</span> <span class="type">Point</span>(x: <span class="number">10</span>, y: <span class="number">20</span>)</span><br><span class="line"><span class="built_in">print</span>(point)</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="enum（枚举）"><a href="#enum（枚举）" class="headerlink" title="enum（枚举）"></a>enum（枚举）</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">Direction</span> &#123;</span><br><span class="line">    <span class="keyword">case</span> north, south, east, west</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> dir <span class="operator">=</span> <span class="type">Direction</span>.north</span><br><span class="line"><span class="built_in">print</span>(dir)  <span class="comment">// 输出 north</span></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="protocol（协议）"><a href="#protocol（协议）" class="headerlink" title="protocol（协议）"></a>protocol（协议）</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protocol</span> <span class="title class_">Drawable</span> &#123;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">draw</span>()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Circle</span>: <span class="title class_">Drawable</span> &#123;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">draw</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Drawing a circle&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> shape <span class="operator">=</span> <span class="type">Circle</span>()</span><br><span class="line">shape.draw()  <span class="comment">// 输出：Drawing a circle</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="3-访问控制-1"><a href="#3-访问控制-1" class="headerlink" title="3. 访问控制"></a><strong>3. 访问控制</strong></h2><h3 id="private（私有，仅限本类）"><a href="#private（私有，仅限本类）" class="headerlink" title="private（私有，仅限本类）"></a>private（私有，仅限本类）</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Example</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> secret <span class="operator">=</span> <span class="string">&quot;Hidden&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="public（公开，可被外部访问）"><a href="#public（公开，可被外部访问）" class="headerlink" title="public（公开，可被外部访问）"></a>public（公开，可被外部访问）</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PublicClass</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> name <span class="operator">=</span> <span class="string">&quot;Open Access&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="4-流程控制-1"><a href="#4-流程控制-1" class="headerlink" title="4. 流程控制"></a><strong>4. 流程控制</strong></h2><h3 id="if、else"><a href="#if、else" class="headerlink" title="if、else"></a>if、else</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num <span class="operator">=</span> <span class="number">10</span></span><br><span class="line"><span class="keyword">if</span> num <span class="operator">&amp;</span>gt; <span class="number">5</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Greater than 5&quot;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Less or equal to 5&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> grade <span class="operator">=</span> <span class="string">&quot;B&quot;</span></span><br><span class="line"><span class="keyword">switch</span> grade &#123;</span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;A&quot;</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Excellent!&quot;</span>)</span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;B&quot;</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Good job!&quot;</span>)</span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Try harder!&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="guard"><a href="#guard" class="headerlink" title="guard"></a>guard</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">checkAge</span>(<span class="keyword">_</span> <span class="params">age</span>: <span class="type">Int</span>) &#123;</span><br><span class="line">    <span class="keyword">guard</span> age <span class="operator">&amp;</span>gt;<span class="operator">=</span> <span class="number">18</span> <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;You are underage.&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Welcome!&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line">checkAge(<span class="number">16</span>)  <span class="comment">// 输出：You are underage.</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="5-并发-1"><a href="#5-并发-1" class="headerlink" title="5. 并发"></a><strong>5. 并发</strong></h2><h3 id="async、await"><a href="#async、await" class="headerlink" title="async、await"></a>async、await</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">fetchData</span>() <span class="keyword">async</span> <span class="operator">-&amp;</span>gt; <span class="type">String</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Data received&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">Task</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> result <span class="operator">=</span> <span class="keyword">await</span> fetchData()</span><br><span class="line">    <span class="built_in">print</span>(result)  <span class="comment">// 输出：Data received</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="6-关键操作"><a href="#6-关键操作" class="headerlink" title="6. 关键操作"></a><strong>6. 关键操作</strong></h2><h3 id="as（类型转换）"><a href="#as（类型转换）" class="headerlink" title="as（类型转换）"></a>as（类型转换）</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> value: <span class="keyword">Any</span> <span class="operator">=</span> <span class="string">&quot;Hello&quot;</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> str <span class="operator">=</span> value <span class="keyword">as?</span> <span class="type">String</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(str)  <span class="comment">// 输出：Hello</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="is（类型检查）"><a href="#is（类型检查）" class="headerlink" title="is（类型检查）"></a>is（类型检查）</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> item: <span class="keyword">Any</span> <span class="operator">=</span> <span class="number">123</span></span><br><span class="line"><span class="keyword">if</span> item <span class="keyword">is</span> <span class="type">Int</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;This is an integer&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="7-继承和方法重写"><a href="#7-继承和方法重写" class="headerlink" title="7. 继承和方法重写"></a><strong>7. 继承和方法重写</strong></h2><h3 id="super"><a href="#super" class="headerlink" title="super"></a>super</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">sound</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Some sound&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Dog</span>: <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">func</span> <span class="title function_">sound</span>() &#123;</span><br><span class="line">        <span class="keyword">super</span>.sound()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Bark!&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> dog <span class="operator">=</span> <span class="type">Dog</span>()</span><br><span class="line">dog.sound()  </span><br><span class="line"><span class="comment">// 输出：Some sound</span></span><br><span class="line"><span class="comment">// 输出：Bark!</span></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="final（禁止继承或重写）"><a href="#final（禁止继承或重写）" class="headerlink" title="final（禁止继承或重写）"></a>final（禁止继承或重写）</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="keyword">class</span> <span class="title class_">Vehicle</span> &#123;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">run</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Running&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// class Car: Vehicle &#123;&#125; // ❌ 错误：无法继承 `final` 类</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="8-泛型-1"><a href="#8-泛型-1" class="headerlink" title="8. 泛型"></a><strong>8. 泛型</strong></h2><h3 id="where（泛型约束）"><a href="#where（泛型约束）" class="headerlink" title="where（泛型约束）"></a>where（泛型约束）</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">compare</span>(<span class="params">a</span>: <span class="type">T</span>, <span class="params">b</span>: <span class="type">T</span>) <span class="operator">-&amp;</span>gt; <span class="type">Bool</span> <span class="keyword">where</span> <span class="type">T</span>: <span class="type">Equatable</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> a <span class="operator">==</span> b</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">print</span>(compare(a: <span class="number">5</span>, b: <span class="number">5</span>))  <span class="comment">// 输出：true</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="9-错误处理"><a href="#9-错误处理" class="headerlink" title="9. 错误处理"></a><strong>9. 错误处理</strong></h2><h3 id="do、try、catch"><a href="#do、try、catch" class="headerlink" title="do、try、catch"></a>do、try、catch</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">FileError</span>: <span class="title class_">Error</span> &#123;</span><br><span class="line">    <span class="keyword">case</span> notFound</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">readFile</span>() <span class="keyword">throws</span> &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="type">FileError</span>.notFound</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> readFile()</span><br><span class="line">&#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Error: File not found&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="10-其他"><a href="#10-其他" class="headerlink" title="10. 其他"></a><strong>10. 其他</strong></h2><h3 id="（忽略变量）"><a href="#（忽略变量）" class="headerlink" title="_（忽略变量）"></a>_（忽略变量）</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> (<span class="keyword">_</span>, y) <span class="operator">=</span> (<span class="number">10</span>, <span class="number">20</span>)</span><br><span class="line"><span class="built_in">print</span>(y)  <span class="comment">// 输出：20</span></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="import（导入模块）"><a href="#import（导入模块）" class="headerlink" title="import（导入模块）"></a>import（导入模块）</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="available（检测-API-版本）"><a href="#available（检测-API-版本）" class="headerlink" title="#available（检测 API 版本）"></a>#available（检测 API 版本）</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">#available</span>(<span class="keyword">iOS</span> <span class="number">15</span>, <span class="operator">*</span>) &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Running on iOS 15 or later&quot;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Older version&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+<h3 id="1-变量和常量"><a href="#1-变量和常量" class="headerlink" title="1. 变量和常量"></a><strong>1. 变量和常量</strong></h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/03/22/swift%E4%B8%AD%E7%9A%84%E5%85%B3%E9%94%AE%E5%AD%97%E5%8F%8A%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -653,7 +411,7 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/22/xcode%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -676,16 +434,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">发表于</span>
 
-              <time title="Created: 2025-03-22 14:05:42" itemprop="dateCreated datePublished" datetime="2025-03-22T14:05:42+09:00">2025-03-22</time>
+              <time title="创建时间：2025-03-22 14:05:42" itemprop="dateCreated datePublished" datetime="2025-03-22T14:05:42+09:00">2025-03-22</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-03-23 16:38:48" itemprop="dateModified" datetime="2025-03-23T16:38:48+09:00">2025-03-23</time>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-03-23 19:27:07" itemprop="dateModified" datetime="2025-03-23T19:27:07+09:00">2025-03-23</time>
               </span>
 
           
@@ -703,58 +461,15 @@
 <li><strong>常用快捷键</strong>：掌握常见的快捷键（如 ⌘B 编译、⌘R 运行、⌘Shift+O 快速定位文件或符号）可以大大节省时间。</li>
 <li><strong>自定义快捷键</strong>：可以在 Xcode 的“Preferences &gt; Key Bindings”中查看和修改快捷键，使其更符合你的使用习惯。</li>
 </ul>
-<h3 id="2-利用代码片段"><a href="#2-利用代码片段" class="headerlink" title="2. 利用代码片段"></a>2. 利用代码片段</h3><ul>
-<li><strong>代码片段库</strong>：通过拖拽方式将常用代码片段存入代码片段库（Code Snippets Library），下次可以快速插入重复使用的代码。</li>
-<li><strong>自定义代码片段</strong>：不仅使用系统提供的代码片段，还可以根据自己常用的代码模式自定义代码片段。</li>
-</ul>
-<h3 id="3-使用自动补全和提示功能"><a href="#3-使用自动补全和提示功能" class="headerlink" title="3. 使用自动补全和提示功能"></a>3. 使用自动补全和提示功能</h3><ul>
-<li><strong>智能感知</strong>：利用 Xcode 的自动补全功能，不仅能减少输入量，还能帮助发现 API 的使用方法。</li>
-<li><strong>错误提示</strong>：编译时及时显示错误和警告，快速定位问题，避免调试时浪费时间。</li>
-</ul>
-<h3 id="4-高效的调试工具"><a href="#4-高效的调试工具" class="headerlink" title="4. 高效的调试工具"></a>4. 高效的调试工具</h3><ul>
-<li><strong>断点管理</strong>：使用条件断点和日志断点来精确定位问题，减少不必要的暂停。</li>
-<li><strong>变量观察</strong>：利用 Xcode 的变量查看器和 LLDB 调试器，可以在调试时动态查看变量状态。</li>
-<li><strong>View Debugging</strong>：对于界面问题，Xcode 提供的 View Hierarchy 调试工具能帮助快速发现布局问题。</li>
-</ul>
-<h3 id="5-利用重构工具"><a href="#5-利用重构工具" class="headerlink" title="5. 利用重构工具"></a>5. 利用重构工具</h3><ul>
-<li><strong>自动重构</strong>：使用 Xcode 的重构工具（如重命名、提取方法）能够更安全快捷地修改代码，保证代码的一致性。</li>
-<li><strong>代码整洁</strong>：定期重构代码结构，保持代码清晰、可维护。</li>
-</ul>
-<h3 id="6-分屏和辅助编辑器"><a href="#6-分屏和辅助编辑器" class="headerlink" title="6. 分屏和辅助编辑器"></a>6. 分屏和辅助编辑器</h3><ul>
-<li><strong>助手编辑器</strong>：利用分屏（Assistant Editor）同时查看相关文件（如接口和实现、或同一功能的不同视图），提高代码关联性理解效率。</li>
-<li><strong>导航器面板</strong>：熟练使用导航器（Project Navigator、Symbol Navigator、Issue Navigator）快速定位文件和问题。</li>
-</ul>
-<h3 id="7-集成版本控制"><a href="#7-集成版本控制" class="headerlink" title="7. 集成版本控制"></a>7. 集成版本控制</h3><ul>
-<li><strong>Git 集成</strong>：利用 Xcode 内置的 Git 支持，方便管理代码版本、分支操作和代码审查，减少使用外部工具的麻烦。</li>
-<li><strong>代码对比</strong>：通过 Xcode 的版本对比工具快速查看代码变更，帮助审查代码和回退操作。</li>
-</ul>
-<h3 id="8-使用模拟器与预览功能"><a href="#8-使用模拟器与预览功能" class="headerlink" title="8. 使用模拟器与预览功能"></a>8. 使用模拟器与预览功能</h3><ul>
-<li><strong>多设备模拟</strong>：利用 Xcode 的模拟器可以同时测试不同设备和系统版本，提高开发调试效率。</li>
-<li><strong>SwiftUI 预览</strong>：如果使用 SwiftUI，利用 Canvas 实时预览界面效果，减少反复编译运行的时间。</li>
-</ul>
-<h3 id="9-自定义-Xcode-环境"><a href="#9-自定义-Xcode-环境" class="headerlink" title="9. 自定义 Xcode 环境"></a>9. 自定义 Xcode 环境</h3><ul>
-<li><strong>主题和字体</strong>：调整 Xcode 的配色方案、字体大小，使长时间编码更加舒适。</li>
-<li><strong>插件与扩展</strong>：根据需求安装一些第三方工具（如 Alcatraz 之前的插件管理工具，注意新版 Xcode 对插件的支持情况），提升功能扩展和效率。</li>
-</ul>
-<h3 id="常用快捷键列表"><a href="#常用快捷键列表" class="headerlink" title="常用快捷键列表"></a>常用快捷键列表</h3><ul>
-<li><strong>⌘B（Build）</strong><br>快速构建项目，检查代码是否存在编译错误。</li>
-<li><strong>⌘R（Run）</strong><br>构建并运行当前项目，非常适合频繁调试代码。</li>
-<li><strong>⌘Shift+O（Open Quickly）</strong><br>快速打开文件或跳转到某个符号，适用于项目较大时的高效定位。</li>
-<li><strong>⌘Control+E（Edit All in Scope）</strong><br>选中变量后，可以一次性修改同一作用域内所有相同变量名称，便于重构。</li>
-<li><strong>⌘&#x2F;（Toggle Comment）</strong><br>快速注释或取消注释选中的代码行，便于临时调试或记录代码思路。</li>
-<li><strong>⌘Control+← &#x2F; ⌘Control+→（Switch Between Header and Implementation）</strong><br>在头文件和实现文件间快速切换，适用于 Objective-C 项目开发。</li>
-<li><strong>⌘Shift+J（Reveal in Navigator）</strong><br>在项目导航器中快速定位当前编辑的文件，方便查看项目结构。</li>
-<li><strong>⌘Option+Enter（Show Debug Area）</strong><br>显示或隐藏调试区域，方便在调试过程中查看输出和变量信息。</li>
-<li><strong>⌘Shift+Y（Toggle Debug Area）</strong><br>同样用于显示或隐藏调试区域，快捷调试时非常有用。</li>
-<li><strong>Control+I（Re-indent）</strong><br>快速格式化选中代码，使代码对齐整洁，提高代码可读性。</li>
-<li><strong>⌘Shift+F（Find in Workspace）</strong><br>在整个项目中查找关键词，适用于定位代码逻辑或资源文件。</li>
-<li><strong>⌘Option+Control+Up&#x2F;Down（Move Code Block）</strong><br>快速移动代码块的位置，方便调整代码结构。</li>
-</ul>
-<h3 id="小贴士"><a href="#小贴士" class="headerlink" title="小贴士"></a>小贴士</h3><ul>
-<li><strong>自定义快捷键</strong>：<br>如果觉得默认的快捷键不够习惯，可以通过 <code>Xcode &amp;gt; Preferences &amp;gt; Key Bindings</code> 进行自定义设置，打造适合自己的开发环境。</li>
-<li><strong>结合使用</strong>：<br>快捷键组合使用，比如先用 ⌘Shift+O 定位文件，再用 Control+I 格式化代码，可以大大提高开发效率。</li>
-</ul>
-
+<h3 id="2-利用代码片段"><a href="#2-利用代码片段" class="headerlink" title="2. 利用代码片段"></a>2. 利用代码片段</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/03/22/xcode%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -772,7 +487,7 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/22/swift%E7%BC%96%E7%A8%8B%E4%B8%ADmvvm%E4%B8%8Emvc%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -795,11 +510,17 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
+              <span class="post-meta-item-text">发表于</span>
 
-              <time title="Created: 2025-03-22 13:44:54 / Modified: 14:46:30" itemprop="dateCreated datePublished" datetime="2025-03-22T13:44:54+09:00">2025-03-22</time>
+              <time title="创建时间：2025-03-22 13:44:54" itemprop="dateCreated datePublished" datetime="2025-03-22T13:44:54+09:00">2025-03-22</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-03-23 19:27:44" itemprop="dateModified" datetime="2025-03-23T19:27:44+09:00">2025-03-23</time>
+              </span>
 
           
 
@@ -813,161 +534,15 @@
 
       
           <h1 id="在swift编程中mvvm与mvc设计模式的区别与应用实例"><a href="#在swift编程中mvvm与mvc设计模式的区别与应用实例" class="headerlink" title="在swift编程中mvvm与mvc设计模式的区别与应用实例"></a>在swift编程中mvvm与mvc设计模式的区别与应用实例</h1><p>在 Swift 编程中，MVC（Model-View-Controller）和 MVVM（Model-View-ViewModel）是两种常见的架构模式，它们的主要区别如下：</p>
-<h2 id="MVC（Model-View-Controller）"><a href="#MVC（Model-View-Controller）" class="headerlink" title="MVC（Model-View-Controller）"></a><strong>MVC（Model-View-Controller）</strong></h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a><strong>概念</strong></h3><ul>
-<li><strong>Model（模型）</strong>：数据层，负责数据的存储、获取和处理。</li>
-<li><strong>View（视图）</strong>：UI 层，负责显示数据，直接与用户交互。</li>
-<li><strong>Controller（控制器）</strong>：负责协调 Model 和 View 之间的交互，处理用户输入，并更新 View。</li>
-</ul>
-<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a><strong>特点</strong></h3><ul>
-<li>结构简单，易于理解。</li>
-<li>Controller 过于臃肿，容易变成“大胖子控制器”。</li>
-<li>View 和 Controller 耦合较高，不易于测试。</li>
-</ul>
-<h3 id="MVC-示例"><a href="#MVC-示例" class="headerlink" title="MVC 示例"></a><strong>MVC 示例</strong></h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"></span><br><span class="line"><span class="comment">// Model</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> name: <span class="type">String</span></span><br><span class="line">    <span class="keyword">let</span> age: <span class="type">Int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Controller</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UserViewController</span>: <span class="title class_">UIViewController</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">let</span> user <span class="operator">=</span> <span class="type">User</span>(name: <span class="string">&quot;Tom&quot;</span>, age: <span class="number">25</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">func</span> <span class="title function_">viewDidLoad</span>() &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">        view.backgroundColor <span class="operator">=</span> .white</span><br><span class="line">        showUserInfo()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">showUserInfo</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;User: <span class="subst">\(user.name)</span>, Age: <span class="subst">\(user.age)</span>&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p><strong>问题</strong>：在 MVC 中，<code>UserViewController</code> 既负责 UI，又负责数据处理，容易造成代码耦合过高，导致难以维护。</p>
-<h2 id="MVVM（Model-View-ViewModel）"><a href="#MVVM（Model-View-ViewModel）" class="headerlink" title="MVVM（Model-View-ViewModel）"></a><strong>MVVM（Model-View-ViewModel）</strong></h2><h3 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a><strong>概念</strong></h3><ul>
-<li><strong>Model（模型）</strong>：数据层，和 MVC 一样，处理数据存储、获取和逻辑。</li>
-<li><strong>View（视图）</strong>：负责 UI 显示，与用户交互。</li>
-<li><strong>ViewModel（视图模型）</strong>：负责业务逻辑和数据绑定，将 Model 处理后提供给 View。</li>
-</ul>
-<h3 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a><strong>特点</strong></h3><ul>
-<li>通过 ViewModel 分离了 UI 和业务逻辑，提高代码的可测试性。</li>
-<li>View 层和 ViewModel 之间可以使用数据绑定（如 Combine、RxSwift）来简化交互。</li>
-<li>适用于 SwiftUI，结合 @StateObject 和 @Published 实现响应式 UI。</li>
-</ul>
-<h3 id="MVVM-示例"><a href="#MVVM-示例" class="headerlink" title="MVVM 示例"></a><strong>MVVM 示例</strong></h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line"><span class="keyword">import</span> Combine</span><br><span class="line"></span><br><span class="line"><span class="comment">// Model</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> name: <span class="type">String</span></span><br><span class="line">    <span class="keyword">let</span> age: <span class="type">Int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ViewModel</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UserViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> user: <span class="type">User</span> <span class="operator">=</span> <span class="type">User</span>(name: <span class="string">&quot;Tom&quot;</span>, age: <span class="number">25</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">updateUser</span>() &#123;</span><br><span class="line">        user <span class="operator">=</span> <span class="type">User</span>(name: <span class="string">&quot;Jerry&quot;</span>, age: <span class="number">30</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// View</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">UserView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@StateObject</span> <span class="keyword">private</span> <span class="keyword">var</span> viewModel <span class="operator">=</span> <span class="type">UserViewModel</span>()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">VStack</span> &#123;</span><br><span class="line">            <span class="type">Text</span>(<span class="string">&quot;User: <span class="subst">\(viewModel.user.name)</span>, Age: <span class="subst">\(viewModel.user.age)</span>&quot;</span>)</span><br><span class="line">                .padding()</span><br><span class="line">            <span class="type">Button</span>(<span class="string">&quot;Update User&quot;</span>) &#123;</span><br><span class="line">                viewModel.updateUser()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="MVVM-优势"><a href="#MVVM-优势" class="headerlink" title="MVVM 优势"></a><strong>MVVM 优势</strong></h3><ul>
-<li><strong>解耦</strong>：View 只负责 UI，ViewModel 处理业务逻辑，避免 Controller 过于臃肿。</li>
-<li><strong>易于测试</strong>：ViewModel 逻辑可以独立测试，而不依赖 UI。</li>
-<li><strong>适用于 SwiftUI</strong>：结合 @Published 进行数据绑定，实现响应式编程。</li>
-</ul>
-<h2 id="何时使用？"><a href="#何时使用？" class="headerlink" title="何时使用？"></a><strong>何时使用？</strong></h2><table>
-<thead>
-<tr>
-<th></th>
-<th>MVC</th>
-<th>MVVM</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>代码复杂度</td>
-<td>适合小型项目</td>
-<td>适合中大型项目</td>
-</tr>
-<tr>
-<td>可读性</td>
-<td>可能会导致 Controller 代码过多</td>
-<td>View 和 ViewModel 分离，提高可读性</td>
-</tr>
-<tr>
-<td>可测试性</td>
-<td>UI 和逻辑耦合，难以单独测试</td>
-<td>ViewModel 可独立测试</td>
-</tr>
-<tr>
-<td>适用场景</td>
-<td>UIKit 传统开发</td>
-<td>SwiftUI 和响应式编程</td>
-</tr>
-</tbody></table>
-<p>如果你是 <strong>UIKit 项目</strong>，且逻辑简单，MVC 可能更直观；如果你使用 <strong>SwiftUI</strong>，或项目较大，建议采用 MVVM，以便管理复杂的 UI 交互和数据流。</p>
-<h1 id="详细解释下mvvm中viewmodel的作用"><a href="#详细解释下mvvm中viewmodel的作用" class="headerlink" title="详细解释下mvvm中viewmodel的作用"></a>详细解释下mvvm中viewmodel的作用</h1><p>在 <strong>MVVM（Model-View-ViewModel）</strong> 架构中，<strong>ViewModel</strong> 扮演着至关重要的角色，它位于 <strong>Model（数据层）</strong> 和 <strong>View（UI 层）</strong> 之间，负责数据的管理、转换和业务逻辑处理，使 View 变得更轻量化，并减少 View 与 Model 之间的直接交互。</p>
-<h2 id="1-ViewModel-的主要作用"><a href="#1-ViewModel-的主要作用" class="headerlink" title="1. ViewModel 的主要作用"></a><strong>1. ViewModel 的主要作用</strong></h2><h3 id="1-负责业务逻辑处理"><a href="#1-负责业务逻辑处理" class="headerlink" title="(1) 负责业务逻辑处理"></a><strong>(1) 负责业务逻辑处理</strong></h3><p>ViewModel 主要负责处理数据的获取、转换、存储和操作，避免这些逻辑直接出现在 View 层，从而保持 View 的简洁性。例如，ViewModel 可以：</p>
-<ul>
-<li>调用 API 获取数据，并转换成 UI 需要的格式</li>
-<li>处理数据的计算、筛选、排序等业务逻辑</li>
-<li>执行数据持久化（如存储到数据库或 UserDefaults）</li>
-</ul>
-<h3 id="2-提供数据绑定"><a href="#2-提供数据绑定" class="headerlink" title="(2) 提供数据绑定"></a><strong>(2) 提供数据绑定</strong></h3><p>ViewModel 负责管理数据，并且与 View 进行数据绑定（SwiftUI 使用 <code>@Published</code> 和 <code>@StateObject</code>，UIKit 可以使用 Combine 或者 RxSwift）。</p>
-<ul>
-<li><strong>当数据变化时，View 会自动更新</strong></li>
-<li><strong>ViewModel 处理数据，不需要 View 直接操作 Model</strong></li>
-</ul>
-<h3 id="3-促进模块解耦"><a href="#3-促进模块解耦" class="headerlink" title="(3) 促进模块解耦"></a><strong>(3) 促进模块解耦</strong></h3><ul>
-<li>View 只负责 UI 展示，不直接操作 Model</li>
-<li>Model 只负责数据存储和管理</li>
-<li>ViewModel 充当桥梁，使 View 和 Model 互不依赖，降低耦合度</li>
-</ul>
-<h2 id="2-ViewModel-在-SwiftUI-中的应用"><a href="#2-ViewModel-在-SwiftUI-中的应用" class="headerlink" title="2. ViewModel 在 SwiftUI 中的应用"></a><strong>2. ViewModel 在 SwiftUI 中的应用</strong></h2><p>SwiftUI 使用 <code>ObservableObject</code> 和 <code>@Published</code> 实现 ViewModel，使 UI 和数据能够自动同步。</p>
-<h3 id="示例：一个用户信息的-MVVM-结构"><a href="#示例：一个用户信息的-MVVM-结构" class="headerlink" title="示例：一个用户信息的 MVVM 结构"></a><strong>示例：一个用户信息的 MVVM 结构</strong></h3><h4 id="1-Model（数据层）"><a href="#1-Model（数据层）" class="headerlink" title="(1) Model（数据层）"></a><strong>(1) Model（数据层）</strong></h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> name: <span class="type">String</span></span><br><span class="line">    <span class="keyword">let</span> age: <span class="type">Int</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="2-ViewModel（负责管理数据）"><a href="#2-ViewModel（负责管理数据）" class="headerlink" title="(2) ViewModel（负责管理数据）"></a><strong>(2) ViewModel（负责管理数据）</strong></h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UserViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> user: <span class="type">User</span> <span class="operator">=</span> <span class="type">User</span>(name: <span class="string">&quot;Tom&quot;</span>, age: <span class="number">25</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">updateUser</span>() &#123;</span><br><span class="line">        user <span class="operator">=</span> <span class="type">User</span>(name: <span class="string">&quot;Jerry&quot;</span>, age: <span class="number">30</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<ul>
-<li><strong>继承 ObservableObject</strong>：让 ViewModel 可被 SwiftUI 观察</li>
-<li><strong>使用 @Published</strong>：使 user 的值变化时，自动通知 UI 更新</li>
-<li>**定义业务逻辑 updateUser()**：修改 user 信息，触发 UI 更新</li>
-</ul>
-<h4 id="3-View（UI-层，绑定-ViewModel）"><a href="#3-View（UI-层，绑定-ViewModel）" class="headerlink" title="(3) View（UI 层，绑定 ViewModel）"></a><strong>(3) View（UI 层，绑定 ViewModel）</strong></h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">UserView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@StateObject</span> <span class="keyword">private</span> <span class="keyword">var</span> viewModel <span class="operator">=</span> <span class="type">UserViewModel</span>()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">VStack</span> &#123;</span><br><span class="line">            <span class="type">Text</span>(<span class="string">&quot;User: <span class="subst">\(viewModel.user.name)</span>, Age: <span class="subst">\(viewModel.user.age)</span>&quot;</span>)</span><br><span class="line">                .padding()</span><br><span class="line">            <span class="type">Button</span>(<span class="string">&quot;Update User&quot;</span>) &#123;</span><br><span class="line">                viewModel.updateUser()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<ul>
-<li><strong>@StateObject</strong>：让 View 监听 ViewModel 的变化</li>
-<li><strong>数据绑定 viewModel.user</strong>：当 user 发生变化，UI 自动更新</li>
-<li>**按钮操作 updateUser()**：触发 ViewModel 的方法，更新数据</li>
-</ul>
-<h5 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a><strong>最终效果</strong></h5><p>当点击 <code>Update User</code> 按钮时，用户信息会更新，View 也会自动刷新，无需手动管理 UI。</p>
-<h2 id="3-ViewModel-在-UIKit-Combine-中的应用"><a href="#3-ViewModel-在-UIKit-Combine-中的应用" class="headerlink" title="3. ViewModel 在 UIKit + Combine 中的应用"></a><strong>3. ViewModel 在 UIKit + Combine 中的应用</strong></h2><p>如果你使用的是 UIKit，而不是 SwiftUI，你可以使用 <strong>Combine</strong> 进行数据绑定。</p>
-<h4 id="1-ViewModel"><a href="#1-ViewModel" class="headerlink" title="(1) ViewModel"></a><strong>(1) ViewModel</strong></h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Combine</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UserViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> user: <span class="type">User</span> <span class="operator">=</span> <span class="type">User</span>(name: <span class="string">&quot;Tom&quot;</span>, age: <span class="number">25</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">updateUser</span>() &#123;</span><br><span class="line">        user <span class="operator">=</span> <span class="type">User</span>(name: <span class="string">&quot;Jerry&quot;</span>, age: <span class="number">30</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p>这里的 <code>@Published</code> 使得 <code>user</code> 发生变化时，UI 能够自动接收到更新。</p>
-<h4 id="2-ViewController（UIKit-视图层）"><a href="#2-ViewController（UIKit-视图层）" class="headerlink" title="(2) ViewController（UIKit 视图层）"></a><strong>(2) ViewController（UIKit 视图层）</strong></h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"><span class="keyword">import</span> Combine</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UserViewController</span>: <span class="title class_">UIViewController</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">let</span> viewModel <span class="operator">=</span> <span class="type">UserViewModel</span>()</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> cancellables <span class="operator">=</span> <span class="type">Set</span>()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">let</span> nameLabel: <span class="type">UILabel</span> <span class="operator">=</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> label <span class="operator">=</span> <span class="type">UILabel</span>()</span><br><span class="line">        label.textAlignment <span class="operator">=</span> .center</span><br><span class="line">        <span class="keyword">return</span> label</span><br><span class="line">    &#125;()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">let</span> button: <span class="type">UIButton</span> <span class="operator">=</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> button <span class="operator">=</span> <span class="type">UIButton</span>(type: .system)</span><br><span class="line">        button.setTitle(<span class="string">&quot;Update User&quot;</span>, for: .normal)</span><br><span class="line">        <span class="keyword">return</span> button</span><br><span class="line">    &#125;()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">func</span> <span class="title function_">viewDidLoad</span>() &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">        setupUI()</span><br><span class="line">        bindViewModel()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">func</span> <span class="title function_">setupUI</span>() &#123;</span><br><span class="line">        view.backgroundColor <span class="operator">=</span> .white</span><br><span class="line">        view.addSubview(nameLabel)</span><br><span class="line">        view.addSubview(button)</span><br><span class="line">        </span><br><span class="line">        nameLabel.translatesAutoresizingMaskIntoConstraints <span class="operator">=</span> <span class="literal">false</span></span><br><span class="line">        button.translatesAutoresizingMaskIntoConstraints <span class="operator">=</span> <span class="literal">false</span></span><br><span class="line">        </span><br><span class="line">        <span class="type">NSLayoutConstraint</span>.activate([</span><br><span class="line">            nameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),</span><br><span class="line">            nameLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),</span><br><span class="line">            button.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: <span class="number">20</span>),</span><br><span class="line">            button.centerXAnchor.constraint(equalTo: view.centerXAnchor)</span><br><span class="line">        ])</span><br><span class="line">        </span><br><span class="line">        button.addTarget(<span class="keyword">self</span>, action: <span class="keyword">#selector</span>(buttonTapped), for: .touchUpInside)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">func</span> <span class="title function_">bindViewModel</span>() &#123;</span><br><span class="line">        viewModel.<span class="variable">$user</span></span><br><span class="line">            .sink &#123; [<span class="keyword">weak</span> <span class="keyword">self</span>] user <span class="keyword">in</span></span><br><span class="line">                <span class="keyword">self</span><span class="operator">?</span>.nameLabel.text <span class="operator">=</span> <span class="string">&quot;User: <span class="subst">\(user.name)</span>, Age: <span class="subst">\(user.age)</span>&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">            .store(in: <span class="operator">&amp;</span>cancellables)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">@objc</span> <span class="keyword">private</span> <span class="keyword">func</span> <span class="title function_">buttonTapped</span>() &#123;</span><br><span class="line">        viewModel.updateUser()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="UIKit-Combine-的数据绑定"><a href="#UIKit-Combine-的数据绑定" class="headerlink" title="UIKit + Combine 的数据绑定"></a><strong>UIKit + Combine 的数据绑定</strong></h3><ul>
-<li>viewModel.$user.sink {} 监听 user 的变化，并自动更新 UI</li>
-<li>@objc private func buttonTapped() 调用 updateUser() 修改数据，UI 立即刷新</li>
-</ul>
-<h2 id="4-MVVM-的优势总结"><a href="#4-MVVM-的优势总结" class="headerlink" title="4. MVVM 的优势总结"></a><strong>4. MVVM 的优势总结</strong></h2><table>
-<thead>
-<tr>
-<th><strong>特点</strong></th>
-<th><strong>MVC</strong></th>
-<th><strong>MVVM</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>模块化</strong></td>
-<td>View 和 Controller 耦合较高</td>
-<td>View 与 ViewModel 分离，模块独立</td>
-</tr>
-<tr>
-<td><strong>可测试性</strong></td>
-<td>逻辑与 UI 混杂，难测试</td>
-<td>业务逻辑独立，易测试</td>
-</tr>
-<tr>
-<td><strong>数据绑定</strong></td>
-<td>需要手动更新 UI</td>
-<td>SwiftUI + @Published，UIKit + Combine</td>
-</tr>
-<tr>
-<td><strong>适用场景</strong></td>
-<td>适合小型项目</td>
-<td>适合中大型项目，特别是 SwiftUI</td>
-</tr>
-</tbody></table>
-<h3 id="什么时候使用-MVVM？"><a href="#什么时候使用-MVVM？" class="headerlink" title="什么时候使用 MVVM？"></a><strong>什么时候使用 MVVM？</strong></h3><ul>
-<li>适用于 <strong>SwiftUI</strong>，可以充分利用数据绑定特性</li>
-<li>适用于 <strong>复杂的 UI 交互</strong>，让 View 层更轻量</li>
-<li>适用于 <strong>多人协作项目</strong>，模块化程度更高</li>
-</ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><p><strong>ViewModel 在 MVVM 中起到承上启下的作用</strong>：</p>
-<ul>
-<li><strong>连接 Model 和 View</strong></li>
-<li><strong>处理业务逻辑</strong></li>
-<li><strong>管理数据转换</strong></li>
-<li><strong>支持数据绑定，使 UI 自动更新</strong></li>
-</ul>
-<p>对于 <strong>SwiftUI</strong>，MVVM 是默认推荐的架构；对于 <strong>UIKit</strong>，MVVM 结合 Combine 也是一种优化方案。这样可以让代码更清晰、易维护，并且提高可测试性。</p>
-
+<h2 id="MVC（Model-View-Controller）"><a href="#MVC（Model-View-Controller）" class="headerlink" title="MVC（Model-View-Controller）"></a><strong>MVC（Model-View-Controller）</strong></h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a><strong>概念</strong></h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/03/22/swift%E7%BC%96%E7%A8%8B%E4%B8%ADmvvm%E4%B8%8Emvc%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -985,7 +560,7 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/22/swift%E7%BC%96%E7%A8%8B%E4%B8%ADDispatchQueue%E8%AF%A6%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1008,11 +583,17 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
+              <span class="post-meta-item-text">发表于</span>
 
-              <time title="Created: 2025-03-22 13:38:33 / Modified: 14:40:11" itemprop="dateCreated datePublished" datetime="2025-03-22T13:38:33+09:00">2025-03-22</time>
+              <time title="创建时间：2025-03-22 13:38:33" itemprop="dateCreated datePublished" datetime="2025-03-22T13:38:33+09:00">2025-03-22</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-03-23 19:27:53" itemprop="dateModified" datetime="2025-03-23T19:27:53+09:00">2025-03-23</time>
+              </span>
 
           
 
@@ -1026,80 +607,15 @@
 
       
           <h1 id="swift编程中-DispatchQueue-main-async"><a href="#swift编程中-DispatchQueue-main-async" class="headerlink" title="swift编程中 DispatchQueue.main.async"></a>swift编程中 DispatchQueue.main.async</h1><p>在 Swift 编程中，<code>DispatchQueue.main.async</code> 主要用于将任务提交到<strong>主线程</strong>的<strong>主队列</strong>（<code>DispatchQueue.main</code>）上，并异步执行。</p>
-<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a><strong>基本概念</strong></h2><h3 id="1-什么是-DispatchQueue-main"><a href="#1-什么是-DispatchQueue-main" class="headerlink" title="1. 什么是 DispatchQueue.main?"></a><strong>1. 什么是 DispatchQueue.main?</strong></h3><p><code>DispatchQueue.main</code> 代表<strong>主队列</strong>（Main Queue），它是一个<strong>串行队列（Serial Queue）</strong>，所有任务都会按顺序执行。</p>
-<ul>
-<li><strong>主队列运行在主线程上</strong>，而主线程主要用于更新 UI 以及响应用户交互。</li>
-<li>任何 UI 更新都必须在主线程上进行，否则可能会导致界面异常或崩溃。</li>
-</ul>
-<h3 id="2-async（异步）意味着什么？"><a href="#2-async（异步）意味着什么？" class="headerlink" title="2. async（异步）意味着什么？"></a><strong>2. async（异步）意味着什么？</strong></h3><p><code>async</code> 表示任务会被提交到队列，但不会<strong>阻塞</strong>当前线程，任务会在稍后执行。</p>
-<ul>
-<li>这意味着你可以在后台线程执行一些耗时任务（如网络请求），然后使用 DispatchQueue.main.async 切换回主线程更新 UI。</li>
-</ul>
-<h2 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a><strong>使用示例</strong></h2><h3 id="1-在主线程更新-UI"><a href="#1-在主线程更新-UI" class="headerlink" title="1. 在主线程更新 UI"></a><strong>1. 在主线程更新 UI</strong></h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">DispatchQueue</span>.main.async &#123;</span><br><span class="line">    <span class="keyword">self</span>.label.text <span class="operator">=</span> <span class="string">&quot;数据加载完成&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<ul>
-<li>这里 self.label.text &#x3D; “数据加载完成” 需要在主线程执行，否则 UI 可能不会正确更新。</li>
-</ul>
-<h3 id="2-在后台执行任务后回到主线程"><a href="#2-在后台执行任务后回到主线程" class="headerlink" title="2. 在后台执行任务后回到主线程"></a><strong>2. 在后台执行任务后回到主线程</strong></h3><p>通常，我们在后台线程执行一些耗时操作，例如网络请求，然后在主线程更新 UI：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">DispatchQueue</span>.global(qos: .background).async &#123;</span><br><span class="line">    <span class="comment">// 在后台线程执行耗时任务</span></span><br><span class="line">    <span class="keyword">let</span> data <span class="operator">=</span> <span class="keyword">self</span>.loadData()</span><br><span class="line">    </span><br><span class="line">    <span class="type">DispatchQueue</span>.main.async &#123;</span><br><span class="line">        <span class="comment">// 回到主线程更新 UI</span></span><br><span class="line">        <span class="keyword">self</span>.label.text <span class="operator">=</span> data</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<ul>
-<li>DispatchQueue.global(qos: .background).async 让 loadData() 在后台线程运行。</li>
-<li>DispatchQueue.main.async 让 UI 更新回到主线程执行。</li>
-</ul>
-<h3 id="3-避免-EXC-BAD-ACCESS-问题"><a href="#3-避免-EXC-BAD-ACCESS-问题" class="headerlink" title="3. 避免 EXC_BAD_ACCESS 问题"></a><strong>3. 避免 EXC_BAD_ACCESS 问题</strong></h3><p>如果你在子线程直接修改 UI 组件（如 <code>UILabel</code>、<code>UIButton</code>），可能会导致应用崩溃：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">DispatchQueue</span>.global().async &#123;</span><br><span class="line">    <span class="keyword">self</span>.label.text <span class="operator">=</span> <span class="string">&quot;错误的操作&quot;</span> <span class="comment">// ❌ 在后台线程修改 UI，会导致崩溃</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p>解决方案：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">DispatchQueue</span>.global().async &#123;</span><br><span class="line">    <span class="keyword">let</span> data <span class="operator">=</span> <span class="keyword">self</span>.loadData()</span><br><span class="line">    </span><br><span class="line">    <span class="type">DispatchQueue</span>.main.async &#123;</span><br><span class="line">        <span class="keyword">self</span>.label.text <span class="operator">=</span> data <span class="comment">// ✅ 确保 UI 更新在主线程执行</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a><strong>小结</strong></h2><ul>
-<li>DispatchQueue.main 代表主线程的<strong>主队列</strong>，用于执行 UI 相关任务。</li>
-<li>async 使任务在主队列上<strong>异步</strong>执行，不会阻塞当前线程。</li>
-<li><strong>所有 UI 更新必须在主线程执行</strong>，否则可能导致 UI 崩溃。</li>
-<li>常见用法：在后台加载数据后，使用 DispatchQueue.main.async 切换回主线程更新 UI。</li>
-</ul>
-<h1 id="DispatchQueue-中的dispatch-是什么意思"><a href="#DispatchQueue-中的dispatch-是什么意思" class="headerlink" title="DispatchQueue 中的dispatch 是什么意思"></a>DispatchQueue 中的dispatch 是什么意思</h1><p><code>DispatchQueue</code> 中的 <strong>“dispatch”</strong> 直译为 **”分派”、”调度”**，在编程上下文中可以理解为 **”任务调度”**。</p>
-<p>在 Swift 的 <code>DispatchQueue</code>（调度队列）中，<code>dispatch</code> 负责管理任务的执行方式，包括 <strong>在哪个线程执行</strong>、<strong>是同步还是异步执行</strong> 等。</p>
-<h2 id="dispatch-的核心概念"><a href="#dispatch-的核心概念" class="headerlink" title="dispatch 的核心概念"></a><strong>dispatch 的核心概念</strong></h2><h3 id="1-任务调度（Dispatching-Tasks）"><a href="#1-任务调度（Dispatching-Tasks）" class="headerlink" title="1. 任务调度（Dispatching Tasks）"></a><strong>1. 任务调度（Dispatching Tasks）</strong></h3><p><code>dispatch</code> 允许你将任务（代码块）调度到不同的<strong>队列</strong>上，以不同的方式（同步 <code>sync</code> 或异步 <code>async</code>）执行。例如：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">DispatchQueue</span>.global().async &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;在后台线程执行任务&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">DispatchQueue</span>.main.async &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;回到主线程执行 UI 更新&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p>这里，<code>dispatch</code> 负责<strong>把任务派发到不同的队列</strong>，并安排它们的执行顺序。</p>
-<h3 id="2-dispatch-作为-GCD（Grand-Central-Dispatch）-的一部分"><a href="#2-dispatch-作为-GCD（Grand-Central-Dispatch）-的一部分" class="headerlink" title="2. dispatch 作为 GCD（Grand Central Dispatch） 的一部分"></a><strong>2. dispatch 作为 GCD（Grand Central Dispatch） 的一部分</strong></h3><p>在 iOS 和 macOS 中，<code>DispatchQueue</code> 是 <strong>GCD（Grand Central Dispatch）</strong> 的核心组件之一。<br>GCD 是 Apple 提供的一个<strong>多线程管理工具</strong>，用于高效管理 CPU 资源，提高应用性能。</p>
-<h3 id="3-dispatch-的不同用法"><a href="#3-dispatch-的不同用法" class="headerlink" title="3. dispatch 的不同用法"></a><strong>3. dispatch 的不同用法</strong></h3><h4 id="（1）同步-vs-异步"><a href="#（1）同步-vs-异步" class="headerlink" title="（1）同步 vs 异步"></a><strong>（1）同步 vs 异步</strong></h4><ul>
-<li><strong>同步（sync）</strong>：任务执行完毕后，才会继续执行后续代码（阻塞当前线程）。</li>
-<li><strong>异步（async）</strong>：任务会被提交到队列中，当前代码继续执行，不会等待任务完成（非阻塞）。</li>
-</ul>
-<p>示例：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">DispatchQueue</span>.global().sync &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;同步任务，当前线程会等待&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">DispatchQueue</span>.global().async &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;异步任务，当前线程不会等待&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="（2）主队列-vs-全局队列"><a href="#（2）主队列-vs-全局队列" class="headerlink" title="（2）主队列 vs 全局队列"></a><strong>（2）主队列 vs 全局队列</strong></h4><ul>
-<li><strong>主队列（DispatchQueue.main）</strong>：所有 UI 相关任务必须在主线程执行。</li>
-<li><strong>全局队列（DispatchQueue.global()）</strong>：用于执行后台任务（如网络请求、数据处理）。</li>
-</ul>
-<p>示例：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">DispatchQueue</span>.main.async &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;主线程更新 UI&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">DispatchQueue</span>.global().async &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;后台线程处理数据&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="（3）自定义队列"><a href="#（3）自定义队列" class="headerlink" title="（3）自定义队列"></a><strong>（3）自定义队列</strong></h4><p>你可以创建自己的 <code>DispatchQueue</code> 来管理任务：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myQueue <span class="operator">=</span> <span class="type">DispatchQueue</span>(label: <span class="string">&quot;com.myapp.myqueue&quot;</span>, qos: .userInitiated)</span><br><span class="line">myQueue.async &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;在自定义队列中执行任务&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><ul>
-<li>dispatch 代表 <strong>任务调度</strong>，用于管理代码在不同线程&#x2F;队列上的执行方式。</li>
-<li>DispatchQueue 负责在主线程或后台线程上执行任务，以提高应用的<strong>并发性</strong>和<strong>性能</strong>。</li>
-<li>sync 和 async 控制任务的执行方式，<strong>async 是非阻塞的，sync 是阻塞的</strong>。</li>
-<li>DispatchQueue.main 适用于 UI 更新，DispatchQueue.global() 适用于后台任务。</li>
-</ul>
-
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a><strong>基本概念</strong></h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/03/22/swift%E7%BC%96%E7%A8%8B%E4%B8%ADDispatchQueue%E8%AF%A6%E8%A7%A3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1117,7 +633,7 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/21/iosProgramming/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1140,9 +656,25 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">发表于</span>
 
-              <time title="Created: 2025-03-21 18:43:45" itemprop="dateCreated datePublished" datetime="2025-03-21T18:43:45+09:00">2025-03-21</time>
+              <time title="创建时间：2025-03-21 18:43:45" itemprop="dateCreated datePublished" datetime="2025-03-21T18:43:45+09:00">2025-03-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-03-23 19:36:25" itemprop="dateModified" datetime="2025-03-23T19:36:25+09:00">2025-03-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
+                </span>
             </span>
 
           
@@ -1167,7 +699,7 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2025/03/21/iosProgramming/#more" rel="contents">
-                Read more &raquo;
+                阅读全文 &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -1189,7 +721,7 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/21/SetupYourBlogByGithubAndHexo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1212,17 +744,24 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">发表于</span>
 
-              <time title="Created: 2025-03-21 18:43:45" itemprop="dateCreated datePublished" datetime="2025-03-21T18:43:45+09:00">2025-03-21</time>
+              <time title="创建时间：2025-03-21 18:43:45" itemprop="dateCreated datePublished" datetime="2025-03-21T18:43:45+09:00">2025-03-21</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-03-23 19:39:45" itemprop="dateModified" datetime="2025-03-23T19:39:45+09:00">2025-03-23</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+                  <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" itemprop="url" rel="index"><span itemprop="name">博客搭建</span></a>
                 </span>
             </span>
 
@@ -1247,7 +786,7 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2025/03/21/SetupYourBlogByGithubAndHexo/#more" rel="contents">
-                Read more &raquo;
+                阅读全文 &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -1269,7 +808,7 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/21/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3mvvm%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1292,16 +831,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">发表于</span>
 
-              <time title="Created: 2025-03-21 18:01:43" itemprop="dateCreated datePublished" datetime="2025-03-21T18:01:43+09:00">2025-03-21</time>
+              <time title="创建时间：2025-03-21 18:01:43" itemprop="dateCreated datePublished" datetime="2025-03-21T18:01:43+09:00">2025-03-21</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-03-23 16:25:15" itemprop="dateModified" datetime="2025-03-23T16:25:15+09:00">2025-03-23</time>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-03-23 19:26:44" itemprop="dateModified" datetime="2025-03-23T19:26:44+09:00">2025-03-23</time>
               </span>
 
           
@@ -1316,58 +855,15 @@
 
       
           <h1 id="用MVVM-模式解释"><a href="#用MVVM-模式解释" class="headerlink" title="用MVVM 模式解释"></a>用MVVM 模式解释</h1><h3 id="MVVM（Model-View-ViewModel）模式"><a href="#MVVM（Model-View-ViewModel）模式" class="headerlink" title="MVVM（Model-View-ViewModel）模式"></a><strong>MVVM（Model-View-ViewModel）模式</strong></h3><p>MVVM 是 SwiftUI 推荐的架构模式，它将应用的逻辑分成 <strong>Model（数据层）</strong>、<strong>View（视图层）</strong> 和 <strong>ViewModel（视图模型层）</strong>，实现 <strong>数据与 UI 解耦</strong>，提升代码的可维护性。</p>
-<h2 id="MVVM-三大核心组件"><a href="#MVVM-三大核心组件" class="headerlink" title="MVVM 三大核心组件"></a><strong>MVVM 三大核心组件</strong></h2><h3 id="1-Model（数据层）"><a href="#1-Model（数据层）" class="headerlink" title="1. Model（数据层）"></a><strong>1. Model（数据层）</strong></h3><ul>
-<li>负责存储和管理数据，可以是结构体 (struct) 或类 (class)。</li>
-<li>不直接与 UI 交互，通常遵循 Codable 或 Identifiable 协议。</li>
-</ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Video</span>: <span class="title class_">Identifiable</span>, <span class="title class_">Codable</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> id: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">let</span> title: <span class="type">String</span></span><br><span class="line">    <span class="keyword">let</span> url: <span class="type">String</span></span><br><span class="line">    <span class="keyword">var</span> likes: <span class="type">Int</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2-ViewModel（视图模型层）"><a href="#2-ViewModel（视图模型层）" class="headerlink" title="2. ViewModel（视图模型层）"></a><strong>2. ViewModel（视图模型层）</strong></h3><ul>
-<li><strong>核心作用</strong>：负责 <strong>业务逻辑</strong> 和 <strong>数据处理</strong>，并通过 @Published 触发 UI 更新。</li>
-<li>遵循 ObservableObject 协议，以便 View 可以订阅它的数据变化。</li>
-</ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">VideoViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> videos: [<span class="type">Video</span>] <span class="operator">=</span> []</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>() &#123;</span><br><span class="line">        fetchVideos()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">fetchVideos</span>() &#123;</span><br><span class="line">        <span class="comment">// 模拟获取数据</span></span><br><span class="line">        <span class="keyword">self</span>.videos <span class="operator">=</span> [</span><br><span class="line">            <span class="type">Video</span>(id: <span class="number">1</span>, title: <span class="string">&quot;SwiftUI 教程&quot;</span>, url: <span class="string">&quot;https://example.com/video1.mp4&quot;</span>, likes: <span class="number">100</span>),</span><br><span class="line">            <span class="type">Video</span>(id: <span class="number">2</span>, title: <span class="string">&quot;iOS 开发&quot;</span>, url: <span class="string">&quot;https://example.com/video2.mp4&quot;</span>, likes: <span class="number">200</span>)</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">likeVideo</span>(<span class="params">id</span>: <span class="type">Int</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> index <span class="operator">=</span> videos.firstIndex(where: &#123; <span class="variable">$0</span>.id <span class="operator">==</span> id &#125;) &#123;</span><br><span class="line">            videos[index].likes <span class="operator">+=</span> <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="3-View（视图层）"><a href="#3-View（视图层）" class="headerlink" title="3. View（视图层）"></a><strong>3. View（视图层）</strong></h3><ul>
-<li>负责 UI 显示，并订阅 ViewModel 数据。</li>
-<li>使用 @StateObject 或 @ObservedObject 绑定 ViewModel。</li>
-</ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">VideoListView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@StateObject</span> <span class="keyword">var</span> viewModel <span class="operator">=</span> <span class="type">VideoViewModel</span>()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">NavigationView</span> &#123;</span><br><span class="line">            <span class="type">List</span>(viewModel.videos) &#123; video <span class="keyword">in</span></span><br><span class="line">                <span class="type">HStack</span> &#123;</span><br><span class="line">                    <span class="type">VStack</span>(alignment: .leading) &#123;</span><br><span class="line">                        <span class="type">Text</span>(video.title).font(.headline)</span><br><span class="line">                        <span class="type">Text</span>(<span class="string">&quot;👍 <span class="subst">\(video.likes)</span>&quot;</span>).font(.subheadline)</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="type">Spacer</span>()</span><br><span class="line">                    <span class="type">Button</span>(action: &#123;</span><br><span class="line">                        viewModel.likeVideo(id: video.id)</span><br><span class="line">                    &#125;) &#123;</span><br><span class="line">                        <span class="type">Image</span>(systemName: <span class="string">&quot;hand.thumbsup.fill&quot;</span>)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            .navigationTitle(<span class="string">&quot;视频列表&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="MVVM-的优势"><a href="#MVVM-的优势" class="headerlink" title="MVVM 的优势"></a><strong>MVVM 的优势</strong></h2><ol>
-<li><strong>分离关注点</strong>：Model 负责数据，ViewModel 负责业务逻辑，View 仅负责 UI 渲染。</li>
-<li><strong>可测试性强</strong>：ViewModel 易于单元测试，不依赖 UI 层。</li>
-<li><strong>易扩展和维护</strong>：业务逻辑独立于 UI，方便后期修改。</li>
-<li><strong>提升代码复用性</strong>：多个 View 可共享相同的 ViewModel 逻辑。</li>
-</ol>
-<h2 id="SwiftUI-中-MVVM-的最佳实践"><a href="#SwiftUI-中-MVVM-的最佳实践" class="headerlink" title="SwiftUI 中 MVVM 的最佳实践"></a><strong>SwiftUI 中 MVVM 的最佳实践</strong></h2><p>✅ <strong>数据绑定</strong>：用 <code>@Published</code> 让 <code>ViewModel</code> 变动时自动更新 UI。<br>✅ <strong>解耦 UI 和数据逻辑</strong>：避免在 <code>View</code> 里写太多逻辑，把逻辑放进 <code>ViewModel</code>。<br>✅ <strong>异步数据加载</strong>：<code>ViewModel</code> 负责网络请求、数据库读取等任务。<br>✅ <strong>多 View 共享 ViewModel</strong>：通过 <code>@EnvironmentObject</code> 让多个 <code>View</code> 共享数据。</p>
-<h3 id="MVVM-进阶：结合网络请求"><a href="#MVVM-进阶：结合网络请求" class="headerlink" title="MVVM 进阶：结合网络请求"></a><strong>MVVM 进阶：结合网络请求</strong></h3><p>如果 <code>ViewModel</code> 需要从服务器获取数据，可以使用 <code>async/await</code> 处理异步请求：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">VideoViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> videos: [<span class="type">Video</span>] <span class="operator">=</span> []</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">fetchVideos</span>() <span class="keyword">async</span> &#123;</span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> url <span class="operator">=</span> <span class="type">URL</span>(string: <span class="string">&quot;https://api.example.com/videos&quot;</span>) <span class="keyword">else</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> (data, <span class="keyword">_</span>) <span class="operator">=</span> <span class="keyword">try</span> <span class="keyword">await</span> <span class="type">URLSession</span>.shared.data(from: url)</span><br><span class="line">            <span class="keyword">let</span> decodedVideos <span class="operator">=</span> <span class="keyword">try</span> <span class="type">JSONDecoder</span>().decode([<span class="type">Video</span>].<span class="keyword">self</span>, from: data)</span><br><span class="line">            <span class="type">DispatchQueue</span>.main.async &#123;</span><br><span class="line">                <span class="keyword">self</span>.videos <span class="operator">=</span> decodedVideos</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;获取数据失败: <span class="subst">\(error)</span>&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p>在 <code>View</code> 里调用：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">VideoListView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@StateObject</span> <span class="keyword">var</span> viewModel <span class="operator">=</span> <span class="type">VideoViewModel</span>()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">List</span>(viewModel.videos) &#123; video <span class="keyword">in</span></span><br><span class="line">            <span class="type">Text</span>(video.title)</span><br><span class="line">        &#125;</span><br><span class="line">        .task &#123;</span><br><span class="line">            <span class="keyword">await</span> viewModel.fetchVideos()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><ul>
-<li><strong>MVVM &#x3D; Model（数据）+ ViewModel（逻辑）+ View（UI）</strong>。</li>
-<li><strong>ViewModel 通过 @Published 绑定数据，View 自动更新</strong>。</li>
-<li><strong>解耦 UI 和逻辑，便于扩展、测试和复用</strong>。</li>
-</ul>
-<p>你可以在你的 <strong>视频播放项目</strong> 里使用 MVVM，比如：</p>
-<ul>
-<li><strong>Model</strong>：存储视频信息（Video）。</li>
-<li><strong>ViewModel</strong>：管理视频数据、播放状态、点赞逻辑。</li>
-<li><strong>View</strong>：显示视频列表，并订阅 ViewModel 变化。</li>
-</ul>
-
+<h2 id="MVVM-三大核心组件"><a href="#MVVM-三大核心组件" class="headerlink" title="MVVM 三大核心组件"></a><strong>MVVM 三大核心组件</strong></h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/03/21/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3mvvm%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1385,7 +881,7 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/21/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3swiftui/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1408,16 +904,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">发表于</span>
 
-              <time title="Created: 2025-03-21 17:59:05" itemprop="dateCreated datePublished" datetime="2025-03-21T17:59:05+09:00">2025-03-21</time>
+              <time title="创建时间：2025-03-21 17:59:05" itemprop="dateCreated datePublished" datetime="2025-03-21T17:59:05+09:00">2025-03-21</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-03-23 16:26:02" itemprop="dateModified" datetime="2025-03-23T16:26:02+09:00">2025-03-23</time>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-03-23 19:26:36" itemprop="dateModified" datetime="2025-03-23T19:26:36+09:00">2025-03-23</time>
               </span>
 
           
@@ -1435,78 +931,15 @@
 <h3 id="1-SwiftUI-的架构"><a href="#1-SwiftUI-的架构" class="headerlink" title="1. SwiftUI 的架构"></a><strong>1. SwiftUI 的架构</strong></h3><p>SwiftUI 采用 <strong>声明式 UI 编程</strong>，与 UIKit 的命令式风格不同。其架构主要包括：</p>
 <ul>
 <li>**视图 (View)**：UI 组件，如 Text、Image、Button。</li>
-<li><strong>状态管理</strong>：</li>
-</ul>
-<p>@State：管理视图内部的可变状态。<br>@Binding：在父子视图之间传递状态。<br>@ObservedObject &#x2F; @StateObject：用于绑定外部数据模型（符合 ObservableObject 协议）。<br>@EnvironmentObject：用于跨多个视图共享数据。</p>
-<ul>
-<li><strong>视图组合</strong>：SwiftUI 强调组件化，视图由多个小组件组合构成，类似 React 组件化设计。</li>
-<li><strong>数据驱动 UI</strong>：SwiftUI 通过数据绑定（如 @State、@Binding）自动更新 UI，而不是手动操作视图。</li>
-</ul>
-<h3 id="2-SwiftUI-关键组件"><a href="#2-SwiftUI-关键组件" class="headerlink" title="2. SwiftUI 关键组件"></a><strong>2. SwiftUI 关键组件</strong></h3><p>SwiftUI 主要由一系列 UI 组件构成：</p>
-<ul>
-<li><strong>文本与图像</strong></li>
-</ul>
-<p>Text(“Hello, SwiftUI!”)<br>Image(systemName: “star.fill”)</p>
-<ul>
-<li><strong>布局</strong></li>
-</ul>
-<p>HStack、VStack、ZStack（水平、垂直、层叠布局）<br>Grid（iOS 16+）</p>
-<ul>
-<li><strong>按钮和交互</strong></li>
-</ul>
-<p>Button、Toggle、Slider、Stepper</p>
-<ul>
-<li><strong>导航</strong></li>
-</ul>
-<p>NavigationView、NavigationStack（iOS 16+）<br>TabView</p>
-<ul>
-<li><strong>列表和滚动</strong></li>
-</ul>
-<p>List（用于显示数据列表）<br>ScrollView（支持滚动）</p>
-<ul>
-<li><strong>动画与过渡</strong></li>
-</ul>
-<p>withAnimation {}（隐式动画）<br>.animation(.easeInOut, value: variable)（显式动画）<br>matchedGeometryEffect（视图共享动画）</p>
-<h3 id="3-高级用法"><a href="#3-高级用法" class="headerlink" title="3. 高级用法"></a><strong>3. 高级用法</strong></h3><ul>
-<li><strong>自定义视图组件</strong><br>通过 <code>View</code> 协议创建可复用组件：</li>
-</ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">CustomButton</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> title: <span class="type">String</span></span><br><span class="line">    <span class="keyword">var</span> action: () <span class="operator">-&amp;</span>gt; <span class="type">Void</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">Button</span>(action: action) &#123;</span><br><span class="line">            <span class="type">Text</span>(title)</span><br><span class="line">                .padding()</span><br><span class="line">                .background(<span class="type">Color</span>.blue)</span><br><span class="line">                .foregroundColor(.white)</span><br><span class="line">                .cornerRadius(<span class="number">10</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>数据流与状态管理</strong><br>使用 <code>ObservableObject</code> 进行 MVVM 架构：</li>
-</ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> count <span class="operator">=</span> <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">CounterView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@StateObject</span> <span class="keyword">var</span> viewModel <span class="operator">=</span> <span class="type">ViewModel</span>()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">VStack</span> &#123;</span><br><span class="line">            <span class="type">Text</span>(<span class="string">&quot;Count: <span class="subst">\(viewModel.count)</span>&quot;</span>)</span><br><span class="line">            <span class="type">Button</span>(<span class="string">&quot;Increase&quot;</span>) &#123;</span><br><span class="line">                viewModel.count <span class="operator">+=</span> <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>异步操作</strong>（结合 <code>async/await</code> 和 <code>Task</code>）：</li>
-</ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">AsyncContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> data: <span class="type">String</span> <span class="operator">=</span> <span class="string">&quot;Loading...&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">Text</span>(data)</span><br><span class="line">            .task &#123;</span><br><span class="line">                data <span class="operator">=</span> <span class="keyword">await</span> fetchData()</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">fetchData</span>() <span class="keyword">async</span> <span class="operator">-&amp;</span>gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">try?</span> <span class="keyword">await</span> <span class="type">Task</span>.sleep(nanoseconds: <span class="number">2_000_000_000</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Data Loaded!&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>自定义动画</strong></li>
-</ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">AnimatedView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> scale: <span class="type">CGFloat</span> <span class="operator">=</span> <span class="number">1.0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">VStack</span> &#123;</span><br><span class="line">            <span class="type">Text</span>(<span class="string">&quot;Tap me&quot;</span>)</span><br><span class="line">                .font(.largeTitle)</span><br><span class="line">                .scaleEffect(scale)</span><br><span class="line">                .onTapGesture &#123;</span><br><span class="line">                    withAnimation(.spring()) &#123;</span><br><span class="line">                        scale <span class="operator">=</span> scale <span class="operator">==</span> <span class="number">1.0</span> <span class="operator">?</span> <span class="number">1.5</span> : <span class="number">1.0</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="4-结合-UIKit"><a href="#4-结合-UIKit" class="headerlink" title="4. 结合 UIKit"></a><strong>4. 结合 UIKit</strong></h3><p>如果 SwiftUI 组件无法满足需求，可以结合 UIKit：</p>
-<ul>
-<li><strong>使用 UIViewControllerRepresentable 嵌入 UIKit 视图</strong></li>
-</ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">UIKitViewController</span>: <span class="title class_">UIViewControllerRepresentable</span> &#123;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">makeUIViewController</span>(<span class="params">context</span>: <span class="type">Context</span>) <span class="operator">-&amp;</span>gt; <span class="type">UIViewController</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> viewController <span class="operator">=</span> <span class="type">UIViewController</span>()</span><br><span class="line">        viewController.view.backgroundColor <span class="operator">=</span> .red</span><br><span class="line">        <span class="keyword">return</span> viewController</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">updateUIViewController</span>(<span class="keyword">_</span> <span class="params">uiViewController</span>: <span class="type">UIViewController</span>, <span class="params">context</span>: <span class="type">Context</span>) &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>然后在 SwiftUI 中调用：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">UIKitViewController</span>()</span><br><span class="line">            .frame(height: <span class="number">300</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="5-SwiftUI-最佳实践"><a href="#5-SwiftUI-最佳实践" class="headerlink" title="5. SwiftUI 最佳实践"></a><strong>5. SwiftUI 最佳实践</strong></h3><ol>
-<li><strong>组件化开发</strong>：拆分复杂 UI 为多个 View，提高可读性和复用性。</li>
-<li><strong>遵循 MVVM 模式</strong>：数据逻辑与 UI 解耦，使用 ObservableObject 处理数据。</li>
-<li><strong>善用 @State 和 @Binding</strong>：合理使用数据绑定，避免 @State 过度嵌套。</li>
-<li><strong>优化性能</strong>：</li>
-</ol>
-<ul>
-<li>适当使用 .id(UUID()) 触发视图更新。</li>
-<li>避免 @State 频繁修改影响整个 View 重绘。</li>
-<li>使用 LazyVStack 和 LazyHStack 处理大规模数据列表。</li>
-</ul>
-
+<li><strong>状态管理</strong>：
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/03/21/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3swiftui/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1524,7 +957,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1568,10 +1001,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Table of Contents
+          文章目录
         </li>
         <li class="sidebar-nav-overview">
-          Overview
+          站点概览
         </li>
       </ul>
 
@@ -1624,7 +1057,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-user"></i>
       </span>
-      <span class="site-uv" title="Total Visitors">
+      <span class="site-uv" title="总访客量">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
@@ -1633,7 +1066,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
       </span>
-      <span class="site-pv" title="Total Views">
+      <span class="site-pv" title="总访问量">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>

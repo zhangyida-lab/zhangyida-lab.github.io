@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -28,7 +28,7 @@
 <meta property="og:description" content="os应用程序运行机制当你用 Swift 编写 iOS 应用并在手机上运行时，底层会发生以下几个关键步骤： 1. 编译和链接 你的 Swift 代码会被 Swift 编译器（Swiftc） 编译成 LLVM 中间代码，然后转换为 ARM 机器码，因为 iPhone 使用的是基于 ARM 架构的芯片（如 A 系列或 M 系列芯片）。 链接器（Linker）会把你的代码和 iOS 系统库（如 UIKit">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-03-21T08:57:07.000Z">
-<meta property="article:modified_time" content="2025-03-21T09:57:33.025Z">
+<meta property="article:modified_time" content="2025-03-23T10:29:39.499Z">
 <meta property="article:author" content="YiDa">
 <meta name="twitter:card" content="summary">
 
@@ -41,7 +41,7 @@
     sidebar: "",
     isHome : false,
     isPost : true,
-    lang   : 'zh-cn'
+    lang   : 'zh-CN'
   };
 </script>
 
@@ -85,7 +85,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
+    <div class="toggle" aria-label="切换导航栏">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -115,31 +115,31 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section">Home</a>
+    <a href="/" rel="section">首页</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section">About</a>
+    <a href="/about/" rel="section">关于</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section">Tags</a>
+    <a href="/tags/" rel="section">标签</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section">Categories</a>
+    <a href="/categories/" rel="section">分类</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section">Archives</a>
+    <a href="/archives/" rel="section">归档</a>
 
   </li>
       <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger">Search
+        <a role="button" class="popup-trigger">搜索
         </a>
       </li>
   </ul>
@@ -155,7 +155,7 @@
   </span>
   <div class="search-input-container">
     <input autocomplete="off" autocapitalize="off"
-           placeholder="Searching..." spellcheck="false"
+           placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
   <span class="popup-btn-close">
@@ -195,7 +195,7 @@
     
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/21/ios%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -217,18 +217,24 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
+              <span class="post-meta-item-text">发表于</span>
 
-              <time title="Created: 2025-03-21 17:57:07 / Modified: 18:57:33" itemprop="dateCreated datePublished" datetime="2025-03-21T17:57:07+09:00">2025-03-21</time>
+              <time title="创建时间：2025-03-21 17:57:07" itemprop="dateCreated datePublished" datetime="2025-03-21T17:57:07+09:00">2025-03-21</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-03-23 19:29:39" itemprop="dateModified" datetime="2025-03-23T19:29:39+09:00">2025-03-23</time>
+              </span>
 
           
-            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
-              <span class="post-meta-item-text">Views: </span>
+              <span class="post-meta-item-text">阅读次数：</span>
               <span id="busuanzi_value_page_pv"></span>
             </span>
 
@@ -246,6 +252,7 @@
 <li>你的 Swift 代码会被 <strong>Swift 编译器（Swiftc）</strong> 编译成 <strong>LLVM 中间代码</strong>，然后转换为 <strong>ARM 机器码</strong>，因为 iPhone 使用的是基于 ARM 架构的芯片（如 A 系列或 M 系列芯片）。</li>
 <li>链接器（Linker）会把你的代码和 iOS 系统库（如 UIKit、Foundation）链接在一起，生成可执行文件（通常是 Mach-O 格式）。</li>
 </ul>
+<span id="more"></span>
 <h3 id="2-代码签名-amp-沙盒机制"><a href="#2-代码签名-amp-沙盒机制" class="headerlink" title="2. 代码签名 &amp; 沙盒机制"></a><strong>2. 代码签名 &amp; 沙盒机制</strong></h3><ul>
 <li><strong>代码签名</strong>：iOS 要求所有应用都经过代码签名，以确保代码的完整性和安全性。开发阶段使用 Apple 提供的<strong>开发者证书</strong>签名，发布到 App Store 需要<strong>正式证书</strong>。</li>
 <li><strong>沙盒机制</strong>：iOS 运行应用时，会将其限制在一个<strong>独立的沙盒环境</strong>，应用只能访问特定的文件夹（如 Documents、Library），无法随意访问系统资源或其他应用的数据。</li>
@@ -360,10 +367,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Table of Contents
+          文章目录
         </li>
         <li class="sidebar-nav-overview">
-          Overview
+          站点概览
         </li>
       </ul>
 
@@ -417,7 +424,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-user"></i>
       </span>
-      <span class="site-uv" title="Total Visitors">
+      <span class="site-uv" title="总访客量">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
@@ -426,7 +433,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
       </span>
-      <span class="site-pv" title="Total Views">
+      <span class="site-pv" title="总访问量">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","Muse | Mist":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="swiftui视图更新中id的作用及其他原始代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950import SwiftUIstruct ContentView: View &amp;#123;    var activities &#x3D; [&quot;Archery&amp;quot">
+  <meta name="description" content="swiftui视图更新中id的作用及其他原始代码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="swiftui视图更新中id的作用及其他">
 <meta property="og:url" content="http://example.com/2025/03/02/swiftui%E8%A7%86%E5%9B%BE%E6%9B%B4%E6%96%B0%E4%B8%ADid%E7%9A%84%E4%BD%9C%E7%94%A8%E5%8F%8A%E5%85%B6%E4%BB%96/index.html">
 <meta property="og:site_name" content="Yi&#39;s Lab">
-<meta property="og:description" content="swiftui视图更新中id的作用及其他原始代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950import SwiftUIstruct ContentView: View &amp;#123;    var activities &#x3D; [&quot;Archery&amp;quot">
+<meta property="og:description" content="swiftui视图更新中id的作用及其他原始代码">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-03-02T04:12:45.000Z">
-<meta property="article:modified_time" content="2025-03-21T09:49:08.353Z">
+<meta property="article:modified_time" content="2025-03-23T10:28:45.305Z">
 <meta property="article:author" content="YiDa">
 <meta property="article:tag" content="swift编程">
 <meta name="twitter:card" content="summary">
@@ -42,7 +42,7 @@
     sidebar: "",
     isHome : false,
     isPost : true,
-    lang   : 'zh-cn'
+    lang   : 'zh-CN'
   };
 </script>
 
@@ -86,7 +86,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
+    <div class="toggle" aria-label="切换导航栏">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -116,31 +116,31 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section">Home</a>
+    <a href="/" rel="section">首页</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section">About</a>
+    <a href="/about/" rel="section">关于</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section">Tags</a>
+    <a href="/tags/" rel="section">标签</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section">Categories</a>
+    <a href="/categories/" rel="section">分类</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section">Archives</a>
+    <a href="/archives/" rel="section">归档</a>
 
   </li>
       <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger">Search
+        <a role="button" class="popup-trigger">搜索
         </a>
       </li>
   </ul>
@@ -156,7 +156,7 @@
   </span>
   <div class="search-input-container">
     <input autocomplete="off" autocapitalize="off"
-           placeholder="Searching..." spellcheck="false"
+           placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
   <span class="popup-btn-close">
@@ -196,7 +196,7 @@
     
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/02/swiftui%E8%A7%86%E5%9B%BE%E6%9B%B4%E6%96%B0%E4%B8%ADid%E7%9A%84%E4%BD%9C%E7%94%A8%E5%8F%8A%E5%85%B6%E4%BB%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -218,24 +218,24 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">发表于</span>
 
-              <time title="Created: 2025-03-02 13:12:45" itemprop="dateCreated datePublished" datetime="2025-03-02T13:12:45+09:00">2025-03-02</time>
+              <time title="创建时间：2025-03-02 13:12:45" itemprop="dateCreated datePublished" datetime="2025-03-02T13:12:45+09:00">2025-03-02</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-03-21 18:49:08" itemprop="dateModified" datetime="2025-03-21T18:49:08+09:00">2025-03-21</time>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-03-23 19:28:45" itemprop="dateModified" datetime="2025-03-23T19:28:45+09:00">2025-03-23</time>
               </span>
 
           
-            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
-              <span class="post-meta-item-text">Views: </span>
+              <span class="post-meta-item-text">阅读次数：</span>
               <span id="busuanzi_value_page_pv"></span>
             </span>
 
@@ -248,7 +248,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="swiftui视图更新中id的作用及其他"><a href="#swiftui视图更新中id的作用及其他" class="headerlink" title="swiftui视图更新中id的作用及其他"></a>swiftui视图更新中id的作用及其他</h1><h2 id="原始代码"><a href="#原始代码" class="headerlink" title="原始代码"></a>原始代码</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> activities <span class="operator">=</span> [<span class="string">&quot;Archery&quot;</span>, <span class="string">&quot;Baseball&quot;</span>, <span class="string">&quot;Basketball&quot;</span>, <span class="string">&quot;Bowling&quot;</span>, <span class="string">&quot;Boxing&quot;</span>, <span class="string">&quot;Cricket&quot;</span>, <span class="string">&quot;Curling&quot;</span>, <span class="string">&quot;Fencing&quot;</span>, <span class="string">&quot;Golf&quot;</span>, <span class="string">&quot;Hiking&quot;</span>, <span class="string">&quot;Lacrosse&quot;</span>, <span class="string">&quot;Rugby&quot;</span>, <span class="string">&quot;Squash&quot;</span>]</span><br><span class="line">    <span class="keyword">var</span> colors: [<span class="type">Color</span>] <span class="operator">=</span> [.blue, .cyan, .gray, .green, .indigo, .mint, .orange, .pink, .purple, .red]</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> selected <span class="operator">=</span> <span class="string">&quot;Baseball&quot;</span></span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> id <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">VStack</span> &#123;</span><br><span class="line">            <span class="type">Spacer</span>()</span><br><span class="line">            </span><br><span class="line">            <span class="type">Text</span>(<span class="string">&quot;Why not try…&quot;</span>)</span><br><span class="line">                .font(.largeTitle.bold())</span><br><span class="line">            </span><br><span class="line">            <span class="type">VStack</span> &#123;</span><br><span class="line">                <span class="type">Circle</span>()</span><br><span class="line">                    .fill(colors.randomElement() <span class="operator">??</span> .blue)</span><br><span class="line">                    .padding()</span><br><span class="line">                    .overlay(</span><br><span class="line">                        <span class="type">Image</span>(systemName: <span class="string">&quot;figure.<span class="subst">\(selected.lowercased())</span>&quot;</span>)</span><br><span class="line">                            .font(.system(size: <span class="number">144</span>))</span><br><span class="line">                            .foregroundColor(.white)</span><br><span class="line">                    )</span><br><span class="line">                </span><br><span class="line">                <span class="type">Text</span>(<span class="string">&quot;<span class="subst">\(selected)</span>!&quot;</span>)</span><br><span class="line">                    .font(.title)</span><br><span class="line">            &#125;</span><br><span class="line">            .transition(.slide)</span><br><span class="line">            .id(id)</span><br><span class="line">            </span><br><span class="line">            <span class="type">Spacer</span>()</span><br><span class="line">            </span><br><span class="line">            <span class="type">Button</span>(<span class="string">&quot;Try again&quot;</span>) &#123;</span><br><span class="line">                withAnimation(.easeInOut(duration: <span class="number">1</span>)) &#123;</span><br><span class="line">                    selected <span class="operator">=</span> activities.randomElement() <span class="operator">??</span> <span class="string">&quot;Archery&quot;</span></span><br><span class="line">                    id <span class="operator">+=</span> <span class="number">1</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            .buttonStyle(.borderedProminent)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView_Previews</span>: <span class="title class_">PreviewProvider</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> previews: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">ContentView</span>()</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+        <h1 id="swiftui视图更新中id的作用及其他"><a href="#swiftui视图更新中id的作用及其他" class="headerlink" title="swiftui视图更新中id的作用及其他"></a>swiftui视图更新中id的作用及其他</h1><h2 id="原始代码"><a href="#原始代码" class="headerlink" title="原始代码"></a>原始代码</h2><span id="more"></span>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> activities <span class="operator">=</span> [<span class="string">&quot;Archery&quot;</span>, <span class="string">&quot;Baseball&quot;</span>, <span class="string">&quot;Basketball&quot;</span>, <span class="string">&quot;Bowling&quot;</span>, <span class="string">&quot;Boxing&quot;</span>, <span class="string">&quot;Cricket&quot;</span>, <span class="string">&quot;Curling&quot;</span>, <span class="string">&quot;Fencing&quot;</span>, <span class="string">&quot;Golf&quot;</span>, <span class="string">&quot;Hiking&quot;</span>, <span class="string">&quot;Lacrosse&quot;</span>, <span class="string">&quot;Rugby&quot;</span>, <span class="string">&quot;Squash&quot;</span>]</span><br><span class="line">    <span class="keyword">var</span> colors: [<span class="type">Color</span>] <span class="operator">=</span> [.blue, .cyan, .gray, .green, .indigo, .mint, .orange, .pink, .purple, .red]</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> selected <span class="operator">=</span> <span class="string">&quot;Baseball&quot;</span></span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> id <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">VStack</span> &#123;</span><br><span class="line">            <span class="type">Spacer</span>()</span><br><span class="line">            </span><br><span class="line">            <span class="type">Text</span>(<span class="string">&quot;Why not try…&quot;</span>)</span><br><span class="line">                .font(.largeTitle.bold())</span><br><span class="line">            </span><br><span class="line">            <span class="type">VStack</span> &#123;</span><br><span class="line">                <span class="type">Circle</span>()</span><br><span class="line">                    .fill(colors.randomElement() <span class="operator">??</span> .blue)</span><br><span class="line">                    .padding()</span><br><span class="line">                    .overlay(</span><br><span class="line">                        <span class="type">Image</span>(systemName: <span class="string">&quot;figure.<span class="subst">\(selected.lowercased())</span>&quot;</span>)</span><br><span class="line">                            .font(.system(size: <span class="number">144</span>))</span><br><span class="line">                            .foregroundColor(.white)</span><br><span class="line">                    )</span><br><span class="line">                </span><br><span class="line">                <span class="type">Text</span>(<span class="string">&quot;<span class="subst">\(selected)</span>!&quot;</span>)</span><br><span class="line">                    .font(.title)</span><br><span class="line">            &#125;</span><br><span class="line">            .transition(.slide)</span><br><span class="line">            .id(id)</span><br><span class="line">            </span><br><span class="line">            <span class="type">Spacer</span>()</span><br><span class="line">            </span><br><span class="line">            <span class="type">Button</span>(<span class="string">&quot;Try again&quot;</span>) &#123;</span><br><span class="line">                withAnimation(.easeInOut(duration: <span class="number">1</span>)) &#123;</span><br><span class="line">                    selected <span class="operator">=</span> activities.randomElement() <span class="operator">??</span> <span class="string">&quot;Archery&quot;</span></span><br><span class="line">                    id <span class="operator">+=</span> <span class="number">1</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            .buttonStyle(.borderedProminent)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView_Previews</span>: <span class="title class_">PreviewProvider</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> previews: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">ContentView</span>()</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
 
 <h1 id="改代码中的id有什么作用"><a href="#改代码中的id有什么作用" class="headerlink" title="改代码中的id有什么作用"></a>改代码中的id有什么作用</h1><p> 改代码中的id有什么作用 </p>
 <p> 在你的代码中，<code>id</code> 主要用于强制 SwiftUI <strong>重新渲染</strong> <code>VStack</code>，确保动画过渡效果能够正确触发。</p>
@@ -665,10 +666,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Table of Contents
+          文章目录
         </li>
         <li class="sidebar-nav-overview">
-          Overview
+          站点概览
         </li>
       </ul>
 
@@ -722,7 +723,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-user"></i>
       </span>
-      <span class="site-uv" title="Total Visitors">
+      <span class="site-uv" title="总访客量">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
@@ -731,7 +732,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
       </span>
-      <span class="site-pv" title="Total Views">
+      <span class="site-pv" title="总访问量">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
