@@ -16,7 +16,7 @@ tags: [swift编程,编程原理]
 - Swift 源代码首先会经过 **词法分析（Lexing）**，Swift 编译器（Swift Compiler，swiftc）会将代码拆解成一系列的 **标记（Tokens）**，如关键字、标识符、操作符等。
 - 之后，**语法解析（Parsing）** 会将这些 Tokens 组织成 **抽象语法树（AST, Abstract Syntax Tree）**，这是一种结构化的代码表示形式，能帮助编译器理解代码的层次结构。
 ### 2. **语义分析（Semantic Analysis）**
-
+<!--more-->
 - 编译器会检查代码的语义，比如类型检查、变量作用域、函数调用的匹配等。
 - Swift 使用 **类型推导**，因此编译器会尝试推断变量和表达式的类型。
 - 此外，Swift 采用了 **自动内存管理（ARC, Automatic Reference Counting）**，所以编译器会在这个阶段插入合适的 retain/release 代码来管理对象的生命周期。

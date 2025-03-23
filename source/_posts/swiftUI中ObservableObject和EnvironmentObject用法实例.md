@@ -15,7 +15,7 @@ tags: swift编程
 
 
 1. **创建 VideoManager 作为数据源**
-
+<!--more-->
 - 让 VideoManager 继承 ObservableObject，存储视频数组，并提供筛选方法。
 2. **在多个视图中共享 VideoManager**
 

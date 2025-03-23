@@ -3,6 +3,7 @@ layout: blog
 title: MarkdownBasicSyntax
 date: 2023-04-17 19:07:08
 tags: markdown
+categories: 效率提升
 ---
 ## Q&A about markdown
 

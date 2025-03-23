@@ -12,7 +12,7 @@ tags: swift编程
 
 
 ## **基本概念**
-
+<!--more-->
 
 ### **1. 什么是 DispatchQueue.main?**
 

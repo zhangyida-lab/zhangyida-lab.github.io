@@ -14,7 +14,7 @@ tags:
 - Hexo 采用 Markdown 作为文章编写格式，并使用主题渲染为 HTML 页面。
 - 运行 hexo generate (hexo g) 时，Hexo 会解析 Markdown 文件并根据主题生成静态网页，存放在 public/ 目录下。
 ### 2. **GitHub Pages 作为托管平台**
-
+<!--more-->
 - GitHub Pages 提供静态网页托管服务，可以直接将 public/ 目录的内容托管到 GitHub 上，使其通过 <username>.github.io 访问。
 ### 3. **Hexo 部署机制**
 

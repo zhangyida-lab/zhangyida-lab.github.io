@@ -2,6 +2,7 @@
 title: EverythingAboutMysql
 tags: database
 date: 2023-05-25 16:18:49
+categories: 数据库
 ---
 > This blog will record the thing I meetting when I learn mysql.
 ![library](databaseschema.jpg)

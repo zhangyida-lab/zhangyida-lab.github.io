@@ -2,6 +2,7 @@
 title: HowToDeployGitLabByYourself
 date: 2023-07-07 15:11:43
 tags: git
+categories: 运维部署
 ---
 > “To go fast, go alone. To go far, go together.” - Proverb
 

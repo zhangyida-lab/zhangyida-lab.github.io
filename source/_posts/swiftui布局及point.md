@@ -18,6 +18,7 @@ tags: swift编程
 Text("Hello, SwiftUI!")
     .padding() // 默认 16 点内边距
 ```
+<!--more-->
 2. **指定方向的 padding**：
 - 你可以只对特定方向添加 padding：
 ```swift

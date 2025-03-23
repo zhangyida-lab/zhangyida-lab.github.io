@@ -2,6 +2,7 @@
 title: WhatIsDiscreteManufacturing
 date: 2023-07-12 16:53:20
 tags: Manufacturing
+categories: 企业信息化
 ---
 ## what is discrete manufacturing?
 

@@ -13,7 +13,7 @@ tags: swift编程
 通常，在 SwiftUI 中，最常见的属性包装器有：
 
 ### 1. **@State**
-
+<!--more-->
 - 用来在视图内部管理和持久化数据。当视图的状态发生改变时，视图会自动重新渲染。
 - 例如：@State var counter: Int = 0。
 ### 2. **@Binding**

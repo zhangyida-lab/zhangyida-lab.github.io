@@ -2,6 +2,7 @@
 title: SwiftQA
 date: 2023-05-05 15:53:10
 tags: softwareDevelopment
+categories: 编程语言
 ---
 > Brevity is the soul of wit.
 ![SwiftQA](PLQA.jpg)

@@ -19,7 +19,7 @@ SwiftUI 采用 **声明式 UI 编程**，与 UIKit 的命令式风格不同。�
 
 - **视图 (View)**：UI 组件，如 Text、Image、Button。
 - **状态管理**：
-
+<!--more-->
 @State：管理视图内部的可变状态。
 @Binding：在父子视图之间传递状态。
 @ObservedObject / @StateObject：用于绑定外部数据模型（符合 ObservableObject 协议）。

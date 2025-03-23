@@ -3,6 +3,7 @@ layout: bolg
 title: EnglishAndCommandApp
 date: 2023-05-19 11:11:02
 tags: commandApp
+categories: 编程语言
 ---
 ## English And CommandApp
 

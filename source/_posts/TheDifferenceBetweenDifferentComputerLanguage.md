@@ -3,6 +3,7 @@ layout: psot
 title: TheDifferenceBetweenDifferentComputerLanguage
 date: 2023-05-05 15:32:29
 tags: softwareDevelopment
+categories: 编程语言
 ---
 > 业精于勤，荒于嬉；行成于思，毁于随。——《进学解》
 

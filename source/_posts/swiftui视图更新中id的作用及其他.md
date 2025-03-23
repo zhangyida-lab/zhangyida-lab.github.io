@@ -9,7 +9,7 @@ tags: swift编程
  # swiftui视图更新中id的作用及其他
 
  ## 原始代码
-
+<!--more-->
 ```swift
 import SwiftUI
 

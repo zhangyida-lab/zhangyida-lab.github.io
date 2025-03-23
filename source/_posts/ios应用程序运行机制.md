@@ -18,7 +18,7 @@ tags:
 - 你的 Swift 代码会被 **Swift 编译器（Swiftc）** 编译成 **LLVM 中间代码**，然后转换为 **ARM 机器码**，因为 iPhone 使用的是基于 ARM 架构的芯片（如 A 系列或 M 系列芯片）。
 - 链接器（Linker）会把你的代码和 iOS 系统库（如 UIKit、Foundation）链接在一起，生成可执行文件（通常是 Mach-O 格式）。
 
-
+<!--more-->
 ### **2. 代码签名 & 沙盒机制**
 
 

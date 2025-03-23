@@ -2,6 +2,7 @@
 title: PresentationSkillsYouShouldKonw
 tags: speaking skill
 date: 2023-07-08 15:00:19
+categories: 个人提升
 ---
 ## How to improve your public speaking
 

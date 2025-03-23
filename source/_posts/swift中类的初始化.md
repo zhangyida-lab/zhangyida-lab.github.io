@@ -13,7 +13,7 @@ tags: swift编程
 ## 1. **基本构造器**
 
 Swift 类中的 **init 方法** 负责初始化实例的所有属性。
-
+<!--more-->
 ```swift
 class Person {
     var name: String

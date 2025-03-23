@@ -2,6 +2,7 @@
 title: CoreData
 date: 2023-07-12 09:24:50
 tags: 
+categories: ios编程
 ---
 > “Core Data is a framework that you use to manage the model layer objects in your application” — Apple
 

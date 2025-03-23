@@ -12,7 +12,7 @@ tags: swift编程
 ### 1. **定义错误类型**
 
 Swift 的错误类型需要遵循 `Error` 协议，通常用 `enum` 来定义：
-
+<!--more-->
 ```swift
 enum VideoError: Error {
     case fileNotFound

@@ -3,7 +3,7 @@ layout: blog
 title: UsefulCommand
 date: 2023-04-17 19:08:48
 tags: [常用命令]
-categories: command
+categories: 效率提升
 ---
 ![usefulCommand](usefulCommand.jpg)
 > 仰观宇宙之大，俯察品类之盛。所以游目骋怀，足以极视听之娱。——《兰亭集序》

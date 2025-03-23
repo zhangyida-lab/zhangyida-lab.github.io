@@ -2,6 +2,7 @@
 title: PythonQA
 date: 2023-05-05 15:52:45
 tags: softwareDevelopment
+categories: 编程语言
 ---
 > 古之立大事者，不惟有超世之才，亦必有坚忍不拔之志。—— 《鼂错论》
 

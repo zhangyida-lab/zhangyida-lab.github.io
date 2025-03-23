@@ -14,7 +14,7 @@ tags: swift编程
 ### 1. **区分属性和局部变量**
 
 在实例方法或构造方法中，如果参数或局部变量的名称与实例属性相同，`self` 用于区分它们。例如：
-
+<!--more-->
 ```swift
 class Person {
     var name: String

@@ -2,6 +2,7 @@
 title: WhyWeShouldKnowAlgorithmsAndDataStructures
 tags: softwareDevelopment
 date: 2023-05-25 10:39:09
+categories: 数据结构与算法
 ---
 > 夫夷以近，则遊者众；险以远，则至者少；而世之奇伟瑰怪非常之观，常在于险远，而人之所罕至焉。——《游褒禅山记录》
 

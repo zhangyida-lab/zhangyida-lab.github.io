@@ -3,6 +3,7 @@ layout: blog
 title: ComputerSystem
 date: 2023-05-24 13:24:32
 tags: softwareDevelopment
+categories: 计算机科学
 ---
 
 > 盖将自其变者而观之，则天地曾不能以一瞬；自其不变而观之，则物与我皆无尽也。——《前赤壁赋》

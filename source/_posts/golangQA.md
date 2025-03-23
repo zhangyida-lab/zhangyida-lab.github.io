@@ -2,6 +2,7 @@
 title: golangQA
 date: 2023-05-05 14:50:21
 tags: softwareDevelopment
+categories: 编程语言
 ---
 
 > 好读书，不求甚解，毎有会意，便欣然忘食。——《五柳先生传》
