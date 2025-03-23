@@ -1,7 +1,7 @@
 ---
 title: TheGoProgrammingLanguageBookReview
 date: 2023-06-19 19:30:59
-tags: bookReview
+tags: [编程,bookReview]
 ---
 
 > 虽有尧舜之智，而无众人之助，大功不立——《韩非子》

@@ -4,25 +4,25 @@ date: 2023-04-14 22:26:24
 ---
 
 
-### Dear Reader
+### **About Me**
 
-I’m Yi, I’ve been working as a architect for almost five years.
 
-To improve my writing, I try to write  post in english.
+👋 **欢迎来到我的博客！**
 
-To practice writing, I may write some random things.
 
-### Most posts on this site will be related to these topics:
+我是一个热爱编程和技术探索的开发者，专注于 **Go、Python、Swift 及 iOS 开发**，同时对 **数据库、数据结构与算法、计算机网络** 有深入研究。我喜欢通过代码解决实际问题，并持续优化开发效率。
 
-Core knowledge and skills in computer science.
-Data structures and algorithms, System, Networking, Programming language.
 
-### The career and life of PLM engineer
+除了编程，我也关注 **企业信息化（PLM）**，并在相关项目中积累了实践经验。
 
-What I learned in my career. How to grow a career as a PLM engineer.
 
-### Writing
+📌 这里的内容主要涵盖：
 
-My story on writing. What I learned and my tips for practicing English writing.
 
-I’m glad if any of my pieces could help you.
+- **编程语言**（Go / Python / Swift / iOS 开发）
+- **数据库 & 算法**（优化数据存储与算法应用）
+- **企业信息化（PLM）**（PLM 项目经验与实践）
+- **建筑设计**（探索城市综合体与建筑理念）
+- **Markdown & 笔记整理**（提升文档管理效率）
+
+如果你也对这些领域感兴趣，欢迎交流，一起学习成长！🚀

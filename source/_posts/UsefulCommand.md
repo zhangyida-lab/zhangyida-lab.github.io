@@ -2,7 +2,7 @@
 layout: blog
 title: UsefulCommand
 date: 2023-04-17 19:08:48
-tags: usefulcommand
+tags: [常用命令]
 categories: command
 ---
 ![usefulCommand](usefulCommand.jpg)

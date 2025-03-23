@@ -1,7 +1,7 @@
 ---
 title: 在xcode上通过swift语言编写的ios程序在编译过程中计算机背后发生了什么
 date: 2025-03-02 15:17:13
-tags:
+tags: [swift编程,编程原理]
 ---
 
 

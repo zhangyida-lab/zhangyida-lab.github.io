@@ -2,7 +2,7 @@
 layout: blog
 title: MarkdownBasicSyntax
 date: 2023-04-17 19:07:08
-tags: others
+tags: markdown
 ---
 ## Q&A about markdown
 
