@@ -193,6 +193,451 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/24/swiftUI%E4%B8%AD%E7%9A%84%E5%A4%9A%E8%A7%86%E5%9B%BE%E5%85%B1%E4%BA%AB%E7%8A%B6%E6%80%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="You Find Your Own Tree.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/03/24/swiftUI%E4%B8%AD%E7%9A%84%E5%A4%9A%E8%A7%86%E5%9B%BE%E5%85%B1%E4%BA%AB%E7%8A%B6%E6%80%81/" class="post-title-link" itemprop="url">swiftUI中的多视图共享状态</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-03-24 21:58:03 / 修改时间：23:00:41" itemprop="dateCreated datePublished" datetime="2025-03-24T21:58:03+09:00">2025-03-24</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="swiftui中多个视图之间共享状态的代码示例"><a href="#swiftui中多个视图之间共享状态的代码示例" class="headerlink" title="swiftui中多个视图之间共享状态的代码示例"></a>swiftui中多个视图之间共享状态的代码示例</h1><p>在 SwiftUI 中，多个视图之间共享状态可以通过 <code>@Binding</code>、<code>@ObservedObject</code> 或 <code>@EnvironmentObject</code> 等方式来实现。这里我将给你展示两种常用方法：**@Binding** 和 <strong>@ObservedObject</strong>。</p>
+<h3 id="1-使用-Binding-共享状态"><a href="#1-使用-Binding-共享状态" class="headerlink" title="1. 使用 @Binding 共享状态"></a>1. 使用 @Binding 共享状态</h3><p><code>@Binding</code> 允许一个父视图将它的状态传递给子视图，子视图通过绑定这个状态来更新父视图的状态。</p>
+<h4 id="示例：父子视图共享状态（使用-Binding）"><a href="#示例：父子视图共享状态（使用-Binding）" class="headerlink" title="示例：父子视图共享状态（使用 @Binding）"></a><strong>示例：父子视图共享状态（使用 @Binding）</strong></h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line"></span><br><span class="line"><span class="comment">// 子视图：使用 @Binding 获取父视图的状态</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ChildView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@Binding</span> <span class="keyword">var</span> isToggled: <span class="type">Bool</span> <span class="comment">// 绑定父视图的状态</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">Toggle</span>(<span class="string">&quot;开关&quot;</span>, isOn: <span class="variable">$isToggled</span>) <span class="comment">// 绑定到父视图的状态变量</span></span><br><span class="line">            .padding()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 父视图</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ParentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> isToggled <span class="operator">=</span> <span class="literal">false</span> <span class="comment">// 声明本地状态</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">VStack</span> &#123;</span><br><span class="line">            <span class="type">Text</span>(isToggled <span class="operator">?</span> <span class="string">&quot;开&quot;</span> : <span class="string">&quot;关&quot;</span>)</span><br><span class="line">                .font(.largeTitle)</span><br><span class="line">                .padding()</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 将父视图的状态通过 @Binding 传递给子视图</span></span><br><span class="line">            <span class="type">ChildView</span>(isToggled: <span class="variable">$isToggled</span>)</span><br><span class="line">                .padding()</span><br><span class="line">        &#125;</span><br><span class="line">        .padding()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">ParentView</span>() <span class="comment">// 父视图</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#<span class="type">Preview</span> &#123;</span><br><span class="line">    <span class="type">ContentView</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="解析："><a href="#解析：" class="headerlink" title="解析："></a><strong>解析</strong>：</h3><ul>
+<li><code>@State</code>：父视图中声明了一个本地状态 <code>isToggled</code>，它用于保存开关的状态。</li>
+<li><code>@Binding</code>：子视图 <code>ChildView</code> 使用 <code>@Binding</code> 来绑定父视图的 <code>isToggled</code> 状态，这样子视图的切换会直接影响父视图的状态。</li>
+<li><code>Toggle</code>：子视图中的 <code>Toggle</code> 通过 <code>$isToggled</code>（即绑定的状态）来更新父视图的状态。当用户切换开关时，父视图的 <code>isToggled</code> 状态会随之改变，UI 自动更新。</li>
+</ul>
+<h3 id="优点："><a href="#优点：" class="headerlink" title="优点："></a><strong>优点</strong>：</h3><ul>
+<li><strong>简洁明了</strong>，适合父视图向子视图传递简单的状态。</li>
+</ul>
+<h3 id="2-使用-ObservedObject-共享状态"><a href="#2-使用-ObservedObject-共享状态" class="headerlink" title="2. 使用 @ObservedObject 共享状态"></a>2. 使用 @ObservedObject 共享状态</h3><p><code>@ObservedObject</code> 适合用于多个视图之间共享一个 <strong>复杂的状态</strong>，并且这个状态不依赖于视图层级。通常和 <code>ObservableObject</code> 配合使用。</p>
+<h4 id="示例：使用-ObservedObject-实现共享状态"><a href="#示例：使用-ObservedObject-实现共享状态" class="headerlink" title="示例：使用 @ObservedObject 实现共享状态"></a><strong>示例：使用 @ObservedObject 实现共享状态</strong></h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个状态模型，遵循 ObservableObject 协议</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">AppState</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> counter: <span class="type">Int</span> <span class="operator">=</span> <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ChildView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@ObservedObject</span> <span class="keyword">var</span> appState: <span class="type">AppState</span> <span class="comment">// 观察父视图传递过来的状态</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">VStack</span> &#123;</span><br><span class="line">            <span class="type">Text</span>(<span class="string">&quot;子视图计数：<span class="subst">\(appState.counter)</span>&quot;</span>)</span><br><span class="line">                .font(.title)</span><br><span class="line">            <span class="type">Button</span>(<span class="string">&quot;增加&quot;</span>) &#123;</span><br><span class="line">                appState.counter <span class="operator">+=</span> <span class="number">1</span> <span class="comment">// 更新共享的状态</span></span><br><span class="line">            &#125;</span><br><span class="line">            .padding()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ParentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@StateObject</span> <span class="keyword">private</span> <span class="keyword">var</span> appState <span class="operator">=</span> <span class="type">AppState</span>() <span class="comment">// 创建一个共享状态对象</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">VStack</span> &#123;</span><br><span class="line">            <span class="type">Text</span>(<span class="string">&quot;父视图计数：<span class="subst">\(appState.counter)</span>&quot;</span>)</span><br><span class="line">                .font(.largeTitle)</span><br><span class="line">            <span class="type">Button</span>(<span class="string">&quot;增加&quot;</span>) &#123;</span><br><span class="line">                appState.counter <span class="operator">+=</span> <span class="number">1</span> <span class="comment">// 更新共享的状态</span></span><br><span class="line">            &#125;</span><br><span class="line">            .padding()</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 将共享状态传递给子视图</span></span><br><span class="line">            <span class="type">ChildView</span>(appState: appState)</span><br><span class="line">                .padding()</span><br><span class="line">        &#125;</span><br><span class="line">        .padding()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">ParentView</span>() <span class="comment">// 父视图</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#<span class="type">Preview</span> &#123;</span><br><span class="line">    <span class="type">ContentView</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="解析：-1"><a href="#解析：-1" class="headerlink" title="解析："></a><strong>解析</strong>：</h3><ul>
+<li><code>AppState</code>：这是一个 <code>ObservableObject</code>，它包含一个被 <code>@Published</code> 修饰的变量 <code>counter</code>，该变量会随着值的变化自动通知所有观察它的视图。</li>
+<li><code>@StateObject</code>：在父视图中使用 <code>@StateObject</code> 来创建并管理 <code>AppState</code> 的实例。这会保证在父视图生命周期内，状态对象不会被重新创建。</li>
+<li><code>@ObservedObject</code>：子视图 <code>ChildView</code> 使用 <code>@ObservedObject</code> 来观察 <code>appState</code>，从而共享 <code>counter</code> 的状态。每次状态变化，<code>ChildView</code> 会重新渲染。</li>
+</ul>
+<h3 id="优点：-1"><a href="#优点：-1" class="headerlink" title="优点："></a><strong>优点</strong>：</h3><ul>
+<li>适用于 <strong>多个视图</strong> 之间共享一个复杂的状态，可以是全局状态。</li>
+<li><code>ObservableObject</code> 能够管理更复杂的数据结构，并支持多个视图之间的共享和响应式更新。</li>
+</ul>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a><strong>总结</strong>：</h3><ul>
+<li>使用 <code>@Binding</code> 时，父视图将状态传递给子视图，并且通过绑定来共享和更新状态。适用于简单的状态共享。</li>
+<li>使用 <code>@ObservedObject</code> 时，可以管理更复杂的状态对象，适合多个视图之间共享数据，并且这些数据可能会发生变化，进而影响多个视图。</li>
+</ul>
+<p>希望这两个例子能帮助你理解在 SwiftUI 中如何共享状态！如果有更多问题，随时告诉我！😊</p>
+<h1 id="一个-EnvironmentObject-多个视图共享状态的代码示例"><a href="#一个-EnvironmentObject-多个视图共享状态的代码示例" class="headerlink" title="一个 @EnvironmentObject 多个视图共享状态的代码示例"></a>一个 @EnvironmentObject 多个视图共享状态的代码示例</h1><p>在 SwiftUI 中，<code>@EnvironmentObject</code> 用来实现跨多个视图的全局共享状态。与 <code>@Binding</code> 和 <code>@ObservedObject</code> 不同，<code>@EnvironmentObject</code> 更适合用于跨多个视图层次结构共享的数据，尤其是当你不想显式地将数据从父视图传递到子视图时。</p>
+<h3 id="示例：使用-EnvironmentObject-共享状态"><a href="#示例：使用-EnvironmentObject-共享状态" class="headerlink" title="示例：使用 @EnvironmentObject 共享状态"></a><strong>示例：使用 @EnvironmentObject 共享状态</strong></h3><p>我们将创建一个简单的示例，展示如何使用 <code>@EnvironmentObject</code> 来在多个视图之间共享状态。</p>
+<h4 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a><strong>步骤</strong>：</h4><ol>
+<li>创建一个 <code>ObservableObject</code> 作为共享状态。</li>
+<li>在父视图中初始化该状态对象，并通过 <code>@EnvironmentObject</code> 在子视图中访问它。</li>
+<li>子视图可以更新共享的状态，父视图和其他子视图会自动响应这些变化。</li>
+</ol>
+<h4 id="完整代码示例："><a href="#完整代码示例：" class="headerlink" title="完整代码示例："></a><strong>完整代码示例：</strong></h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. 定义一个共享状态对象，遵循 ObservableObject 协议</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">AppState</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> counter: <span class="type">Int</span> <span class="operator">=</span> <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ChildView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="comment">// 2. 使用 @EnvironmentObject 访问共享的状态</span></span><br><span class="line">    <span class="meta">@EnvironmentObject</span> <span class="keyword">var</span> appState: <span class="type">AppState</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">VStack</span> &#123;</span><br><span class="line">            <span class="type">Text</span>(<span class="string">&quot;子视图计数：<span class="subst">\(appState.counter)</span>&quot;</span>)</span><br><span class="line">                .font(.title)</span><br><span class="line">            </span><br><span class="line">            <span class="type">Button</span>(<span class="string">&quot;增加&quot;</span>) &#123;</span><br><span class="line">                appState.counter <span class="operator">+=</span> <span class="number">1</span> <span class="comment">// 更新共享状态</span></span><br><span class="line">            &#125;</span><br><span class="line">            .padding()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ParentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="comment">// 3. 父视图也可以访问共享的状态</span></span><br><span class="line">    <span class="meta">@EnvironmentObject</span> <span class="keyword">var</span> appState: <span class="type">AppState</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">VStack</span> &#123;</span><br><span class="line">            <span class="type">Text</span>(<span class="string">&quot;父视图计数：<span class="subst">\(appState.counter)</span>&quot;</span>)</span><br><span class="line">                .font(.largeTitle)</span><br><span class="line">            </span><br><span class="line">            <span class="type">Button</span>(<span class="string">&quot;增加&quot;</span>) &#123;</span><br><span class="line">                appState.counter <span class="operator">+=</span> <span class="number">1</span> <span class="comment">// 更新共享状态</span></span><br><span class="line">            &#125;</span><br><span class="line">            .padding()</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 将共享状态传递给子视图</span></span><br><span class="line">            <span class="type">ChildView</span>()</span><br><span class="line">                .padding()</span><br><span class="line">        &#125;</span><br><span class="line">        .padding()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="comment">// 4. 在顶层视图创建并注入共享状态</span></span><br><span class="line">    <span class="meta">@StateObject</span> <span class="keyword">private</span> <span class="keyword">var</span> appState <span class="operator">=</span> <span class="type">AppState</span>() <span class="comment">// 创建共享状态对象</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">ParentView</span>()</span><br><span class="line">            .environmentObject(appState) <span class="comment">// 将共享状态注入到环境中</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#<span class="type">Preview</span> &#123;</span><br><span class="line">    <span class="type">ContentView</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="解析：-2"><a href="#解析：-2" class="headerlink" title="解析："></a><strong>解析：</strong></h3><ol>
+<li><strong>AppState</strong>：我们定义了一个 <code>ObservableObject</code> 类，包含一个 <code>@Published</code> 状态变量 <code>counter</code>，它用来保存计数器的值。当 <code>counter</code> 更新时，所有观察它的视图都会自动更新。</li>
+<li><strong>@EnvironmentObject</strong>：在子视图和父视图中使用 <code>@EnvironmentObject</code> 来访问共享的 <code>appState</code>。每次更新 <code>counter</code> 时，所有依赖于这个状态的视图都会自动刷新。</li>
+<li><strong>@StateObject</strong>：在 <code>ContentView</code> 中，我们使用 <code>@StateObject</code> 来创建 <code>AppState</code> 的实例，并通过 <code>.environmentObject()</code> 将它注入到视图层级的环境中。这样所有子视图都可以访问并更新这个共享的状态。</li>
+</ol>
+<h3 id="优点：-2"><a href="#优点：-2" class="headerlink" title="优点："></a><strong>优点：</strong></h3><ul>
+<li><strong>无需显式传递状态</strong>：使用 <code>@EnvironmentObject</code> 时，父视图不需要将状态显式传递给每个子视图。只需要在根视图中创建一次状态对象，然后通过 <code>.environmentObject()</code> 注入，所有子视图都可以通过 <code>@EnvironmentObject</code> 访问和更新状态。</li>
+<li><strong>全局共享</strong>：适用于跨多个视图层次结构的共享状态，尤其在多层嵌套视图中非常方便。</li>
+</ul>
+<h3 id="适用场景："><a href="#适用场景：" class="headerlink" title="适用场景："></a><strong>适用场景：</strong></h3><ul>
+<li><strong>全局设置或配置信息</strong>：比如主题、语言设置等全局状态。</li>
+<li><strong>应用级别的数据</strong>：如用户认证状态、应用内的购物车数量等。</li>
+</ul>
+<h3 id="总结：-1"><a href="#总结：-1" class="headerlink" title="总结："></a><strong>总结</strong>：</h3><ul>
+<li><strong>@EnvironmentObject</strong> 是一种非常强大的方式，允许你在多个视图之间共享状态，而不需要手动传递数据。</li>
+<li><strong>创建共享状态对象</strong>：使用 <code>@StateObject</code> 创建共享状态，并使用 <code>.environmentObject()</code> 注入到视图层级。</li>
+<li><strong>访问共享状态</strong>：在任意需要访问该状态的视图中，使用 <code>@EnvironmentObject</code> 来访问和更新状态。</li>
+</ul>
+<h1 id="这个注入是所谓的依赖注入模式吗？"><a href="#这个注入是所谓的依赖注入模式吗？" class="headerlink" title="这个注入是所谓的依赖注入模式吗？"></a>这个注入是所谓的依赖注入模式吗？</h1><p>是的，<code>@EnvironmentObject</code> 在 SwiftUI 中的确有类似 <strong>依赖注入（Dependency Injection）</strong> 的概念，尽管它的实现方式有所不同。我们可以将它看作是一种 <strong>隐式依赖注入</strong>，它让视图能够自动获取外部环境（通常是父视图或全局状态）中的共享数据，而无需显式地将数据传递给每个子视图。</p>
+<h3 id="依赖注入模式简介："><a href="#依赖注入模式简介：" class="headerlink" title="依赖注入模式简介："></a><strong>依赖注入模式简介：</strong></h3><p>依赖注入是一种设计模式，它的核心思想是：<strong>不要让类自己创建依赖对象，而是通过外部注入</strong>。换句话说，依赖注入将对象的创建责任从类内部转移到外部。这样，你可以将不同的对象或服务提供给需要的地方，而不是由类自己去创建它们。</p>
+<h3 id="在-SwiftUI-中的应用："><a href="#在-SwiftUI-中的应用：" class="headerlink" title="在 SwiftUI 中的应用："></a><strong>在 SwiftUI 中的应用：</strong></h3><p>在 SwiftUI 中，使用 <code>@EnvironmentObject</code> 就是将某些共享的状态（比如应用级的数据模型）<strong>注入到视图的环境中</strong>，让视图能够直接访问这些共享状态，而无需显式地在视图之间传递这些对象。</p>
+<h3 id="与传统的依赖注入的对比："><a href="#与传统的依赖注入的对比：" class="headerlink" title="与传统的依赖注入的对比："></a><strong>与传统的依赖注入的对比：</strong></h3><h4 id="传统的依赖注入："><a href="#传统的依赖注入：" class="headerlink" title="传统的依赖注入："></a><strong>传统的依赖注入</strong>：</h4><ul>
+<li>在传统的依赖注入中，我们通常通过构造函数或属性注入的方式将依赖注入到对象中。<br>例如，在一些传统的 OOP（面向对象编程）中，你可能会看到如下的依赖注入：</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ViewController</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">let</span> dataService: <span class="type">DataService</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 构造函数注入</span></span><br><span class="line">    <span class="keyword">init</span>(<span class="params">dataService</span>: <span class="type">DataService</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.dataService <span class="operator">=</span> dataService</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="SwiftUI-中的依赖注入："><a href="#SwiftUI-中的依赖注入：" class="headerlink" title="SwiftUI 中的依赖注入："></a><strong>SwiftUI 中的依赖注入：</strong></h4><ul>
+<li>在 SwiftUI 中，<code>@EnvironmentObject</code> 和 <code>.environmentObject()</code> 让你能够在视图层级之间注入共享的状态，视图不再需要显式地传递依赖，而是通过 <strong>环境对象</strong> 自动获得依赖。</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个共享状态对象</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">AppState</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> counter: <span class="type">Int</span> <span class="operator">=</span> <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 父视图</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ParentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@StateObject</span> <span class="keyword">private</span> <span class="keyword">var</span> appState <span class="operator">=</span> <span class="type">AppState</span>()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">ChildView</span>()</span><br><span class="line">            .environmentObject(appState)  <span class="comment">// 将共享状态对象注入</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 子视图</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ChildView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@EnvironmentObject</span> <span class="keyword">var</span> appState: <span class="type">AppState</span>  <span class="comment">// 自动获取共享状态</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">Text</span>(<span class="string">&quot;Counter: <span class="subst">\(appState.counter)</span>&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>AppState</code> 对象通过 <code>.environmentObject()</code> 被 <strong>注入</strong> 到视图环境中。子视图 <code>ChildView</code> 通过 <code>@EnvironmentObject</code> <strong>隐式地</strong> 获取这个共享状态对象，而不需要通过父视图显式地传递它。</p>
+<h3 id="为什么称之为“依赖注入”？"><a href="#为什么称之为“依赖注入”？" class="headerlink" title="为什么称之为“依赖注入”？"></a><strong>为什么称之为“依赖注入”？</strong></h3><ul>
+<li><strong>共享状态</strong>：<code>@EnvironmentObject</code> 让不同的视图可以共享一个全局的状态对象，类似于其他设计模式中的“共享资源”。</li>
+<li><strong>自动注入</strong>：通过 <code>.environmentObject()</code> 将对象“注入”到环境中，子视图可以直接获取它，而不需要显式的构造函数或属性传递。</li>
+</ul>
+<h3 id="EnvironmentObject-的优势与传统依赖注入的对比："><a href="#EnvironmentObject-的优势与传统依赖注入的对比：" class="headerlink" title="@EnvironmentObject 的优势与传统依赖注入的对比："></a><strong>@EnvironmentObject 的优势与传统依赖注入的对比</strong>：</h3><ol>
+<li><strong>简化依赖传递</strong>：在传统的依赖注入中，父视图需要显式传递依赖给子视图，尤其是在有多层视图的情况下，依赖链可能变得非常长。而在 <code>@EnvironmentObject</code> 中，视图之间共享的状态自动通过环境注入，不需要手动传递。</li>
+<li><strong>隐式传递</strong>：<code>@EnvironmentObject</code> 是隐式的，视图之间不需要显式声明依赖关系，这让代码看起来更简洁，但也需要注意它可能带来的 <strong>依赖不明确性</strong>，特别是在大型应用中。</li>
+<li><strong>全局共享</strong>：<code>@EnvironmentObject</code> 使得一个对象可以在整个视图树中共享，而不需要将其传递给每个视图，这有点类似于传统的依赖注入中使用的“全局服务”或“单例模式”。</li>
+</ol>
+<h3 id="总结：-2"><a href="#总结：-2" class="headerlink" title="总结："></a><strong>总结</strong>：</h3><ul>
+<li><strong>是的，@EnvironmentObject 确实可以视作一种依赖注入模式</strong>，它允许跨多个视图共享状态，而不需要显式地通过父视图传递依赖。</li>
+<li>这种隐式注入方式非常适合在视图树中共享全局状态，减少了冗余的代码传递，并且提高了应用的可维护性。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/24/swiftUI%E4%B8%AD%E7%9A%84-state%E5%B1%9E%E6%80%A7%E8%AF%A6%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="You Find Your Own Tree.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/03/24/swiftUI%E4%B8%AD%E7%9A%84-state%E5%B1%9E%E6%80%A7%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">swiftUI中的@state属性详解</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-03-24 21:39:49 / 修改时间：22:43:16" itemprop="dateCreated datePublished" datetime="2025-03-24T21:39:49+09:00">2025-03-24</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="swiftUI中的-state属性详解"><a href="#swiftUI中的-state属性详解" class="headerlink" title="swiftUI中的@state属性详解"></a>swiftUI中的@state属性详解</h1><p>在 SwiftUI 中，<code>@State</code> 是一个非常重要的属性包装器，它用来声明 <strong>视图的本地状态</strong>，并且让 SwiftUI 知道何时 <strong>重新渲染视图</strong>。</p>
+<h3 id="作用："><a href="#作用：" class="headerlink" title="作用："></a><strong>作用</strong>：</h3><ul>
+<li><strong>保持视图的状态</strong>：<code>@State</code> 用来声明视图的内部状态，这些状态仅在视图内部有效。如果视图的状态发生变化，SwiftUI 会自动重新渲染该视图。</li>
+<li><strong>触发视图更新</strong>：当被 <code>@State</code> 修饰的变量发生变化时，SwiftUI 会自动更新视图，确保界面和状态保持同步。</li>
+</ul>
+<h3 id="基本用法："><a href="#基本用法：" class="headerlink" title="基本用法："></a><strong>基本用法</strong>：</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> isToggled <span class="operator">=</span> <span class="literal">false</span> <span class="comment">// 声明状态变量</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">VStack</span> &#123;</span><br><span class="line">            <span class="type">Text</span>(isToggled <span class="operator">?</span> <span class="string">&quot;开&quot;</span> : <span class="string">&quot;关&quot;</span>) <span class="comment">// 根据状态显示不同的文本</span></span><br><span class="line">                .font(.largeTitle)</span><br><span class="line">                .padding()</span><br><span class="line">            </span><br><span class="line">            <span class="type">Toggle</span>(<span class="string">&quot;开关&quot;</span>, isOn: <span class="variable">$isToggled</span>) <span class="comment">// 使用绑定的状态变量</span></span><br><span class="line">                .padding()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="解析："><a href="#解析：" class="headerlink" title="解析："></a><strong>解析</strong>：</h3><ul>
+<li><code>@State private var isToggled = false</code>：声明了一个状态变量 <code>isToggled</code>，它会保存视图中的状态。</li>
+<li><code>Toggle</code> 视图使用 <code>$isToggled</code> 来绑定到 <code>isToggled</code> 变量，这意味着当切换开关时，<code>isToggled</code> 的值会更新。</li>
+<li>当 <code>isToggled</code> 发生变化时，<code>Text</code> 视图的内容会自动更新，SwiftUI 会重新渲染界面。</li>
+</ul>
+<h3 id="为什么需要-State？"><a href="#为什么需要-State？" class="headerlink" title="为什么需要 @State？"></a><strong>为什么需要 @State？</strong></h3><ol>
+<li><strong>保持本地状态</strong>：</li>
+</ol>
+<ul>
+<li><code>@State</code> 是一种本地状态，只会影响当前视图。你不需要担心它会影响其他视图（如全局状态或者在多个视图之间传递的状态）。</li>
+</ul>
+<ol start="2">
+<li><strong>自动更新界面</strong>：</li>
+</ol>
+<ul>
+<li>当你改变一个由 <code>@State</code> 修饰的变量时，SwiftUI 会知道这个状态已经变化，它会自动触发视图的更新，不需要你手动去处理界面的刷新。</li>
+</ul>
+<h3 id="常见应用场景："><a href="#常见应用场景：" class="headerlink" title="常见应用场景："></a><strong>常见应用场景</strong>：</h3><ol>
+<li><strong>切换按钮状态</strong>：像上面例子中的 <code>Toggle</code>，通过切换开关来改变视图的显示内容。</li>
+<li><strong>输入框内容</strong>：例如处理文本框输入时，可以用 <code>@State</code> 保存用户输入的内容。</li>
+</ol>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> text: <span class="type">String</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span> <span class="comment">// 保存输入框的内容</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">VStack</span> &#123;</span><br><span class="line">            <span class="type">TextField</span>(<span class="string">&quot;输入一些文字&quot;</span>, text: <span class="variable">$text</span>)</span><br><span class="line">                .padding()</span><br><span class="line">                .textFieldStyle(<span class="type">RoundedBorderTextFieldStyle</span>())</span><br><span class="line">            </span><br><span class="line">            <span class="type">Text</span>(<span class="string">&quot;你输入的是: <span class="subst">\(text)</span>&quot;</span>)</span><br><span class="line">                .padding()</span><br><span class="line">        &#125;</span><br><span class="line">        .padding()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><strong>动画效果</strong>：通过 <code>@State</code> 控制动画状态，触发视图的动态变化。</li>
+</ol>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">AnimatedView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> rotation: <span class="type">Double</span> <span class="operator">=</span> <span class="number">0</span> <span class="comment">// 旋转角度</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">Image</span>(systemName: <span class="string">&quot;arrow.right.circle.fill&quot;</span>)</span><br><span class="line">            .rotationEffect(.degrees(rotation)) <span class="comment">// 根据 rotation 状态旋转图标</span></span><br><span class="line">            .onTapGesture &#123;</span><br><span class="line">                withAnimation &#123;</span><br><span class="line">                    rotation <span class="operator">+=</span> <span class="number">45</span> <span class="comment">// 每次点击增加 45 度</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            .padding()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a><strong>注意事项</strong>：</h3><ul>
+<li><strong>视图局部状态</strong>：<code>@State</code> 用于保存视图的 <strong>局部状态</strong>。如果需要多个视图之间共享状态，应该使用 <code>@Binding</code>、<code>@ObservedObject</code> 或 <code>@EnvironmentObject</code> 等。</li>
+<li><strong>数据持久性</strong>：<code>@State</code> 的值只在当前视图的生命周期内有效。如果你重新创建视图，<code>@State</code> 中的数据会丢失。如果需要在视图之间共享状态或者持久化数据，考虑使用 <code>@AppStorage</code>、<code>@EnvironmentObject</code> 等。</li>
+</ul>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a><strong>总结</strong>：</h3><ul>
+<li><code>@State</code> 用来声明视图的 <strong>本地状态</strong>，并且能在状态变化时自动触发视图更新。</li>
+<li>当你修改 <code>@State</code> 变量时，SwiftUI 会自动重新渲染视图，使得 UI 始终保持最新的状态。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/23/swift%E4%B8%AD-MainActor%E7%9A%84%E4%BD%9C%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="You Find Your Own Tree.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/03/23/swift%E4%B8%AD-MainActor%E7%9A%84%E4%BD%9C%E7%94%A8/" class="post-title-link" itemprop="url">swift中@MainActor的作用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-03-23 21:32:35 / 修改时间：22:35:14" itemprop="dateCreated datePublished" datetime="2025-03-23T21:32:35+09:00">2025-03-23</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="MainActor-什么作用"><a href="#MainActor-什么作用" class="headerlink" title="@MainActor 什么作用"></a>@MainActor 什么作用</h1><p><code>@MainActor</code> 是一个 <strong>Swift Concurrency</strong>（并发）中的属性包装器，主要用于确保某个函数或某个对象的代码在 <strong>主线程</strong> 上执行。</p>
+<p>在 iOS 和 macOS 等应用程序中，更新 UI 必须在 <strong>主线程</strong> 上进行。否则，可能会导致 <strong>UI 错乱、崩溃</strong> 或 <strong>不可预期的行为</strong>。Swift 引入了并发和异步编程（<code>async/await</code>），<code>@MainActor</code> 就是为了确保在并发环境下，对 UI 的更新和其他与主线程相关的操作能安全地进行。</p>
+<h3 id="作用："><a href="#作用：" class="headerlink" title="作用："></a><strong>作用</strong>：</h3><ul>
+<li>确保特定的函数、属性或类在 <strong>主线程</strong> 上执行。</li>
+<li>防止并发代码在后台线程访问 UI 或与 UI 相关的状态，避免线程安全问题。</li>
+</ul>
+<h3 id="常见使用场景："><a href="#常见使用场景：" class="headerlink" title="常见使用场景："></a><strong>常见使用场景</strong>：</h3><ul>
+<li><strong>UI 更新</strong>：在异步任务完成后更新 UI。</li>
+<li><strong>主线程操作</strong>：处理与主线程相关的任务，如网络请求完成后更新 UI。</li>
+</ul>
+<h3 id="代码示例："><a href="#代码示例：" class="headerlink" title="代码示例："></a><strong>代码示例：</strong></h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line"></span><br><span class="line"><span class="meta">@MainActor</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> data: <span class="type">String</span> <span class="operator">=</span> <span class="string">&quot;Loading...&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">fetchData</span>() <span class="keyword">async</span> &#123;</span><br><span class="line">        <span class="comment">// 假设我们在后台线程异步获取数据</span></span><br><span class="line">        <span class="keyword">await</span> <span class="type">Task</span>.sleep(<span class="number">2</span> <span class="operator">*</span> <span class="number">1_000_000_000</span>) <span class="comment">// 模拟网络延迟</span></span><br><span class="line">        <span class="keyword">let</span> newData <span class="operator">=</span> <span class="string">&quot;数据加载完成&quot;</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 由于这个方法被标记为 @MainActor，以下更新 UI 的代码会在主线程上执行</span></span><br><span class="line">        <span class="keyword">self</span>.data <span class="operator">=</span> newData</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@StateObject</span> <span class="keyword">private</span> <span class="keyword">var</span> viewModel <span class="operator">=</span> <span class="type">ViewModel</span>()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">VStack</span> &#123;</span><br><span class="line">            <span class="type">Text</span>(viewModel.data)</span><br><span class="line">                .font(.largeTitle)</span><br><span class="line">                .padding()</span><br><span class="line">            </span><br><span class="line">            <span class="type">Button</span>(<span class="string">&quot;加载数据&quot;</span>) &#123;</span><br><span class="line">                <span class="type">Task</span> &#123;</span><br><span class="line">                    <span class="keyword">await</span> viewModel.fetchData()</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            .padding()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#<span class="type">Preview</span> &#123;</span><br><span class="line">    <span class="type">ContentView</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="解析："><a href="#解析：" class="headerlink" title="解析："></a><strong>解析</strong>：</h3><ul>
+<li><strong>@MainActor</strong>：确保 <code>ViewModel</code> 的 <code>fetchData</code> 方法在主线程上执行 UI 更新操作，即使它本身是异步的。</li>
+<li>即使在 <code>fetchData</code> 方法中调用了 <code>await</code>，返回到主线程更新 <code>data</code> 属性时也不会发生线程安全问题，因为 <code>@MainActor</code> 会自动确保所有与 UI 相关的操作都在主线程中进行。</li>
+</ul>
+<h3 id="注意点："><a href="#注意点：" class="headerlink" title="注意点："></a><strong>注意点</strong>：</h3><ol>
+<li><strong>@MainActor</strong> 只能应用于需要 <strong>主线程操作</strong> 的方法或类，尤其是那些更新 UI 的地方。</li>
+<li>在 Swift Concurrency 中，异步操作（<code>async/await</code>）默认是异步执行的，但一旦涉及到 UI 更新，必须确保这些操作回到主线程。<code>@MainActor</code> 做的就是这一件事。</li>
+</ol>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a><strong>总结</strong>：</h3><p><code>@MainActor</code> 使得代码能够在 <strong>主线程</strong> 上执行，从而避免在并发操作中直接更新 UI 的问题，保证了线程安全和 UI 的一致性。</p>
+<p>如果你在进行异步任务处理时遇到需要更新 UI 的情况，记得使用 <code>@MainActor</code> 来确保线程安全！</p>
+<h1 id="MainActor-只是修饰-class-ViewModel吗"><a href="#MainActor-只是修饰-class-ViewModel吗" class="headerlink" title="@MainActor 只是修饰 class ViewModel吗"></a>@MainActor 只是修饰 class ViewModel吗</h1><p><code>@MainActor</code> <strong>不仅可以修饰 class ViewModel，还可以用于函数、属性、全局变量等</strong>，它的作用是确保被修饰的代码 <strong>始终在主线程上执行</strong>。</p>
+<h3 id="MainActor-可以修饰的内容"><a href="#MainActor-可以修饰的内容" class="headerlink" title="@MainActor 可以修饰的内容"></a><strong>@MainActor 可以修饰的内容</strong></h3><ol>
+<li><strong>修饰类&#x2F;结构体</strong></li>
+<li><strong>修饰方法（函数）</strong></li>
+<li><strong>修饰属性</strong></li>
+<li><strong>修饰全局变量</strong></li>
+</ol>
+<h2 id="1-修饰类-x2F-结构体"><a href="#1-修饰类-x2F-结构体" class="headerlink" title="1. 修饰类 &#x2F; 结构体"></a><strong>1. 修饰类 &#x2F; 结构体</strong></h2><p>如果在 <code>ViewModel</code> 这个类前添加 <code>@MainActor</code>，<strong>该类的所有属性和方法</strong> 默认都会在 <strong>主线程</strong> 上执行。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@MainActor</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> data: <span class="type">String</span> <span class="operator">=</span> <span class="string">&quot;Loading...&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">fetchData</span>() <span class="keyword">async</span> &#123;</span><br><span class="line">        <span class="keyword">await</span> <span class="type">Task</span>.sleep(<span class="number">2</span> <span class="operator">*</span> <span class="number">1_000_000_000</span>) <span class="comment">// 模拟网络延迟</span></span><br><span class="line">        data <span class="operator">=</span> <span class="string">&quot;数据加载完成&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>作用</strong>：<br>✅ <code>data</code> 这个 <code>@Published</code> 属性默认在主线程上访问。<br>✅ <code>fetchData()</code> 也默认在主线程上执行，不用手动 <code>DispatchQueue.main.async</code> 切换线程。</p>
+<h2 id="2-只修饰某个方法"><a href="#2-只修饰某个方法" class="headerlink" title="2. 只修饰某个方法"></a><strong>2. 只修饰某个方法</strong></h2><p>如果你不想让整个类都在主线程执行，可以<strong>单独修饰某个方法</strong>，比如 <code>fetchData()</code> 方法，而不修饰整个 <code>ViewModel</code> 类：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> data: <span class="type">String</span> <span class="operator">=</span> <span class="string">&quot;Loading...&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="meta">@MainActor</span></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">fetchData</span>() <span class="keyword">async</span> &#123;</span><br><span class="line">        <span class="keyword">await</span> <span class="type">Task</span>.sleep(<span class="number">2</span> <span class="operator">*</span> <span class="number">1_000_000_000</span>) <span class="comment">// 模拟网络延迟</span></span><br><span class="line">        data <span class="operator">=</span> <span class="string">&quot;数据加载完成&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>作用</strong>：<br>✅ <code>fetchData()</code> 会在主线程上执行，而 <code>ViewModel</code> 其他方法仍然可以在子线程上运行。</p>
+<h2 id="3-只修饰某个属性"><a href="#3-只修饰某个属性" class="headerlink" title="3. 只修饰某个属性"></a><strong>3. 只修饰某个属性</strong></h2><p>如果你只想保证某个属性在主线程上访问，可以这样做：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@MainActor</span> <span class="meta">@Published</span> <span class="keyword">var</span> data: <span class="type">String</span> <span class="operator">=</span> <span class="string">&quot;Loading...&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">fetchData</span>() <span class="keyword">async</span> &#123;</span><br><span class="line">        <span class="keyword">await</span> <span class="type">Task</span>.sleep(<span class="number">2</span> <span class="operator">*</span> <span class="number">1_000_000_000</span>) <span class="comment">// 模拟网络延迟</span></span><br><span class="line">        <span class="keyword">await</span> <span class="type">MainActor</span>.run &#123; <span class="comment">// 在主线程上更新数据</span></span><br><span class="line">            data <span class="operator">=</span> <span class="string">&quot;数据加载完成&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>作用</strong>：<br>✅ <code>data</code> 这个属性<strong>只能</strong>在主线程上被访问。<br>✅ <code>fetchData()</code> 仍然可以在后台执行，但更新 <code>data</code> 时会<strong>切换到主线程</strong>。</p>
+<h2 id="4-作用于全局变量"><a href="#4-作用于全局变量" class="headerlink" title="4. 作用于全局变量"></a><strong>4. 作用于全局变量</strong></h2><p>如果你有一个<strong>全局变量</strong>，你可以使用 <code>@MainActor</code> 让它始终在 <strong>主线程上访问</strong>：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@MainActor</span> <span class="keyword">var</span> globalText: <span class="type">String</span> <span class="operator">=</span> <span class="string">&quot;默认文本&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="5-结合-Task-在主线程运行代码"><a href="#5-结合-Task-在主线程运行代码" class="headerlink" title="5. 结合 Task 在主线程运行代码"></a><strong>5. 结合 Task 在主线程运行代码</strong></h2><p>如果你的 <code>ViewModel</code> 没有 <code>@MainActor</code> 修饰，但你想在 <code>fetchData()</code> 里保证某些代码在主线程执行，可以这样做：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> data: <span class="type">String</span> <span class="operator">=</span> <span class="string">&quot;Loading...&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">fetchData</span>() <span class="keyword">async</span> &#123;</span><br><span class="line">        <span class="keyword">await</span> <span class="type">Task</span>.sleep(<span class="number">2</span> <span class="operator">*</span> <span class="number">1_000_000_000</span>) <span class="comment">// 模拟网络延迟</span></span><br><span class="line">        <span class="keyword">await</span> <span class="type">MainActor</span>.run &#123;</span><br><span class="line">            data <span class="operator">=</span> <span class="string">&quot;数据加载完成&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>作用</strong>：<br>✅ <code>await MainActor.run &#123;&#125;</code> 让 <code>data</code> 更新时切换到主线程执行。<br>✅ <code>fetchData()</code> 本身可以在后台执行，提高性能。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><table>
+<thead>
+<tr>
+<th>语法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>@MainActor class MyClass {}</td>
+<td><strong>整个类</strong> 的方法和属性都会在 <strong>主线程</strong> 上执行</td>
+</tr>
+<tr>
+<td>@MainActor struct MyStruct {}</td>
+<td><strong>整个结构体</strong> 的方法和属性都在 <strong>主线程</strong> 上执行</td>
+</tr>
+<tr>
+<td>@MainActor func myFunction() {}</td>
+<td><strong>单独一个方法</strong> 在 <strong>主线程</strong> 上执行</td>
+</tr>
+<tr>
+<td>@MainActor var myProperty &#x3D; “”</td>
+<td><strong>单个属性</strong> 只能在 <strong>主线程</strong> 访问</td>
+</tr>
+<tr>
+<td>await MainActor.run {}</td>
+<td><strong>在某个代码块</strong> 内切换到 <strong>主线程</strong></td>
+</tr>
+</tbody></table>
+<p>如果你的 <code>ViewModel</code> 里有多个 <code>@Published</code> 属性，或者大量 UI 相关的代码，建议直接给整个类加 <code>@MainActor</code>，这样代码更干净，不需要在每个地方都 <code>await MainActor.run &#123;&#125;</code>。</p>
+<p>💡 <strong>最佳实践</strong>：</p>
+<ul>
+<li>处理 UI 相关数据时，加 <code>@MainActor</code>，确保所有 UI 代码在主线程执行。</li>
+<li>网络请求、数据处理等可以在后台线程进行，等到需要更新 UI 时再 <code>await MainActor.run &#123;&#125;</code> 切换到主线程。</li>
+</ul>
+<p>你可以根据具体需求来决定 <strong>修饰整个类 &#x2F; 结构体，还是单独修饰方法、属性</strong>。希望这些例子能帮助你理解 <code>@MainActor</code> 的用法！🚀</p>
+<h1 id="“-MainActor-使得代码能够在-主线程-上执行，从而避免在并发操作中直接更新-UI-的问题，保证了线程安全和-UI-的一致性。”的解释"><a href="#“-MainActor-使得代码能够在-主线程-上执行，从而避免在并发操作中直接更新-UI-的问题，保证了线程安全和-UI-的一致性。”的解释" class="headerlink" title="“@MainActor 使得代码能够在 主线程 上执行，从而避免在并发操作中直接更新 UI 的问题，保证了线程安全和 UI 的一致性。”的解释"></a>“@MainActor 使得代码能够在 主线程 上执行，从而避免在并发操作中直接更新 UI 的问题，保证了线程安全和 UI 的一致性。”的解释</h1><p>理解 <code>@MainActor</code> 需要先明白两个重要概念：</p>
+<ol>
+<li><strong>主线程（Main Thread）</strong></li>
+</ol>
+<ul>
+<li>在 iOS&#x2F;macOS 应用中，<strong>主线程主要用于 UI 更新</strong>。</li>
+<li>如果你在后台线程更新 UI，可能会导致 <strong>界面不响应、崩溃</strong> 或 <strong>数据不一致</strong>。</li>
+</ul>
+<ol start="2">
+<li><strong>Swift Concurrency（并发编程）</strong></li>
+</ol>
+<ul>
+<li><code>async/await</code> 允许你在 <strong>多个线程</strong> 之间切换，提高应用性能。</li>
+<li>但如果在后台线程直接修改 UI，可能会导致 <strong>线程安全问题</strong>。</li>
+</ul>
+<h3 id="为什么不能在后台线程更新-UI？"><a href="#为什么不能在后台线程更新-UI？" class="headerlink" title="为什么不能在后台线程更新 UI？"></a><strong>为什么不能在后台线程更新 UI？</strong></h3><p>假设你从服务器获取数据，并在异步任务中更新 <code>UILabel</code>，如果这个操作在<strong>后台线程</strong>执行，可能会出现问题。</p>
+<p><strong>错误示例（没有回到主线程更新 UI）：</strong></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">fetchData</span>() <span class="keyword">async</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> url <span class="operator">=</span> <span class="type">URL</span>(string: <span class="string">&quot;https://example.com/data&quot;</span>)<span class="operator">!</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> (data, <span class="keyword">_</span>) <span class="operator">=</span> <span class="keyword">try</span> <span class="keyword">await</span> <span class="type">URLSession</span>.shared.data(from: url)</span><br><span class="line">        <span class="keyword">let</span> text <span class="operator">=</span> <span class="type">String</span>(data: data, encoding: .utf8) <span class="operator">??</span> <span class="string">&quot;加载失败&quot;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// ❌ 直接在后台线程更新 UI，可能导致崩溃</span></span><br><span class="line">        label.text <span class="operator">=</span> text  </span><br><span class="line">    &#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;数据获取失败: <span class="subst">\(error)</span>&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>在 Swift 中，<code>URLSession.shared.data(from:)</code> <strong>默认在后台线程执行</strong>。如果 <code>label.text = text</code> 也是在后台线程执行，可能会导致 <strong>UI 崩溃</strong>，因为 UIKit 只能在主线程上操作。</p>
+<h3 id="如何用-MainActor-解决这个问题？"><a href="#如何用-MainActor-解决这个问题？" class="headerlink" title="如何用 @MainActor 解决这个问题？"></a><strong>如何用 @MainActor 解决这个问题？</strong></h3><p><code>@MainActor</code> 让代码<strong>始终在主线程上执行</strong>，确保 UI 更新的安全性。</p>
+<h4 id="方法-1：给整个类加-MainActor"><a href="#方法-1：给整个类加-MainActor" class="headerlink" title="方法 1：给整个类加 @MainActor"></a><strong>方法 1：给整个类加 @MainActor</strong></h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@MainActor</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> text: <span class="type">String</span> <span class="operator">=</span> <span class="string">&quot;加载中...&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">fetchData</span>() <span class="keyword">async</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> url <span class="operator">=</span> <span class="type">URL</span>(string: <span class="string">&quot;https://example.com/data&quot;</span>)<span class="operator">!</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> (data, <span class="keyword">_</span>) <span class="operator">=</span> <span class="keyword">try</span> <span class="keyword">await</span> <span class="type">URLSession</span>.shared.data(from: url)</span><br><span class="line">            <span class="keyword">let</span> newText <span class="operator">=</span> <span class="type">String</span>(data: data, encoding: .utf8) <span class="operator">??</span> <span class="string">&quot;加载失败&quot;</span></span><br><span class="line">            </span><br><span class="line">            text <span class="operator">=</span> newText  <span class="comment">// ✅ @MainActor 让这行代码在主线程执行</span></span><br><span class="line">        &#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">            text <span class="operator">=</span> <span class="string">&quot;获取失败&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>✅ 这里 <code>text = newText</code> <strong>一定会在主线程上执行</strong>，不会导致 UI 崩溃。<br>✅ <strong>整个 ViewModel 都在主线程执行</strong>，不用担心线程安全问题。</p>
+<h4 id="方法-2：只修饰-fetchData"><a href="#方法-2：只修饰-fetchData" class="headerlink" title="方法 2：只修饰 fetchData()"></a><strong>方法 2：只修饰 fetchData()</strong></h4><p>如果你不想让整个 <code>ViewModel</code> 在主线程运行，只想确保 UI 更新在主线程执行，可以这样做：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> text: <span class="type">String</span> <span class="operator">=</span> <span class="string">&quot;加载中...&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">fetchData</span>() <span class="keyword">async</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> url <span class="operator">=</span> <span class="type">URL</span>(string: <span class="string">&quot;https://example.com/data&quot;</span>)<span class="operator">!</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> (data, <span class="keyword">_</span>) <span class="operator">=</span> <span class="keyword">try</span> <span class="keyword">await</span> <span class="type">URLSession</span>.shared.data(from: url)</span><br><span class="line">            <span class="keyword">let</span> newText <span class="operator">=</span> <span class="type">String</span>(data: data, encoding: .utf8) <span class="operator">??</span> <span class="string">&quot;加载失败&quot;</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">await</span> updateText(newText)  <span class="comment">// ✅ 确保在主线程执行 UI 更新</span></span><br><span class="line">        &#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">            <span class="keyword">await</span> updateText(<span class="string">&quot;获取失败&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@MainActor</span></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">updateText</span>(<span class="keyword">_</span> <span class="params">newText</span>: <span class="type">String</span>) &#123;</span><br><span class="line">        text <span class="operator">=</span> newText  <span class="comment">// ✅ 这行代码一定会在主线程执行</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>✅ 这里 <code>fetchData()</code> 可以在后台线程执行，提高性能。<br>✅ 只有 <code>updateText(_:)</code> <strong>必须在主线程</strong>，保证 UI 更新的安全性。</p>
+<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a><strong>总结</strong></h3><ol>
+<li><strong>为什么 UI 更新必须在主线程？</strong></li>
+</ol>
+<ul>
+<li>UIKit 和 SwiftUI <strong>不支持在后台线程更新 UI</strong>，否则可能会崩溃或界面异常。</li>
+</ul>
+<ol start="2">
+<li><strong>@MainActor 如何解决 UI 线程问题？</strong></li>
+</ol>
+<ul>
+<li><strong>保证修饰的代码（类、方法、属性）始终在主线程执行</strong>，防止 UI 崩溃。</li>
+</ul>
+<ol start="3">
+<li><strong>如何使用 @MainActor？</strong></li>
+</ol>
+<ul>
+<li><strong>方法 1</strong>：如果整个 <code>ViewModel</code> 都会更新 UI，直接 <code>@MainActor</code> 修饰类。</li>
+<li><strong>方法 2</strong>：如果只有部分方法需要在主线程执行，给这些方法加 <code>@MainActor</code>。</li>
+</ul>
+<p>这样，你就能在 Swift 的并发环境下，<strong>安全地更新 UI，而不会发生线程安全问题</strong>！🚀</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/22/swift%E4%B8%ADasync-await%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -592,7 +1037,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-03-23 19:27:53" itemprop="dateModified" datetime="2025-03-23T19:27:53+09:00">2025-03-23</time>
+                <time title="修改时间：2025-03-24 22:44:32" itemprop="dateModified" datetime="2025-03-24T22:44:32+09:00">2025-03-24</time>
               </span>
 
           
@@ -699,242 +1144,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2025/03/21/iosProgramming/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/21/SetupYourBlogByGithubAndHexo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="YiDa">
-      <meta itemprop="description" content="You Find Your Own Tree.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yi's Lab">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/03/21/SetupYourBlogByGithubAndHexo/" class="post-title-link" itemprop="url">How to setup your hexo blog</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2025-03-21 18:43:45" itemprop="dateCreated datePublished" datetime="2025-03-21T18:43:45+09:00">2025-03-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-03-23 19:39:45" itemprop="dateModified" datetime="2025-03-23T19:39:45+09:00">2025-03-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" itemprop="url" rel="index"><span itemprop="name">博客搭建</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>悟已往之不谏，知来者之可追。实迷途其未远，觉今是而昨非。——《归去来辞》<br><em>Hexo can help us to write blog by markdown,and then we can deploy my blog on github or other srevice.</em><br><img src="/2025/03/21/SetupYourBlogByGithubAndHexo/blog.jpg" alt="blog"></p>
-</blockquote>
-<h2 id="What-is-github-page"><a href="#What-is-github-page" class="headerlink" title="What is github page?"></a><a target="_blank" rel="noopener" href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages">What is github page?</a></h2><blockquote>
-<p>GitHub Pages is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository on GitHub, optionally runs the files through a build process, and publishes a website. you can set up what branch will the github page use,so that we can use deploy different branch,one branch to deploy our site,the other to write blog.</p>
-</blockquote>
-<h2 id="What-is-hexo"><a href="#What-is-hexo" class="headerlink" title="What is hexo?"></a><a target="_blank" rel="noopener" href="https://hexo.io/docs/">What is hexo?</a></h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/03/21/SetupYourBlogByGithubAndHexo/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/21/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3mvvm%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="YiDa">
-      <meta itemprop="description" content="You Find Your Own Tree.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yi's Lab">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/03/21/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3mvvm%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">深入理解mvvm设计模式</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2025-03-21 18:01:43" itemprop="dateCreated datePublished" datetime="2025-03-21T18:01:43+09:00">2025-03-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-03-23 19:26:44" itemprop="dateModified" datetime="2025-03-23T19:26:44+09:00">2025-03-23</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="用MVVM-模式解释"><a href="#用MVVM-模式解释" class="headerlink" title="用MVVM 模式解释"></a>用MVVM 模式解释</h1><h3 id="MVVM（Model-View-ViewModel）模式"><a href="#MVVM（Model-View-ViewModel）模式" class="headerlink" title="MVVM（Model-View-ViewModel）模式"></a><strong>MVVM（Model-View-ViewModel）模式</strong></h3><p>MVVM 是 SwiftUI 推荐的架构模式，它将应用的逻辑分成 <strong>Model（数据层）</strong>、<strong>View（视图层）</strong> 和 <strong>ViewModel（视图模型层）</strong>，实现 <strong>数据与 UI 解耦</strong>，提升代码的可维护性。</p>
-<h2 id="MVVM-三大核心组件"><a href="#MVVM-三大核心组件" class="headerlink" title="MVVM 三大核心组件"></a><strong>MVVM 三大核心组件</strong></h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/03/21/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3mvvm%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/21/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3swiftui/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="YiDa">
-      <meta itemprop="description" content="You Find Your Own Tree.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yi's Lab">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/03/21/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3swiftui/" class="post-title-link" itemprop="url">深入理解swiftui</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2025-03-21 17:59:05" itemprop="dateCreated datePublished" datetime="2025-03-21T17:59:05+09:00">2025-03-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-03-23 19:26:36" itemprop="dateModified" datetime="2025-03-23T19:26:36+09:00">2025-03-23</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="深入理解swiftui"><a href="#深入理解swiftui" class="headerlink" title="深入理解swiftui"></a>深入理解swiftui</h1><p>SwiftUI 的架构、组件和高级用法主要涉及以下几个核心概念：</p>
-<h3 id="1-SwiftUI-的架构"><a href="#1-SwiftUI-的架构" class="headerlink" title="1. SwiftUI 的架构"></a><strong>1. SwiftUI 的架构</strong></h3><p>SwiftUI 采用 <strong>声明式 UI 编程</strong>，与 UIKit 的命令式风格不同。其架构主要包括：</p>
-<ul>
-<li>**视图 (View)**：UI 组件，如 Text、Image、Button。</li>
-<li><strong>状态管理</strong>：
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/03/21/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3swiftui/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
