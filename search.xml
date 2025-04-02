@@ -622,6 +622,24 @@
       </tags>
   </entry>
   <entry>
+    <title>PythonQA</title>
+    <url>/2023/05/05/PythonQA/</url>
+    <content><![CDATA[<blockquote>
+<p>古之立大事者，不惟有超世之才，亦必有坚忍不拔之志。—— 《鼂错论》</p>
+</blockquote>
+<h2 id="How-to-use-python-and-youtube-api-analysis"><a href="#How-to-use-python-and-youtube-api-analysis" class="headerlink" title="How to use python and youtube-api-analysis"></a>How to use python and youtube-api-analysis</h2><blockquote>
+<p>we can use python and youtube-api to analysis the youtuber data which you want to know.you can open this github repository.</p>
+</blockquote>
+<p><a href="https://github.com/thu-vu92/youtube-api-analysis">youtube-api-analysis</a></p>
+<span id="more"></span>]]></content>
+      <categories>
+        <category>编程语言</category>
+      </categories>
+      <tags>
+        <tag>softwareDevelopment</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>How to setup your hexo blog</title>
     <url>/2025/03/21/SetupYourBlogByGithubAndHexo/</url>
     <content><![CDATA[<blockquote>
@@ -692,24 +710,6 @@
       </categories>
       <tags>
         <tag>Blog</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PythonQA</title>
-    <url>/2023/05/05/PythonQA/</url>
-    <content><![CDATA[<blockquote>
-<p>古之立大事者，不惟有超世之才，亦必有坚忍不拔之志。—— 《鼂错论》</p>
-</blockquote>
-<h2 id="How-to-use-python-and-youtube-api-analysis"><a href="#How-to-use-python-and-youtube-api-analysis" class="headerlink" title="How to use python and youtube-api-analysis"></a>How to use python and youtube-api-analysis</h2><blockquote>
-<p>we can use python and youtube-api to analysis the youtuber data which you want to know.you can open this github repository.</p>
-</blockquote>
-<p><a href="https://github.com/thu-vu92/youtube-api-analysis">youtube-api-analysis</a></p>
-<span id="more"></span>]]></content>
-      <categories>
-        <category>编程语言</category>
-      </categories>
-      <tags>
-        <tag>softwareDevelopment</tag>
       </tags>
   </entry>
   <entry>
@@ -2566,6 +2566,134 @@
       </tags>
   </entry>
   <entry>
+    <title>swiftui布局及point</title>
+    <url>/2025/03/02/swiftui%E5%B8%83%E5%B1%80%E5%8F%8Apoint/</url>
+    <content><![CDATA[<h1 id="swift-默认padding-以及point"><a href="#swift-默认padding-以及point" class="headerlink" title="swift 默认padding 以及point"></a>swift 默认padding 以及point</h1><p> 在 SwiftUI 中，默认的 <code>padding()</code> 行为如下：</p>
+<ol>
+<li><strong>默认值</strong>：</li>
+</ol>
+<ul>
+<li>padding() 默认会在所有方向（top, bottom, leading, trailing）添加 16 点的填充。</li>
+<li>示例：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">Text</span>(<span class="string">&quot;Hello, SwiftUI!&quot;</span>)</span><br><span class="line">    .padding() <span class="comment">// 默认 16 点内边距</span></span><br></pre></td></tr></table></figure>
+<span id="more"></span></li>
+</ul>
+<ol start="2">
+<li><strong>指定方向的 padding</strong>：</li>
+</ol>
+<ul>
+<li>你可以只对特定方向添加 padding：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">Text</span>(<span class="string">&quot;Hello, SwiftUI!&quot;</span>)</span><br><span class="line">    .padding(.horizontal, <span class="number">20</span>) <span class="comment">// 左右各 20 点</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="3">
+<li><strong>完全自定义 padding</strong>：</li>
+</ol>
+<ul>
+<li>你可以指定每个方向的 padding 值：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">Text</span>(<span class="string">&quot;Hello, SwiftUI!&quot;</span>)</span><br><span class="line">    .padding(.<span class="keyword">init</span>(top: <span class="number">10</span>, leading: <span class="number">20</span>, bottom: <span class="number">5</span>, trailing: <span class="number">15</span>))</span><br></pre></td></tr></table></figure>
+如果你觉得某个 UI 组件的 <code>padding</code> 不符合预期，可以试试手动设置 <code>padding</code> 或者 <code>frame</code> 来调整布局。</li>
+</ul>
+<h1 id="用户问题"><a href="#用户问题" class="headerlink" title="用户问题"></a>用户问题</h1><p> swiftui是根据什么保证不通过设备之间的界面同意的 </p>
+<p> SwiftUI 通过以下机制确保界面在不同设备上保持一致性和适应性：</p>
+<h3 id="1-自适应布局系统（Adaptive-Layout）"><a href="#1-自适应布局系统（Adaptive-Layout）" class="headerlink" title="1. 自适应布局系统（Adaptive Layout）"></a>1. <strong>自适应布局系统</strong>（Adaptive Layout）</h3><ul>
+<li>SwiftUI 采用 <strong>自动布局</strong> 机制，UI 组件会根据父视图、屏幕大小以及内容大小自动调整尺寸。</li>
+<li>例如，VStack, HStack, ZStack 会自动排列子视图，而 Spacer() 可用于动态填充空间。</li>
+<li>示例：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">VStack</span> &#123;</span><br><span class="line">    <span class="type">Text</span>(<span class="string">&quot;Hello, SwiftUI!&quot;</span>)</span><br><span class="line">    <span class="type">Spacer</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>这种布局方式使得 UI 在不同设备上都能保持良好的适配性。</li>
+</ul>
+<h3 id="2-相对单位和-frame"><a href="#2-相对单位和-frame" class="headerlink" title="2. 相对单位和 frame"></a>2. <strong>相对单位和 frame</strong></h3><ul>
+<li>SwiftUI 推荐使用 <strong>相对尺寸</strong> 而非固定像素值，例如 .frame(maxWidth: .infinity) 使得组件在不同屏幕宽度上都能自适应。</li>
+<li>示例：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">Text</span>(<span class="string">&quot;自适应文本&quot;</span>)</span><br><span class="line">    .frame(maxWidth: .infinity, maxHeight: .infinity)</span><br><span class="line">    .background(<span class="type">Color</span>.blue)</span><br></pre></td></tr></table></figure></li>
+<li>这样可以确保文本视图填充整个屏幕，无论设备屏幕大小如何变化。</li>
+</ul>
+<h3 id="3-动态类型和可访问性支持"><a href="#3-动态类型和可访问性支持" class="headerlink" title="3. 动态类型和可访问性支持"></a>3. <strong>动态类型和可访问性支持</strong></h3><ul>
+<li>SwiftUI 内置 <strong>动态字体</strong>，能根据用户的字体偏好自动调整大小：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">Text</span>(<span class="string">&quot;动态字体&quot;</span>)</span><br><span class="line">    .font(.title)</span><br><span class="line">    .dynamicTypeSize(.large)</span><br></pre></td></tr></table></figure></li>
+<li>这样即使用户在“设置”中调整了字体大小，界面仍然能自动适配。</li>
+</ul>
+<h3 id="4-使用-GeometryReader-进行屏幕适配"><a href="#4-使用-GeometryReader-进行屏幕适配" class="headerlink" title="4. 使用 GeometryReader 进行屏幕适配"></a>4. <strong>使用 GeometryReader 进行屏幕适配</strong></h3><ul>
+<li>GeometryReader 允许获取屏幕尺寸，以此调整布局：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">GeometryReader</span> &#123; geometry <span class="keyword">in</span></span><br><span class="line">    <span class="type">Text</span>(<span class="string">&quot;屏幕宽度: <span class="subst">\(geometry.size.width)</span>&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>这样可以在不同屏幕尺寸下自适应布局。</li>
+</ul>
+<h3 id="5-SF-Symbols-amp-矢量图标"><a href="#5-SF-Symbols-amp-矢量图标" class="headerlink" title="5. SF Symbols &amp; 矢量图标"></a>5. <strong>SF Symbols &amp; 矢量图标</strong></h3><ul>
+<li>SwiftUI 支持 SF Symbols，它们会根据设备大小自动调整：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">Image</span>(systemName: <span class="string">&quot;star.fill&quot;</span>)</span><br><span class="line">    .imageScale(.large)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="6-Handoff-设计原则"><a href="#6-Handoff-设计原则" class="headerlink" title="6. Handoff 设计原则"></a>6. <strong>Handoff 设计原则</strong></h3><ul>
+<li>SwiftUI 遵循 Apple 的 <strong>Handoff 设计原则</strong>，确保在 iPhone、iPad 和 Mac 上界面保持一致，同时适应不同设备的特点。</li>
+</ul>
+<h3 id="7-适配不同设备的-Layout-方式"><a href="#7-适配不同设备的-Layout-方式" class="headerlink" title="7. 适配不同设备的 Layout 方式"></a>7. <strong>适配不同设备的 Layout 方式</strong></h3><ul>
+<li>@Environment(.horizontalSizeClass) 可用于区分设备是 compact（iPhone 竖屏）还是 regular（iPad），从而调整布局：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">AdaptiveView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@Environment</span>(\.horizontalSizeClass) <span class="keyword">var</span> sizeClass</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> sizeClass <span class="operator">==</span> .compact &#123;</span><br><span class="line">            <span class="type">VStack</span> &#123; <span class="type">Text</span>(<span class="string">&quot;iPhone 竖屏布局&quot;</span>) &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="type">HStack</span> &#123; <span class="type">Text</span>(<span class="string">&quot;iPad 横屏布局&quot;</span>) &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><p>SwiftUI 主要通过 <strong>自适应布局、相对单位、动态类型、GeometryReader、SF Symbols 和环境变量</strong> 来确保界面在不同设备上保持一致，同时能适配不同的屏幕尺寸和用户偏好。</p>
+<h1 id="用户问题-1"><a href="#用户问题-1" class="headerlink" title="用户问题"></a>用户问题</h1><p> ios编程中point的概念 </p>
+<p> 在 iOS 编程中，<strong>Point（点）</strong> 是 <strong>UIKit 和 SwiftUI 坐标系统</strong> 中用于表示 <strong>屏幕上的位置</strong> 的基本单位。它是一个 <strong>逻辑单位（Logical Unit）</strong>，而不是物理像素（Pixel）。</p>
+<h2 id="1-Point-vs-Pixel（点-vs-像素）"><a href="#1-Point-vs-Pixel（点-vs-像素）" class="headerlink" title="1. Point vs. Pixel（点 vs. 像素）"></a>1. <strong>Point vs. Pixel（点 vs. 像素）</strong></h2><p>在 iOS 设备上，<strong>1 Point ≠ 1 Pixel</strong>，因为不同设备的 <strong>屏幕像素密度（PPI, Pixels Per Inch）</strong> 不同。为了适配不同的屏幕分辨率，iOS 使用 <strong>点（Point）</strong> 作为通用测量单位，并根据 <strong>屏幕缩放因子（Scale Factor）</strong> 自动转换为实际像素（Pixel）。</p>
+<ul>
+<li><strong>标准分辨率设备（@1x，比如旧款 iPhone）</strong>: 1 Point &#x3D; 1 Pixel</li>
+<li><strong>Retina 设备（@2x，比如 iPhone SE, iPhone 8）</strong>: 1 Point &#x3D; 2×2 Pixels</li>
+<li><strong>Super Retina 设备（@3x，比如 iPhone 14 Pro）</strong>: 1 Point &#x3D; 3×3 Pixels<br>🔹 <strong>示例</strong>：在 @3x 屏幕上，一个 <code>100x100</code> <strong>点</strong> 的视图实际上占据 <code>300x300</code> <strong>像素</strong>。</li>
+</ul>
+<h2 id="2-CGPoint：表示一个点的位置"><a href="#2-CGPoint：表示一个点的位置" class="headerlink" title="2. CGPoint：表示一个点的位置"></a>2. <strong>CGPoint：表示一个点的位置</strong></h2><p>在 <code>UIKit</code> 中，使用 <code>CGPoint</code> 来表示屏幕上的 <strong>一个点的坐标</strong>：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> point <span class="operator">=</span> <span class="type">CGPoint</span>(x: <span class="number">50</span>, y: <span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>x：表示 <strong>水平方向</strong>（从左到右）</li>
+<li>y：表示 <strong>垂直方向</strong>（从上到下）<br>👉 <strong>坐标原点（0,0）在左上角</strong>，<code>x</code> 轴向右增长，<code>y</code> 轴向下增长。</li>
+</ul>
+<h2 id="3-CGRect-和-CGSize"><a href="#3-CGRect-和-CGSize" class="headerlink" title="3. CGRect 和 CGSize"></a>3. <strong>CGRect 和 CGSize</strong></h2><p>除了 <code>CGPoint</code>，UIKit 还有两个相关结构：</p>
+<ul>
+<li>CGSize：表示宽度和高度，例如 CGSize(width: 100, height: 50)</li>
+<li>CGRect：表示一个矩形区域，包含 <strong>起始点（origin: CGPoint）+ 尺寸（size: CGSize）</strong><figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> rect <span class="operator">=</span> <span class="type">CGRect</span>(x: <span class="number">50</span>, y: <span class="number">100</span>, width: <span class="number">200</span>, height: <span class="number">150</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="4-SwiftUI-中的-GeometryReader"><a href="#4-SwiftUI-中的-GeometryReader" class="headerlink" title="4. SwiftUI 中的 GeometryReader"></a>4. <strong>SwiftUI 中的 GeometryReader</strong></h2><p>SwiftUI 使用 <code>GeometryReader</code> 来获取 <strong>Point</strong> 坐标：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">GeometryReader</span> &#123; geometry <span class="keyword">in</span></span><br><span class="line">    <span class="type">Text</span>(<span class="string">&quot;Center&quot;</span>)</span><br><span class="line">        .position(x: geometry.size.width <span class="operator">/</span> <span class="number">2</span>, y: geometry.size.height <span class="operator">/</span> <span class="number">2</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里 <code>position(x:, y:)</code> 也是 <strong>以 Point 计算的</strong>。</p>
+<h2 id="5-点的转换（UIKit-示例）"><a href="#5-点的转换（UIKit-示例）" class="headerlink" title="5. 点的转换（UIKit 示例）"></a>5. <strong>点的转换（UIKit 示例）</strong></h2><h3 id="5-1-视图内部的点转换："><a href="#5-1-视图内部的点转换：" class="headerlink" title="5.1 视图内部的点转换："></a>5.1 视图内部的点转换：</h3><figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> localPoint <span class="operator">=</span> myView.convert(<span class="type">CGPoint</span>(x: <span class="number">10</span>, y: <span class="number">20</span>), to: anotherView)</span><br></pre></td></tr></table></figure>
+
+<p>把 <code>myView</code> 内部的 <code>(10,20)</code> 点 <strong>转换</strong> 到 <code>anotherView</code> 的坐标系统。</p>
+<h3 id="5-2-屏幕坐标系："><a href="#5-2-屏幕坐标系：" class="headerlink" title="5.2 屏幕坐标系："></a>5.2 屏幕坐标系：</h3><figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> screenPoint <span class="operator">=</span> myView.convert(myView.bounds.origin, to: <span class="literal">nil</span>)</span><br></pre></td></tr></table></figure>
+
+<p>把 <code>myView</code> 的原点转换到 <strong>屏幕坐标系（Screen Coordinates）</strong>。</p>
+<h2 id="6-总结"><a href="#6-总结" class="headerlink" title="6. 总结"></a>6. <strong>总结</strong></h2><ul>
+<li><strong>Point 是 iOS 的逻辑单位</strong>，不等于物理像素。</li>
+<li><strong>CGPoint 表示 2D 坐标（x, y）</strong>，单位是 <strong>点（Point）</strong>。</li>
+<li><strong>CGRect 结合 CGPoint 和 CGSize 来表示矩形区域</strong>。</li>
+<li><strong>UIKit 以左上角 (0,0) 为原点，x 轴向右，y 轴向下增长</strong>。</li>
+<li><strong>SwiftUI 使用 GeometryReader 计算动态坐标</strong>。<br>你是在处理具体的 <code>CGPoint</code> 计算，还是在做屏幕适配相关的工作？</li>
+</ul>
+<h1 id="用户问题-2"><a href="#用户问题-2" class="headerlink" title="用户问题"></a>用户问题</h1><p> 把本次对话导出markdown </p>
+<p> 这里是本次对话的 Markdown 版本：<br>Ios Point Concept</p>
+<h2 id="iOS-编程中-Point-的概念"><a href="#iOS-编程中-Point-的概念" class="headerlink" title="iOS 编程中 Point 的概念"></a>iOS 编程中 Point 的概念</h2><p>在 iOS 编程中，<strong>Point（点）</strong> 是 <strong>UIKit 和 SwiftUI 坐标系统</strong> 中用于表示 <strong>屏幕上的位置</strong> 的基本单位。它是一个 <strong>逻辑单位（Logical Unit）</strong>，而不是物理像素（Pixel）。</p>
+<h3 id="1-Point-vs-Pixel（点-vs-像素）-1"><a href="#1-Point-vs-Pixel（点-vs-像素）-1" class="headerlink" title="1. Point vs. Pixel（点 vs. 像素）"></a>1. Point vs. Pixel（点 vs. 像素）</h3><p>在 iOS 设备上，<strong>1 Point \u2260 1 Pixel</strong>，因为不同设备的 <strong>屏幕像素密度（PPI, Pixels Per Inch）</strong> 不同。为了适配不同的屏幕分辨率，iOS 使用 <strong>点（Point）</strong> 作为通用测量单位，并根据 <strong>屏幕缩放因子（Scale Factor）</strong> 自动转换为实际像素（Pixel）。</p>
+<ul>
+<li><strong>标准分辨率设备（@1x，比如旧款 iPhone）</strong>: 1 Point &#x3D; 1 Pixel</li>
+<li><strong>Retina 设备（@2x，比如 iPhone SE, iPhone 8）</strong>: 1 Point &#x3D; 2×2 Pixels</li>
+<li><strong>Super Retina 设备（@3x，比如 iPhone 14 Pro）</strong>: 1 Point &#x3D; 3×3 Pixels<br>示例：在 @3x 屏幕上，一个 <code>100x100</code> <strong>点</strong> 的视图实际上占据 <code>300x300</code> <strong>像素</strong>。</li>
+</ul>
+<h3 id="2-CGPoint：表示一个点的位置-1"><a href="#2-CGPoint：表示一个点的位置-1" class="headerlink" title="2. CGPoint：表示一个点的位置"></a>2. CGPoint：表示一个点的位置</h3><p>在 <code>UIKit</code> 中，使用 <code>CGPoint</code> 来表示屏幕上的 <strong>一个点的坐标</strong>：<br>let point &#x3D; CGPoint(x: 50, y: 100)</p>
+<ul>
+<li><code>x</code>：表示 <strong>水平方向</strong>（从左到右）</li>
+<li><code>y</code>：表示 <strong>垂直方向</strong>（从上到下）<br>👉 <strong>坐标原点（0,0）在左上角</strong>，<code>x</code> 轴向右增长，<code>y</code> 轴向下增长。</li>
+</ul>
+<h3 id="3-CGRect-和-CGSize-1"><a href="#3-CGRect-和-CGSize-1" class="headerlink" title="3. CGRect 和 CGSize"></a>3. CGRect 和 CGSize</h3><p>除了 <code>CGPoint</code>，UIKit 还有两个相关结构：</p>
+<ul>
+<li><code>CGSize</code>：表示宽度和高度，例如 <code>CGSize(width: 100, height: 50)</code></li>
+<li><code>CGRect</code>：表示一个矩形区域，包含 <strong>起始点（origin: CGPoint）+ 尺寸（size: CGSize）</strong>let rect &#x3D; CGRect(x: 50, y: 100, width: 200, height: 150)</li>
+</ul>
+<h3 id="4-SwiftUI-中的-GeometryReader-1"><a href="#4-SwiftUI-中的-GeometryReader-1" class="headerlink" title="4. SwiftUI 中的 GeometryReader"></a>4. SwiftUI 中的 GeometryReader</h3><p>SwiftUI 使用 <code>GeometryReader</code> 来获取 <strong>Point</strong> 坐标：<br>GeometryReader { geometry in    Text(“Center”)        .position(x: geometry.size.width &#x2F; 2, y: geometry.size.height &#x2F; 2)}<br>这里 <code>position(x:, y:)</code> 也是 <strong>以 Point 计算的</strong>。</p>
+<h3 id="5-点的转换（UIKit-示例）-1"><a href="#5-点的转换（UIKit-示例）-1" class="headerlink" title="5. 点的转换（UIKit 示例）"></a>5. 点的转换（UIKit 示例）</h3><h4 id="5-1-视图内部的点转换：-1"><a href="#5-1-视图内部的点转换：-1" class="headerlink" title="5.1 视图内部的点转换："></a>5.1 视图内部的点转换：</h4><p>let localPoint &#x3D; myView.convert(CGPoint(x: 10, y: 20), to: anotherView)<br>把 <code>myView</code> 内部的 <code>(10,20)</code> 点 <strong>转换</strong> 到 <code>anotherView</code> 的坐标系统。</p>
+<h4 id="5-2-屏幕坐标系：-1"><a href="#5-2-屏幕坐标系：-1" class="headerlink" title="5.2 屏幕坐标系："></a>5.2 屏幕坐标系：</h4><p>let screenPoint &#x3D; myView.convert(myView.bounds.origin, to: nil)<br>把 <code>myView</code> 的原点转换到 <strong>屏幕坐标系（Screen Coordinates）</strong>。</p>
+<h3 id="6-总结-1"><a href="#6-总结-1" class="headerlink" title="6. 总结"></a>6. 总结</h3><ul>
+<li><strong>Point 是 iOS 的逻辑单位</strong>，不等于物理像素。</li>
+<li><strong>CGPoint 表示 2D 坐标（x, y）</strong>，单位是 <strong>点（Point）</strong>。</li>
+<li><strong>CGRect 结合 CGPoint 和 CGSize 来表示矩形区域</strong>。</li>
+<li><strong>UIKit 以左上角 (0,0) 为原点，x 轴向右，y 轴向下增长</strong>。</li>
+<li><strong>SwiftUI 使用 GeometryReader 计算动态坐标</strong>。</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>swift编程</tag>
+        <tag>swiftUI</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>swiftui视图更新中id的作用及其他</title>
     <url>/2025/03/02/swiftui%E8%A7%86%E5%9B%BE%E6%9B%B4%E6%96%B0%E4%B8%ADid%E7%9A%84%E4%BD%9C%E7%94%A8%E5%8F%8A%E5%85%B6%E4%BB%96/</url>
     <content><![CDATA[<h1 id="swiftui视图更新中id的作用及其他"><a href="#swiftui视图更新中id的作用及其他" class="headerlink" title="swiftui视图更新中id的作用及其他"></a>swiftui视图更新中id的作用及其他</h1><h2 id="原始代码"><a href="#原始代码" class="headerlink" title="原始代码"></a>原始代码</h2><span id="more"></span>
@@ -2917,281 +3045,6 @@
         <tag>swift编程</tag>
         <tag>swiftUI</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>swiftui布局及point</title>
-    <url>/2025/03/02/swiftui%E5%B8%83%E5%B1%80%E5%8F%8Apoint/</url>
-    <content><![CDATA[<h1 id="swift-默认padding-以及point"><a href="#swift-默认padding-以及point" class="headerlink" title="swift 默认padding 以及point"></a>swift 默认padding 以及point</h1><p> 在 SwiftUI 中，默认的 <code>padding()</code> 行为如下：</p>
-<ol>
-<li><strong>默认值</strong>：</li>
-</ol>
-<ul>
-<li>padding() 默认会在所有方向（top, bottom, leading, trailing）添加 16 点的填充。</li>
-<li>示例：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">Text</span>(<span class="string">&quot;Hello, SwiftUI!&quot;</span>)</span><br><span class="line">    .padding() <span class="comment">// 默认 16 点内边距</span></span><br></pre></td></tr></table></figure>
-<span id="more"></span></li>
-</ul>
-<ol start="2">
-<li><strong>指定方向的 padding</strong>：</li>
-</ol>
-<ul>
-<li>你可以只对特定方向添加 padding：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">Text</span>(<span class="string">&quot;Hello, SwiftUI!&quot;</span>)</span><br><span class="line">    .padding(.horizontal, <span class="number">20</span>) <span class="comment">// 左右各 20 点</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<ol start="3">
-<li><strong>完全自定义 padding</strong>：</li>
-</ol>
-<ul>
-<li>你可以指定每个方向的 padding 值：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">Text</span>(<span class="string">&quot;Hello, SwiftUI!&quot;</span>)</span><br><span class="line">    .padding(.<span class="keyword">init</span>(top: <span class="number">10</span>, leading: <span class="number">20</span>, bottom: <span class="number">5</span>, trailing: <span class="number">15</span>))</span><br></pre></td></tr></table></figure>
-如果你觉得某个 UI 组件的 <code>padding</code> 不符合预期，可以试试手动设置 <code>padding</code> 或者 <code>frame</code> 来调整布局。</li>
-</ul>
-<h1 id="用户问题"><a href="#用户问题" class="headerlink" title="用户问题"></a>用户问题</h1><p> swiftui是根据什么保证不通过设备之间的界面同意的 </p>
-<p> SwiftUI 通过以下机制确保界面在不同设备上保持一致性和适应性：</p>
-<h3 id="1-自适应布局系统（Adaptive-Layout）"><a href="#1-自适应布局系统（Adaptive-Layout）" class="headerlink" title="1. 自适应布局系统（Adaptive Layout）"></a>1. <strong>自适应布局系统</strong>（Adaptive Layout）</h3><ul>
-<li>SwiftUI 采用 <strong>自动布局</strong> 机制，UI 组件会根据父视图、屏幕大小以及内容大小自动调整尺寸。</li>
-<li>例如，VStack, HStack, ZStack 会自动排列子视图，而 Spacer() 可用于动态填充空间。</li>
-<li>示例：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">VStack</span> &#123;</span><br><span class="line">    <span class="type">Text</span>(<span class="string">&quot;Hello, SwiftUI!&quot;</span>)</span><br><span class="line">    <span class="type">Spacer</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>这种布局方式使得 UI 在不同设备上都能保持良好的适配性。</li>
-</ul>
-<h3 id="2-相对单位和-frame"><a href="#2-相对单位和-frame" class="headerlink" title="2. 相对单位和 frame"></a>2. <strong>相对单位和 frame</strong></h3><ul>
-<li>SwiftUI 推荐使用 <strong>相对尺寸</strong> 而非固定像素值，例如 .frame(maxWidth: .infinity) 使得组件在不同屏幕宽度上都能自适应。</li>
-<li>示例：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">Text</span>(<span class="string">&quot;自适应文本&quot;</span>)</span><br><span class="line">    .frame(maxWidth: .infinity, maxHeight: .infinity)</span><br><span class="line">    .background(<span class="type">Color</span>.blue)</span><br></pre></td></tr></table></figure></li>
-<li>这样可以确保文本视图填充整个屏幕，无论设备屏幕大小如何变化。</li>
-</ul>
-<h3 id="3-动态类型和可访问性支持"><a href="#3-动态类型和可访问性支持" class="headerlink" title="3. 动态类型和可访问性支持"></a>3. <strong>动态类型和可访问性支持</strong></h3><ul>
-<li>SwiftUI 内置 <strong>动态字体</strong>，能根据用户的字体偏好自动调整大小：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">Text</span>(<span class="string">&quot;动态字体&quot;</span>)</span><br><span class="line">    .font(.title)</span><br><span class="line">    .dynamicTypeSize(.large)</span><br></pre></td></tr></table></figure></li>
-<li>这样即使用户在“设置”中调整了字体大小，界面仍然能自动适配。</li>
-</ul>
-<h3 id="4-使用-GeometryReader-进行屏幕适配"><a href="#4-使用-GeometryReader-进行屏幕适配" class="headerlink" title="4. 使用 GeometryReader 进行屏幕适配"></a>4. <strong>使用 GeometryReader 进行屏幕适配</strong></h3><ul>
-<li>GeometryReader 允许获取屏幕尺寸，以此调整布局：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">GeometryReader</span> &#123; geometry <span class="keyword">in</span></span><br><span class="line">    <span class="type">Text</span>(<span class="string">&quot;屏幕宽度: <span class="subst">\(geometry.size.width)</span>&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>这样可以在不同屏幕尺寸下自适应布局。</li>
-</ul>
-<h3 id="5-SF-Symbols-amp-矢量图标"><a href="#5-SF-Symbols-amp-矢量图标" class="headerlink" title="5. SF Symbols &amp; 矢量图标"></a>5. <strong>SF Symbols &amp; 矢量图标</strong></h3><ul>
-<li>SwiftUI 支持 SF Symbols，它们会根据设备大小自动调整：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">Image</span>(systemName: <span class="string">&quot;star.fill&quot;</span>)</span><br><span class="line">    .imageScale(.large)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="6-Handoff-设计原则"><a href="#6-Handoff-设计原则" class="headerlink" title="6. Handoff 设计原则"></a>6. <strong>Handoff 设计原则</strong></h3><ul>
-<li>SwiftUI 遵循 Apple 的 <strong>Handoff 设计原则</strong>，确保在 iPhone、iPad 和 Mac 上界面保持一致，同时适应不同设备的特点。</li>
-</ul>
-<h3 id="7-适配不同设备的-Layout-方式"><a href="#7-适配不同设备的-Layout-方式" class="headerlink" title="7. 适配不同设备的 Layout 方式"></a>7. <strong>适配不同设备的 Layout 方式</strong></h3><ul>
-<li>@Environment(.horizontalSizeClass) 可用于区分设备是 compact（iPhone 竖屏）还是 regular（iPad），从而调整布局：<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">AdaptiveView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@Environment</span>(\.horizontalSizeClass) <span class="keyword">var</span> sizeClass</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> sizeClass <span class="operator">==</span> .compact &#123;</span><br><span class="line">            <span class="type">VStack</span> &#123; <span class="type">Text</span>(<span class="string">&quot;iPhone 竖屏布局&quot;</span>) &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="type">HStack</span> &#123; <span class="type">Text</span>(<span class="string">&quot;iPad 横屏布局&quot;</span>) &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><p>SwiftUI 主要通过 <strong>自适应布局、相对单位、动态类型、GeometryReader、SF Symbols 和环境变量</strong> 来确保界面在不同设备上保持一致，同时能适配不同的屏幕尺寸和用户偏好。</p>
-<h1 id="用户问题-1"><a href="#用户问题-1" class="headerlink" title="用户问题"></a>用户问题</h1><p> ios编程中point的概念 </p>
-<p> 在 iOS 编程中，<strong>Point（点）</strong> 是 <strong>UIKit 和 SwiftUI 坐标系统</strong> 中用于表示 <strong>屏幕上的位置</strong> 的基本单位。它是一个 <strong>逻辑单位（Logical Unit）</strong>，而不是物理像素（Pixel）。</p>
-<h2 id="1-Point-vs-Pixel（点-vs-像素）"><a href="#1-Point-vs-Pixel（点-vs-像素）" class="headerlink" title="1. Point vs. Pixel（点 vs. 像素）"></a>1. <strong>Point vs. Pixel（点 vs. 像素）</strong></h2><p>在 iOS 设备上，<strong>1 Point ≠ 1 Pixel</strong>，因为不同设备的 <strong>屏幕像素密度（PPI, Pixels Per Inch）</strong> 不同。为了适配不同的屏幕分辨率，iOS 使用 <strong>点（Point）</strong> 作为通用测量单位，并根据 <strong>屏幕缩放因子（Scale Factor）</strong> 自动转换为实际像素（Pixel）。</p>
-<ul>
-<li><strong>标准分辨率设备（@1x，比如旧款 iPhone）</strong>: 1 Point &#x3D; 1 Pixel</li>
-<li><strong>Retina 设备（@2x，比如 iPhone SE, iPhone 8）</strong>: 1 Point &#x3D; 2×2 Pixels</li>
-<li><strong>Super Retina 设备（@3x，比如 iPhone 14 Pro）</strong>: 1 Point &#x3D; 3×3 Pixels<br>🔹 <strong>示例</strong>：在 @3x 屏幕上，一个 <code>100x100</code> <strong>点</strong> 的视图实际上占据 <code>300x300</code> <strong>像素</strong>。</li>
-</ul>
-<h2 id="2-CGPoint：表示一个点的位置"><a href="#2-CGPoint：表示一个点的位置" class="headerlink" title="2. CGPoint：表示一个点的位置"></a>2. <strong>CGPoint：表示一个点的位置</strong></h2><p>在 <code>UIKit</code> 中，使用 <code>CGPoint</code> 来表示屏幕上的 <strong>一个点的坐标</strong>：</p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> point <span class="operator">=</span> <span class="type">CGPoint</span>(x: <span class="number">50</span>, y: <span class="number">100</span>)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>x：表示 <strong>水平方向</strong>（从左到右）</li>
-<li>y：表示 <strong>垂直方向</strong>（从上到下）<br>👉 <strong>坐标原点（0,0）在左上角</strong>，<code>x</code> 轴向右增长，<code>y</code> 轴向下增长。</li>
-</ul>
-<h2 id="3-CGRect-和-CGSize"><a href="#3-CGRect-和-CGSize" class="headerlink" title="3. CGRect 和 CGSize"></a>3. <strong>CGRect 和 CGSize</strong></h2><p>除了 <code>CGPoint</code>，UIKit 还有两个相关结构：</p>
-<ul>
-<li>CGSize：表示宽度和高度，例如 CGSize(width: 100, height: 50)</li>
-<li>CGRect：表示一个矩形区域，包含 <strong>起始点（origin: CGPoint）+ 尺寸（size: CGSize）</strong><figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> rect <span class="operator">=</span> <span class="type">CGRect</span>(x: <span class="number">50</span>, y: <span class="number">100</span>, width: <span class="number">200</span>, height: <span class="number">150</span>)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="4-SwiftUI-中的-GeometryReader"><a href="#4-SwiftUI-中的-GeometryReader" class="headerlink" title="4. SwiftUI 中的 GeometryReader"></a>4. <strong>SwiftUI 中的 GeometryReader</strong></h2><p>SwiftUI 使用 <code>GeometryReader</code> 来获取 <strong>Point</strong> 坐标：</p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">GeometryReader</span> &#123; geometry <span class="keyword">in</span></span><br><span class="line">    <span class="type">Text</span>(<span class="string">&quot;Center&quot;</span>)</span><br><span class="line">        .position(x: geometry.size.width <span class="operator">/</span> <span class="number">2</span>, y: geometry.size.height <span class="operator">/</span> <span class="number">2</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里 <code>position(x:, y:)</code> 也是 <strong>以 Point 计算的</strong>。</p>
-<h2 id="5-点的转换（UIKit-示例）"><a href="#5-点的转换（UIKit-示例）" class="headerlink" title="5. 点的转换（UIKit 示例）"></a>5. <strong>点的转换（UIKit 示例）</strong></h2><h3 id="5-1-视图内部的点转换："><a href="#5-1-视图内部的点转换：" class="headerlink" title="5.1 视图内部的点转换："></a>5.1 视图内部的点转换：</h3><figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> localPoint <span class="operator">=</span> myView.convert(<span class="type">CGPoint</span>(x: <span class="number">10</span>, y: <span class="number">20</span>), to: anotherView)</span><br></pre></td></tr></table></figure>
-
-<p>把 <code>myView</code> 内部的 <code>(10,20)</code> 点 <strong>转换</strong> 到 <code>anotherView</code> 的坐标系统。</p>
-<h3 id="5-2-屏幕坐标系："><a href="#5-2-屏幕坐标系：" class="headerlink" title="5.2 屏幕坐标系："></a>5.2 屏幕坐标系：</h3><figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> screenPoint <span class="operator">=</span> myView.convert(myView.bounds.origin, to: <span class="literal">nil</span>)</span><br></pre></td></tr></table></figure>
-
-<p>把 <code>myView</code> 的原点转换到 <strong>屏幕坐标系（Screen Coordinates）</strong>。</p>
-<h2 id="6-总结"><a href="#6-总结" class="headerlink" title="6. 总结"></a>6. <strong>总结</strong></h2><ul>
-<li><strong>Point 是 iOS 的逻辑单位</strong>，不等于物理像素。</li>
-<li><strong>CGPoint 表示 2D 坐标（x, y）</strong>，单位是 <strong>点（Point）</strong>。</li>
-<li><strong>CGRect 结合 CGPoint 和 CGSize 来表示矩形区域</strong>。</li>
-<li><strong>UIKit 以左上角 (0,0) 为原点，x 轴向右，y 轴向下增长</strong>。</li>
-<li><strong>SwiftUI 使用 GeometryReader 计算动态坐标</strong>。<br>你是在处理具体的 <code>CGPoint</code> 计算，还是在做屏幕适配相关的工作？</li>
-</ul>
-<h1 id="用户问题-2"><a href="#用户问题-2" class="headerlink" title="用户问题"></a>用户问题</h1><p> 把本次对话导出markdown </p>
-<p> 这里是本次对话的 Markdown 版本：<br>Ios Point Concept</p>
-<h2 id="iOS-编程中-Point-的概念"><a href="#iOS-编程中-Point-的概念" class="headerlink" title="iOS 编程中 Point 的概念"></a>iOS 编程中 Point 的概念</h2><p>在 iOS 编程中，<strong>Point（点）</strong> 是 <strong>UIKit 和 SwiftUI 坐标系统</strong> 中用于表示 <strong>屏幕上的位置</strong> 的基本单位。它是一个 <strong>逻辑单位（Logical Unit）</strong>，而不是物理像素（Pixel）。</p>
-<h3 id="1-Point-vs-Pixel（点-vs-像素）-1"><a href="#1-Point-vs-Pixel（点-vs-像素）-1" class="headerlink" title="1. Point vs. Pixel（点 vs. 像素）"></a>1. Point vs. Pixel（点 vs. 像素）</h3><p>在 iOS 设备上，<strong>1 Point \u2260 1 Pixel</strong>，因为不同设备的 <strong>屏幕像素密度（PPI, Pixels Per Inch）</strong> 不同。为了适配不同的屏幕分辨率，iOS 使用 <strong>点（Point）</strong> 作为通用测量单位，并根据 <strong>屏幕缩放因子（Scale Factor）</strong> 自动转换为实际像素（Pixel）。</p>
-<ul>
-<li><strong>标准分辨率设备（@1x，比如旧款 iPhone）</strong>: 1 Point &#x3D; 1 Pixel</li>
-<li><strong>Retina 设备（@2x，比如 iPhone SE, iPhone 8）</strong>: 1 Point &#x3D; 2×2 Pixels</li>
-<li><strong>Super Retina 设备（@3x，比如 iPhone 14 Pro）</strong>: 1 Point &#x3D; 3×3 Pixels<br>示例：在 @3x 屏幕上，一个 <code>100x100</code> <strong>点</strong> 的视图实际上占据 <code>300x300</code> <strong>像素</strong>。</li>
-</ul>
-<h3 id="2-CGPoint：表示一个点的位置-1"><a href="#2-CGPoint：表示一个点的位置-1" class="headerlink" title="2. CGPoint：表示一个点的位置"></a>2. CGPoint：表示一个点的位置</h3><p>在 <code>UIKit</code> 中，使用 <code>CGPoint</code> 来表示屏幕上的 <strong>一个点的坐标</strong>：<br>let point &#x3D; CGPoint(x: 50, y: 100)</p>
-<ul>
-<li><code>x</code>：表示 <strong>水平方向</strong>（从左到右）</li>
-<li><code>y</code>：表示 <strong>垂直方向</strong>（从上到下）<br>👉 <strong>坐标原点（0,0）在左上角</strong>，<code>x</code> 轴向右增长，<code>y</code> 轴向下增长。</li>
-</ul>
-<h3 id="3-CGRect-和-CGSize-1"><a href="#3-CGRect-和-CGSize-1" class="headerlink" title="3. CGRect 和 CGSize"></a>3. CGRect 和 CGSize</h3><p>除了 <code>CGPoint</code>，UIKit 还有两个相关结构：</p>
-<ul>
-<li><code>CGSize</code>：表示宽度和高度，例如 <code>CGSize(width: 100, height: 50)</code></li>
-<li><code>CGRect</code>：表示一个矩形区域，包含 <strong>起始点（origin: CGPoint）+ 尺寸（size: CGSize）</strong>let rect &#x3D; CGRect(x: 50, y: 100, width: 200, height: 150)</li>
-</ul>
-<h3 id="4-SwiftUI-中的-GeometryReader-1"><a href="#4-SwiftUI-中的-GeometryReader-1" class="headerlink" title="4. SwiftUI 中的 GeometryReader"></a>4. SwiftUI 中的 GeometryReader</h3><p>SwiftUI 使用 <code>GeometryReader</code> 来获取 <strong>Point</strong> 坐标：<br>GeometryReader { geometry in    Text(“Center”)        .position(x: geometry.size.width &#x2F; 2, y: geometry.size.height &#x2F; 2)}<br>这里 <code>position(x:, y:)</code> 也是 <strong>以 Point 计算的</strong>。</p>
-<h3 id="5-点的转换（UIKit-示例）-1"><a href="#5-点的转换（UIKit-示例）-1" class="headerlink" title="5. 点的转换（UIKit 示例）"></a>5. 点的转换（UIKit 示例）</h3><h4 id="5-1-视图内部的点转换：-1"><a href="#5-1-视图内部的点转换：-1" class="headerlink" title="5.1 视图内部的点转换："></a>5.1 视图内部的点转换：</h4><p>let localPoint &#x3D; myView.convert(CGPoint(x: 10, y: 20), to: anotherView)<br>把 <code>myView</code> 内部的 <code>(10,20)</code> 点 <strong>转换</strong> 到 <code>anotherView</code> 的坐标系统。</p>
-<h4 id="5-2-屏幕坐标系：-1"><a href="#5-2-屏幕坐标系：-1" class="headerlink" title="5.2 屏幕坐标系："></a>5.2 屏幕坐标系：</h4><p>let screenPoint &#x3D; myView.convert(myView.bounds.origin, to: nil)<br>把 <code>myView</code> 的原点转换到 <strong>屏幕坐标系（Screen Coordinates）</strong>。</p>
-<h3 id="6-总结-1"><a href="#6-总结-1" class="headerlink" title="6. 总结"></a>6. 总结</h3><ul>
-<li><strong>Point 是 iOS 的逻辑单位</strong>，不等于物理像素。</li>
-<li><strong>CGPoint 表示 2D 坐标（x, y）</strong>，单位是 <strong>点（Point）</strong>。</li>
-<li><strong>CGRect 结合 CGPoint 和 CGSize 来表示矩形区域</strong>。</li>
-<li><strong>UIKit 以左上角 (0,0) 为原点，x 轴向右，y 轴向下增长</strong>。</li>
-<li><strong>SwiftUI 使用 GeometryReader 计算动态坐标</strong>。</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>swift编程</tag>
-        <tag>swiftUI</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>swift中@MainActor的作用</title>
-    <url>/2025/03/23/swift%E4%B8%AD-MainActor%E7%9A%84%E4%BD%9C%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="MainActor-什么作用"><a href="#MainActor-什么作用" class="headerlink" title="@MainActor 什么作用"></a>@MainActor 什么作用</h1><p><code>@MainActor</code> 是一个 <strong>Swift Concurrency</strong>（并发）中的属性包装器，主要用于确保某个函数或某个对象的代码在 <strong>主线程</strong> 上执行。</p>
-<p>在 iOS 和 macOS 等应用程序中，更新 UI 必须在 <strong>主线程</strong> 上进行。否则，可能会导致 <strong>UI 错乱、崩溃</strong> 或 <strong>不可预期的行为</strong>。Swift 引入了并发和异步编程（<code>async/await</code>），<code>@MainActor</code> 就是为了确保在并发环境下，对 UI 的更新和其他与主线程相关的操作能安全地进行。</p>
-<h3 id="作用："><a href="#作用：" class="headerlink" title="作用："></a><strong>作用</strong>：</h3><span id="more"></span>
-<ul>
-<li>确保特定的函数、属性或类在 <strong>主线程</strong> 上执行。</li>
-<li>防止并发代码在后台线程访问 UI 或与 UI 相关的状态，避免线程安全问题。</li>
-</ul>
-<h3 id="常见使用场景："><a href="#常见使用场景：" class="headerlink" title="常见使用场景："></a><strong>常见使用场景</strong>：</h3><ul>
-<li><strong>UI 更新</strong>：在异步任务完成后更新 UI。</li>
-<li><strong>主线程操作</strong>：处理与主线程相关的任务，如网络请求完成后更新 UI。</li>
-</ul>
-<h3 id="代码示例："><a href="#代码示例：" class="headerlink" title="代码示例："></a><strong>代码示例：</strong></h3><figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line"></span><br><span class="line"><span class="meta">@MainActor</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> data: <span class="type">String</span> <span class="operator">=</span> <span class="string">&quot;Loading...&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">fetchData</span>() <span class="keyword">async</span> &#123;</span><br><span class="line">        <span class="comment">// 假设我们在后台线程异步获取数据</span></span><br><span class="line">        <span class="keyword">await</span> <span class="type">Task</span>.sleep(<span class="number">2</span> <span class="operator">*</span> <span class="number">1_000_000_000</span>) <span class="comment">// 模拟网络延迟</span></span><br><span class="line">        <span class="keyword">let</span> newData <span class="operator">=</span> <span class="string">&quot;数据加载完成&quot;</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 由于这个方法被标记为 @MainActor，以下更新 UI 的代码会在主线程上执行</span></span><br><span class="line">        <span class="keyword">self</span>.data <span class="operator">=</span> newData</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@StateObject</span> <span class="keyword">private</span> <span class="keyword">var</span> viewModel <span class="operator">=</span> <span class="type">ViewModel</span>()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">VStack</span> &#123;</span><br><span class="line">            <span class="type">Text</span>(viewModel.data)</span><br><span class="line">                .font(.largeTitle)</span><br><span class="line">                .padding()</span><br><span class="line">            </span><br><span class="line">            <span class="type">Button</span>(<span class="string">&quot;加载数据&quot;</span>) &#123;</span><br><span class="line">                <span class="type">Task</span> &#123;</span><br><span class="line">                    <span class="keyword">await</span> viewModel.fetchData()</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            .padding()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#<span class="type">Preview</span> &#123;</span><br><span class="line">    <span class="type">ContentView</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="解析："><a href="#解析：" class="headerlink" title="解析："></a><strong>解析</strong>：</h3><ul>
-<li><strong>@MainActor</strong>：确保 <code>ViewModel</code> 的 <code>fetchData</code> 方法在主线程上执行 UI 更新操作，即使它本身是异步的。</li>
-<li>即使在 <code>fetchData</code> 方法中调用了 <code>await</code>，返回到主线程更新 <code>data</code> 属性时也不会发生线程安全问题，因为 <code>@MainActor</code> 会自动确保所有与 UI 相关的操作都在主线程中进行。</li>
-</ul>
-<h3 id="注意点："><a href="#注意点：" class="headerlink" title="注意点："></a><strong>注意点</strong>：</h3><ol>
-<li><strong>@MainActor</strong> 只能应用于需要 <strong>主线程操作</strong> 的方法或类，尤其是那些更新 UI 的地方。</li>
-<li>在 Swift Concurrency 中，异步操作（<code>async/await</code>）默认是异步执行的，但一旦涉及到 UI 更新，必须确保这些操作回到主线程。<code>@MainActor</code> 做的就是这一件事。</li>
-</ol>
-<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a><strong>总结</strong>：</h3><p><code>@MainActor</code> 使得代码能够在 <strong>主线程</strong> 上执行，从而避免在并发操作中直接更新 UI 的问题，保证了线程安全和 UI 的一致性。</p>
-<p>如果你在进行异步任务处理时遇到需要更新 UI 的情况，记得使用 <code>@MainActor</code> 来确保线程安全！</p>
-<h1 id="MainActor-只是修饰-class-ViewModel吗"><a href="#MainActor-只是修饰-class-ViewModel吗" class="headerlink" title="@MainActor 只是修饰 class ViewModel吗"></a>@MainActor 只是修饰 class ViewModel吗</h1><p><code>@MainActor</code> <strong>不仅可以修饰 class ViewModel，还可以用于函数、属性、全局变量等</strong>，它的作用是确保被修饰的代码 <strong>始终在主线程上执行</strong>。</p>
-<h3 id="MainActor-可以修饰的内容"><a href="#MainActor-可以修饰的内容" class="headerlink" title="@MainActor 可以修饰的内容"></a><strong>@MainActor 可以修饰的内容</strong></h3><ol>
-<li><strong>修饰类&#x2F;结构体</strong></li>
-<li><strong>修饰方法（函数）</strong></li>
-<li><strong>修饰属性</strong></li>
-<li><strong>修饰全局变量</strong></li>
-</ol>
-<h2 id="1-修饰类-x2F-结构体"><a href="#1-修饰类-x2F-结构体" class="headerlink" title="1. 修饰类 &#x2F; 结构体"></a><strong>1. 修饰类 &#x2F; 结构体</strong></h2><p>如果在 <code>ViewModel</code> 这个类前添加 <code>@MainActor</code>，<strong>该类的所有属性和方法</strong> 默认都会在 <strong>主线程</strong> 上执行。</p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="meta">@MainActor</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> data: <span class="type">String</span> <span class="operator">=</span> <span class="string">&quot;Loading...&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">fetchData</span>() <span class="keyword">async</span> &#123;</span><br><span class="line">        <span class="keyword">await</span> <span class="type">Task</span>.sleep(<span class="number">2</span> <span class="operator">*</span> <span class="number">1_000_000_000</span>) <span class="comment">// 模拟网络延迟</span></span><br><span class="line">        data <span class="operator">=</span> <span class="string">&quot;数据加载完成&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p><strong>作用</strong>：<br>✅ <code>data</code> 这个 <code>@Published</code> 属性默认在主线程上访问。<br>✅ <code>fetchData()</code> 也默认在主线程上执行，不用手动 <code>DispatchQueue.main.async</code> 切换线程。</p>
-<h2 id="2-只修饰某个方法"><a href="#2-只修饰某个方法" class="headerlink" title="2. 只修饰某个方法"></a><strong>2. 只修饰某个方法</strong></h2><p>如果你不想让整个类都在主线程执行，可以<strong>单独修饰某个方法</strong>，比如 <code>fetchData()</code> 方法，而不修饰整个 <code>ViewModel</code> 类：</p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> data: <span class="type">String</span> <span class="operator">=</span> <span class="string">&quot;Loading...&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="meta">@MainActor</span></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">fetchData</span>() <span class="keyword">async</span> &#123;</span><br><span class="line">        <span class="keyword">await</span> <span class="type">Task</span>.sleep(<span class="number">2</span> <span class="operator">*</span> <span class="number">1_000_000_000</span>) <span class="comment">// 模拟网络延迟</span></span><br><span class="line">        data <span class="operator">=</span> <span class="string">&quot;数据加载完成&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p><strong>作用</strong>：<br>✅ <code>fetchData()</code> 会在主线程上执行，而 <code>ViewModel</code> 其他方法仍然可以在子线程上运行。</p>
-<h2 id="3-只修饰某个属性"><a href="#3-只修饰某个属性" class="headerlink" title="3. 只修饰某个属性"></a><strong>3. 只修饰某个属性</strong></h2><p>如果你只想保证某个属性在主线程上访问，可以这样做：</p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@MainActor</span> <span class="meta">@Published</span> <span class="keyword">var</span> data: <span class="type">String</span> <span class="operator">=</span> <span class="string">&quot;Loading...&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">fetchData</span>() <span class="keyword">async</span> &#123;</span><br><span class="line">        <span class="keyword">await</span> <span class="type">Task</span>.sleep(<span class="number">2</span> <span class="operator">*</span> <span class="number">1_000_000_000</span>) <span class="comment">// 模拟网络延迟</span></span><br><span class="line">        <span class="keyword">await</span> <span class="type">MainActor</span>.run &#123; <span class="comment">// 在主线程上更新数据</span></span><br><span class="line">            data <span class="operator">=</span> <span class="string">&quot;数据加载完成&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p><strong>作用</strong>：<br>✅ <code>data</code> 这个属性<strong>只能</strong>在主线程上被访问。<br>✅ <code>fetchData()</code> 仍然可以在后台执行，但更新 <code>data</code> 时会<strong>切换到主线程</strong>。</p>
-<h2 id="4-作用于全局变量"><a href="#4-作用于全局变量" class="headerlink" title="4. 作用于全局变量"></a><strong>4. 作用于全局变量</strong></h2><p>如果你有一个<strong>全局变量</strong>，你可以使用 <code>@MainActor</code> 让它始终在 <strong>主线程上访问</strong>：</p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="meta">@MainActor</span> <span class="keyword">var</span> globalText: <span class="type">String</span> <span class="operator">=</span> <span class="string">&quot;默认文本&quot;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="5-结合-Task-在主线程运行代码"><a href="#5-结合-Task-在主线程运行代码" class="headerlink" title="5. 结合 Task 在主线程运行代码"></a><strong>5. 结合 Task 在主线程运行代码</strong></h2><p>如果你的 <code>ViewModel</code> 没有 <code>@MainActor</code> 修饰，但你想在 <code>fetchData()</code> 里保证某些代码在主线程执行，可以这样做：</p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> data: <span class="type">String</span> <span class="operator">=</span> <span class="string">&quot;Loading...&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">fetchData</span>() <span class="keyword">async</span> &#123;</span><br><span class="line">        <span class="keyword">await</span> <span class="type">Task</span>.sleep(<span class="number">2</span> <span class="operator">*</span> <span class="number">1_000_000_000</span>) <span class="comment">// 模拟网络延迟</span></span><br><span class="line">        <span class="keyword">await</span> <span class="type">MainActor</span>.run &#123;</span><br><span class="line">            data <span class="operator">=</span> <span class="string">&quot;数据加载完成&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p><strong>作用</strong>：<br>✅ <code>await MainActor.run &#123;&#125;</code> 让 <code>data</code> 更新时切换到主线程执行。<br>✅ <code>fetchData()</code> 本身可以在后台执行，提高性能。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><table>
-<thead>
-<tr>
-<th>语法</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>@MainActor class MyClass {}</td>
-<td><strong>整个类</strong> 的方法和属性都会在 <strong>主线程</strong> 上执行</td>
-</tr>
-<tr>
-<td>@MainActor struct MyStruct {}</td>
-<td><strong>整个结构体</strong> 的方法和属性都在 <strong>主线程</strong> 上执行</td>
-</tr>
-<tr>
-<td>@MainActor func myFunction() {}</td>
-<td><strong>单独一个方法</strong> 在 <strong>主线程</strong> 上执行</td>
-</tr>
-<tr>
-<td>@MainActor var myProperty &#x3D; “”</td>
-<td><strong>单个属性</strong> 只能在 <strong>主线程</strong> 访问</td>
-</tr>
-<tr>
-<td>await MainActor.run {}</td>
-<td><strong>在某个代码块</strong> 内切换到 <strong>主线程</strong></td>
-</tr>
-</tbody></table>
-<p>如果你的 <code>ViewModel</code> 里有多个 <code>@Published</code> 属性，或者大量 UI 相关的代码，建议直接给整个类加 <code>@MainActor</code>，这样代码更干净，不需要在每个地方都 <code>await MainActor.run &#123;&#125;</code>。</p>
-<p>💡 <strong>最佳实践</strong>：</p>
-<ul>
-<li>处理 UI 相关数据时，加 <code>@MainActor</code>，确保所有 UI 代码在主线程执行。</li>
-<li>网络请求、数据处理等可以在后台线程进行，等到需要更新 UI 时再 <code>await MainActor.run &#123;&#125;</code> 切换到主线程。</li>
-</ul>
-<p>你可以根据具体需求来决定 <strong>修饰整个类 &#x2F; 结构体，还是单独修饰方法、属性</strong>。希望这些例子能帮助你理解 <code>@MainActor</code> 的用法！🚀</p>
-<h1 id="“-MainActor-使得代码能够在-主线程-上执行，从而避免在并发操作中直接更新-UI-的问题，保证了线程安全和-UI-的一致性。”的解释"><a href="#“-MainActor-使得代码能够在-主线程-上执行，从而避免在并发操作中直接更新-UI-的问题，保证了线程安全和-UI-的一致性。”的解释" class="headerlink" title="“@MainActor 使得代码能够在 主线程 上执行，从而避免在并发操作中直接更新 UI 的问题，保证了线程安全和 UI 的一致性。”的解释"></a>“@MainActor 使得代码能够在 主线程 上执行，从而避免在并发操作中直接更新 UI 的问题，保证了线程安全和 UI 的一致性。”的解释</h1><p>理解 <code>@MainActor</code> 需要先明白两个重要概念：</p>
-<ol>
-<li><strong>主线程（Main Thread）</strong></li>
-</ol>
-<ul>
-<li>在 iOS&#x2F;macOS 应用中，<strong>主线程主要用于 UI 更新</strong>。</li>
-<li>如果你在后台线程更新 UI，可能会导致 <strong>界面不响应、崩溃</strong> 或 <strong>数据不一致</strong>。</li>
-</ul>
-<ol start="2">
-<li><strong>Swift Concurrency（并发编程）</strong></li>
-</ol>
-<ul>
-<li><code>async/await</code> 允许你在 <strong>多个线程</strong> 之间切换，提高应用性能。</li>
-<li>但如果在后台线程直接修改 UI，可能会导致 <strong>线程安全问题</strong>。</li>
-</ul>
-<h3 id="为什么不能在后台线程更新-UI？"><a href="#为什么不能在后台线程更新-UI？" class="headerlink" title="为什么不能在后台线程更新 UI？"></a><strong>为什么不能在后台线程更新 UI？</strong></h3><p>假设你从服务器获取数据，并在异步任务中更新 <code>UILabel</code>，如果这个操作在<strong>后台线程</strong>执行，可能会出现问题。</p>
-<p><strong>错误示例（没有回到主线程更新 UI）：</strong></p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">fetchData</span>() <span class="keyword">async</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> url <span class="operator">=</span> <span class="type">URL</span>(string: <span class="string">&quot;https://example.com/data&quot;</span>)<span class="operator">!</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> (data, <span class="keyword">_</span>) <span class="operator">=</span> <span class="keyword">try</span> <span class="keyword">await</span> <span class="type">URLSession</span>.shared.data(from: url)</span><br><span class="line">        <span class="keyword">let</span> text <span class="operator">=</span> <span class="type">String</span>(data: data, encoding: .utf8) <span class="operator">??</span> <span class="string">&quot;加载失败&quot;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// ❌ 直接在后台线程更新 UI，可能导致崩溃</span></span><br><span class="line">        label.text <span class="operator">=</span> text  </span><br><span class="line">    &#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;数据获取失败: <span class="subst">\(error)</span>&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p>在 Swift 中，<code>URLSession.shared.data(from:)</code> <strong>默认在后台线程执行</strong>。如果 <code>label.text = text</code> 也是在后台线程执行，可能会导致 <strong>UI 崩溃</strong>，因为 UIKit 只能在主线程上操作。</p>
-<h3 id="如何用-MainActor-解决这个问题？"><a href="#如何用-MainActor-解决这个问题？" class="headerlink" title="如何用 @MainActor 解决这个问题？"></a><strong>如何用 @MainActor 解决这个问题？</strong></h3><p><code>@MainActor</code> 让代码<strong>始终在主线程上执行</strong>，确保 UI 更新的安全性。</p>
-<h4 id="方法-1：给整个类加-MainActor"><a href="#方法-1：给整个类加-MainActor" class="headerlink" title="方法 1：给整个类加 @MainActor"></a><strong>方法 1：给整个类加 @MainActor</strong></h4><figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="meta">@MainActor</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> text: <span class="type">String</span> <span class="operator">=</span> <span class="string">&quot;加载中...&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">fetchData</span>() <span class="keyword">async</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> url <span class="operator">=</span> <span class="type">URL</span>(string: <span class="string">&quot;https://example.com/data&quot;</span>)<span class="operator">!</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> (data, <span class="keyword">_</span>) <span class="operator">=</span> <span class="keyword">try</span> <span class="keyword">await</span> <span class="type">URLSession</span>.shared.data(from: url)</span><br><span class="line">            <span class="keyword">let</span> newText <span class="operator">=</span> <span class="type">String</span>(data: data, encoding: .utf8) <span class="operator">??</span> <span class="string">&quot;加载失败&quot;</span></span><br><span class="line">            </span><br><span class="line">            text <span class="operator">=</span> newText  <span class="comment">// ✅ @MainActor 让这行代码在主线程执行</span></span><br><span class="line">        &#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">            text <span class="operator">=</span> <span class="string">&quot;获取失败&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p>✅ 这里 <code>text = newText</code> <strong>一定会在主线程上执行</strong>，不会导致 UI 崩溃。<br>✅ <strong>整个 ViewModel 都在主线程执行</strong>，不用担心线程安全问题。</p>
-<h4 id="方法-2：只修饰-fetchData"><a href="#方法-2：只修饰-fetchData" class="headerlink" title="方法 2：只修饰 fetchData()"></a><strong>方法 2：只修饰 fetchData()</strong></h4><p>如果你不想让整个 <code>ViewModel</code> 在主线程运行，只想确保 UI 更新在主线程执行，可以这样做：</p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> text: <span class="type">String</span> <span class="operator">=</span> <span class="string">&quot;加载中...&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">fetchData</span>() <span class="keyword">async</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> url <span class="operator">=</span> <span class="type">URL</span>(string: <span class="string">&quot;https://example.com/data&quot;</span>)<span class="operator">!</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> (data, <span class="keyword">_</span>) <span class="operator">=</span> <span class="keyword">try</span> <span class="keyword">await</span> <span class="type">URLSession</span>.shared.data(from: url)</span><br><span class="line">            <span class="keyword">let</span> newText <span class="operator">=</span> <span class="type">String</span>(data: data, encoding: .utf8) <span class="operator">??</span> <span class="string">&quot;加载失败&quot;</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">await</span> updateText(newText)  <span class="comment">// ✅ 确保在主线程执行 UI 更新</span></span><br><span class="line">        &#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">            <span class="keyword">await</span> updateText(<span class="string">&quot;获取失败&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@MainActor</span></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">updateText</span>(<span class="keyword">_</span> <span class="params">newText</span>: <span class="type">String</span>) &#123;</span><br><span class="line">        text <span class="operator">=</span> newText  <span class="comment">// ✅ 这行代码一定会在主线程执行</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p>✅ 这里 <code>fetchData()</code> 可以在后台线程执行，提高性能。<br>✅ 只有 <code>updateText(_:)</code> <strong>必须在主线程</strong>，保证 UI 更新的安全性。</p>
-<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a><strong>总结</strong></h3><ol>
-<li><strong>为什么 UI 更新必须在主线程？</strong></li>
-</ol>
-<ul>
-<li>UIKit 和 SwiftUI <strong>不支持在后台线程更新 UI</strong>，否则可能会崩溃或界面异常。</li>
-</ul>
-<ol start="2">
-<li><strong>@MainActor 如何解决 UI 线程问题？</strong></li>
-</ol>
-<ul>
-<li><strong>保证修饰的代码（类、方法、属性）始终在主线程执行</strong>，防止 UI 崩溃。</li>
-</ul>
-<ol start="3">
-<li><strong>如何使用 @MainActor？</strong></li>
-</ol>
-<ul>
-<li><strong>方法 1</strong>：如果整个 <code>ViewModel</code> 都会更新 UI，直接 <code>@MainActor</code> 修饰类。</li>
-<li><strong>方法 2</strong>：如果只有部分方法需要在主线程执行，给这些方法加 <code>@MainActor</code>。</li>
-</ul>
-<p>这样，你就能在 Swift 的并发环境下，<strong>安全地更新 UI，而不会发生线程安全问题</strong>！🚀</p>
-]]></content>
   </entry>
   <entry>
     <title>swiftui属性包裹器</title>
@@ -3628,6 +3481,342 @@
       <tags>
         <tag>swift编程</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>swift不同阶段的代码示例</title>
+    <url>/2025/04/02/swift%E4%B8%8D%E5%90%8C%E9%98%B6%E6%AE%B5%E7%9A%84%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B/</url>
+    <content><![CDATA[<h1 id="swift代码推荐"><a href="#swift代码推荐" class="headerlink" title="swift代码推荐"></a>swift代码推荐</h1><p>这个示例展示了如何使用闭包来对一个数组中的字符串进行排序：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> fruits <span class="operator">=</span> [<span class="string">&quot;Apple&quot;</span>, <span class="string">&quot;Banana&quot;</span>, <span class="string">&quot;Orange&quot;</span>, <span class="string">&quot;Mango&quot;</span>, <span class="string">&quot;Pineapple&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用闭包进行排序，按字母顺序升序排列</span></span><br><span class="line"><span class="keyword">let</span> sortedFruits <span class="operator">=</span> fruits.sorted &#123; (fruit1, fruit2) <span class="operator">-&amp;</span>gt; <span class="type">Bool</span> <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">return</span> fruit1 <span class="operator">&amp;</span>lt; fruit2</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Sorted fruits: <span class="subst">\(sortedFruits)</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p>在这个例子中，我们使用了 <code>sorted</code> 函数，它接收一个闭包来定义排序的规则。闭包接收两个参数 <code>fruit1</code> 和 <code>fruit2</code>，并返回一个 <code>Bool</code> 值来指示它们的顺序。<code>fruit1 &amp;lt; fruit2</code> 会返回 <code>true</code>，意味着 <code>fruit1</code> 应该排在 <code>fruit2</code> 前面。</p>
+<p>这种写法非常灵活，闭包可以根据需要修改排序的逻辑。比如你可以改为按字符串的长度、逆序排序等。</p>
+<p>另一个 Swift 代码示例，展示了如何使用 <code>map</code>、<code>filter</code> 和 <code>reduce</code> 函数来处理数组：</p>
+<h3 id="示例-1-使用-map-进行转换"><a href="#示例-1-使用-map-进行转换" class="headerlink" title="示例 1: 使用 map 进行转换"></a>示例 1: 使用 map 进行转换</h3><p>假设我们有一个整数数组，并想将每个数值乘以 2：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> numbers <span class="operator">=</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 map 函数将每个数字乘以 2</span></span><br><span class="line"><span class="keyword">let</span> doubledNumbers <span class="operator">=</span> numbers.map &#123; <span class="variable">$0</span> <span class="operator">*</span> <span class="number">2</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Doubled numbers: <span class="subst">\(doubledNumbers)</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="示例-2-使用-filter-进行筛选"><a href="#示例-2-使用-filter-进行筛选" class="headerlink" title="示例 2: 使用 filter 进行筛选"></a>示例 2: 使用 filter 进行筛选</h3><p>假设我们想要筛选出所有偶数：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> numbers <span class="operator">=</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 filter 函数筛选出所有偶数</span></span><br><span class="line"><span class="keyword">let</span> evenNumbers <span class="operator">=</span> numbers.filter &#123; <span class="variable">$0</span> <span class="operator">%</span> <span class="number">2</span> <span class="operator">==</span> <span class="number">0</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Even numbers: <span class="subst">\(evenNumbers)</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="示例-3-使用-reduce-进行求和"><a href="#示例-3-使用-reduce-进行求和" class="headerlink" title="示例 3: 使用 reduce 进行求和"></a>示例 3: 使用 reduce 进行求和</h3><p>假设我们想要计算数组所有元素的和：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> numbers <span class="operator">=</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 reduce 函数求和</span></span><br><span class="line"><span class="keyword">let</span> sum <span class="operator">=</span> numbers.reduce(<span class="number">0</span>) &#123; <span class="variable">$0</span> <span class="operator">+</span> <span class="variable">$1</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Sum of numbers: <span class="subst">\(sum)</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><ul>
+<li><code>map</code> 用于将数组中的每个元素转换为新的值。</li>
+<li><code>filter</code> 用于从数组中筛选出符合条件的元素。</li>
+<li><code>reduce</code> 用于将数组中的元素“归约”成一个单一的值，比如求和或累积。</li>
+</ul>
+<p>这些函数非常适合进行链式操作，可以让代码更加简洁和易读。你可以组合使用它们，进行更复杂的操作！</p>
+<h1 id="一些更高级的-Swift-代码示例，涉及-泛型、高阶函数、组合式函数式编程、属性包装器、Async-x2F-Await-并发-等内容。"><a href="#一些更高级的-Swift-代码示例，涉及-泛型、高阶函数、组合式函数式编程、属性包装器、Async-x2F-Await-并发-等内容。" class="headerlink" title="一些更高级的 Swift 代码示例，涉及 泛型、高阶函数、组合式函数式编程、属性包装器、Async&#x2F;Await 并发 等内容。"></a>一些更高级的 Swift 代码示例，涉及 <strong>泛型、高阶函数、组合式函数式编程、属性包装器、Async&#x2F;Await 并发</strong> 等内容。</h1><h3 id="示例-1-泛型-关联类型-协议"><a href="#示例-1-泛型-关联类型-协议" class="headerlink" title="示例 1: 泛型 + 关联类型 + 协议"></a><strong>示例 1: 泛型 + 关联类型 + 协议</strong></h3><p>使用泛型和协议扩展 Swift 类型的适用性：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">protocol</span> <span class="title class_">Stackable</span> &#123;</span><br><span class="line">    <span class="keyword">associatedtype</span> <span class="type">Element</span></span><br><span class="line">    <span class="keyword">mutating</span> <span class="keyword">func</span> <span class="title function_">push</span>(<span class="keyword">_</span> <span class="params">element</span>: <span class="type">Element</span>)</span><br><span class="line">    <span class="keyword">mutating</span> <span class="keyword">func</span> <span class="title function_">pop</span>() <span class="operator">-&amp;</span>gt; <span class="type">Element</span>?</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Stack</span>: <span class="title class_">Stackable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> elements: [<span class="type">T</span>] <span class="operator">=</span> []</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">mutating</span> <span class="keyword">func</span> <span class="title function_">push</span>(<span class="keyword">_</span> <span class="params">element</span>: <span class="type">T</span>) &#123;</span><br><span class="line">        elements.append(element)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">mutating</span> <span class="keyword">func</span> <span class="title function_">pop</span>() <span class="operator">-&amp;</span>gt; <span class="type">T</span>? &#123;</span><br><span class="line">        <span class="keyword">return</span> elements.popLast()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> intStack <span class="operator">=</span> <span class="type">Stack</span>()</span><br><span class="line">intStack.push(<span class="number">10</span>)</span><br><span class="line">intStack.push(<span class="number">20</span>)</span><br><span class="line"><span class="built_in">print</span>(intStack.pop() <span class="operator">??</span> <span class="string">&quot;Empty&quot;</span>) <span class="comment">// 输出 20</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>知识点：</strong></p>
+<ul>
+<li><code>associatedtype</code> 允许协议定义一个泛型类型。</li>
+<li><code>mutating</code> 确保 <code>struct</code> 可以修改其自身的属性。</li>
+</ul>
+<h3 id="示例-2-高阶函数-amp-组合式编程"><a href="#示例-2-高阶函数-amp-组合式编程" class="headerlink" title="示例 2: 高阶函数 &amp; 组合式编程"></a><strong>示例 2: 高阶函数 &amp; 组合式编程</strong></h3><p>假设我们有一个用户列表，需要筛选出年龄大于 18 岁的用户，并提取他们的姓名，然后转换为大写。</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> name: <span class="type">String</span></span><br><span class="line">    <span class="keyword">let</span> age: <span class="type">Int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> users <span class="operator">=</span> [</span><br><span class="line">    <span class="type">User</span>(name: <span class="string">&quot;Alice&quot;</span>, age: <span class="number">24</span>),</span><br><span class="line">    <span class="type">User</span>(name: <span class="string">&quot;Bob&quot;</span>, age: <span class="number">17</span>),</span><br><span class="line">    <span class="type">User</span>(name: <span class="string">&quot;Charlie&quot;</span>, age: <span class="number">30</span>)</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> adultNames <span class="operator">=</span> users</span><br><span class="line">    .filter &#123; <span class="variable">$0</span>.age <span class="operator">&amp;</span>gt;<span class="operator">=</span> <span class="number">18</span> &#125;  <span class="comment">// 过滤出年龄 &amp;gt;= 18 的用户</span></span><br><span class="line">    .map &#123; <span class="variable">$0</span>.name.uppercased() &#125; <span class="comment">// 提取名字并转换为大写</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(adultNames) <span class="comment">// 输出 [&quot;ALICE&quot;, &quot;CHARLIE&quot;]</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>知识点：</strong></p>
+<ul>
+<li><code>filter</code> 进行筛选。</li>
+<li><code>map</code> 进行数据转换。</li>
+<li>组合式函数式编程，让代码更简洁。</li>
+</ul>
+<h3 id="示例-3-自定义属性包装器"><a href="#示例-3-自定义属性包装器" class="headerlink" title="示例 3: 自定义属性包装器"></a><strong>示例 3: 自定义属性包装器</strong></h3><p>Swift 的 <code>@propertyWrapper</code> 允许你创建自定义的属性行为。这里实现一个 <code>Clamped</code>，用于确保变量值保持在指定范围内。</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@propertyWrapper</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Clamped</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> value: <span class="type">Value</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">let</span> range: <span class="type">ClosedRange</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">init</span>(<span class="params">wrappedValue</span>: <span class="type">Value</span>, <span class="keyword">_</span> <span class="params">range</span>: <span class="type">ClosedRange</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.range <span class="operator">=</span> range</span><br><span class="line">        <span class="keyword">self</span>.value <span class="operator">=</span> <span class="built_in">min</span>(<span class="built_in">max</span>(wrappedValue, range.lowerBound), range.upperBound)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> wrappedValue: <span class="type">Value</span> &#123;</span><br><span class="line">        <span class="keyword">get</span> &#123; value &#125;</span><br><span class="line">        <span class="keyword">set</span> &#123; value <span class="operator">=</span> <span class="built_in">min</span>(<span class="built_in">max</span>(newValue, range.lowerBound), range.upperBound) &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Player</span> &#123;</span><br><span class="line">    <span class="meta">@Clamped</span>(<span class="number">0</span><span class="operator">...</span><span class="number">100</span>) <span class="keyword">var</span> health: <span class="type">Int</span> <span class="operator">=</span> <span class="number">50</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> player <span class="operator">=</span> <span class="type">Player</span>()</span><br><span class="line">player.health <span class="operator">=</span> <span class="number">120</span></span><br><span class="line"><span class="built_in">print</span>(player.health) <span class="comment">// 输出 100</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>知识点：</strong></p>
+<ul>
+<li><code>@propertyWrapper</code> 让你封装通用的属性行为，如范围约束。</li>
+</ul>
+<h3 id="示例-4-Async-x2F-Await-并发"><a href="#示例-4-Async-x2F-Await-并发" class="headerlink" title="示例 4: Async&#x2F;Await 并发"></a><strong>示例 4: Async&#x2F;Await 并发</strong></h3><p>Swift 的 <code>async/await</code> 使异步代码更易读。以下示例模拟一个网络请求：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">fetchUserData</span>() <span class="keyword">async</span> <span class="keyword">throws</span> <span class="operator">-&amp;</span>gt; <span class="type">String</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> <span class="keyword">await</span> <span class="type">Task</span>.sleep(nanoseconds: <span class="number">2_000_000_000</span>) <span class="comment">// 模拟 2 秒网络延迟</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;User Data Loaded&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">Task</span> &#123;</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> data <span class="operator">=</span> <span class="keyword">try</span> <span class="keyword">await</span> fetchUserData()</span><br><span class="line">        <span class="built_in">print</span>(data) <span class="comment">// 输出 &quot;User Data Loaded&quot;</span></span><br><span class="line">    &#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Failed to fetch data: <span class="subst">\(error)</span>&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>知识点：</strong></p>
+<ul>
+<li><code>async/await</code> 让异步代码像同步代码一样易读。</li>
+<li><code>Task.sleep(nanoseconds:)</code> 模拟异步操作。</li>
+</ul>
+<p>这些示例涉及 Swift 进阶概念，如泛型、组合式编程、属性包装器和并发。你可以试着改造和优化它们，挑战更复杂的实现！🚀</p>
+<h1 id="涉及-高级泛型、Combine-响应式编程、Actor-并发安全、Swift-反射（Mirror），以及-DSL（领域特定语言）设计。"><a href="#涉及-高级泛型、Combine-响应式编程、Actor-并发安全、Swift-反射（Mirror），以及-DSL（领域特定语言）设计。" class="headerlink" title="涉及 高级泛型、Combine 响应式编程、Actor 并发安全、Swift 反射（Mirror），以及 DSL（领域特定语言）设计。"></a>涉及 <strong>高级泛型、Combine 响应式编程、Actor 并发安全、Swift 反射（Mirror）</strong>，以及 <strong>DSL（领域特定语言）设计</strong>。</h1><h2 id="示例-1-结合泛型、协议和依赖注入"><a href="#示例-1-结合泛型、协议和依赖注入" class="headerlink" title="示例 1: 结合泛型、协议和依赖注入"></a><strong>示例 1: 结合泛型、协议和依赖注入</strong></h2><p>我们构建一个 <strong>泛型存储系统</strong>，可以存储不同类型的数据，并支持解耦的依赖注入：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">protocol</span> <span class="title class_">Storage</span> &#123;</span><br><span class="line">    <span class="keyword">associatedtype</span> <span class="type">Item</span></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">save</span>(<span class="keyword">_</span> <span class="params">item</span>: <span class="type">Item</span>)</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">load</span>() <span class="operator">-&amp;</span>gt; <span class="type">Item</span>?</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UserDefaultsStorage</span>: <span class="title class_">Storage</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">let</span> key: <span class="type">String</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">init</span>(<span class="params">key</span>: <span class="type">String</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.key <span class="operator">=</span> key</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">save</span>(<span class="keyword">_</span> <span class="params">item</span>: <span class="type">T</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> data <span class="operator">=</span> <span class="keyword">try?</span> <span class="type">JSONEncoder</span>().encode(item) &#123;</span><br><span class="line">            <span class="type">UserDefaults</span>.standard.set(data, forKey: key)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">load</span>() <span class="operator">-&amp;</span>gt; <span class="type">T</span>? &#123;</span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> data <span class="operator">=</span> <span class="type">UserDefaults</span>.standard.data(forKey: key),</span><br><span class="line">              <span class="keyword">let</span> item <span class="operator">=</span> <span class="keyword">try?</span> <span class="type">JSONDecoder</span>().decode(<span class="type">T</span>.<span class="keyword">self</span>, from: data) <span class="keyword">else</span> &#123; <span class="keyword">return</span> <span class="literal">nil</span> &#125;</span><br><span class="line">        <span class="keyword">return</span> item</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用示例</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">User</span>: <span class="title class_">Codable</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> name: <span class="type">String</span></span><br><span class="line">    <span class="keyword">let</span> age: <span class="type">Int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> userStorage <span class="operator">=</span> <span class="type">UserDefaultsStorage</span>(key: <span class="string">&quot;savedUser&quot;</span>)</span><br><span class="line">userStorage.save(<span class="type">User</span>(name: <span class="string">&quot;Alice&quot;</span>, age: <span class="number">25</span>))</span><br><span class="line"><span class="built_in">print</span>(userStorage.load() <span class="operator">??</span> <span class="string">&quot;No user found&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="关键点"><a href="#关键点" class="headerlink" title="关键点"></a><strong>关键点</strong></h3><p>✅ 使用 <code>associatedtype</code> 让 <code>Storage</code> 支持泛型存储。<br>✅ <code>Codable</code> 让存储数据更加灵活。<br>✅ <code>UserDefaultsStorage&amp;lt;T&amp;gt;</code> 可以存储 <strong>任意 Codable 类型</strong>，增强了代码的可复用性。</p>
+<h2 id="示例-2-使用-Combine-进行响应式数据流"><a href="#示例-2-使用-Combine-进行响应式数据流" class="headerlink" title="示例 2: 使用 Combine 进行响应式数据流"></a><strong>示例 2: 使用 Combine 进行响应式数据流</strong></h2><p>我们创建一个 <strong>响应式计时器</strong>，它会每秒发送当前时间：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Combine</span><br><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TimerPublisher</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> cancellable: <span class="type">AnyCancellable</span>?</span><br><span class="line"></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">start</span>() &#123;</span><br><span class="line">        cancellable <span class="operator">=</span> <span class="type">Timer</span>.publish(every: <span class="number">1</span>, on: .main, in: .common)</span><br><span class="line">            .autoconnect()</span><br><span class="line">            .sink &#123; time <span class="keyword">in</span></span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;Current Time: <span class="subst">\(time)</span>&quot;</span>)</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">stop</span>() &#123;</span><br><span class="line">        cancellable<span class="operator">?</span>.cancel()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> timer <span class="operator">=</span> <span class="type">TimerPublisher</span>()</span><br><span class="line">timer.start()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 让程序运行 5 秒钟</span></span><br><span class="line"><span class="type">DispatchQueue</span>.main.asyncAfter(deadline: .now() <span class="operator">+</span> <span class="number">5</span>) &#123;</span><br><span class="line">    timer.stop()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="关键点-1"><a href="#关键点-1" class="headerlink" title="关键点"></a><strong>关键点</strong></h3><p>✅ <code>Timer.publish</code> 创建定时器事件流。<br>✅ <code>autoconnect()</code> 让订阅者自动开始接收数据。<br>✅ <code>sink &#123;&#125;</code> 处理数据，每秒打印一次时间。<br>✅ <code>cancellable?.cancel()</code> 释放资源，防止内存泄漏。</p>
+<h2 id="示例-3-使用-actor-保护共享资源"><a href="#示例-3-使用-actor-保护共享资源" class="headerlink" title="示例 3: 使用 actor 保护共享资源"></a><strong>示例 3: 使用 actor 保护共享资源</strong></h2><p>在 Swift 的多线程环境中，我们用 <code>actor</code> 确保线程安全：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">actor</span> <span class="title class_">SafeCounter</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> value <span class="operator">=</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">increment</span>() &#123;</span><br><span class="line">        value <span class="operator">+=</span> <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">getValue</span>() <span class="operator">-&amp;</span>gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> value</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> counter <span class="operator">=</span> <span class="type">SafeCounter</span>()</span><br><span class="line"></span><br><span class="line"><span class="type">Task</span> &#123;</span><br><span class="line">    <span class="keyword">await</span> counter.increment()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Counter: <span class="subst">\(<span class="keyword">await</span> counter.getValue())</span>&quot;</span>) <span class="comment">// 1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="关键点-2"><a href="#关键点-2" class="headerlink" title="关键点"></a><strong>关键点</strong></h3><p>✅ <code>actor</code> 使 <code>SafeCounter</code> 线程安全。<br>✅ <code>await</code> 确保并发调用时的正确性。<br>✅ 解决 <strong>数据竞争</strong> 问题。</p>
+<h2 id="示例-4-使用-Mirror-进行-Swift-反射"><a href="#示例-4-使用-Mirror-进行-Swift-反射" class="headerlink" title="示例 4: 使用 Mirror 进行 Swift 反射"></a><strong>示例 4: 使用 Mirror 进行 Swift 反射</strong></h2><p>Swift 的 <code>Mirror</code> 可以在 <strong>运行时</strong> 获取对象的属性和方法：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> name: <span class="type">String</span></span><br><span class="line">    <span class="keyword">let</span> age: <span class="type">Int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">inspect</span>(<span class="keyword">_</span> <span class="params">object</span>: <span class="keyword">Any</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> mirror <span class="operator">=</span> <span class="type">Mirror</span>(reflecting: object)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Type: <span class="subst">\(mirror.subjectType)</span>&quot;</span>)</span><br><span class="line">    <span class="keyword">for</span> (label, value) <span class="keyword">in</span> mirror.children &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;<span class="subst">\(label <span class="operator">??</span> <span class="string">&quot;unknown&quot;</span>)</span>: <span class="subst">\(value)</span>&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> alice <span class="operator">=</span> <span class="type">Person</span>(name: <span class="string">&quot;Alice&quot;</span>, age: <span class="number">25</span>)</span><br><span class="line">inspect(alice)</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>输出</strong></p>
+<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">Type: Person</span></span><br><span class="line"><span class="section">name: Alice</span></span><br><span class="line"><span class="section">age: 25</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="关键点-3"><a href="#关键点-3" class="headerlink" title="关键点"></a><strong>关键点</strong></h3><p>✅ <code>Mirror(reflecting:)</code> 获取对象信息。<br>✅ <code>mirror.children</code> 遍历对象的属性和值。<br>✅ 适用于 <strong>调试、序列化、动态 UI 生成</strong> 等。</p>
+<h2 id="示例-5-设计-DSL（领域特定语言）"><a href="#示例-5-设计-DSL（领域特定语言）" class="headerlink" title="示例 5: 设计 DSL（领域特定语言）"></a><strong>示例 5: 设计 DSL（领域特定语言）</strong></h2><p>Swift 的 <strong>Result Builder</strong> 让我们可以创建类似 SwiftUI 的 DSL：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@resultBuilder</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">QueryBuilder</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">func</span> <span class="title function_">buildBlock</span>(<span class="keyword">_</span> <span class="params">queries</span>: <span class="type">String</span>...) <span class="operator">-&amp;</span>gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> queries.joined(separator: <span class="string">&quot; AND &quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">buildQuery</span>(<span class="meta">@QueryBuilder</span> <span class="keyword">_</span> <span class="params">builder</span>: () <span class="operator">-&amp;</span>gt; <span class="type">String</span>) <span class="operator">-&amp;</span>gt; <span class="type">String</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;SELECT * FROM users WHERE <span class="subst">\(builder())</span>&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 DSL</span></span><br><span class="line"><span class="keyword">let</span> query <span class="operator">=</span> buildQuery &#123;</span><br><span class="line">    <span class="string">&quot;age &amp;gt; 18&quot;</span></span><br><span class="line">    <span class="string">&quot;name LIKE &#x27;A%&#x27;&quot;</span></span><br><span class="line">    <span class="string">&quot;city = &#x27;Shanghai&#x27;&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(query)</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>输出</strong></p>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> age &amp;gt; <span class="number">18</span> <span class="keyword">AND</span> <span class="type">name</span> <span class="keyword">LIKE</span> <span class="string">&#x27;A%&#x27;</span> <span class="keyword">AND</span> city = <span class="string">&#x27;Shanghai&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="关键点-4"><a href="#关键点-4" class="headerlink" title="关键点"></a><strong>关键点</strong></h3><p>✅ <code>@resultBuilder</code> 让代码更符合 <strong>DSL 语法</strong>。<br>✅ <code>buildBlock(_ queries: String...)</code> 组合多个查询条件。<br>✅ 这种写法在 <strong>SQL 查询、JSON 生成、构建 UI</strong> 方面特别有用。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><p>今天的示例更加高级，涉及：<br>1️⃣ 泛型与协议：创建 <strong>类型安全的存储</strong>。<br>2️⃣ Combine 响应式编程：<strong>订阅并处理数据流</strong>。<br>3️⃣ <code>actor</code> 线程安全：<strong>并发环境下的数据安全保护</strong>。<br>4️⃣ Swift 反射：<strong>在运行时动态获取对象信息</strong>。<br>5️⃣ Swift DSL：<strong>构建简洁的查询语法</strong>。</p>
+<p>这些示例都可以直接在 Swift Playground 或 Xcode 运行！如果有兴趣，可以尝试拓展这些功能 🚀</p>
+<h1 id="那今天我们深入-元编程、并发控制、运行时操作、自动微分（Automatic-Differentiation）、Swift-Macro（宏）-这些高级概念。🚀"><a href="#那今天我们深入-元编程、并发控制、运行时操作、自动微分（Automatic-Differentiation）、Swift-Macro（宏）-这些高级概念。🚀" class="headerlink" title="那今天我们深入 元编程、并发控制、运行时操作、自动微分（Automatic Differentiation）、Swift Macro（宏） 这些高级概念。🚀"></a>那今天我们深入 <strong>元编程、并发控制、运行时操作、自动微分（Automatic Differentiation）、Swift Macro（宏）</strong> 这些高级概念。🚀</h1><h2 id="示例-1-使用-Macro（Swift-5-9-）进行代码生成"><a href="#示例-1-使用-Macro（Swift-5-9-）进行代码生成" class="headerlink" title="示例 1: 使用 Macro（Swift 5.9+）进行代码生成"></a><strong>示例 1: 使用 Macro（Swift 5.9+）进行代码生成</strong></h2><p>Swift 5.9 引入了 <strong>宏（Macro）</strong>，允许你在编译时修改代码。这相当于 <strong>Swift 版本的元编程</strong>！</p>
+<p><strong>目标</strong>：创建一个 <code>@Uppercased</code> 宏，自动将 <code>String</code> 变成大写。</p>
+<p><strong>1️⃣ 创建 Macro Target</strong><br>在 Xcode 中，创建 <code>Macro</code> 目标，并添加以下代码：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftCompilerPlugin</span><br><span class="line"><span class="keyword">import</span> SwiftSyntax</span><br><span class="line"><span class="keyword">import</span> SwiftSyntaxBuilder</span><br><span class="line"><span class="keyword">import</span> SwiftSyntaxMacros</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">struct</span> <span class="title class_">UppercasedMacro</span>: <span class="title class_">MemberMacro</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="title function_">expansion</span>(</span><br><span class="line">        <span class="params">of</span> <span class="params">node</span>: <span class="type">SwiftSyntax</span>.<span class="type">AttributeSyntax</span>,</span><br><span class="line">        <span class="params">providingMembersOf</span> <span class="params">declaration</span>: <span class="keyword">some</span> <span class="type">SwiftSyntax</span>.<span class="type">DeclSyntaxProtocol</span>,</span><br><span class="line">        <span class="params">in</span> <span class="params">context</span>: <span class="keyword">some</span> <span class="type">SwiftSyntaxMacros</span>.<span class="type">MacroExpansionContext</span></span><br><span class="line">    ) <span class="keyword">throws</span> <span class="operator">-&amp;</span>gt; [<span class="type">SwiftSyntax</span>.<span class="type">DeclSyntax</span>] &#123;</span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> structDecl <span class="operator">=</span> declaration.as(<span class="type">StructDeclSyntax</span>.<span class="keyword">self</span>) <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> structDecl.memberBlock.members.compactMap &#123; member <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">guard</span> <span class="keyword">let</span> varDecl <span class="operator">=</span> member.decl.as(<span class="type">VariableDeclSyntax</span>.<span class="keyword">self</span>),</span><br><span class="line">                  <span class="keyword">let</span> binding <span class="operator">=</span> varDecl.bindings.first,</span><br><span class="line">                  <span class="keyword">let</span> identifier <span class="operator">=</span> binding.pattern.as(<span class="type">IdentifierPatternSyntax</span>.<span class="keyword">self</span>) <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">let</span> uppercasedName <span class="operator">=</span> identifier.identifier.text.uppercased()</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">            var <span class="subst">\(raw: uppercasedName)</span>: String &#123; self.<span class="subst">\(identifier.identifier.text)</span>.uppercased() &#125;</span></span><br><span class="line"><span class="string">            &quot;&quot;&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>2️⃣ 注册 Macro</strong></p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@main</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">UppercasedMacroPlugin</span>: <span class="title class_">CompilerPlugin</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> providingMacros: [<span class="type">Macro</span>.<span class="keyword">Type</span>] <span class="operator">=</span> [<span class="type">UppercasedMacro</span>.<span class="keyword">self</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>3️⃣ 在主项目中使用</strong></p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Uppercased</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> name: <span class="type">String</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> user <span class="operator">=</span> <span class="type">User</span>(name: <span class="string">&quot;alice&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(user.<span class="type">NAME</span>) <span class="comment">// 输出: &quot;ALICE&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>核心知识点</strong>：<br>✅ <code>SwiftSyntax</code> 解析 Swift 代码并修改 AST。<br>✅ <code>SwiftCompilerPlugin</code> 让我们可以在 <strong>编译时</strong> 生成新代码。<br>✅ <code>Macro</code> 是 <strong>Swift 的元编程能力</strong>，能极大减少重复代码。</p>
+<h2 id="示例-2-Swift-运行时动态方法调用（使用-NSClassFromString-和-Selector）"><a href="#示例-2-Swift-运行时动态方法调用（使用-NSClassFromString-和-Selector）" class="headerlink" title="示例 2: Swift 运行时动态方法调用（使用 NSClassFromString 和 Selector）"></a><strong>示例 2: Swift 运行时动态方法调用（使用 NSClassFromString 和 Selector）</strong></h2><p>在 Swift 中，我们可以在 <strong>运行时</strong> 通过 <strong>字符串</strong> 反射创建对象，并调用方法：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="keyword">@objc</span> <span class="keyword">class</span> <span class="title class_">DynamicClass</span>: <span class="title class_">NSObject</span> &#123;</span><br><span class="line">    <span class="keyword">@objc</span> <span class="keyword">func</span> <span class="title function_">sayHello</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Hello from DynamicClass&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 运行时创建类实例</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> dynamicType <span class="operator">=</span> <span class="type">NSClassFromString</span>(<span class="string">&quot;DynamicClass&quot;</span>) <span class="keyword">as?</span> <span class="type">NSObject</span>.<span class="keyword">Type</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> instance <span class="operator">=</span> dynamicType.<span class="keyword">init</span>()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> selector <span class="operator">=</span> <span class="type">NSSelectorFromString</span>(<span class="string">&quot;sayHello&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> instance.responds(to: selector) &#123;</span><br><span class="line">        instance.perform(selector)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>输出</strong></p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">Hello <span class="keyword">from</span> DynamicClass</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>核心知识点</strong>：<br>✅ <code>NSClassFromString(&quot;DynamicClass&quot;)</code> <strong>动态获取类</strong>。<br>✅ <code>NSSelectorFromString(&quot;sayHello&quot;)</code> <strong>动态方法调用</strong>。<br>✅ Swift 本身是静态语言，但可以用 <strong>Objective-C 运行时</strong> 进行动态调用。</p>
+<h2 id="示例-3-使用-async-let-实现超高效并发计算"><a href="#示例-3-使用-async-let-实现超高效并发计算" class="headerlink" title="示例 3: 使用 async let 实现超高效并发计算"></a><strong>示例 3: 使用 async let 实现超高效并发计算</strong></h2><p>使用 <code>async let</code> <strong>并发运行多个任务</strong>，极大提高 CPU 利用率。</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">fetchData</span>(<span class="keyword">_</span> <span class="params">id</span>: <span class="type">Int</span>) <span class="keyword">async</span> <span class="operator">-&amp;</span>gt; <span class="type">Int</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Fetching <span class="subst">\(id)</span>...&quot;</span>)</span><br><span class="line">    <span class="keyword">try?</span> <span class="keyword">await</span> <span class="type">Task</span>.sleep(nanoseconds: <span class="type">UInt64</span>(id) <span class="operator">*</span> <span class="number">1_000_000_000</span>)</span><br><span class="line">    <span class="keyword">return</span> id <span class="operator">*</span> <span class="number">10</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">process</span>() <span class="keyword">async</span> &#123;</span><br><span class="line">    <span class="keyword">async</span> <span class="keyword">let</span> value1 <span class="operator">=</span> fetchData(<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">async</span> <span class="keyword">let</span> value2 <span class="operator">=</span> fetchData(<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">async</span> <span class="keyword">let</span> value3 <span class="operator">=</span> fetchData(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> results <span class="operator">=</span> <span class="keyword">await</span> [value1, value2, value3]</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Results: <span class="subst">\(results)</span>&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">Task</span> &#123;</span><br><span class="line">    <span class="keyword">await</span> process()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>输出</strong></p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">Fetching</span> <span class="number">1</span>...</span><br><span class="line"><span class="selector-tag">Fetching</span> <span class="number">2</span>...</span><br><span class="line"><span class="selector-tag">Fetching</span> <span class="number">3</span>...</span><br><span class="line"><span class="selector-tag">Results</span>: <span class="selector-attr">[10, 20, 30]</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>核心知识点</strong>：<br>✅ <code>async let</code> 并行执行多个任务，效率远超 <code>await</code> 串行执行。<br>✅ <code>Task.sleep(nanoseconds:)</code> 模拟网络请求。<br>✅ <code>await [value1, value2, value3]</code> <strong>同时等待多个异步任务</strong>。</p>
+<h2 id="示例-4-使用-Automatic-Differentiation（自动微分）"><a href="#示例-4-使用-Automatic-Differentiation（自动微分）" class="headerlink" title="示例 4: 使用 Automatic Differentiation（自动微分）"></a><strong>示例 4: 使用 Automatic Differentiation（自动微分）</strong></h2><p>Swift for TensorFlow（S4TF）引入了 <strong>自动微分</strong>，用于深度学习、数学计算等场景。</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> _Differentiation</span><br><span class="line"></span><br><span class="line"><span class="meta">@differentiable</span></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">square</span>(<span class="keyword">_</span> <span class="params">x</span>: <span class="type">Float</span>) <span class="operator">-&amp;</span>gt; <span class="type">Float</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> x <span class="operator">*</span> x</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 计算 f&#x27;(x) 在 x=3 处的值</span></span><br><span class="line"><span class="keyword">let</span> df <span class="operator">=</span> gradient(of: square)(<span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span>(df) <span class="comment">// 输出 6.0</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>核心知识点</strong>：<br>✅ <code>@differentiable</code> 让 Swift <strong>自动计算导数</strong>。<br>✅ <code>gradient(of: square)(3)</code> 计算 <code>f&#39;(3)</code>，等于 <code>2*x</code>。<br>✅ 适用于 <strong>机器学习、科学计算、数学建模</strong>。</p>
+<h2 id="示例-5-使用-UnsafeRawPointer-直接操作内存"><a href="#示例-5-使用-UnsafeRawPointer-直接操作内存" class="headerlink" title="示例 5: 使用 UnsafeRawPointer 直接操作内存"></a><strong>示例 5: 使用 UnsafeRawPointer 直接操作内存</strong></h2><p>Swift 是 <strong>安全语言</strong>，但我们仍可以用 <code>UnsafeRawPointer</code> 直接操作内存！</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> size <span class="operator">=</span> <span class="type">MemoryLayout</span>.size</span><br><span class="line"><span class="keyword">let</span> pointer <span class="operator">=</span> <span class="type">UnsafeMutableRawPointer</span>.allocate(byteCount: size, alignment: <span class="type">MemoryLayout</span>.alignment)</span><br><span class="line"></span><br><span class="line">pointer.storeBytes(of: <span class="number">42</span>, as: <span class="type">Int</span>.<span class="keyword">self</span>)</span><br><span class="line"><span class="keyword">let</span> value: <span class="type">Int</span> <span class="operator">=</span> pointer.load(as: <span class="type">Int</span>.<span class="keyword">self</span>)</span><br><span class="line"><span class="built_in">print</span>(value) <span class="comment">// 42</span></span><br><span class="line"></span><br><span class="line">pointer.deallocate()</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>核心知识点</strong>：<br>✅ <code>UnsafeMutableRawPointer.allocate</code> 直接分配内存。<br>✅ <code>storeBytes(of:as:)</code> 手动存储值。<br>✅ <code>load(as:)</code> 直接从内存读取。<br>✅ ⚠ <strong>这会绕过 Swift 的类型安全性</strong>，小心使用！</p>
+<h2 id="示例-6-使用-Generative-Type-创建自扩展结构"><a href="#示例-6-使用-Generative-Type-创建自扩展结构" class="headerlink" title="示例 6: 使用 Generative Type 创建自扩展结构"></a><strong>示例 6: 使用 Generative Type 创建自扩展结构</strong></h2><p><strong>目标</strong>：创建一个 <strong>可以动态扩展自身的方法</strong> 的结构体！</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">protocol</span> <span class="title class_">Expandable</span> &#123;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">expand</span>() <span class="operator">-&amp;</span>gt; <span class="keyword">Self</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Number</span>: <span class="title class_">Expandable</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> value: <span class="type">Int</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">expand</span>() <span class="operator">-&amp;</span>gt; <span class="type">Number</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">Number</span>(value: <span class="keyword">self</span>.value <span class="operator">*</span> <span class="number">2</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> num <span class="operator">=</span> <span class="type">Number</span>(value: <span class="number">10</span>)</span><br><span class="line"><span class="keyword">let</span> expanded <span class="operator">=</span> num.expand().expand().expand()</span><br><span class="line"><span class="built_in">print</span>(expanded.value) <span class="comment">// 80</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>核心知识点</strong>：<br>✅ <code>Self</code> 关键字，确保方法返回 <strong>相同类型的实例</strong>。<br>✅ 适用于 <strong>递归式扩展，如数学计算、数据结构增长</strong>。</p>
+<h2 id="终极挑战"><a href="#终极挑战" class="headerlink" title="终极挑战"></a><strong>终极挑战</strong></h2><p>如果你想挑战自己，可以尝试：<br>1️⃣ <strong>使用 macro 生成 Codable 代码</strong>。<br>2️⃣ <strong>用 actor + Distributed 进行多节点分布式计算</strong>。<br>3️⃣ <strong>用 UnsafeMutablePointer 创建手写的链表或数组池</strong>。<br>4️⃣ <strong>使用 Reflection 创建 ORM（对象关系映射）</strong>。</p>
+<p>这些示例展示了 <strong>Swift 的最高级特性</strong>，包括 <strong>宏、自动微分、反射、动态类型、并发控制</strong>。如果你想在 Swift 高级开发中更进一步，快试试这些代码吧！🚀</p>
+<h1 id="更难的"><a href="#更难的" class="headerlink" title="更难的"></a>更难的</h1><p>你追求更极致的 Swift 高级挑战？今天我们深入 <strong>Swift 运行时（Runtime）、LLVM IR 代码生成、JIT（即时编译）、分布式计算、异构计算（Metal）、代码自我修改（Self-Modifying Code）</strong> 这些真正高阶的技术领域！🚀</p>
+<h2 id="示例-1-使用-LLVM-IR-直接生成机器码（Swift-编译器底层）"><a href="#示例-1-使用-LLVM-IR-直接生成机器码（Swift-编译器底层）" class="headerlink" title="示例 1: 使用 LLVM IR 直接生成机器码（Swift 编译器底层）"></a><strong>示例 1: 使用 LLVM IR 直接生成机器码</strong>（Swift 编译器底层）</h2><p>Swift 本质上是 <strong>LLVM IR（中间表示）</strong> 的一个前端。你可以直接用 Swift 代码生成 LLVM IR，然后让它变成机器码。</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">emitLLVMIR</span>(<span class="params">for</span> <span class="params">source</span>: <span class="type">String</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> process <span class="operator">=</span> <span class="type">Process</span>()</span><br><span class="line">    process.executableURL <span class="operator">=</span> <span class="type">URL</span>(fileURLWithPath: <span class="string">&quot;/usr/bin/swiftc&quot;</span>)</span><br><span class="line">    process.arguments <span class="operator">=</span> [<span class="string">&quot;-emit-llvm&quot;</span>, <span class="string">&quot;-o&quot;</span>, <span class="string">&quot;/tmp/output.ll&quot;</span>, <span class="string">&quot;-&quot;</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> inputPipe <span class="operator">=</span> <span class="type">Pipe</span>()</span><br><span class="line">    process.standardInput <span class="operator">=</span> inputPipe</span><br><span class="line">    process.launch()</span><br><span class="line"></span><br><span class="line">    inputPipe.fileHandleForWriting.write(source.data(using: .utf8)<span class="operator">!</span>)</span><br><span class="line">    inputPipe.fileHandleForWriting.closeFile()</span><br><span class="line">    </span><br><span class="line">    process.waitUntilExit()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;LLVM IR generated at /tmp/output.ll&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 生成 LLVM IR</span></span><br><span class="line">emitLLVMIR(for: <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">func add(_ a: Int, _ b: Int) -&amp;gt; Int &#123;</span></span><br><span class="line"><span class="string">    return a + b</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>核心知识点</strong>：<br>✅ 直接调用 Swift 编译器生成 LLVM IR 代码。<br>✅ 可用于 <strong>高级编译器优化、JIT 执行、自定义代码分析</strong>。<br>✅ 适合 <strong>研究 Swift 代码如何转换成汇编指令</strong>。</p>
+<h2 id="示例-2-Swift-运行时（Runtime）动态替换方法"><a href="#示例-2-Swift-运行时（Runtime）动态替换方法" class="headerlink" title="示例 2: Swift 运行时（Runtime）动态替换方法"></a><strong>示例 2: Swift 运行时（Runtime）动态替换方法</strong></h2><p>利用 Swift 运行时，<strong>在运行时替换类的方法</strong>，类似于 Python 的 <code>monkey patching</code>。</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> ObjectiveC</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TargetClass</span>: <span class="title class_">NSObject</span> &#123;</span><br><span class="line">    <span class="keyword">@objc</span> <span class="keyword">dynamic</span> <span class="keyword">func</span> <span class="title function_">originalMethod</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Original Method&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">swizzledMethod</span>(<span class="params">self</span>: <span class="type">AnyObject</span>, <span class="keyword">_</span> <span class="params">cmd</span>: <span class="type">Selector</span>) &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Swizzled Method&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> method <span class="operator">=</span> class_getInstanceMethod(<span class="type">TargetClass</span>.<span class="keyword">self</span>, <span class="keyword">#selector</span>(<span class="type">TargetClass</span>.originalMethod))<span class="operator">!</span></span><br><span class="line"><span class="keyword">let</span> newIMP <span class="operator">=</span> imp_implementationWithBlock(swizzledMethod <span class="keyword">as</span> <span class="keyword">@convention(block)</span> (<span class="type">AnyObject</span>, <span class="type">Selector</span>) <span class="operator">-&amp;</span>gt; <span class="type">Void</span>)</span><br><span class="line">method_setImplementation(method, newIMP)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> instance <span class="operator">=</span> <span class="type">TargetClass</span>()</span><br><span class="line">instance.originalMethod()  <span class="comment">// 输出: &quot;Swizzled Method&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>核心知识点</strong>：<br>✅ <code>class_getInstanceMethod</code> 获取方法指针。<br>✅ <code>imp_implementationWithBlock</code> 生成新的方法实现。<br>✅ <code>method_setImplementation</code> 动态替换方法，类似 <strong>AOP（面向切面编程）</strong>。<br>✅ 适用于 <strong>热修复、日志注入、动态调试</strong>。</p>
+<h2 id="示例-3-用-Swift-编写-JIT-编译器"><a href="#示例-3-用-Swift-编写-JIT-编译器" class="headerlink" title="示例 3: 用 Swift 编写 JIT 编译器"></a><strong>示例 3: 用 Swift 编写 JIT 编译器</strong></h2><p>Swift 不能直接 JIT 编译代码，但我们可以使用 <strong>LLVM ORC JIT</strong> 进行运行时代码生成。</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> jitCode <span class="operator">=</span> <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">#include </span></span><br><span class="line"><span class="string">void execute() &#123;</span></span><br><span class="line"><span class="string">    printf(&quot;Hello from JIT!<span class="subst">\\</span>n&quot;);</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">compileAndRunC</span>(<span class="keyword">_</span> <span class="params">source</span>: <span class="type">String</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> tempFile <span class="operator">=</span> <span class="string">&quot;/tmp/jit_code.c&quot;</span></span><br><span class="line">    <span class="keyword">let</span> binaryFile <span class="operator">=</span> <span class="string">&quot;/tmp/jit_executable&quot;</span></span><br><span class="line">    <span class="keyword">try?</span> source.write(toFile: tempFile, atomically: <span class="literal">true</span>, encoding: .utf8)</span><br><span class="line"></span><br><span class="line">    system(<span class="string">&quot;clang <span class="subst">\(tempFile)</span> -o <span class="subst">\(binaryFile)</span>&quot;</span>)</span><br><span class="line">    system(binaryFile)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">compileAndRunC(jitCode)</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>核心知识点</strong>：<br>✅ <code>system()</code> <strong>在运行时编译并执行代码</strong>。<br>✅ 类似于 **Python 的 exec()**，可以执行任意代码。<br>✅ 适用于 <strong>自定义 DSL、插件系统、动态代码生成</strong>。</p>
+<h2 id="示例-4-Swift-分布式计算"><a href="#示例-4-Swift-分布式计算" class="headerlink" title="示例 4: Swift 分布式计算"></a><strong>示例 4: Swift 分布式计算</strong></h2><p>Swift <strong>分布式 actor</strong> 允许你在多个机器间安全地共享状态。</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">distributed</span> <span class="keyword">actor</span> <span class="title class_">Node</span> &#123;</span><br><span class="line">    <span class="keyword">distributed</span> <span class="keyword">func</span> <span class="title function_">compute</span>(<span class="params">value</span>: <span class="type">Int</span>) <span class="operator">-&amp;</span>gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> value <span class="operator">*</span> <span class="number">2</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> node <span class="operator">=</span> <span class="type">Node</span>(actorSystem: <span class="type">ClusterSystem</span>())</span><br><span class="line"><span class="keyword">let</span> result <span class="operator">=</span> <span class="keyword">await</span> node.compute(value: <span class="number">10</span>)</span><br><span class="line"><span class="built_in">print</span>(result) <span class="comment">// 20</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>核心知识点</strong>：<br>✅ <code>distributed actor</code> 让 actor 可以 <strong>跨机器</strong> 运行。<br>✅ <code>ClusterSystem</code> 让多个 <strong>Swift 进程组成计算集群</strong>。<br>✅ 可用于 <strong>分布式计算、云计算</strong>。</p>
+<h2 id="示例-5-使用-Metal-进行异构计算（GPU-加速）"><a href="#示例-5-使用-Metal-进行异构计算（GPU-加速）" class="headerlink" title="示例 5: 使用 Metal 进行异构计算（GPU 加速）"></a><strong>示例 5: 使用 Metal 进行异构计算（GPU 加速）</strong></h2><p>我们可以直接在 Swift 中使用 <strong>Metal</strong>，让代码跑在 GPU 上，<strong>比 CPU 快 100 倍</strong>！</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Metal</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> device <span class="operator">=</span> <span class="type">MTLCreateSystemDefaultDevice</span>()<span class="operator">!</span></span><br><span class="line"><span class="keyword">let</span> commandQueue <span class="operator">=</span> device.makeCommandQueue()<span class="operator">!</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> kernelSource <span class="operator">=</span> <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">kernel void add_one(device int *data [[buffer(0)]], uint id [[thread_position_in_grid]]) &#123;</span></span><br><span class="line"><span class="string">    data[id] += 1;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> library <span class="operator">=</span> <span class="keyword">try</span> device.makeLibrary(source: kernelSource, options: <span class="literal">nil</span>)</span><br><span class="line"><span class="keyword">let</span> function <span class="operator">=</span> library.makeFunction(name: <span class="string">&quot;add_one&quot;</span>)<span class="operator">!</span></span><br><span class="line"><span class="keyword">let</span> computePipeline <span class="operator">=</span> <span class="keyword">try</span> device.makeComputePipelineState(function: function)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> buffer <span class="operator">=</span> device.makeBuffer(length: <span class="number">4</span> <span class="operator">*</span> <span class="type">MemoryLayout</span>.size, options: [])<span class="operator">!</span></span><br><span class="line"><span class="keyword">var</span> numbers <span class="operator">=</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line">buffer.contents().copyMemory(from: <span class="operator">&amp;</span>numbers, byteCount: numbers.count <span class="operator">*</span> <span class="type">MemoryLayout</span>.size)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> commandBuffer <span class="operator">=</span> commandQueue.makeCommandBuffer()<span class="operator">!</span></span><br><span class="line"><span class="keyword">let</span> computeEncoder <span class="operator">=</span> commandBuffer.makeComputeCommandEncoder()<span class="operator">!</span></span><br><span class="line">computeEncoder.setComputePipelineState(computePipeline)</span><br><span class="line">computeEncoder.setBuffer(buffer, offset: <span class="number">0</span>, index: <span class="number">0</span>)</span><br><span class="line">computeEncoder.dispatchThreads(<span class="type">MTLSize</span>(width: numbers.count, height: <span class="number">1</span>, depth: <span class="number">1</span>), threadsPerThreadgroup: <span class="type">MTLSize</span>(width: <span class="number">1</span>, height: <span class="number">1</span>, depth: <span class="number">1</span>))</span><br><span class="line">computeEncoder.endEncoding()</span><br><span class="line">commandBuffer.commit()</span><br><span class="line">commandBuffer.waitUntilCompleted()</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> result <span class="operator">=</span> buffer.contents().assumingMemoryBound(to: <span class="type">Int</span>.<span class="keyword">self</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;GPU 计算结果: <span class="subst">\(result[<span class="number">0</span>])</span>, <span class="subst">\(result[<span class="number">1</span>])</span>, <span class="subst">\(result[<span class="number">2</span>])</span>, <span class="subst">\(result[<span class="number">3</span>])</span>&quot;</span>) <span class="comment">// 2, 3, 4, 5</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>核心知识点</strong>：<br>✅ <code>MTLCreateSystemDefaultDevice()</code> 获取 GPU 设备。<br>✅ <code>dispatchThreads()</code> 让 GPU 并行计算数据。<br>✅ 可用于 <strong>机器学习、图像处理、科学计算</strong>。</p>
+<h2 id="示例-6-Self-Modifying-Code（代码自我修改）"><a href="#示例-6-Self-Modifying-Code（代码自我修改）" class="headerlink" title="示例 6: Self-Modifying Code（代码自我修改）"></a><strong>示例 6: Self-Modifying Code（代码自我修改）</strong></h2><p>Swift 本身 <strong>禁止自我修改代码</strong>，但我们可以用 <code>mprotect()</code> 绕过。</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> code: [<span class="type">UInt8</span>] <span class="operator">=</span> [</span><br><span class="line">    <span class="number">0x48</span>, <span class="number">0xC7</span>, <span class="number">0xC0</span>, <span class="number">0x2A</span>, <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="comment">// mov rax, 42</span></span><br><span class="line">    <span class="number">0xC3</span>                                     <span class="comment">// ret</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ptr <span class="operator">=</span> mmap(<span class="literal">nil</span>, <span class="number">4096</span>, <span class="type">PROT_READ</span> <span class="operator">|</span> <span class="type">PROT_WRITE</span> <span class="operator">|</span> <span class="type">PROT_EXEC</span>, <span class="type">MAP_ANONYMOUS</span> <span class="operator">|</span> <span class="type">MAP_PRIVATE</span>, <span class="operator">-</span><span class="number">1</span>, <span class="number">0</span>)<span class="operator">!</span></span><br><span class="line">memcpy(ptr, code, code.count)</span><br><span class="line"></span><br><span class="line"><span class="keyword">typealias</span> <span class="type">Function</span> <span class="operator">=</span> <span class="keyword">@convention(c)</span> () <span class="operator">-&amp;</span>gt; <span class="type">Int</span></span><br><span class="line"><span class="keyword">let</span> function <span class="operator">=</span> <span class="built_in">unsafeBitCast</span>(ptr, to: <span class="type">Function</span>.<span class="keyword">self</span>)</span><br><span class="line"><span class="built_in">print</span>(function()) <span class="comment">// 输出 42</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>核心知识点</strong>：<br>✅ <code>mmap()</code> 申请 <strong>可执行内存</strong>。<br>✅ <code>memcpy()</code> <strong>动态修改代码</strong>。<br>✅ <code>unsafeBitCast()</code> 让 Swift 调用 <strong>手写机器码</strong>。<br>✅ <strong>极端情况下可用于 JIT、虚拟机、沙盒逃逸</strong>。⚠ <strong>危险操作，需谨慎使用！</strong></p>
+<h2 id="终极挑战-1"><a href="#终极挑战-1" class="headerlink" title="终极挑战"></a><strong>终极挑战</strong></h2><p>如果你觉得还不够难，试试：<br>1️⃣ <strong>用 Swift 实现一个 Tiny Swift 解释器</strong>（用 Swift 解析 Swift）。<br>2️⃣ <strong>用 Swift 编写一个自定义 CPU 指令集模拟器</strong>。<br>3️⃣ <strong>用 Metal 和 Swift 实现一个 GPU 加速的 AI 推理引擎</strong>。<br>4️⃣ <strong>用 Swift 运行时自动生成和调用 Objective-C 代码</strong>。<br>5️⃣ <strong>用 Swift + WebAssembly 让代码在浏览器中运行</strong>。</p>
+<p>这些都是 <strong>极限级别</strong> 的 Swift 玩法！有兴趣的话，挑一个来挑战吧！🚀</p>
+]]></content>
+      <tags>
+        <tag>swift编程</tag>
+        <tag>代码示例</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>swift中@MainActor的作用</title>
+    <url>/2025/03/23/swift%E4%B8%AD-MainActor%E7%9A%84%E4%BD%9C%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="MainActor-什么作用"><a href="#MainActor-什么作用" class="headerlink" title="@MainActor 什么作用"></a>@MainActor 什么作用</h1><p><code>@MainActor</code> 是一个 <strong>Swift Concurrency</strong>（并发）中的属性包装器，主要用于确保某个函数或某个对象的代码在 <strong>主线程</strong> 上执行。</p>
+<p>在 iOS 和 macOS 等应用程序中，更新 UI 必须在 <strong>主线程</strong> 上进行。否则，可能会导致 <strong>UI 错乱、崩溃</strong> 或 <strong>不可预期的行为</strong>。Swift 引入了并发和异步编程（<code>async/await</code>），<code>@MainActor</code> 就是为了确保在并发环境下，对 UI 的更新和其他与主线程相关的操作能安全地进行。</p>
+<h3 id="作用："><a href="#作用：" class="headerlink" title="作用："></a><strong>作用</strong>：</h3><span id="more"></span>
+<ul>
+<li>确保特定的函数、属性或类在 <strong>主线程</strong> 上执行。</li>
+<li>防止并发代码在后台线程访问 UI 或与 UI 相关的状态，避免线程安全问题。</li>
+</ul>
+<h3 id="常见使用场景："><a href="#常见使用场景：" class="headerlink" title="常见使用场景："></a><strong>常见使用场景</strong>：</h3><ul>
+<li><strong>UI 更新</strong>：在异步任务完成后更新 UI。</li>
+<li><strong>主线程操作</strong>：处理与主线程相关的任务，如网络请求完成后更新 UI。</li>
+</ul>
+<h3 id="代码示例："><a href="#代码示例：" class="headerlink" title="代码示例："></a><strong>代码示例：</strong></h3><figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line"></span><br><span class="line"><span class="meta">@MainActor</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> data: <span class="type">String</span> <span class="operator">=</span> <span class="string">&quot;Loading...&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">fetchData</span>() <span class="keyword">async</span> &#123;</span><br><span class="line">        <span class="comment">// 假设我们在后台线程异步获取数据</span></span><br><span class="line">        <span class="keyword">await</span> <span class="type">Task</span>.sleep(<span class="number">2</span> <span class="operator">*</span> <span class="number">1_000_000_000</span>) <span class="comment">// 模拟网络延迟</span></span><br><span class="line">        <span class="keyword">let</span> newData <span class="operator">=</span> <span class="string">&quot;数据加载完成&quot;</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 由于这个方法被标记为 @MainActor，以下更新 UI 的代码会在主线程上执行</span></span><br><span class="line">        <span class="keyword">self</span>.data <span class="operator">=</span> newData</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@StateObject</span> <span class="keyword">private</span> <span class="keyword">var</span> viewModel <span class="operator">=</span> <span class="type">ViewModel</span>()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">VStack</span> &#123;</span><br><span class="line">            <span class="type">Text</span>(viewModel.data)</span><br><span class="line">                .font(.largeTitle)</span><br><span class="line">                .padding()</span><br><span class="line">            </span><br><span class="line">            <span class="type">Button</span>(<span class="string">&quot;加载数据&quot;</span>) &#123;</span><br><span class="line">                <span class="type">Task</span> &#123;</span><br><span class="line">                    <span class="keyword">await</span> viewModel.fetchData()</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            .padding()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#<span class="type">Preview</span> &#123;</span><br><span class="line">    <span class="type">ContentView</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="解析："><a href="#解析：" class="headerlink" title="解析："></a><strong>解析</strong>：</h3><ul>
+<li><strong>@MainActor</strong>：确保 <code>ViewModel</code> 的 <code>fetchData</code> 方法在主线程上执行 UI 更新操作，即使它本身是异步的。</li>
+<li>即使在 <code>fetchData</code> 方法中调用了 <code>await</code>，返回到主线程更新 <code>data</code> 属性时也不会发生线程安全问题，因为 <code>@MainActor</code> 会自动确保所有与 UI 相关的操作都在主线程中进行。</li>
+</ul>
+<h3 id="注意点："><a href="#注意点：" class="headerlink" title="注意点："></a><strong>注意点</strong>：</h3><ol>
+<li><strong>@MainActor</strong> 只能应用于需要 <strong>主线程操作</strong> 的方法或类，尤其是那些更新 UI 的地方。</li>
+<li>在 Swift Concurrency 中，异步操作（<code>async/await</code>）默认是异步执行的，但一旦涉及到 UI 更新，必须确保这些操作回到主线程。<code>@MainActor</code> 做的就是这一件事。</li>
+</ol>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a><strong>总结</strong>：</h3><p><code>@MainActor</code> 使得代码能够在 <strong>主线程</strong> 上执行，从而避免在并发操作中直接更新 UI 的问题，保证了线程安全和 UI 的一致性。</p>
+<p>如果你在进行异步任务处理时遇到需要更新 UI 的情况，记得使用 <code>@MainActor</code> 来确保线程安全！</p>
+<h1 id="MainActor-只是修饰-class-ViewModel吗"><a href="#MainActor-只是修饰-class-ViewModel吗" class="headerlink" title="@MainActor 只是修饰 class ViewModel吗"></a>@MainActor 只是修饰 class ViewModel吗</h1><p><code>@MainActor</code> <strong>不仅可以修饰 class ViewModel，还可以用于函数、属性、全局变量等</strong>，它的作用是确保被修饰的代码 <strong>始终在主线程上执行</strong>。</p>
+<h3 id="MainActor-可以修饰的内容"><a href="#MainActor-可以修饰的内容" class="headerlink" title="@MainActor 可以修饰的内容"></a><strong>@MainActor 可以修饰的内容</strong></h3><ol>
+<li><strong>修饰类&#x2F;结构体</strong></li>
+<li><strong>修饰方法（函数）</strong></li>
+<li><strong>修饰属性</strong></li>
+<li><strong>修饰全局变量</strong></li>
+</ol>
+<h2 id="1-修饰类-x2F-结构体"><a href="#1-修饰类-x2F-结构体" class="headerlink" title="1. 修饰类 &#x2F; 结构体"></a><strong>1. 修饰类 &#x2F; 结构体</strong></h2><p>如果在 <code>ViewModel</code> 这个类前添加 <code>@MainActor</code>，<strong>该类的所有属性和方法</strong> 默认都会在 <strong>主线程</strong> 上执行。</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="meta">@MainActor</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> data: <span class="type">String</span> <span class="operator">=</span> <span class="string">&quot;Loading...&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">fetchData</span>() <span class="keyword">async</span> &#123;</span><br><span class="line">        <span class="keyword">await</span> <span class="type">Task</span>.sleep(<span class="number">2</span> <span class="operator">*</span> <span class="number">1_000_000_000</span>) <span class="comment">// 模拟网络延迟</span></span><br><span class="line">        data <span class="operator">=</span> <span class="string">&quot;数据加载完成&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>作用</strong>：<br>✅ <code>data</code> 这个 <code>@Published</code> 属性默认在主线程上访问。<br>✅ <code>fetchData()</code> 也默认在主线程上执行，不用手动 <code>DispatchQueue.main.async</code> 切换线程。</p>
+<h2 id="2-只修饰某个方法"><a href="#2-只修饰某个方法" class="headerlink" title="2. 只修饰某个方法"></a><strong>2. 只修饰某个方法</strong></h2><p>如果你不想让整个类都在主线程执行，可以<strong>单独修饰某个方法</strong>，比如 <code>fetchData()</code> 方法，而不修饰整个 <code>ViewModel</code> 类：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> data: <span class="type">String</span> <span class="operator">=</span> <span class="string">&quot;Loading...&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="meta">@MainActor</span></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">fetchData</span>() <span class="keyword">async</span> &#123;</span><br><span class="line">        <span class="keyword">await</span> <span class="type">Task</span>.sleep(<span class="number">2</span> <span class="operator">*</span> <span class="number">1_000_000_000</span>) <span class="comment">// 模拟网络延迟</span></span><br><span class="line">        data <span class="operator">=</span> <span class="string">&quot;数据加载完成&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>作用</strong>：<br>✅ <code>fetchData()</code> 会在主线程上执行，而 <code>ViewModel</code> 其他方法仍然可以在子线程上运行。</p>
+<h2 id="3-只修饰某个属性"><a href="#3-只修饰某个属性" class="headerlink" title="3. 只修饰某个属性"></a><strong>3. 只修饰某个属性</strong></h2><p>如果你只想保证某个属性在主线程上访问，可以这样做：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@MainActor</span> <span class="meta">@Published</span> <span class="keyword">var</span> data: <span class="type">String</span> <span class="operator">=</span> <span class="string">&quot;Loading...&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">fetchData</span>() <span class="keyword">async</span> &#123;</span><br><span class="line">        <span class="keyword">await</span> <span class="type">Task</span>.sleep(<span class="number">2</span> <span class="operator">*</span> <span class="number">1_000_000_000</span>) <span class="comment">// 模拟网络延迟</span></span><br><span class="line">        <span class="keyword">await</span> <span class="type">MainActor</span>.run &#123; <span class="comment">// 在主线程上更新数据</span></span><br><span class="line">            data <span class="operator">=</span> <span class="string">&quot;数据加载完成&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>作用</strong>：<br>✅ <code>data</code> 这个属性<strong>只能</strong>在主线程上被访问。<br>✅ <code>fetchData()</code> 仍然可以在后台执行，但更新 <code>data</code> 时会<strong>切换到主线程</strong>。</p>
+<h2 id="4-作用于全局变量"><a href="#4-作用于全局变量" class="headerlink" title="4. 作用于全局变量"></a><strong>4. 作用于全局变量</strong></h2><p>如果你有一个<strong>全局变量</strong>，你可以使用 <code>@MainActor</code> 让它始终在 <strong>主线程上访问</strong>：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="meta">@MainActor</span> <span class="keyword">var</span> globalText: <span class="type">String</span> <span class="operator">=</span> <span class="string">&quot;默认文本&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="5-结合-Task-在主线程运行代码"><a href="#5-结合-Task-在主线程运行代码" class="headerlink" title="5. 结合 Task 在主线程运行代码"></a><strong>5. 结合 Task 在主线程运行代码</strong></h2><p>如果你的 <code>ViewModel</code> 没有 <code>@MainActor</code> 修饰，但你想在 <code>fetchData()</code> 里保证某些代码在主线程执行，可以这样做：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> data: <span class="type">String</span> <span class="operator">=</span> <span class="string">&quot;Loading...&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">fetchData</span>() <span class="keyword">async</span> &#123;</span><br><span class="line">        <span class="keyword">await</span> <span class="type">Task</span>.sleep(<span class="number">2</span> <span class="operator">*</span> <span class="number">1_000_000_000</span>) <span class="comment">// 模拟网络延迟</span></span><br><span class="line">        <span class="keyword">await</span> <span class="type">MainActor</span>.run &#123;</span><br><span class="line">            data <span class="operator">=</span> <span class="string">&quot;数据加载完成&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>作用</strong>：<br>✅ <code>await MainActor.run &#123;&#125;</code> 让 <code>data</code> 更新时切换到主线程执行。<br>✅ <code>fetchData()</code> 本身可以在后台执行，提高性能。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><table>
+<thead>
+<tr>
+<th>语法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>@MainActor class MyClass {}</td>
+<td><strong>整个类</strong> 的方法和属性都会在 <strong>主线程</strong> 上执行</td>
+</tr>
+<tr>
+<td>@MainActor struct MyStruct {}</td>
+<td><strong>整个结构体</strong> 的方法和属性都在 <strong>主线程</strong> 上执行</td>
+</tr>
+<tr>
+<td>@MainActor func myFunction() {}</td>
+<td><strong>单独一个方法</strong> 在 <strong>主线程</strong> 上执行</td>
+</tr>
+<tr>
+<td>@MainActor var myProperty &#x3D; “”</td>
+<td><strong>单个属性</strong> 只能在 <strong>主线程</strong> 访问</td>
+</tr>
+<tr>
+<td>await MainActor.run {}</td>
+<td><strong>在某个代码块</strong> 内切换到 <strong>主线程</strong></td>
+</tr>
+</tbody></table>
+<p>如果你的 <code>ViewModel</code> 里有多个 <code>@Published</code> 属性，或者大量 UI 相关的代码，建议直接给整个类加 <code>@MainActor</code>，这样代码更干净，不需要在每个地方都 <code>await MainActor.run &#123;&#125;</code>。</p>
+<p>💡 <strong>最佳实践</strong>：</p>
+<ul>
+<li>处理 UI 相关数据时，加 <code>@MainActor</code>，确保所有 UI 代码在主线程执行。</li>
+<li>网络请求、数据处理等可以在后台线程进行，等到需要更新 UI 时再 <code>await MainActor.run &#123;&#125;</code> 切换到主线程。</li>
+</ul>
+<p>你可以根据具体需求来决定 <strong>修饰整个类 &#x2F; 结构体，还是单独修饰方法、属性</strong>。希望这些例子能帮助你理解 <code>@MainActor</code> 的用法！🚀</p>
+<h1 id="“-MainActor-使得代码能够在-主线程-上执行，从而避免在并发操作中直接更新-UI-的问题，保证了线程安全和-UI-的一致性。”的解释"><a href="#“-MainActor-使得代码能够在-主线程-上执行，从而避免在并发操作中直接更新-UI-的问题，保证了线程安全和-UI-的一致性。”的解释" class="headerlink" title="“@MainActor 使得代码能够在 主线程 上执行，从而避免在并发操作中直接更新 UI 的问题，保证了线程安全和 UI 的一致性。”的解释"></a>“@MainActor 使得代码能够在 主线程 上执行，从而避免在并发操作中直接更新 UI 的问题，保证了线程安全和 UI 的一致性。”的解释</h1><p>理解 <code>@MainActor</code> 需要先明白两个重要概念：</p>
+<ol>
+<li><strong>主线程（Main Thread）</strong></li>
+</ol>
+<ul>
+<li>在 iOS&#x2F;macOS 应用中，<strong>主线程主要用于 UI 更新</strong>。</li>
+<li>如果你在后台线程更新 UI，可能会导致 <strong>界面不响应、崩溃</strong> 或 <strong>数据不一致</strong>。</li>
+</ul>
+<ol start="2">
+<li><strong>Swift Concurrency（并发编程）</strong></li>
+</ol>
+<ul>
+<li><code>async/await</code> 允许你在 <strong>多个线程</strong> 之间切换，提高应用性能。</li>
+<li>但如果在后台线程直接修改 UI，可能会导致 <strong>线程安全问题</strong>。</li>
+</ul>
+<h3 id="为什么不能在后台线程更新-UI？"><a href="#为什么不能在后台线程更新-UI？" class="headerlink" title="为什么不能在后台线程更新 UI？"></a><strong>为什么不能在后台线程更新 UI？</strong></h3><p>假设你从服务器获取数据，并在异步任务中更新 <code>UILabel</code>，如果这个操作在<strong>后台线程</strong>执行，可能会出现问题。</p>
+<p><strong>错误示例（没有回到主线程更新 UI）：</strong></p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">fetchData</span>() <span class="keyword">async</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> url <span class="operator">=</span> <span class="type">URL</span>(string: <span class="string">&quot;https://example.com/data&quot;</span>)<span class="operator">!</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> (data, <span class="keyword">_</span>) <span class="operator">=</span> <span class="keyword">try</span> <span class="keyword">await</span> <span class="type">URLSession</span>.shared.data(from: url)</span><br><span class="line">        <span class="keyword">let</span> text <span class="operator">=</span> <span class="type">String</span>(data: data, encoding: .utf8) <span class="operator">??</span> <span class="string">&quot;加载失败&quot;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// ❌ 直接在后台线程更新 UI，可能导致崩溃</span></span><br><span class="line">        label.text <span class="operator">=</span> text  </span><br><span class="line">    &#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;数据获取失败: <span class="subst">\(error)</span>&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>在 Swift 中，<code>URLSession.shared.data(from:)</code> <strong>默认在后台线程执行</strong>。如果 <code>label.text = text</code> 也是在后台线程执行，可能会导致 <strong>UI 崩溃</strong>，因为 UIKit 只能在主线程上操作。</p>
+<h3 id="如何用-MainActor-解决这个问题？"><a href="#如何用-MainActor-解决这个问题？" class="headerlink" title="如何用 @MainActor 解决这个问题？"></a><strong>如何用 @MainActor 解决这个问题？</strong></h3><p><code>@MainActor</code> 让代码<strong>始终在主线程上执行</strong>，确保 UI 更新的安全性。</p>
+<h4 id="方法-1：给整个类加-MainActor"><a href="#方法-1：给整个类加-MainActor" class="headerlink" title="方法 1：给整个类加 @MainActor"></a><strong>方法 1：给整个类加 @MainActor</strong></h4><figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="meta">@MainActor</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> text: <span class="type">String</span> <span class="operator">=</span> <span class="string">&quot;加载中...&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">fetchData</span>() <span class="keyword">async</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> url <span class="operator">=</span> <span class="type">URL</span>(string: <span class="string">&quot;https://example.com/data&quot;</span>)<span class="operator">!</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> (data, <span class="keyword">_</span>) <span class="operator">=</span> <span class="keyword">try</span> <span class="keyword">await</span> <span class="type">URLSession</span>.shared.data(from: url)</span><br><span class="line">            <span class="keyword">let</span> newText <span class="operator">=</span> <span class="type">String</span>(data: data, encoding: .utf8) <span class="operator">??</span> <span class="string">&quot;加载失败&quot;</span></span><br><span class="line">            </span><br><span class="line">            text <span class="operator">=</span> newText  <span class="comment">// ✅ @MainActor 让这行代码在主线程执行</span></span><br><span class="line">        &#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">            text <span class="operator">=</span> <span class="string">&quot;获取失败&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>✅ 这里 <code>text = newText</code> <strong>一定会在主线程上执行</strong>，不会导致 UI 崩溃。<br>✅ <strong>整个 ViewModel 都在主线程执行</strong>，不用担心线程安全问题。</p>
+<h4 id="方法-2：只修饰-fetchData"><a href="#方法-2：只修饰-fetchData" class="headerlink" title="方法 2：只修饰 fetchData()"></a><strong>方法 2：只修饰 fetchData()</strong></h4><p>如果你不想让整个 <code>ViewModel</code> 在主线程运行，只想确保 UI 更新在主线程执行，可以这样做：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> text: <span class="type">String</span> <span class="operator">=</span> <span class="string">&quot;加载中...&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">fetchData</span>() <span class="keyword">async</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> url <span class="operator">=</span> <span class="type">URL</span>(string: <span class="string">&quot;https://example.com/data&quot;</span>)<span class="operator">!</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> (data, <span class="keyword">_</span>) <span class="operator">=</span> <span class="keyword">try</span> <span class="keyword">await</span> <span class="type">URLSession</span>.shared.data(from: url)</span><br><span class="line">            <span class="keyword">let</span> newText <span class="operator">=</span> <span class="type">String</span>(data: data, encoding: .utf8) <span class="operator">??</span> <span class="string">&quot;加载失败&quot;</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">await</span> updateText(newText)  <span class="comment">// ✅ 确保在主线程执行 UI 更新</span></span><br><span class="line">        &#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">            <span class="keyword">await</span> updateText(<span class="string">&quot;获取失败&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@MainActor</span></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">updateText</span>(<span class="keyword">_</span> <span class="params">newText</span>: <span class="type">String</span>) &#123;</span><br><span class="line">        text <span class="operator">=</span> newText  <span class="comment">// ✅ 这行代码一定会在主线程执行</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>✅ 这里 <code>fetchData()</code> 可以在后台线程执行，提高性能。<br>✅ 只有 <code>updateText(_:)</code> <strong>必须在主线程</strong>，保证 UI 更新的安全性。</p>
+<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a><strong>总结</strong></h3><ol>
+<li><strong>为什么 UI 更新必须在主线程？</strong></li>
+</ol>
+<ul>
+<li>UIKit 和 SwiftUI <strong>不支持在后台线程更新 UI</strong>，否则可能会崩溃或界面异常。</li>
+</ul>
+<ol start="2">
+<li><strong>@MainActor 如何解决 UI 线程问题？</strong></li>
+</ol>
+<ul>
+<li><strong>保证修饰的代码（类、方法、属性）始终在主线程执行</strong>，防止 UI 崩溃。</li>
+</ul>
+<ol start="3">
+<li><strong>如何使用 @MainActor？</strong></li>
+</ol>
+<ul>
+<li><strong>方法 1</strong>：如果整个 <code>ViewModel</code> 都会更新 UI，直接 <code>@MainActor</code> 修饰类。</li>
+<li><strong>方法 2</strong>：如果只有部分方法需要在主线程执行，给这些方法加 <code>@MainActor</code>。</li>
+</ul>
+<p>这样，你就能在 Swift 的并发环境下，<strong>安全地更新 UI，而不会发生线程安全问题</strong>！🚀</p>
+]]></content>
   </entry>
   <entry>
     <title>swift中async/await工作原理</title>
@@ -4734,60 +4923,45 @@
       </tags>
   </entry>
   <entry>
-    <title>在xcode上通过swift语言编写的ios程序在编译过程中计算机背后发生了什么</title>
-    <url>/2025/03/02/%E5%9C%A8xcode%E4%B8%8A%E9%80%9A%E8%BF%87swift%E8%AF%AD%E8%A8%80%E7%BC%96%E5%86%99%E7%9A%84ios%E7%A8%8B%E5%BA%8F%E5%9C%A8%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%83%8C%E5%90%8E%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/</url>
-    <content><![CDATA[<h1 id="在xcode上通过swift语言编写的ios程序在编译过程中计算机背后发生了什么"><a href="#在xcode上通过swift语言编写的ios程序在编译过程中计算机背后发生了什么" class="headerlink" title="在xcode上通过swift语言编写的ios程序在编译过程中计算机背后发生了什么"></a>在xcode上通过swift语言编写的ios程序在编译过程中计算机背后发生了什么</h1><p> 在 Xcode 上使用 Swift 编写的 iOS 应用在编译过程中，计算机背后发生了一系列复杂的步骤，主要包括以下几个阶段：</p>
-<h3 id="1-代码解析（Lexing-amp-Parsing）"><a href="#1-代码解析（Lexing-amp-Parsing）" class="headerlink" title="1. 代码解析（Lexing &amp; Parsing）"></a>1. <strong>代码解析（Lexing &amp; Parsing）</strong></h3><ul>
-<li>Swift 源代码首先会经过 <strong>词法分析（Lexing）</strong>，Swift 编译器（Swift Compiler，swiftc）会将代码拆解成一系列的 <strong>标记（Tokens）</strong>，如关键字、标识符、操作符等。</li>
-<li>之后，<strong>语法解析（Parsing）</strong> 会将这些 Tokens 组织成 <strong>抽象语法树（AST, Abstract Syntax Tree）</strong>，这是一种结构化的代码表示形式，能帮助编译器理解代码的层次结构。</li>
+    <title>swift错误处理机制</title>
+    <url>/2025/03/02/swift%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6/</url>
+    <content><![CDATA[<h1 id="swift-错误处理机制"><a href="#swift-错误处理机制" class="headerlink" title="swift 错误处理机制"></a>swift 错误处理机制</h1><p> Swift 的错误处理（Error Handling）采用了 <strong>throw、try、catch</strong> 机制，类似于其他语言（如 Python、Java）的异常处理，但 Swift 更加严格，要求显式处理错误。其核心原理如下：</p>
+<h3 id="1-定义错误类型"><a href="#1-定义错误类型" class="headerlink" title="1. 定义错误类型"></a>1. <strong>定义错误类型</strong></h3><p>Swift 的错误类型需要遵循 <code>Error</code> 协议，通常用 <code>enum</code> 来定义：</p>
+<span id="more"></span>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">VideoError</span>: <span class="title class_">Error</span> &#123;</span><br><span class="line">    <span class="keyword">case</span> fileNotFound</span><br><span class="line">    <span class="keyword">case</span> invalidFormat</span><br><span class="line">    <span class="keyword">case</span> networkError(message: <span class="type">String</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-抛出错误（throw）"><a href="#2-抛出错误（throw）" class="headerlink" title="2. 抛出错误（throw）"></a>2. <strong>抛出错误（throw）</strong></h3><p>使用 <code>throw</code> 关键字来抛出错误：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">loadVideo</span>(<span class="params">filename</span>: <span class="type">String</span>) <span class="keyword">throws</span> &#123;</span><br><span class="line">    <span class="keyword">guard</span> filename.hasSuffix(<span class="string">&quot;.mp4&quot;</span>) <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="type">VideoError</span>.invalidFormat</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 其他处理逻辑...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-捕获错误（do-catch）"><a href="#3-捕获错误（do-catch）" class="headerlink" title="3. 捕获错误（do-catch）"></a>3. <strong>捕获错误（do-catch）</strong></h3><p>调用可能抛出错误的函数时，需要使用 <code>try</code> 关键字，并用 <code>do-catch</code> 捕获错误：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> loadVideo(filename: <span class="string">&quot;video.avi&quot;</span>)</span><br><span class="line">&#125; <span class="keyword">catch</span> <span class="type">VideoError</span>.invalidFormat &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;错误：视频格式不正确&quot;</span>)</span><br><span class="line">&#125; <span class="keyword">catch</span> <span class="type">VideoError</span>.fileNotFound &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;错误：文件未找到&quot;</span>)</span><br><span class="line">&#125; <span class="keyword">catch</span> <span class="keyword">let</span> <span class="type">VideoError</span>.networkError(message) &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;网络错误：<span class="subst">\(message)</span>&quot;</span>)</span><br><span class="line">&#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;发生了未知错误：<span class="subst">\(error)</span>&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-可选-try-（转换为-nil）"><a href="#4-可选-try-（转换为-nil）" class="headerlink" title="4. 可选 try?（转换为 nil）"></a>4. <strong>可选 try?（转换为 nil）</strong></h3><p>如果不关心具体错误，只想在失败时返回 <code>nil</code>，可以使用 <code>try?</code>：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> result <span class="operator">=</span> <span class="keyword">try?</span> loadVideo(filename: <span class="string">&quot;video.avi&quot;</span>) <span class="comment">// 失败时 result 为 nil</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-强制-try-（不推荐）"><a href="#5-强制-try-（不推荐）" class="headerlink" title="5. 强制 try!（不推荐）"></a>5. <strong>强制 try!（不推荐）</strong></h3><p>如果确定不会发生错误，可以使用 <code>try!</code>，但如果出错会直接导致程序崩溃：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> result <span class="operator">=</span> <span class="keyword">try!</span> loadVideo(filename: <span class="string">&quot;video.mp4&quot;</span>) <span class="comment">// 发生错误会崩溃</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="6-throws-关键字不会传播到-closure-外部"><a href="#6-throws-关键字不会传播到-closure-外部" class="headerlink" title="6. throws 关键字不会传播到 closure 外部"></a>6. <strong>throws 关键字不会传播到 closure 外部</strong></h3><p>在 <code>closure</code> 内部使用 <code>throws</code> 需要额外处理，例如：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> operation <span class="operator">=</span> &#123; (filename: <span class="type">String</span>) <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">try?</span> loadVideo(filename: filename)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果闭包本身需要 <code>throws</code>，则要显式声明：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> operation: (<span class="type">String</span>) <span class="keyword">throws</span> -&gt; <span class="type">Void</span> <span class="operator">=</span> &#123; filename <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">try</span> loadVideo(filename: filename)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-defer-处理资源释放"><a href="#7-defer-处理资源释放" class="headerlink" title="7. defer 处理资源释放"></a>7. <strong>defer 处理资源释放</strong></h3><p>Swift 提供 <code>defer</code> 关键字，无论是否抛出错误，都会在函数退出前执行：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">processVideo</span>(<span class="params">filename</span>: <span class="type">String</span>) <span class="keyword">throws</span> &#123;</span><br><span class="line">    <span class="keyword">defer</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;释放资源&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">try</span> loadVideo(filename: filename)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><ul>
+<li>throws 用于声明可能抛出错误的函数</li>
+<li>throw 用于抛出错误</li>
+<li>try 关键字调用 throws 方法，配合 do-catch 处理错误</li>
+<li>try? 将错误转换为 nil</li>
+<li>try! 忽略错误（慎用）</li>
+<li>defer 适用于资源释放<br>这种错误处理机制让 Swift 代码更加安全，避免了许多隐藏的异常问题。</li>
 </ul>
-<h3 id="2-语义分析（Semantic-Analysis）"><a href="#2-语义分析（Semantic-Analysis）" class="headerlink" title="2. 语义分析（Semantic Analysis）"></a>2. <strong>语义分析（Semantic Analysis）</strong></h3><span id="more"></span>
-<ul>
-<li>编译器会检查代码的语义，比如类型检查、变量作用域、函数调用的匹配等。</li>
-<li>Swift 使用 <strong>类型推导</strong>，因此编译器会尝试推断变量和表达式的类型。</li>
-<li>此外，Swift 采用了 <strong>自动内存管理（ARC, Automatic Reference Counting）</strong>，所以编译器会在这个阶段插入合适的 retain&#x2F;release 代码来管理对象的生命周期。</li>
-</ul>
-<h3 id="3-中间表示（IR-Intermediate-Representation）生成"><a href="#3-中间表示（IR-Intermediate-Representation）生成" class="headerlink" title="3. 中间表示（IR, Intermediate Representation）生成"></a>3. <strong>中间表示（IR, Intermediate Representation）生成</strong></h3><ul>
-<li>经过语义分析后，Swift 代码会被转换为 <strong>LLVM IR（Intermediate Representation）</strong>，一种低级但仍可读的中间语言。</li>
-<li>LLVM IR 是跨平台的，并且可以被进一步优化。</li>
-</ul>
-<h3 id="4-优化（Optimization）"><a href="#4-优化（Optimization）" class="headerlink" title="4. 优化（Optimization）"></a>4. <strong>优化（Optimization）</strong></h3><ul>
-<li>LLVM 进行各种优化，比如：<strong>常量折叠（Constant Folding）</strong>：计算编译时可确定的表达式，减少运行时计算量。<strong>内联展开（Function Inlining）</strong>：将小函数的调用替换为实际的函数体，以减少函数调用的开销。<strong>死代码消除（Dead Code Elimination）</strong>：移除未使用的代码，以减小最终二进制文件的体积。</li>
-</ul>
-<h3 id="5-目标代码生成（Code-Generation）"><a href="#5-目标代码生成（Code-Generation）" class="headerlink" title="5. 目标代码生成（Code Generation）"></a>5. <strong>目标代码生成（Code Generation）</strong></h3><ul>
-<li>LLVM IR 被转换为特定架构的 <strong>汇编代码</strong>（比如 ARM64 用于 iPhone）。</li>
-<li>汇编代码进一步转换为 <strong>机器码（Machine Code）</strong>，这个阶段称为 <strong>汇编（Assembling）</strong>，最终生成可执行文件。</li>
-</ul>
-<h3 id="6-链接（Linking）"><a href="#6-链接（Linking）" class="headerlink" title="6. 链接（Linking）"></a>6. <strong>链接（Linking）</strong></h3><ul>
-<li>生成的目标文件（.o 文件）会与标准库（如 Swift 标准库、UIKit 框架等）和第三方库链接，形成最终的 <strong>可执行文件</strong>。</li>
-<li>如果项目包含 Swift 的动态库（如 swiftCore），Xcode 还需要处理 Swift 运行时的动态链接。</li>
-</ul>
-<h3 id="7-代码签名（Code-Signing）"><a href="#7-代码签名（Code-Signing）" class="headerlink" title="7. 代码签名（Code Signing）"></a>7. <strong>代码签名（Code Signing）</strong></h3><ul>
-<li>iOS 应用必须经过 <strong>代码签名</strong> 才能在设备上运行。Xcode 会使用开发者的证书对应用进行签名，以确保应用的完整性和安全性。</li>
-</ul>
-<h3 id="8-打包（Packaging）"><a href="#8-打包（Packaging）" class="headerlink" title="8. 打包（Packaging）"></a>8. <strong>打包（Packaging）</strong></h3><ul>
-<li>Xcode 生成 .app 包，并将所有资源（图片、音频、Storyboard、Plist 文件等）打包到 IPA（iOS 应用包）中。</li>
-</ul>
-<h3 id="9-模拟器或真机部署"><a href="#9-模拟器或真机部署" class="headerlink" title="9. 模拟器或真机部署"></a>9. <strong>模拟器或真机部署</strong></h3><ul>
-<li>如果选择在 <strong>模拟器</strong> 运行，Xcode 会编译适用于 x86_64 架构的代码。</li>
-<li>如果选择在 <strong>真机</strong> 运行，Xcode 会编译适用于 ARM64 架构的代码，并通过 USB 或无线方式安装到 iPhone 上。</li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>整个编译流程从 Swift 源代码到可执行文件大致经历：</p>
-<ol>
-<li><strong>词法 &amp; 语法分析</strong>（构造 AST）</li>
-<li><strong>语义分析 &amp; 类型检查</strong></li>
-<li><strong>LLVM IR 生成</strong></li>
-<li><strong>优化</strong></li>
-<li><strong>目标代码生成</strong></li>
-<li><strong>链接</strong></li>
-<li><strong>代码签名</strong></li>
-<li><strong>打包</strong></li>
-<li><strong>部署到设备</strong><br>这个过程中，Swift 编译器（<code>swiftc</code>）、LLVM、Xcode 构建系统、链接器（<code>ld</code>）等多个工具协同工作，最终将 Swift 代码转换为 iOS 设备可运行的应用。</li>
-</ol>
 ]]></content>
       <tags>
         <tag>swift编程</tag>
-        <tag>编程原理</tag>
       </tags>
   </entry>
   <entry>
@@ -4853,6 +5027,63 @@
       <tags>
         <tag>swift编程</tag>
         <tag>xcode技巧</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在xcode上通过swift语言编写的ios程序在编译过程中计算机背后发生了什么</title>
+    <url>/2025/03/02/%E5%9C%A8xcode%E4%B8%8A%E9%80%9A%E8%BF%87swift%E8%AF%AD%E8%A8%80%E7%BC%96%E5%86%99%E7%9A%84ios%E7%A8%8B%E5%BA%8F%E5%9C%A8%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%83%8C%E5%90%8E%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/</url>
+    <content><![CDATA[<h1 id="在xcode上通过swift语言编写的ios程序在编译过程中计算机背后发生了什么"><a href="#在xcode上通过swift语言编写的ios程序在编译过程中计算机背后发生了什么" class="headerlink" title="在xcode上通过swift语言编写的ios程序在编译过程中计算机背后发生了什么"></a>在xcode上通过swift语言编写的ios程序在编译过程中计算机背后发生了什么</h1><p> 在 Xcode 上使用 Swift 编写的 iOS 应用在编译过程中，计算机背后发生了一系列复杂的步骤，主要包括以下几个阶段：</p>
+<h3 id="1-代码解析（Lexing-amp-Parsing）"><a href="#1-代码解析（Lexing-amp-Parsing）" class="headerlink" title="1. 代码解析（Lexing &amp; Parsing）"></a>1. <strong>代码解析（Lexing &amp; Parsing）</strong></h3><ul>
+<li>Swift 源代码首先会经过 <strong>词法分析（Lexing）</strong>，Swift 编译器（Swift Compiler，swiftc）会将代码拆解成一系列的 <strong>标记（Tokens）</strong>，如关键字、标识符、操作符等。</li>
+<li>之后，<strong>语法解析（Parsing）</strong> 会将这些 Tokens 组织成 <strong>抽象语法树（AST, Abstract Syntax Tree）</strong>，这是一种结构化的代码表示形式，能帮助编译器理解代码的层次结构。</li>
+</ul>
+<h3 id="2-语义分析（Semantic-Analysis）"><a href="#2-语义分析（Semantic-Analysis）" class="headerlink" title="2. 语义分析（Semantic Analysis）"></a>2. <strong>语义分析（Semantic Analysis）</strong></h3><span id="more"></span>
+<ul>
+<li>编译器会检查代码的语义，比如类型检查、变量作用域、函数调用的匹配等。</li>
+<li>Swift 使用 <strong>类型推导</strong>，因此编译器会尝试推断变量和表达式的类型。</li>
+<li>此外，Swift 采用了 <strong>自动内存管理（ARC, Automatic Reference Counting）</strong>，所以编译器会在这个阶段插入合适的 retain&#x2F;release 代码来管理对象的生命周期。</li>
+</ul>
+<h3 id="3-中间表示（IR-Intermediate-Representation）生成"><a href="#3-中间表示（IR-Intermediate-Representation）生成" class="headerlink" title="3. 中间表示（IR, Intermediate Representation）生成"></a>3. <strong>中间表示（IR, Intermediate Representation）生成</strong></h3><ul>
+<li>经过语义分析后，Swift 代码会被转换为 <strong>LLVM IR（Intermediate Representation）</strong>，一种低级但仍可读的中间语言。</li>
+<li>LLVM IR 是跨平台的，并且可以被进一步优化。</li>
+</ul>
+<h3 id="4-优化（Optimization）"><a href="#4-优化（Optimization）" class="headerlink" title="4. 优化（Optimization）"></a>4. <strong>优化（Optimization）</strong></h3><ul>
+<li>LLVM 进行各种优化，比如：<strong>常量折叠（Constant Folding）</strong>：计算编译时可确定的表达式，减少运行时计算量。<strong>内联展开（Function Inlining）</strong>：将小函数的调用替换为实际的函数体，以减少函数调用的开销。<strong>死代码消除（Dead Code Elimination）</strong>：移除未使用的代码，以减小最终二进制文件的体积。</li>
+</ul>
+<h3 id="5-目标代码生成（Code-Generation）"><a href="#5-目标代码生成（Code-Generation）" class="headerlink" title="5. 目标代码生成（Code Generation）"></a>5. <strong>目标代码生成（Code Generation）</strong></h3><ul>
+<li>LLVM IR 被转换为特定架构的 <strong>汇编代码</strong>（比如 ARM64 用于 iPhone）。</li>
+<li>汇编代码进一步转换为 <strong>机器码（Machine Code）</strong>，这个阶段称为 <strong>汇编（Assembling）</strong>，最终生成可执行文件。</li>
+</ul>
+<h3 id="6-链接（Linking）"><a href="#6-链接（Linking）" class="headerlink" title="6. 链接（Linking）"></a>6. <strong>链接（Linking）</strong></h3><ul>
+<li>生成的目标文件（.o 文件）会与标准库（如 Swift 标准库、UIKit 框架等）和第三方库链接，形成最终的 <strong>可执行文件</strong>。</li>
+<li>如果项目包含 Swift 的动态库（如 swiftCore），Xcode 还需要处理 Swift 运行时的动态链接。</li>
+</ul>
+<h3 id="7-代码签名（Code-Signing）"><a href="#7-代码签名（Code-Signing）" class="headerlink" title="7. 代码签名（Code Signing）"></a>7. <strong>代码签名（Code Signing）</strong></h3><ul>
+<li>iOS 应用必须经过 <strong>代码签名</strong> 才能在设备上运行。Xcode 会使用开发者的证书对应用进行签名，以确保应用的完整性和安全性。</li>
+</ul>
+<h3 id="8-打包（Packaging）"><a href="#8-打包（Packaging）" class="headerlink" title="8. 打包（Packaging）"></a>8. <strong>打包（Packaging）</strong></h3><ul>
+<li>Xcode 生成 .app 包，并将所有资源（图片、音频、Storyboard、Plist 文件等）打包到 IPA（iOS 应用包）中。</li>
+</ul>
+<h3 id="9-模拟器或真机部署"><a href="#9-模拟器或真机部署" class="headerlink" title="9. 模拟器或真机部署"></a>9. <strong>模拟器或真机部署</strong></h3><ul>
+<li>如果选择在 <strong>模拟器</strong> 运行，Xcode 会编译适用于 x86_64 架构的代码。</li>
+<li>如果选择在 <strong>真机</strong> 运行，Xcode 会编译适用于 ARM64 架构的代码，并通过 USB 或无线方式安装到 iPhone 上。</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>整个编译流程从 Swift 源代码到可执行文件大致经历：</p>
+<ol>
+<li><strong>词法 &amp; 语法分析</strong>（构造 AST）</li>
+<li><strong>语义分析 &amp; 类型检查</strong></li>
+<li><strong>LLVM IR 生成</strong></li>
+<li><strong>优化</strong></li>
+<li><strong>目标代码生成</strong></li>
+<li><strong>链接</strong></li>
+<li><strong>代码签名</strong></li>
+<li><strong>打包</strong></li>
+<li><strong>部署到设备</strong><br>这个过程中，Swift 编译器（<code>swiftc</code>）、LLVM、Xcode 构建系统、链接器（<code>ld</code>）等多个工具协同工作，最终将 Swift 代码转换为 iOS 设备可运行的应用。</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>swift编程</tag>
+        <tag>编程原理</tag>
       </tags>
   </entry>
   <entry>
@@ -4997,48 +5228,6 @@
       <tags>
         <tag>swift编程</tag>
         <tag>UI框架</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>swift错误处理机制</title>
-    <url>/2025/03/02/swift%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6/</url>
-    <content><![CDATA[<h1 id="swift-错误处理机制"><a href="#swift-错误处理机制" class="headerlink" title="swift 错误处理机制"></a>swift 错误处理机制</h1><p> Swift 的错误处理（Error Handling）采用了 <strong>throw、try、catch</strong> 机制，类似于其他语言（如 Python、Java）的异常处理，但 Swift 更加严格，要求显式处理错误。其核心原理如下：</p>
-<h3 id="1-定义错误类型"><a href="#1-定义错误类型" class="headerlink" title="1. 定义错误类型"></a>1. <strong>定义错误类型</strong></h3><p>Swift 的错误类型需要遵循 <code>Error</code> 协议，通常用 <code>enum</code> 来定义：</p>
-<span id="more"></span>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">VideoError</span>: <span class="title class_">Error</span> &#123;</span><br><span class="line">    <span class="keyword">case</span> fileNotFound</span><br><span class="line">    <span class="keyword">case</span> invalidFormat</span><br><span class="line">    <span class="keyword">case</span> networkError(message: <span class="type">String</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-抛出错误（throw）"><a href="#2-抛出错误（throw）" class="headerlink" title="2. 抛出错误（throw）"></a>2. <strong>抛出错误（throw）</strong></h3><p>使用 <code>throw</code> 关键字来抛出错误：</p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">loadVideo</span>(<span class="params">filename</span>: <span class="type">String</span>) <span class="keyword">throws</span> &#123;</span><br><span class="line">    <span class="keyword">guard</span> filename.hasSuffix(<span class="string">&quot;.mp4&quot;</span>) <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="type">VideoError</span>.invalidFormat</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 其他处理逻辑...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-捕获错误（do-catch）"><a href="#3-捕获错误（do-catch）" class="headerlink" title="3. 捕获错误（do-catch）"></a>3. <strong>捕获错误（do-catch）</strong></h3><p>调用可能抛出错误的函数时，需要使用 <code>try</code> 关键字，并用 <code>do-catch</code> 捕获错误：</p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> loadVideo(filename: <span class="string">&quot;video.avi&quot;</span>)</span><br><span class="line">&#125; <span class="keyword">catch</span> <span class="type">VideoError</span>.invalidFormat &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;错误：视频格式不正确&quot;</span>)</span><br><span class="line">&#125; <span class="keyword">catch</span> <span class="type">VideoError</span>.fileNotFound &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;错误：文件未找到&quot;</span>)</span><br><span class="line">&#125; <span class="keyword">catch</span> <span class="keyword">let</span> <span class="type">VideoError</span>.networkError(message) &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;网络错误：<span class="subst">\(message)</span>&quot;</span>)</span><br><span class="line">&#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;发生了未知错误：<span class="subst">\(error)</span>&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-可选-try-（转换为-nil）"><a href="#4-可选-try-（转换为-nil）" class="headerlink" title="4. 可选 try?（转换为 nil）"></a>4. <strong>可选 try?（转换为 nil）</strong></h3><p>如果不关心具体错误，只想在失败时返回 <code>nil</code>，可以使用 <code>try?</code>：</p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> result <span class="operator">=</span> <span class="keyword">try?</span> loadVideo(filename: <span class="string">&quot;video.avi&quot;</span>) <span class="comment">// 失败时 result 为 nil</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="5-强制-try-（不推荐）"><a href="#5-强制-try-（不推荐）" class="headerlink" title="5. 强制 try!（不推荐）"></a>5. <strong>强制 try!（不推荐）</strong></h3><p>如果确定不会发生错误，可以使用 <code>try!</code>，但如果出错会直接导致程序崩溃：</p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> result <span class="operator">=</span> <span class="keyword">try!</span> loadVideo(filename: <span class="string">&quot;video.mp4&quot;</span>) <span class="comment">// 发生错误会崩溃</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="6-throws-关键字不会传播到-closure-外部"><a href="#6-throws-关键字不会传播到-closure-外部" class="headerlink" title="6. throws 关键字不会传播到 closure 外部"></a>6. <strong>throws 关键字不会传播到 closure 外部</strong></h3><p>在 <code>closure</code> 内部使用 <code>throws</code> 需要额外处理，例如：</p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> operation <span class="operator">=</span> &#123; (filename: <span class="type">String</span>) <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">try?</span> loadVideo(filename: filename)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>如果闭包本身需要 <code>throws</code>，则要显式声明：</p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> operation: (<span class="type">String</span>) <span class="keyword">throws</span> -&gt; <span class="type">Void</span> <span class="operator">=</span> &#123; filename <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">try</span> loadVideo(filename: filename)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="7-defer-处理资源释放"><a href="#7-defer-处理资源释放" class="headerlink" title="7. defer 处理资源释放"></a>7. <strong>defer 处理资源释放</strong></h3><p>Swift 提供 <code>defer</code> 关键字，无论是否抛出错误，都会在函数退出前执行：</p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">processVideo</span>(<span class="params">filename</span>: <span class="type">String</span>) <span class="keyword">throws</span> &#123;</span><br><span class="line">    <span class="keyword">defer</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;释放资源&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">try</span> loadVideo(filename: filename)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><ul>
-<li>throws 用于声明可能抛出错误的函数</li>
-<li>throw 用于抛出错误</li>
-<li>try 关键字调用 throws 方法，配合 do-catch 处理错误</li>
-<li>try? 将错误转换为 nil</li>
-<li>try! 忽略错误（慎用）</li>
-<li>defer 适用于资源释放<br>这种错误处理机制让 Swift 代码更加安全，避免了许多隐藏的异常问题。</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>swift编程</tag>
       </tags>
   </entry>
   <entry>
