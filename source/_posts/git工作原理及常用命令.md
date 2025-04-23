@@ -208,3 +208,129 @@ project/
 
 通常，如果你在 Xcode 中工作，`xcode stageall` 是一种便捷的方式来进行版本控制，尤其是当你有很多更改时。
 
+
+
+# Xcode中的git设置与原生git的一些区别
+
+## Stash Changes 在xcode中的git 是什么作用
+
+在 Xcode 中，`Stash Changes`（隐藏变更）是 Git 的一个功能，用于**临时保存当前工作目录的修改**，以便你可以切换分支或做其他操作而不会丢失这些修改。
+
+
+### 通俗理解：
+
+
+当你正在修改代码，但临时需要切换到另一个分支（比如去修个紧急 bug），但是你又 **不想提交当前的改动**，这时候就可以使用 `Stash Changes`：
+
+
+- 它会把你当前的改动（包括未提交的代码修改和新增的文件）“藏”起来。
+- 然后你就可以切换分支或执行其他 Git 操作。
+- 等你忙完回来之后，可以用 `Apply Stash` 或 `Pop Stash` 恢复这些改动，继续你的工作。
+
+
+### 在 Xcode 中的具体操作：
+
+
+1. 打开 Xcode 的 Source Control（版本控制）菜单。
+2. 选择 `Stash Changes...`
+3. 输入备注（可选），点击 Stash。
+4. 之后你可以在 `Source Control` → `Stashes` 里查看、恢复、或删除之前保存的变更。
+
+
+### 对比：
+
+
+| 操作 | 描述 |
+| ---- | ---- |
+| Commit | 提交到本地仓库，有记录 |
+| Discard Changes | 丢弃修改，无法恢复 |
+| Stash Changes | 暂存修改，随时可恢复，不提交 |
+
+
+
+如果你习惯命令行，其等价命令是：
+
+
+```bash
+git stash
+git stash list
+git stash apply  # 恢复但保留 stash
+git stash pop    # 恢复并删除 stash
+```
+
+
+
+
+## 在xcode的sourcecontrol 设置ignored files 与 使用 .gitignore 文件的区别
+
+虽然两种方式**看起来都能忽略文件**，但它们背后的实现方式和适用场景完全不同。下面我就结合 **Xcode 的 Source Control 设置界面** 和 **.gitignore 文件的使用**，给你做一个详细对比。
+
+
+
+## ✅ 一、在 Xcode 的 Source Control 中设置 Ignored Files
+
+
+### 背后原理：
+
+
+其实这不是修改 `.gitignore` 文件，而是修改了 Git 的本地排除文件：
+
+
+```pgsql
+.git/info/exclude
+```
+
+
+### 主要特点：
+
+
+| 项目 | 描述 |
+| ---- | ---- |
+| 🎯 **作用范围** | **仅在本地生效**，不会影响别人的 Git 行为 |
+| 📁 **文件位置** | Git 仓库的 .git/info/exclude（不受版本控制） |
+| 🧑‍💻 **适合场景** | 临时性的、本地的、不需要别人也忽略的文件（如调试日志、本地脚本） |
+| 👀 **设置方式** | 在 Xcode 的 Source Control &gt; Ignore 里操作，属于 GUI 层面 |
+| 🔄 **不会自动同步** | 因为不提交到仓库，团队成员无法感知你忽略了什么 |
+
+
+
+## ✅ 二、使用 .gitignore 文件
+
+
+### 背后原理：
+
+
+`.gitignore` 是一个普通文件，放在仓库里，由 Git 跟踪。
+
+
+### 主要特点：
+
+
+| 项目 | 描述 |
+| ---- | ---- |
+| 🌍 **作用范围** | **全团队通用**，任何克隆仓库的人都会继承这些规则 |
+| 📁 **文件位置** | 通常放在项目根目录，或子目录下 |
+| 🧑‍🤝‍🧑 **适合场景** | 项目中应该被所有人忽略的文件，例如 .xcworkspace、Pods/、DerivedData/ 等 |
+| 🔧 **设置方式** | 手动创建或编辑 .gitignore 文件 |
+| ✅ **可以提交** | 是 Git 版本控制的一部分，可协作、回滚、审查 |
+
+
+
+## 🔁 总结对比表：
+
+
+| 比较点 | .gitignore | Xcode Source Control 的 Ignored Files |
+| ---- | ---- | ---- |
+| 生效范围 | 全团队共享 | 仅你本地 |
+| 文件位置 | 项目内，版本控制 | .git/info/exclude，不版本控制 |
+| 推荐用途 | 项目应当统一忽略的内容 | 个人临时、本地特有的忽略文件 |
+| 设置方式 | 手动写文件 | 图形化勾选 |
+| 是否推荐用于协作项目 | ✅ 推荐 | ❌ 不推荐，仅限个人使用 |
+
+
+
+## 🧠 小贴士：
+
+
+- **你设置的 Source Control Ignored Files，并不会写入 .gitignore**，两者不会互相影响。
+- 如果你已经添加到 Git 版本控制了，再 ignore 是无效的，需要先 `git rm --cached`。
