@@ -193,6 +193,410 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/23/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%88%86%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="You Find Your Own Tree.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/04/23/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%88%86%E7%B1%BB/" class="post-title-link" itemprop="url">软件开发测试的基本分类</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-04-23 14:50:22 / 修改时间：15:53:55" itemprop="dateCreated datePublished" datetime="2025-04-23T14:50:22+09:00">2025-04-23</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="unit-test、integration-test、UI-test、performance-test-的区别与联系"><a href="#unit-test、integration-test、UI-test、performance-test-的区别与联系" class="headerlink" title="unit test、integration test、UI test、performance test 的区别与联系"></a>unit test、integration test、UI test、performance test 的区别与联系</h1><p>这些测试类型都是软件测试体系中的重要组成部分，各自有不同的侧重点，下面是它们的 <strong>区别与联系</strong>：</p>
+<h2 id="✅-一、区别"><a href="#✅-一、区别" class="headerlink" title="✅ 一、区别"></a>✅ 一、区别</h2><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>测试对象&#x2F;范围</th>
+<th>目的</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Unit Test</strong> （单元测试）</td>
+<td>单个函数或类等最小功能单元</td>
+<td>验证最小逻辑单元是否按预期运行</td>
+<td>测试一个函数是否正确计算两个数的和</td>
+</tr>
+<tr>
+<td><strong>Integration Test</strong> （集成测试）</td>
+<td>多个模块或服务之间的交互</td>
+<td>检查模块之间的接口、依赖是否正确集成</td>
+<td>测试数据库访问模块和业务逻辑模块的集成</td>
+</tr>
+<tr>
+<td><strong>UI Test</strong> （用户界面测试）</td>
+<td>完整的前端界面及用户操作流程</td>
+<td>验证 UI 展示正确、用户交互是否符合预期</td>
+<td>自动点击按钮并验证跳转页面正确</td>
+</tr>
+<tr>
+<td><strong>Performance Test</strong>（性能测试）</td>
+<td>整个系统或关键模块</td>
+<td>验证系统的响应时间、并发处理能力、稳定性等</td>
+<td>压测登录接口支持多少 QPS（每秒请求）</td>
+</tr>
+</tbody></table>
+<h2 id="🔗-二、联系"><a href="#🔗-二、联系" class="headerlink" title="🔗 二、联系"></a>🔗 二、联系</h2><ul>
+<li><strong>从小到大</strong>：这些测试往往从底层单元测试逐步扩展：</li>
+</ul>
+<p>单元测试 → 集成测试 → UI测试 → 性能测试</p>
+<ul>
+<li><strong>测试金字塔</strong>：在实际开发中，推荐的测试结构像金字塔一样：</li>
+</ul>
+<p>底层大量单元测试（快、稳定）</p>
+<p>中层适量集成测试</p>
+<p>顶层少量 UI 测试（慢、易碎）</p>
+<ul>
+<li><strong>都是保障质量的手段</strong>，侧重点不同，但都服务于：</li>
+</ul>
+<p>提高代码质量</p>
+<p>发现 bug</p>
+<p>降低回归测试成本</p>
+<p>支持持续集成&#x2F;持续部署（CI&#x2F;CD）</p>
+<h2 id="📌-类比记忆法"><a href="#📌-类比记忆法" class="headerlink" title="📌 类比记忆法"></a>📌 类比记忆法</h2><ul>
+<li><strong>Unit Test</strong>：像医生做体检，检查一个器官（单元）是否健康。</li>
+<li><strong>Integration Test</strong>：检查各个器官能否协调工作。</li>
+<li><strong>UI Test</strong>：模拟病人日常生活，看是否能正常生活。</li>
+<li><strong>Performance Test</strong>：让病人跑步跳跃，测试极限。</li>
+</ul>
+<h1 id="以-Swift-Flask-相关的测试实践为例"><a href="#以-Swift-Flask-相关的测试实践为例" class="headerlink" title="以 Swift + Flask 相关的测试实践为例"></a>以 Swift + Flask 相关的测试实践为例</h1><p>结合你正在开发的 SwiftUI + Flask 视频应用项目，我们可以从以下四种测试类型来梳理测试实践：</p>
+<h2 id="✅-1-Unit-Test（单元测试）"><a href="#✅-1-Unit-Test（单元测试）" class="headerlink" title="✅ 1. Unit Test（单元测试）"></a>✅ 1. <strong>Unit Test（单元测试）</strong></h2><h3 id="🔹-Swift（前端）"><a href="#🔹-Swift（前端）" class="headerlink" title="🔹 Swift（前端）"></a>🔹 Swift（前端）</h3><p>使用 Xcode 自带的 <code>XCTest</code> 框架，测试 SwiftUI 中的模型、视图模型（ViewModel）等逻辑代码。</p>
+<h4 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">testVideoModelInit</span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> video <span class="operator">=</span> <span class="type">Video</span>(id: <span class="number">1</span>, title: <span class="string">&quot;测试视频&quot;</span>, likes: <span class="number">10</span>)</span><br><span class="line">    <span class="type">XCTAssertEqual</span>(video.title, <span class="string">&quot;测试视频&quot;</span>)</span><br><span class="line">    <span class="type">XCTAssertEqual</span>(video.likes, <span class="number">10</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="🔹-Flask（后端）"><a href="#🔹-Flask（后端）" class="headerlink" title="🔹 Flask（后端）"></a>🔹 Flask（后端）</h3><p>用 <code>unittest</code> 或 <code>pytest</code> 测试 Flask 中的服务函数、数据库访问等。</p>
+<h4 id="示例：-1"><a href="#示例：-1" class="headerlink" title="示例："></a>示例：</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_get_video_by_id</span>():</span><br><span class="line">    <span class="keyword">with</span> app.test_client() <span class="keyword">as</span> client:</span><br><span class="line">        response = client.get(<span class="string">&#x27;/api/video/1&#x27;</span>)</span><br><span class="line">        <span class="keyword">assert</span> response.status_code == <span class="number">200</span></span><br><span class="line">        <span class="keyword">assert</span> response.json[<span class="string">&#x27;id&#x27;</span>] == <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="✅-2-Integration-Test（集成测试）"><a href="#✅-2-Integration-Test（集成测试）" class="headerlink" title="✅ 2. Integration Test（集成测试）"></a>✅ 2. <strong>Integration Test（集成测试）</strong></h2><h3 id="🔹-Swift"><a href="#🔹-Swift" class="headerlink" title="🔹 Swift"></a>🔹 Swift</h3><p>测试前端调用后端 API 是否正常，推荐使用 <code>URLSession</code> 搭配 mock 或 stub（测试服务器）。</p>
+<h4 id="示例（结合-XCTest）："><a href="#示例（结合-XCTest）：" class="headerlink" title="示例（结合 XCTest）："></a>示例（结合 XCTest）：</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">testFetchVideoList</span>() <span class="keyword">async</span> <span class="keyword">throws</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> service <span class="operator">=</span> <span class="type">VideoService</span>()</span><br><span class="line">    <span class="keyword">let</span> videos <span class="operator">=</span> <span class="keyword">try</span> <span class="keyword">await</span> service.fetchVideos()</span><br><span class="line">    <span class="type">XCTAssertGreaterThan</span>(videos.count, <span class="number">0</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="🔹-Flask"><a href="#🔹-Flask" class="headerlink" title="🔹 Flask"></a>🔹 Flask</h3><p>使用 Flask 的 <code>test_client</code> 模拟请求，连通数据库，检查逻辑是否打通。</p>
+<h4 id="示例：-2"><a href="#示例：-2" class="headerlink" title="示例："></a>示例：</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_video_upload_and_fetch</span>():</span><br><span class="line">    client = app.test_client()</span><br><span class="line">    upload_resp = client.post(<span class="string">&#x27;/api/upload&#x27;</span>, data=&#123;<span class="string">&#x27;title&#x27;</span>: <span class="string">&#x27;test&#x27;</span>&#125;)</span><br><span class="line">    <span class="keyword">assert</span> upload_resp.status_code == <span class="number">200</span></span><br><span class="line">    fetch_resp = client.get(<span class="string">&#x27;/api/video/list&#x27;</span>)</span><br><span class="line">    <span class="keyword">assert</span> <span class="built_in">any</span>(v[<span class="string">&#x27;title&#x27;</span>] == <span class="string">&#x27;test&#x27;</span> <span class="keyword">for</span> v <span class="keyword">in</span> fetch_resp.json)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="✅-3-UI-Test（用户界面测试）"><a href="#✅-3-UI-Test（用户界面测试）" class="headerlink" title="✅ 3. UI Test（用户界面测试）"></a>✅ 3. <strong>UI Test（用户界面测试）</strong></h2><h3 id="🔹-Swift（推荐使用-XCUITest）"><a href="#🔹-Swift（推荐使用-XCUITest）" class="headerlink" title="🔹 Swift（推荐使用 XCUITest）"></a>🔹 Swift（推荐使用 XCUITest）</h3><p>用于模拟用户滑动视频、点击点赞按钮、搜索操作等。</p>
+<h4 id="示例：-3"><a href="#示例：-3" class="headerlink" title="示例："></a>示例：</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">testLikeButtonTaps</span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> app <span class="operator">=</span> <span class="type">XCUIApplication</span>()</span><br><span class="line">    app.launch()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> likeButton <span class="operator">=</span> app.buttons[<span class="string">&quot;likeButton&quot;</span>]</span><br><span class="line">    likeButton.tap()</span><br><span class="line">    </span><br><span class="line">    <span class="type">XCTAssert</span>(app.staticTexts[<span class="string">&quot;likesCount&quot;</span>].exists)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="✅-4-Performance-Test（性能测试）"><a href="#✅-4-Performance-Test（性能测试）" class="headerlink" title="✅ 4. Performance Test（性能测试）"></a>✅ 4. <strong>Performance Test（性能测试）</strong></h2><h3 id="🔹-Swift（Xcode-提供性能测试模板）"><a href="#🔹-Swift（Xcode-提供性能测试模板）" class="headerlink" title="🔹 Swift（Xcode 提供性能测试模板）"></a>🔹 Swift（Xcode 提供性能测试模板）</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">testVideoDecodingPerformance</span>() &#123;</span><br><span class="line">    <span class="keyword">self</span>.measure &#123;</span><br><span class="line">        <span class="keyword">_</span> <span class="operator">=</span> <span class="keyword">try?</span> <span class="type">JSONDecoder</span>().decode([<span class="type">Video</span>].<span class="keyword">self</span>, from: mockJSONData)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="🔹-Flask（使用-locust-wrk-ab-等压测工具）"><a href="#🔹-Flask（使用-locust-wrk-ab-等压测工具）" class="headerlink" title="🔹 Flask（使用 locust, wrk, ab 等压测工具）"></a>🔹 Flask（使用 locust, wrk, ab 等压测工具）</h3><p>可以压测某接口的吞吐量、响应时间：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ab -n 1000 -c 100 http://localhost:5000/api/video/list</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="🔄-流程建议：CI-x2F-CD集成"><a href="#🔄-流程建议：CI-x2F-CD集成" class="headerlink" title="🔄 流程建议：CI&#x2F;CD集成"></a>🔄 流程建议：CI&#x2F;CD集成</h2><p>你可以设置如下顺序的自动化测试流程（建议配合 GitHub Actions &#x2F; GitLab CI）：</p>
+<ol>
+<li>✅ 前端单元测试（Swift）</li>
+<li>✅ 后端单元测试（Flask）</li>
+<li>✅ 集成测试（前后端 API 对接）</li>
+<li>✅ UI 自动化测试（前端）</li>
+<li>✅ 性能测试（上线前手动跑）</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/23/Macbook%E5%BF%AB%E6%8D%B7%E9%94%AE%E7%9A%84%E8%AE%BE%E8%AE%A1%E7%90%86%E5%BF%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="You Find Your Own Tree.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/04/23/Macbook%E5%BF%AB%E6%8D%B7%E9%94%AE%E7%9A%84%E8%AE%BE%E8%AE%A1%E7%90%86%E5%BF%B5/" class="post-title-link" itemprop="url">Macbook快捷键的设计理念</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-04-23 14:46:41 / 修改时间：15:53:52" itemprop="dateCreated datePublished" datetime="2025-04-23T14:46:41+09:00">2025-04-23</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Mac-键盘上的-Control（-）、Option（⌥）和-Command（⌘）键看起来有点复杂，但它们分别承担着不同的功能角色，同时也是-macOS-设计理念中的重要体现。下面分为两个部分来说说："><a href="#Mac-键盘上的-Control（-）、Option（⌥）和-Command（⌘）键看起来有点复杂，但它们分别承担着不同的功能角色，同时也是-macOS-设计理念中的重要体现。下面分为两个部分来说说：" class="headerlink" title="Mac 键盘上的 Control（^）、Option（⌥）和 Command（⌘）键看起来有点复杂，但它们分别承担着不同的功能角色，同时也是 macOS 设计理念中的重要体现。下面分为两个部分来说说："></a>Mac 键盘上的 Control（^）、Option（⌥）和 Command（⌘）键看起来有点复杂，但它们分别承担着不同的功能角色，同时也是 macOS 设计理念中的重要体现。下面分为两个部分来说说：</h1><h2 id="✅-一、实用技巧（操作方面）"><a href="#✅-一、实用技巧（操作方面）" class="headerlink" title="✅ 一、实用技巧（操作方面）"></a>✅ 一、实用技巧（操作方面）</h2><h3 id="🔹1-Command（⌘）——“主力快捷键”"><a href="#🔹1-Command（⌘）——“主力快捷键”" class="headerlink" title="🔹1. Command（⌘）——“主力快捷键”"></a>🔹1. Command（⌘）——“主力快捷键”</h3><p>这是 Mac 上的主要快捷键键，类似 Windows 的 Ctrl 键。</p>
+<p>常见用法：</p>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>快捷键</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>复制</td>
+<td>⌘ + C</td>
+</tr>
+<tr>
+<td>粘贴</td>
+<td>⌘ + V</td>
+</tr>
+<tr>
+<td>剪切</td>
+<td>⌘ + X</td>
+</tr>
+<tr>
+<td>撤销</td>
+<td>⌘ + Z</td>
+</tr>
+<tr>
+<td>全选</td>
+<td>⌘ + A</td>
+</tr>
+<tr>
+<td>打开新窗口</td>
+<td>⌘ + N</td>
+</tr>
+<tr>
+<td>关闭窗口</td>
+<td>⌘ + W</td>
+</tr>
+<tr>
+<td>保存文件</td>
+<td>⌘ + S</td>
+</tr>
+</tbody></table>
+<p>Mac 的几乎所有应用程序都用 Command 搭配其他键来进行快捷操作，设计上是为了“手不离主键区”。</p>
+<h3 id="🔹2-Option（⌥）——“增强键-x2F-变音键-x2F-辅助跳跃键”"><a href="#🔹2-Option（⌥）——“增强键-x2F-变音键-x2F-辅助跳跃键”" class="headerlink" title="🔹2. Option（⌥）——“增强键&#x2F;变音键&#x2F;辅助跳跃键”"></a>🔹2. Option（⌥）——“增强键&#x2F;变音键&#x2F;辅助跳跃键”</h3><p>Option 键用途非常广泛，有点像 Alt 键，但更灵活。</p>
+<p><strong>常见用法：</strong></p>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>快捷键</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>输入特殊符号（例如“™”）</td>
+<td>⌥ + 2 &#x3D; ™</td>
+</tr>
+<tr>
+<td>Terminal 中跳词</td>
+<td>⌥ + ← &#x2F; →</td>
+</tr>
+<tr>
+<td>Finder 中复制路径</td>
+<td>⌥ + ⌘ + C</td>
+</tr>
+<tr>
+<td>打开应用的隐藏选项</td>
+<td>在菜单栏按住 ⌥ 会看到菜单项发生变化</td>
+</tr>
+<tr>
+<td>拷贝文件</td>
+<td>拖文件时按 ⌥ + 拖动 &#x3D; 拷贝（而不是移动）</td>
+</tr>
+</tbody></table>
+<h3 id="🔹3-Control（-）——“命令行风格控制键”"><a href="#🔹3-Control（-）——“命令行风格控制键”" class="headerlink" title="🔹3. Control（^）——“命令行风格控制键”"></a>🔹3. Control（^）——“命令行风格控制键”</h3><p>Control 在 macOS 中不是最主要的快捷键键，而更偏向于“操作环境”的控制。</p>
+<p><strong>常见用法：</strong></p>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>快捷键</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>调出右键菜单（鼠标右键）</td>
+<td>Control + 单击</td>
+</tr>
+<tr>
+<td>Terminal 控制字符</td>
+<td>^ + C（终止命令）、^ + D（退出 shell）</td>
+</tr>
+<tr>
+<td>多桌面切换（搭配方向键）</td>
+<td>^ + → &#x2F; ←</td>
+</tr>
+<tr>
+<td>Mission Control 管理空间</td>
+<td>Control + 上&#x2F;下</td>
+</tr>
+</tbody></table>
+<h2 id="🧠-二、设计原理和哲学"><a href="#🧠-二、设计原理和哲学" class="headerlink" title="🧠 二、设计原理和哲学"></a>🧠 二、设计原理和哲学</h2><h3 id="🧩-1-Command-键：为了不和-Terminal-冲突"><a href="#🧩-1-Command-键：为了不和-Terminal-冲突" class="headerlink" title="🧩 1. Command 键：为了不和 Terminal 冲突"></a>🧩 1. Command 键：为了不和 Terminal 冲突</h3><p>早期的 Unix 终端中，Ctrl 是操作命令（如 Ctrl+C 中断进程），Apple 为了避免干扰，设计了一个新的 Command 键用于 GUI 快捷操作。这就是 Mac 用户习惯了用 ⌘ + C 复制，而不是 Ctrl + C。</p>
+<h3 id="🧩-2-Option-键：灵活性与“第二层功能”"><a href="#🧩-2-Option-键：灵活性与“第二层功能”" class="headerlink" title="🧩 2. Option 键：灵活性与“第二层功能”"></a>🧩 2. Option 键：灵活性与“第二层功能”</h3><p>Option 键类似于“功能层切换器”，它可以启用二级功能，比如输入特殊符号、访问菜单的隐藏功能等。这种设计体现了 macOS 的“可探索性”：很多功能不打扰你，但通过 Option 键可以被发现。</p>
+<h3 id="🧩-3-Control-键：保留-Unix-传统"><a href="#🧩-3-Control-键：保留-Unix-传统" class="headerlink" title="🧩 3. Control 键：保留 Unix 传统"></a>🧩 3. Control 键：保留 Unix 传统</h3><p>Control 更多用于 Terminal 和底层操作，是对 UNIX 传统的保留。这让开发者和高级用户可以继续使用 Unix 风格命令，比如 <code>^C</code>、<code>^Z</code> 等。</p>
+<h2 id="🌟-小技巧加分项"><a href="#🌟-小技巧加分项" class="headerlink" title="🌟 小技巧加分项"></a>🌟 小技巧加分项</h2><ul>
+<li><strong>⌘ + Tab</strong>：快速切换应用程序（和 Win 的 Alt + Tab 类似）。</li>
+<li><strong>⌘ + ~（波浪号）</strong>：切换同一程序的不同窗口（例如 Safari 多窗口之间切换）。</li>
+<li><strong>⌥ + 鼠标点击菜单项</strong>：显示隐藏选项，比如“关闭其他窗口”、“强制退出”等。</li>
+<li><strong>在启动时按键</strong>（Recovery 模式等）：</li>
+</ul>
+<p>⌘ + R：恢复模式</p>
+<p>⌥：启动盘选择</p>
+<p>Control + ⌘ + 电源：强制重启</p>
+<p><strong>Shift</strong> ——它虽然看似普通（我们最早接触打字就认识它），但在 Mac 上其实也有不少 <strong>进阶用法和设计哲学</strong>，不仅仅是大写字母键。</p>
+<h2 id="✅-一、Shift-键的实用技巧"><a href="#✅-一、Shift-键的实用技巧" class="headerlink" title="✅ 一、Shift 键的实用技巧"></a>✅ 一、Shift 键的实用技巧</h2><h3 id="🔹1-基本用途"><a href="#🔹1-基本用途" class="headerlink" title="🔹1. 基本用途"></a>🔹1. 基本用途</h3><ul>
+<li><strong>输入大写字母或上档符号</strong></li>
+</ul>
+<p>例如：<code>Shift + a = A</code>, <code>Shift + 1 = !</code></p>
+<h3 id="🔹2-搭配-Command-x2F-Option-x2F-Control，组合更多操作"><a href="#🔹2-搭配-Command-x2F-Option-x2F-Control，组合更多操作" class="headerlink" title="🔹2. 搭配 Command&#x2F;Option&#x2F;Control，组合更多操作"></a>🔹2. 搭配 Command&#x2F;Option&#x2F;Control，组合更多操作</h3><table>
+<thead>
+<tr>
+<th>功能</th>
+<th>快捷键</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>打开新窗口并切换到该窗口</td>
+<td>⌘ + Shift + N</td>
+</tr>
+<tr>
+<td>新建标签页（如 Safari）</td>
+<td>⌘ + T（配合 Shift 可做变种功能）</td>
+</tr>
+<tr>
+<td>Finder 中显示路径栏</td>
+<td>⌘ + Option + P（配合 Shift 可以组合显示&#x2F;隐藏）</td>
+</tr>
+<tr>
+<td>彻底删除文件（绕过废纸篓）</td>
+<td>⌘ + Option + Delete（Shift 用于加“强制”语义）</td>
+</tr>
+</tbody></table>
+<h3 id="🔹3-Shift-点击：选择范围"><a href="#🔹3-Shift-点击：选择范围" class="headerlink" title="🔹3. Shift + 点击：选择范围"></a>🔹3. Shift + 点击：选择范围</h3><ul>
+<li>在 Finder 或文本编辑器中：</li>
+</ul>
+<p><strong>点击第一个项目，然后 Shift + 点击最后一个</strong> → 连选一段区域。</p>
+<p>比如同时选中多个文件、文字段落等。</p>
+<h3 id="🔹4-Shift-启动应用程序：跳过自动恢复窗口"><a href="#🔹4-Shift-启动应用程序：跳过自动恢复窗口" class="headerlink" title="🔹4. Shift + 启动应用程序：跳过自动恢复窗口"></a>🔹4. Shift + 启动应用程序：<strong>跳过自动恢复窗口</strong></h3><ul>
+<li>启动崩溃过的 app 时，按住 <strong>Shift 再点击图标</strong> 可以让它不加载上次的窗口（避免再次崩溃）。</li>
+</ul>
+<h3 id="🔹5-Shift-开机：进入安全模式"><a href="#🔹5-Shift-开机：进入安全模式" class="headerlink" title="🔹5. Shift + 开机：进入安全模式"></a>🔹5. Shift + 开机：进入安全模式</h3><ul>
+<li>在启动时按住 <strong>Shift</strong>：启动进入 macOS 的 Safe Mode（安全模式），可用于排查系统问题、清除缓存。</li>
+</ul>
+<h2 id="🧠-二、Shift-键的设计哲学"><a href="#🧠-二、Shift-键的设计哲学" class="headerlink" title="🧠 二、Shift 键的设计哲学"></a>🧠 二、Shift 键的设计哲学</h2><h3 id="🧩-1-“增强-x2F-临时切换”-的语义"><a href="#🧩-1-“增强-x2F-临时切换”-的语义" class="headerlink" title="🧩 1. “增强&#x2F;临时切换” 的语义"></a>🧩 1. “增强&#x2F;临时切换” 的语义</h3><p>Shift 本质上就是“短暂地临时提升到另一个状态”。这个设计思路贯穿整个操作系统，比如：</p>
+<ul>
+<li>输入小写 → 临时切换为大写（按住 Shift）</li>
+<li>选中单个 → 临时变成连续选中多个（按住 Shift）</li>
+<li>正常启动 → 临时进入安全模式（按住 Shift）</li>
+</ul>
+<p>它强调 <strong>临时状态转换，不干扰整体配置</strong>。</p>
+<h3 id="🧩-2-与其它键组合，形成“多层命令空间”"><a href="#🧩-2-与其它键组合，形成“多层命令空间”" class="headerlink" title="🧩 2. 与其它键组合，形成“多层命令空间”"></a>🧩 2. 与其它键组合，形成“多层命令空间”</h3><p>Mac 中键位组合遵循一种“多层控制”的哲学：</p>
+<ul>
+<li><strong>⌘（Command）</strong>：主命令层</li>
+<li><strong>⌥（Option）</strong>：切换到第二层菜单&#x2F;功能</li>
+<li><strong>Control（^）</strong>：更底层或终端行为</li>
+<li><strong>Shift</strong>：临时加强&#x2F;转换指令语义</li>
+</ul>
+<p>例如：</p>
+<table>
+<thead>
+<tr>
+<th>组合</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>⌘ + N</td>
+<td>新建</td>
+</tr>
+<tr>
+<td>⌘ + Shift + N</td>
+<td>新建文件夹（增强型）</td>
+</tr>
+<tr>
+<td>⌘ + Option + Shift + V</td>
+<td>粘贴并匹配样式（更高级功能）</td>
+</tr>
+</tbody></table>
+<h2 id="🧰-小彩蛋"><a href="#🧰-小彩蛋" class="headerlink" title="🧰 小彩蛋"></a>🧰 小彩蛋</h2><ul>
+<li><strong>Shift + 空格</strong>：在 Finder 中预览文件（Quick Look），而普通空格也能预览，这里 Shift 常用于“预览幻灯片”。</li>
+<li><strong>Shift + 拖动窗口</strong>：在部分应用中有特殊功能，比如对齐窗口或限制角度（如截图工具）。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/02/swift%E4%B8%8D%E5%90%8C%E9%98%B6%E6%AE%B5%E7%9A%84%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1395,159 +1799,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2025/03/26/swift%E8%AF%AD%E8%A8%80%E4%B8%ADStateObject%E5%85%B3%E9%94%AE%E5%AD%97%E8%A7%A3%E9%87%8A/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/26/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E7%9F%AD%E8%A7%86%E9%A2%91%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="YiDa">
-      <meta itemprop="description" content="You Find Your Own Tree.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yi's Lab">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/03/26/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E7%9F%AD%E8%A7%86%E9%A2%91%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90/" class="post-title-link" itemprop="url">项目实战-短视频前端代码解析</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2025-03-26 15:41:46 / 修改时间：22:49:39" itemprop="dateCreated datePublished" datetime="2025-03-26T15:41:46+09:00">2025-03-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" itemprop="url" rel="index"><span itemprop="name">项目实战</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="将单个view的应用改成多个tabview的实践"><a href="#将单个view的应用改成多个tabview的实践" class="headerlink" title="将单个view的应用改成多个tabview的实践"></a>将单个view的应用改成多个tabview的实践</h1><h2 id="我的代码入口"><a href="#我的代码入口" class="headerlink" title="我的代码入口"></a>我的代码入口</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">NavigationView</span> &#123;</span><br><span class="line">            <span class="type">VideoListView</span>()</span><br><span class="line">                .statusBar(hidden: <span class="literal">true</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/03/26/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E7%9F%AD%E8%A7%86%E9%A2%91%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/26/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E7%9F%AD%E8%A7%86%E9%A2%91%E5%90%8E%E7%AB%AF%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="YiDa">
-      <meta itemprop="description" content="You Find Your Own Tree.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yi's Lab">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/03/26/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E7%9F%AD%E8%A7%86%E9%A2%91%E5%90%8E%E7%AB%AF%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90/" class="post-title-link" itemprop="url">项目实战-短视频后端代码解析</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2025-03-26 15:37:05 / 修改时间：17:19:44" itemprop="dateCreated datePublished" datetime="2025-03-26T15:37:05+09:00">2025-03-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" itemprop="url" rel="index"><span itemprop="name">项目实战</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="后端代码呈现"><a href="#后端代码呈现" class="headerlink" title="后端代码呈现"></a>后端代码呈现</h1><ul>
-<li>这段代码实现了一个视频上传、转码（为 HLS 格式）、生成缩略图、点赞和搜索的后端服务。</li>
-<li>使用 SQLite 存储视频信息，FFmpeg 进行视频转码和缩略图生成。</li>
-<li>提供了跨域支持、视频流媒体服务和文件上传接口。
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/03/26/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E7%9F%AD%E8%A7%86%E9%A2%91%E5%90%8E%E7%AB%AF%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
