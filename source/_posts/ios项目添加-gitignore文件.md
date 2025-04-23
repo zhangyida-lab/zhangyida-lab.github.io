@@ -13,7 +13,7 @@ tags: [git,swift编程]
 
 ### 1. **创建 .gitignore 文件**
 
-
+<!--more-->
 在你的项目根目录下创建一个 `.gitignore` 文件。
 
 

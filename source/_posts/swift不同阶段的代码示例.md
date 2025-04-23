@@ -21,7 +21,7 @@ let sortedFruits = fruits.sorted { (fruit1, fruit2) -&gt; Bool in
 
 print("Sorted fruits: \(sortedFruits)")
 ```
-
+<!--more-->
 
 在这个例子中，我们使用了 `sorted` 函数，它接收一个闭包来定义排序的规则。闭包接收两个参数 `fruit1` 和 `fruit2`，并返回一个 `Bool` 值来指示它们的顺序。`fruit1 &lt; fruit2` 会返回 `true`，意味着 `fruit1` 应该排在 `fruit2` 前面。
 
