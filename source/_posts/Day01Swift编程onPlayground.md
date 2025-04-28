@@ -31,7 +31,7 @@ struct Rectangle: Shape {
 }
 
 extension Array where Element: Shape {
-    func totalArea() -&gt; Double {
+    func totalArea() -> Double {
         self.reduce(0) { $0 + $1.area }
     }
 }
@@ -165,7 +165,7 @@ extension Array where Element: Shape {
 
 - `extension Array where Element: Shape`
 ➔ 只给**数组元素是 Shape 类型**的数组加新功能。
-- `func totalArea() -&gt; Double`
+- `func totalArea() -> Double`
 ➔ 新加一个方法叫 `totalArea()`，计算**所有形状面积之和**。
 - `self.reduce(0) { $0 + $1.area }`
 ➔ `reduce` 是一个高阶函数，意思是：

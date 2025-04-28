@@ -45,12 +45,12 @@ class VideoManager: ObservableObject {
     @Published var videos: [Video] = []
 
     // 按类型筛选
-    func filteredVideos(byCategory category: String) -&gt; [Video] {
+    func filteredVideos(byCategory category: String) -> [Video] {
         return videos.filter { $0.category == category }
     }
     
     // 按点赞数排序
-    func sortedVideosByLikes() -&gt; [Video] {
+    func sortedVideosByLikes() -> [Video] {
         return videos.sorted { $0.likes &gt; $1.likes }
     }
 }

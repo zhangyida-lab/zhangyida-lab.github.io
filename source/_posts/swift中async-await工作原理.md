@@ -76,7 +76,7 @@ Swift 的 async/await 工作原理依赖于编译器将异步函数转换为状�
 import Foundation
 
 // 定义一个异步函数
-func fetchData() async -&gt; String {
+func fetchData() async -> String {
     // 模拟异步操作
     await Task.sleep(2 * 1_000_000_000) // 等待2秒
     return "数据获取成功"
