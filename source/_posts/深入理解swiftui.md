@@ -69,7 +69,7 @@ matchedGeometryEffect（视图共享动画）
 ```swift
 struct CustomButton: View {
     var title: String
-    var action: () -&gt; Void
+    var action: () -> Void
     
     var body: some View {
         Button(action: action) {
@@ -116,7 +116,7 @@ struct AsyncContentView: View {
             }
     }
     
-    func fetchData() async -&gt; String {
+    func fetchData() async -> String {
         try? await Task.sleep(nanoseconds: 2_000_000_000)
         return "Data Loaded!"
     }
@@ -154,7 +154,7 @@ struct AnimatedView: View {
 
 ```swift
 struct UIKitViewController: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -&gt; UIViewController {
+    func makeUIViewController(context: Context) -> UIViewController {
         let viewController = UIViewController()
         viewController.view.backgroundColor = .red
         return viewController

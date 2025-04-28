@@ -39,7 +39,7 @@ class Person {
     deinit { print("\(name) 被释放") }
 }
 
-var closure: (() -&gt; Void)?
+var closure: (() -> Void)?
 
 do {
     let p = Person(name: "Tom")
@@ -81,11 +81,11 @@ closure?() // "No Name"，p 已被释放
 需要在堆（Heap）上分配，并使用 ARC 进行管理。
 
 ```swift
-func testClosure(_ closure: () -&gt; Void) {
+func testClosure(_ closure: () -> Void) {
     closure() // 非逃逸
 }
 
-func escapingClosure(_ closure: @escaping () -&gt; Void) {
+func escapingClosure(_ closure: @escaping () -> Void) {
     DispatchQueue.global().async {
         closure() // 逃逸闭包，需要存储在堆上
     }
@@ -107,7 +107,7 @@ Swift 闭包本质上是一个**结构体**，它包含：
 
 
 ```swift
-typealias CFunction = @convention(c) (Int, Int) -&gt; Int
+typealias CFunction = @convention(c) (Int, Int) -> Int
 let sum: CFunction = { $0 + $1 }
 ```
 

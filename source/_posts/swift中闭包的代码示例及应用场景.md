@@ -15,7 +15,7 @@ tags: [swift编程,闭包]
 import Foundation
 
 // 定义一个闭包，返回两个整数的和
-let addClosure: (Int, Int) -&gt; Int = { a, b in
+let addClosure: (Int, Int) -> Int = { a, b in
     return a + b
 }
 
@@ -42,9 +42,9 @@ print("结果是: \(result)")  // 输出：结果是: 12
 ```swift
 import Foundation
 
-func makeIncrementer(incrementAmount: Int) -&gt; () -&gt; Int {
+func makeIncrementer(incrementAmount: Int) -> () -> Int {
     var total = 0
-    let incrementer: () -&gt; Int = {
+    let incrementer: () -> Int = {
         total += incrementAmount
         return total
     }
@@ -77,7 +77,7 @@ import Foundation
 
 let numbers = [5, 3, 8, 1, 4]
 
-let sortedNumbers = numbers.sorted { (a, b) -&gt; Bool in
+let sortedNumbers = numbers.sorted { (a, b) -> Bool in
     return a &lt; b
 }
 
@@ -101,7 +101,7 @@ print(sortedNumbers)  // 输出: [1, 3, 4, 5, 8]
 ```swift
 import Foundation
 
-func performOperation(a: Int, b: Int, operation: (Int, Int) -&gt; Int) -&gt; Int {
+func performOperation(a: Int, b: Int, operation: (Int, Int) -> Int) -> Int {
     return operation(a, b)
 }
 
@@ -132,7 +132,7 @@ class MyClass {
     var value = 0
     
     func incrementValue() {
-        let incrementer: () -&gt; Void = { [weak self] in
+        let incrementer: () -> Void = { [weak self] in
             self?.value += 1
             print(self?.value ?? 0)
         }
@@ -164,7 +164,7 @@ myObject = nil  // 释放对象
 ```swift
 import Foundation
 
-func fetchData(completion: @escaping (String) -&gt; Void) {
+func fetchData(completion: @escaping (String) -> Void) {
     DispatchQueue.global().async {
         // 模拟网络请求延迟
         sleep(2)
@@ -215,9 +215,9 @@ RunLoop.main.run()  // 保持主线程运行，等待异步操作完成
 
 
 ```swift
-func makeProgressTracker() -&gt; () -&gt; Int {
+func makeProgressTracker() -> () -> Int {
     var progress = 0
-    let tracker: () -&gt; Int = {
+    let tracker: () -> Int = {
         progress += 10
         return progress
     }
@@ -252,7 +252,7 @@ print(progressTracker())  // 输出: 20
 ```swift
 let numbers = [5, 3, 8, 1, 4]
 
-let sortedNumbers = numbers.sorted { (a, b) -&gt; Bool in
+let sortedNumbers = numbers.sorted { (a, b) -> Bool in
     return a &lt; b  // 自定义升序排序
 }
 
@@ -279,7 +279,7 @@ print(sortedNumbers)  // 输出: [1, 3, 4, 5, 8]
 
 
 ```swift
-func performOperation(a: Int, b: Int, operation: (Int, Int) -&gt; Int) -&gt; Int {
+func performOperation(a: Int, b: Int, operation: (Int, Int) -> Int) -> Int {
     return operation(a, b)
 }
 
@@ -314,7 +314,7 @@ class MyClass {
     var value = 0
     
     func incrementValue() {
-        let incrementer: () -&gt; Void = { [weak self] in
+        let incrementer: () -> Void = { [weak self] in
             self?.value += 1
             print(self?.value ?? 0)
         }
@@ -349,7 +349,7 @@ myObject = nil  // 释放对象
 
 
 ```swift
-func fetchData(completion: @escaping (String) -&gt; Void) {
+func fetchData(completion: @escaping (String) -> Void) {
     DispatchQueue.global().async {
         // 模拟网络请求延迟
         sleep(2)

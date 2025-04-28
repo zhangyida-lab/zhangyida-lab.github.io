@@ -34,7 +34,7 @@ var age = 25        // 自动推断为 Int
 ```swift
 // 完整写法
 let numbers = [1, 2, 3, 4]
-let squared = numbers.map({ (number: Int) -&gt; Int in
+let squared = numbers.map({ (number: Int) -> Int in
     return number * number
 })
 
@@ -54,7 +54,7 @@ let squared3 = numbers.map { $0 * $0 }
 
 
 ```swift
-func square(_ x: Int) -&gt; Int { x * x }
+func square(_ x: Int) -> Int { x * x }
 ```
 
 
@@ -184,13 +184,13 @@ Swift 的 `@ResultBuilder` 让 DSL（比如 SwiftUI）更简洁：
 ```swift
 @resultBuilder
 struct StringBuilder {
-    static func buildBlock(_ components: String...) -&gt; String {
+    static func buildBlock(_ components: String...) -> String {
         components.joined(separator: " ")
     }
 }
 
 @StringBuilder
-func createSentence() -&gt; String {
+func createSentence() -> String {
     "Swift"
     "is"
     "awesome!"

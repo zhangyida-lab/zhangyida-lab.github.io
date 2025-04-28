@@ -298,7 +298,7 @@ checkAge(16)  // 输出：You are underage.
 ```swift
 import Foundation
 
-func fetchData() async -&gt; String {
+func fetchData() async -> String {
     return "Data received"
 }
 
@@ -382,7 +382,7 @@ final class Vehicle {
 
 
 ```swift
-func compare(a: T, b: T) -&gt; Bool where T: Equatable {
+func compare(a: T, b: T) -> Bool where T: Equatable {
     return a == b
 }
 print(compare(a: 5, b: 5))  // 输出：true

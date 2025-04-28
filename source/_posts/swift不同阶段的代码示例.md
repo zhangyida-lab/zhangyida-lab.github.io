@@ -15,7 +15,7 @@ import Foundation
 let fruits = ["Apple", "Banana", "Orange", "Mango", "Pineapple"]
 
 // 使用闭包进行排序，按字母顺序升序排列
-let sortedFruits = fruits.sorted { (fruit1, fruit2) -&gt; Bool in
+let sortedFruits = fruits.sorted { (fruit1, fruit2) -> Bool in
     return fruit1 &lt; fruit2
 }
 
@@ -101,7 +101,7 @@ print("Sum of numbers: \(sum)")
 protocol Stackable {
     associatedtype Element
     mutating func push(_ element: Element)
-    mutating func pop() -&gt; Element?
+    mutating func pop() -> Element?
 }
 
 struct Stack: Stackable {
@@ -111,7 +111,7 @@ struct Stack: Stackable {
         elements.append(element)
     }
     
-    mutating func pop() -&gt; T? {
+    mutating func pop() -> T? {
         return elements.popLast()
     }
 }
@@ -212,7 +212,7 @@ Swift 的 `async/await` 使异步代码更易读。以下示例模拟一个网�
 ```swift
 import Foundation
 
-func fetchUserData() async throws -&gt; String {
+func fetchUserData() async throws -> String {
     try await Task.sleep(nanoseconds: 2_000_000_000) // 模拟 2 秒网络延迟
     return "User Data Loaded"
 }
@@ -250,7 +250,7 @@ Task {
 protocol Storage {
     associatedtype Item
     func save(_ item: Item)
-    func load() -&gt; Item?
+    func load() -> Item?
 }
 
 class UserDefaultsStorage: Storage {
@@ -266,7 +266,7 @@ class UserDefaultsStorage: Storage {
         }
     }
 
-    func load() -&gt; T? {
+    func load() -> T? {
         guard let data = UserDefaults.standard.data(forKey: key),
               let item = try? JSONDecoder().decode(T.self, from: data) else { return nil }
         return item
@@ -354,7 +354,7 @@ actor SafeCounter {
         value += 1
     }
 
-    func getValue() -&gt; Int {
+    func getValue() -> Int {
         return value
     }
 }
@@ -431,12 +431,12 @@ Swift 的 **Result Builder** 让我们可以创建类似 SwiftUI 的 DSL：
 ```swift
 @resultBuilder
 struct QueryBuilder {
-    static func buildBlock(_ queries: String...) -&gt; String {
+    static func buildBlock(_ queries: String...) -> String {
         return queries.joined(separator: " AND ")
     }
 }
 
-func buildQuery(@QueryBuilder _ builder: () -&gt; String) -&gt; String {
+func buildQuery(@QueryBuilder _ builder: () -> String) -> String {
     return "SELECT * FROM users WHERE \(builder())"
 }
 
@@ -508,7 +508,7 @@ public struct UppercasedMacro: MemberMacro {
         of node: SwiftSyntax.AttributeSyntax,
         providingMembersOf declaration: some SwiftSyntax.DeclSyntaxProtocol,
         in context: some SwiftSyntaxMacros.MacroExpansionContext
-    ) throws -&gt; [SwiftSyntax.DeclSyntax] {
+    ) throws -> [SwiftSyntax.DeclSyntax] {
         guard let structDecl = declaration.as(StructDeclSyntax.self) else {
             return []
         }
@@ -613,7 +613,7 @@ Hello from DynamicClass
 ```swift
 import Foundation
 
-func fetchData(_ id: Int) async -&gt; Int {
+func fetchData(_ id: Int) async -> Int {
     print("Fetching \(id)...")
     try? await Task.sleep(nanoseconds: UInt64(id) * 1_000_000_000)
     return id * 10
@@ -662,7 +662,7 @@ Swift for TensorFlow（S4TF）引入了 **自动微分**，用于深度学习、
 import _Differentiation
 
 @differentiable
-func square(_ x: Float) -&gt; Float {
+func square(_ x: Float) -> Float {
     return x * x
 }
 
@@ -715,13 +715,13 @@ pointer.deallocate()
 
 ```swift
 protocol Expandable {
-    func expand() -&gt; Self
+    func expand() -> Self
 }
 
 struct Number: Expandable {
     var value: Int
     
-    func expand() -&gt; Number {
+    func expand() -> Number {
         return Number(value: self.value * 2)
     }
 }
@@ -782,7 +782,7 @@ func emitLLVMIR(for source: String) {
 
 // 生成 LLVM IR
 emitLLVMIR(for: """
-func add(_ a: Int, _ b: Int) -&gt; Int {
+func add(_ a: Int, _ b: Int) -> Int {
     return a + b
 }
 """)
@@ -816,7 +816,7 @@ func swizzledMethod(self: AnyObject, _ cmd: Selector) {
 }
 
 let method = class_getInstanceMethod(TargetClass.self, #selector(TargetClass.originalMethod))!
-let newIMP = imp_implementationWithBlock(swizzledMethod as @convention(block) (AnyObject, Selector) -&gt; Void)
+let newIMP = imp_implementationWithBlock(swizzledMethod as @convention(block) (AnyObject, Selector) -> Void)
 method_setImplementation(method, newIMP)
 
 let instance = TargetClass()
@@ -876,7 +876,7 @@ Swift **分布式 actor** 允许你在多个机器间安全地共享状态。
 
 ```swift
 distributed actor Node {
-    distributed func compute(value: Int) -&gt; Int {
+    distributed func compute(value: Int) -> Int {
         return value * 2
     }
 }
@@ -958,7 +958,7 @@ let code: [UInt8] = [
 let ptr = mmap(nil, 4096, PROT_READ | PROT_WRITE | PROT_EXEC, MAP_ANONYMOUS | MAP_PRIVATE, -1, 0)!
 memcpy(ptr, code, code.count)
 
-typealias Function = @convention(c) () -&gt; Int
+typealias Function = @convention(c) () -> Int
 let function = unsafeBitCast(ptr, to: Function.self)
 print(function()) // 输出 42
 ```

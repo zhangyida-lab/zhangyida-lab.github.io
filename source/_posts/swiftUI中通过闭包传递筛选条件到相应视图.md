@@ -43,7 +43,7 @@ struct VideoListView: View {
     ]
     
     // 新增参数：一个用于筛选的视频数组
-    var filter: (Video) -&gt; Bool
+    var filter: (Video) -> Bool
     
     var body: some View {
         ZStack {
@@ -502,9 +502,9 @@ struct PasswordView: View {
 这样，你就可以在 `Comedy` Tab 中实现密码验证了。如果还有其他需求，或希望进一步调整界面和功能，欢迎告诉我！
 
 
-# struct VideoListView: View中直接定义var filter: (Video) -&gt; Bool 就可以从其他view中传递属性这是什么原理
+# struct VideoListView: View中直接定义var filter: (Video) -> Bool 就可以从其他view中传递属性这是什么原理
 
-在 SwiftUI 中，`var filter: (Video) -&gt; Bool` 是通过 **视图的参数传递**实现的，类似于普通函数参数传递的原理。这是 Swift 中常见的功能，即通过传递参数来让一个视图（`VideoListView`）在不同的上下文中根据不同的需求表现出不同的行为。
+在 SwiftUI 中，`var filter: (Video) -> Bool` 是通过 **视图的参数传递**实现的，类似于普通函数参数传递的原理。这是 Swift 中常见的功能，即通过传递参数来让一个视图（`VideoListView`）在不同的上下文中根据不同的需求表现出不同的行为。
 
 
 ### 原理解释：
@@ -513,7 +513,7 @@ struct PasswordView: View {
 1. **视图作为结构体**：
 `VideoListView` 是一个 `View` 结构体，而 Swift 中的 `View` 通常是值类型（`struct`）。这意味着每次创建视图时，都会复制该视图的实例。而你通过 `filter` 这样的变量来改变视图的显示逻辑。
 2. **传递闭包参数**：
-在 `VideoListView` 中定义 `var filter: (Video) -&gt; Bool`，其实是定义了一个 **闭包（Closure）参数**。闭包是 Swift 中强大的功能，它让你能够将代码块（即函数）作为参数传递，作为执行逻辑的一部分。
+在 `VideoListView` 中定义 `var filter: (Video) -> Bool`，其实是定义了一个 **闭包（Closure）参数**。闭包是 Swift 中强大的功能，它让你能够将代码块（即函数）作为参数传递，作为执行逻辑的一部分。
 
 - `filter` 是一个接受 `Video` 对象并返回 `Bool` 的函数（或者说是一个闭包）。
 - 你可以在创建 `VideoListView` 时，通过参数传递不同的闭包来筛选视频（比如根据视频类型筛选）。
