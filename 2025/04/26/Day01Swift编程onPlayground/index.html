@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|consolas:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","Muse | Mist":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="今天 Day 1 推荐： 1. Swift 语言 - 协议+扩展练习1234567891011121314151617181920212223242526272829303132protocol Shape &amp;#123;    var area: Double &amp;#123; get &amp;#125;&amp;#125;struct Circle: Shape &amp;#123;    var radius: Dou">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Day01Swift编程onPlayground">
+<meta property="og:url" content="http://example.com/2025/04/26/Day01Swift%E7%BC%96%E7%A8%8BonPlayground/index.html">
+<meta property="og:site_name" content="Yi&#39;s Lab">
+<meta property="og:description" content="今天 Day 1 推荐： 1. Swift 语言 - 协议+扩展练习1234567891011121314151617181920212223242526272829303132protocol Shape &amp;#123;    var area: Double &amp;#123; get &amp;#125;&amp;#125;struct Circle: Shape &amp;#123;    var radius: Dou">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-04-26T13:20:17.000Z">
+<meta property="article:modified_time" content="2025-04-28T08:32:50.204Z">
+<meta property="article:author" content="YiDa">
+<meta property="article:tag" content="swift编程">
+<meta property="article:tag" content="iOS编程">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2025/04/26/Day01Swift%E7%BC%96%E7%A8%8BonPlayground/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Day01Swift编程onPlayground | Yi's Lab</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Yi's Lab</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">You Find Your Own Tree.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section">首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section">关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section">标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section">分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section">归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/zhangyida-lab" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/26/Day01Swift%E7%BC%96%E7%A8%8BonPlayground/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Day01Swift编程onPlayground
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-04-26 22:20:17" itemprop="dateCreated datePublished" datetime="2025-04-26T22:20:17+09:00">2025-04-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-04-28 17:32:50" itemprop="dateModified" datetime="2025-04-28T17:32:50+09:00">2025-04-28</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><strong>今天 Day 1 推荐：</strong></p>
+<h3 id="1-Swift-语言-协议-扩展练习"><a href="#1-Swift-语言-协议-扩展练习" class="headerlink" title="1. Swift 语言 - 协议+扩展练习"></a>1. Swift 语言 - 协议+扩展练习</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protocol</span> <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> area: <span class="type">Double</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Circle</span>: <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> radius: <span class="type">Double</span></span><br><span class="line">    <span class="keyword">var</span> area: <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">Double</span>.pi <span class="operator">*</span> radius <span class="operator">*</span> radius</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Rectangle</span>: <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> width: <span class="type">Double</span></span><br><span class="line">    <span class="keyword">var</span> height: <span class="type">Double</span></span><br><span class="line">    <span class="keyword">var</span> area: <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> width <span class="operator">*</span> height</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">extension</span> <span class="title class_">Array</span> <span class="title class_">where</span> <span class="title class_">Element</span>: <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">totalArea</span>() <span class="operator">-&amp;</span>gt; <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">self</span>.reduce(<span class="number">0</span>) &#123; <span class="variable">$0</span> <span class="operator">+</span> <span class="variable">$1</span>.area &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 测试</span></span><br><span class="line"><span class="keyword">let</span> shapes: [<span class="type">Shape</span>] <span class="operator">=</span> [</span><br><span class="line">    <span class="type">Circle</span>(radius: <span class="number">3</span>),</span><br><span class="line">    <span class="type">Rectangle</span>(width: <span class="number">4</span>, height: <span class="number">5</span>)</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Total area: <span class="subst">\(shapes.totalArea())</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>练习点：</strong> 协议+扩展+泛型约束</p>
+<h3 id="2-SwiftUI-简单的自定义动画按钮"><a href="#2-SwiftUI-简单的自定义动画按钮" class="headerlink" title="2. SwiftUI - 简单的自定义动画按钮"></a>2. SwiftUI - 简单的自定义动画按钮</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line"><span class="keyword">import</span> PlaygroundSupport</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">BouncyButton</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> isPressed <span class="operator">=</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">Button</span>(action: &#123;</span><br><span class="line">            withAnimation(.spring(response: <span class="number">0.3</span>, dampingFraction: <span class="number">0.5</span>)) &#123;</span><br><span class="line">                isPressed.toggle()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;) &#123;</span><br><span class="line">            <span class="type">Text</span>(<span class="string">&quot;Press Me&quot;</span>)</span><br><span class="line">                .font(.title)</span><br><span class="line">                .padding()</span><br><span class="line">                .background(isPressed <span class="operator">?</span> <span class="type">Color</span>.green : <span class="type">Color</span>.blue)</span><br><span class="line">                .foregroundColor(.white)</span><br><span class="line">                .clipShape(<span class="type">Capsule</span>())</span><br><span class="line">                .scaleEffect(isPressed <span class="operator">?</span> <span class="number">1.2</span> : <span class="number">1.0</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 预览</span></span><br><span class="line"><span class="type">PlaygroundPage</span>.current.setLiveView(<span class="type">BouncyButton</span>())</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>练习点：</strong></p>
+<ul>
+<li>SwiftUI 动画（<code>withAnimation</code>、<code>spring</code>）</li>
+<li><code>State</code>变量控制</li>
+<li>组件封装</li>
+</ul>
+<p>代码解释：</p>
+<h3 id="1-定义一个协议-Shape"><a href="#1-定义一个协议-Shape" class="headerlink" title="1. 定义一个协议 Shape"></a>1. 定义一个协议 Shape</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protocol</span> <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> area: <span class="type">Double</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li><code>protocol</code> 是 Swift 里面定义规范的一种方式。</li>
+<li><code>Shape</code> 这个协议要求<strong>所有遵循它的类型</strong>必须有一个只读属性 <code>area</code>，类型是 <code>Double</code>。</li>
+<li>这就像是给所有“形状”下了规定：“你必须能告诉我你的面积”。</li>
+</ul>
+<h3 id="2-定义两个遵循-Shape-协议的结构体"><a href="#2-定义两个遵循-Shape-协议的结构体" class="headerlink" title="2. 定义两个遵循 Shape 协议的结构体"></a>2. 定义两个遵循 Shape 协议的结构体</h3><h4 id="圆形-Circle："><a href="#圆形-Circle：" class="headerlink" title="圆形 Circle："></a>圆形 Circle：</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Circle</span>: <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> radius: <span class="type">Double</span></span><br><span class="line">    <span class="keyword">var</span> area: <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">Double</span>.pi <span class="operator">*</span> radius <span class="operator">*</span> radius</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li><code>Circle</code> 有个属性 <code>radius</code> 表示半径。</li>
+<li>它实现了协议要求的 <code>area</code>，用公式 <strong>π × 半径²</strong> 算面积。</li>
+</ul>
+<h4 id="矩形-Rectangle："><a href="#矩形-Rectangle：" class="headerlink" title="矩形 Rectangle："></a>矩形 Rectangle：</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Rectangle</span>: <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> width: <span class="type">Double</span></span><br><span class="line">    <span class="keyword">var</span> height: <span class="type">Double</span></span><br><span class="line">    <span class="keyword">var</span> area: <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> width <span class="operator">*</span> height</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li><code>Rectangle</code> 有 <code>width</code>（宽度）和 <code>height</code>（高度）。</li>
+<li>它的 <code>area</code> 就是 <strong>宽 × 高</strong>。</li>
+</ul>
+<h3 id="3-给数组加功能：扩展-Array"><a href="#3-给数组加功能：扩展-Array" class="headerlink" title="3. 给数组加功能：扩展 Array"></a>3. 给数组加功能：扩展 Array</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extension</span> <span class="title class_">Array</span> <span class="title class_">where</span> <span class="title class_">Element</span>: <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">totalArea</span>() -&gt; <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">self</span>.reduce(<span class="number">0</span>) &#123; <span class="variable">$0</span> <span class="operator">+</span> <span class="variable">$1</span>.area &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>这里很重要，稍微细一点解释：</p>
+<ul>
+<li><code>extension Array where Element: Shape</code><br>➔ 只给<strong>数组元素是 Shape 类型</strong>的数组加新功能。</li>
+<li><code>func totalArea() -&amp;gt; Double</code><br>➔ 新加一个方法叫 <code>totalArea()</code>，计算<strong>所有形状面积之和</strong>。</li>
+<li><code>self.reduce(0) &#123; $0 + $1.area &#125;</code><br>➔ <code>reduce</code> 是一个高阶函数，意思是：</li>
+</ul>
+<p>从 <code>0</code> 开始</p>
+<p>把数组里面每个元素的 <code>area</code> 加起来</p>
+<p>最终得出一个总面积</p>
+<p><strong>简化理解</strong>：<code>totalArea()</code> &#x3D; 把数组里每个 <code>Shape</code> 的面积加在一起！</p>
+<h3 id="4-测试一下"><a href="#4-测试一下" class="headerlink" title="4. 测试一下"></a>4. 测试一下</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> shapes: [<span class="type">Shape</span>] <span class="operator">=</span> [</span><br><span class="line">    <span class="type">Circle</span>(radius: <span class="number">3</span>),</span><br><span class="line">    <span class="type">Rectangle</span>(width: <span class="number">4</span>, height: <span class="number">5</span>)</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Total area: <span class="subst">\(shapes.totalArea())</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>定义了一个 <code>shapes</code> 数组，里面有一个半径是 3 的圆，和一个宽4高5的矩形。</li>
+<li>调用 <code>totalArea()</code>，求这两个形状的总面积并打印出来。</li>
+</ul>
+<h3 id="总结一下"><a href="#总结一下" class="headerlink" title="总结一下"></a>总结一下</h3><table>
+<thead>
+<tr>
+<th>元素</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>protocol Shape</td>
+<td>定了一个“形状”协议，所有形状都要能算面积。</td>
+</tr>
+<tr>
+<td>struct Circle、struct Rectangle</td>
+<td>实际的形状，实现了Shape协议。</td>
+</tr>
+<tr>
+<td>extension Array</td>
+<td>扩展数组，让<strong>装 Shape 的数组</strong>能直接求总面积。</td>
+</tr>
+<tr>
+<td>reduce</td>
+<td>用来把所有面积加起来，得出总面积。</td>
+</tr>
+</tbody></table>
+<h1 id="详细解释这段代码-self-reduce-0-0-1-area"><a href="#详细解释这段代码-self-reduce-0-0-1-area" class="headerlink" title="详细解释这段代码 self.reduce(0) { $0 + $1.area }"></a>详细解释这段代码 self.reduce(0) { $0 + $1.area }</h1><h3 id="先看整体："><a href="#先看整体：" class="headerlink" title="先看整体："></a>先看整体：</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.reduce(<span class="number">0</span>) &#123; <span class="variable">$0</span> <span class="operator">+</span> <span class="variable">$1</span>.area &#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>它是在数组上调用 <code>reduce</code> 方法。</p>
+<ul>
+<li><code>self</code> 指的是当前的数组（比如 <code>[Circle, Rectangle, ...]</code>）。</li>
+<li><code>reduce(初始值) &#123; 闭包 &#125;</code> 是 Swift 提供的一个<strong>高阶函数</strong>，用来<strong>把一个数组归并成一个值</strong>。</li>
+<li>它从一个“初始值”开始，不断把数组里的每个元素叠加&#x2F;处理进去。</li>
+</ul>
+<h3 id="逐步解释："><a href="#逐步解释：" class="headerlink" title="逐步解释："></a>逐步解释：</h3><h4 id="1-reduce-0"><a href="#1-reduce-0" class="headerlink" title="1. reduce(0)"></a>1. reduce(0)</h4><p>意思是：</p>
+<ul>
+<li>从数值 <code>0</code> 开始累加。</li>
+<li>这个 <code>0</code> 是初始的“总面积”。</li>
+</ul>
+<h4 id="2-0-1-area"><a href="#2-0-1-area" class="headerlink" title="2. { $0 + $1.area }"></a>2. { $0 + $1.area }</h4><p>这里是闭包，里面有两个参数：</p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>代表什么意思</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$0</td>
+<td>当前累加的“总和”</td>
+</tr>
+<tr>
+<td>$1</td>
+<td>当前正在遍历的数组元素（这里是一个 Shape 类型）</td>
+</tr>
+</tbody></table>
+<p>所以这个 <code>&#123; $0 + $1.area &#125;</code> 其实就是：</p>
+<p>“把当前总和 <code>($0)</code> 加上当前元素的面积 <code>($1.area)</code>，然后作为新的总和继续往下传”。</p>
+<h3 id="一个模拟小例子"><a href="#一个模拟小例子" class="headerlink" title="一个模拟小例子"></a>一个模拟小例子</h3><p>假设数组是：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ <span class="type">Circle</span>(radius: <span class="number">3</span>), <span class="type">Rectangle</span>(width: <span class="number">4</span>, height: <span class="number">5</span>) ]</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>第一次循环：</li>
+</ul>
+<p><code>$0 = 0</code></p>
+<p><code>$1 = Circle(radius: 3)</code></p>
+<p><code>$1.area = π × 3² ≈ 28.27</code></p>
+<p>新的总和 &#x3D; <code>0 + 28.27 = 28.27</code></p>
+<ul>
+<li>第二次循环：</li>
+</ul>
+<p><code>$0 = 28.27</code></p>
+<p><code>$1 = Rectangle(width: 4, height: 5)</code></p>
+<p><code>$1.area = 4 × 5 = 20</code></p>
+<p>新的总和 &#x3D; <code>28.27 + 20 = 48.27</code></p>
+<p>最后返回的就是：<strong>48.27</strong></p>
+<h3 id="更长一点写出来（等价形式）"><a href="#更长一点写出来（等价形式）" class="headerlink" title="更长一点写出来（等价形式）"></a>更长一点写出来（等价形式）</h3><p>如果不写得这么简洁，等价于下面这种形式：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.reduce(<span class="number">0</span>) &#123; (currentTotal, currentShape) <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">return</span> currentTotal <span class="operator">+</span> currentShape.area</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>这里把 <code>$0</code> 写成了 <code>currentTotal</code>，把 <code>$1</code> 写成了 <code>currentShape</code>，更好懂一些。</p>
+<h3 id="小结一句话版："><a href="#小结一句话版：" class="headerlink" title="小结一句话版："></a>小结一句话版：</h3><p><code>self.reduce(0) &#123; $0 + $1.area &#125;</code><br>👉 是在遍历数组，把所有 <code>Shape</code> 的 <code>area</code> 加在一起，得到总面积。</p>
+<h3 id="延伸（进阶理解）"><a href="#延伸（进阶理解）" class="headerlink" title="延伸（进阶理解）"></a>延伸（进阶理解）</h3><ul>
+<li><code>reduce</code> 不只是用来加法，它可以用来任何「聚合」的操作，比如乘法、拼接字符串、找最大值等等。</li>
+<li>这里用 <code>reduce</code> 是因为它比 <code>for</code> 循环更<strong>简洁</strong>，而且是<strong>函数式编程风格</strong>，Swift 非常推崇这种写法。</li>
+</ul>
+<h1 id="shapes-totalArea-该函数无法使用，提示this-method-is-defined-on-array-may-not-be-available-in-context"><a href="#shapes-totalArea-该函数无法使用，提示this-method-is-defined-on-array-may-not-be-available-in-context" class="headerlink" title="shapes.totalArea() 该函数无法使用，提示this method is defined on array ,may not be available in context"></a>shapes.totalArea() 该函数无法使用，提示this method is defined on array ,may not be available in context</h1><p>你遇到的这个提示：</p>
+<p>this method is defined on array and may not be available in context</p>
+<p>就是因为 <strong>你定义 shapes 的类型是 [Shape]<strong>，而我们扩展的方法要求的是</strong>元素是遵循 Shape 协议的具体类型</strong>，而不是<strong>协议类型本身</strong>。</p>
+<p>Swift 中，</p>
+<ul>
+<li><code>[Shape]</code> 是一个元素是 <strong>协议对象</strong>（existential type）的数组。</li>
+<li><code>Array where Element: Shape</code> 是要求元素是<strong>具体的遵循协议的类型</strong>（比如 <code>Circle</code>、<code>Rectangle</code>）。</li>
+</ul>
+<p>这两种概念不一样！导致你的 <code>shapes.totalArea()</code> 调用失败。</p>
+<h3 id="进阶解决（标准做法）——正确扩展-any-Shape-的-Array"><a href="#进阶解决（标准做法）——正确扩展-any-Shape-的-Array" class="headerlink" title="进阶解决（标准做法）——正确扩展 [any Shape] 的 Array"></a>进阶解决（标准做法）——正确扩展 [any Shape] 的 Array</h3><p>如果你想保留 <code>extension Array</code> 的写法，要这样做：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extension</span> <span class="title class_">Array</span> <span class="title class_">where</span> <span class="title class_">Element</span> == <span class="title class_">any</span> <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">totalArea</span>() -&gt; <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">self</span>.reduce(<span class="number">0</span>) &#123; <span class="variable">$0</span> <span class="operator">+</span> <span class="variable">$1</span>.area &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>这里用到了 Swift 的新特性，<code>Element == any Shape</code>，明确告诉编译器元素是**”符合 Shape 协议的任意对象”**。</p>
+<p>然后你的定义：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> shapes: [<span class="keyword">any</span> <span class="type">Shape</span>] <span class="operator">=</span> [</span><br><span class="line">    <span class="type">Circle</span>(radius: <span class="number">3</span>),</span><br><span class="line">    <span class="type">Rectangle</span>(width: <span class="number">4</span>, height: <span class="number">5</span>)</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(shapes.totalArea())</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h3 id="最后，小总结一句话版："><a href="#最后，小总结一句话版：" class="headerlink" title="最后，小总结一句话版："></a>最后，小总结一句话版：</h3><p>Swift 的 <code>Array where Element: 协议</code> 是要求具体类型，不是协议本身。如果你用 <code>[Shape]</code>，那就是“协议对象数组”，需要用 <code>[any Shape]</code> 或换种写法。</p>
+<h1 id="protocol-Shape-不能当类型使用比如struct-？"><a href="#protocol-Shape-不能当类型使用比如struct-？" class="headerlink" title="protocol Shape 不能当类型使用比如struct ？"></a>protocol Shape 不能当类型使用比如struct ？</h1><p><strong>protocol Shape 本身不是一个具体类型</strong>，不能直接当作 <code>struct</code>、<code>class</code>、或者别的值来用。<br>Swift 里，<code>protocol</code> 是<strong>一组规则的集合</strong>，而不是能直接实例化的类型。</p>
+<h3 id="那为什么有时候又看到-Shape-这样的写法？"><a href="#那为什么有时候又看到-Shape-这样的写法？" class="headerlink" title="那为什么有时候又看到 [Shape] 这样的写法？"></a>那为什么有时候又看到 [Shape] 这样的写法？</h3><p>因为 Swift 支持一种叫 “<strong>协议类型（existential type）</strong>“ 的概念。</p>
+<p>比如你可以定义：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> shapes: [<span class="type">Shape</span>] <span class="operator">=</span> [<span class="operator">...</span>]</span><br></pre></td></tr></table></figure>
+
+
+<p>这其实是说：</p>
+<p>我有一堆遵守 <code>Shape</code> 协议的对象，但我不关心它们具体是谁（可能是 <code>Circle</code>，也可能是 <code>Rectangle</code>），只关心它们都能提供 <code>area</code> 这个属性。</p>
+<p>但这背后 Swift 是有<strong>额外开销</strong>的，比如动态查找 <code>area</code>，因为 Swift 运行时需要跳到具体实现上。</p>
+<h3 id="细分来看："><a href="#细分来看：" class="headerlink" title="细分来看："></a>细分来看：</h3><table>
+<thead>
+<tr>
+<th>用途</th>
+<th>是否可以用 protocol</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>作为一组要求来让别人遵守（比如给 struct&#x2F;class 写协议）</td>
+<td>✅可以</td>
+</tr>
+<tr>
+<td>直接当作实例来用（像 struct 一样 new 一个）</td>
+<td>❌不可以</td>
+</tr>
+<tr>
+<td>作为参数、返回值、变量（比如 [Shape]）</td>
+<td>✅可以，但要小心性能、特性差异</td>
+</tr>
+<tr>
+<td>作为泛型约束（比如 T: Shape）</td>
+<td>✅可以，推荐</td>
+</tr>
+</tbody></table>
+<h3 id="Swift-5-6-以后，Swift-更严格区分了两种情况："><a href="#Swift-5-6-以后，Swift-更严格区分了两种情况：" class="headerlink" title="Swift 5.6 以后，Swift 更严格区分了两种情况："></a>Swift 5.6 以后，Swift 更严格区分了两种情况：</h3><ul>
+<li><code>protocol Shape &#123;&#125;</code> 是<strong>一组能力要求</strong>，不能直接实例化。</li>
+<li><code>[any Shape]</code> 才是真正明确说：「这是<strong>一堆遵循 Shape 的对象</strong>。」</li>
+</ul>
+<p>如果你写：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> shape: <span class="type">Shape</span> <span class="operator">=</span> <span class="type">Circle</span>(radius: <span class="number">3</span>) </span><br></pre></td></tr></table></figure>
+
+
+<p>Swift 5.7 以后，会强烈建议你写成：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> shape: <span class="keyword">any</span> <span class="type">Shape</span> <span class="operator">=</span> <span class="type">Circle</span>(radius: <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p>明确加上 <code>any</code>，表示这是一个 <strong>existential</strong>（存在类型）。</p>
+<h3 id="那，protocol-和-struct、class的区别到底是啥？"><a href="#那，protocol-和-struct、class的区别到底是啥？" class="headerlink" title="那，protocol 和 struct、class的区别到底是啥？"></a>那，protocol 和 struct、class的区别到底是啥？</h3><p>简单对比一下：</p>
+<p>| 特性 | protocol | struct&#x2F;class |<br>|:—|:—|<br>| 是不是实体？ | ❌不是实体（只是规范） | ✅是实体（可以实例化） |<br>| 用来干嘛？ | 描述行为、特征 | 存储数据和具体实现 |<br>| 能不能实例化？ | ❌不能 | ✅能 |<br>| 示例 | <code>protocol Shape &#123; var area: Double &#123; get &#125; &#125;</code> | <code>struct Circle: Shape &#123; ... &#125;</code> |</p>
+<h3 id="总结一句话版："><a href="#总结一句话版：" class="headerlink" title="总结一句话版："></a>总结一句话版：</h3><p><code>protocol</code> 是用来规定“必须有什么功能”，但不能直接造出来，真正能被造出来的是遵循这个协议的 <code>struct</code> 或 <code>class</code>。</p>
+<h3 id="最后给你一组完整例子，感受一下"><a href="#最后给你一组完整例子，感受一下" class="headerlink" title="最后给你一组完整例子，感受一下"></a>最后给你一组完整例子，感受一下</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protocol</span> <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> area: <span class="type">Double</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Circle</span>: <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> radius: <span class="type">Double</span></span><br><span class="line">    <span class="keyword">var</span> area: <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">Double</span>.pi <span class="operator">*</span> radius <span class="operator">*</span> radius</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> c <span class="operator">=</span> <span class="type">Circle</span>(radius: <span class="number">5</span>) <span class="comment">// OK，Circle可以实例化</span></span><br><span class="line"><span class="keyword">let</span> s: <span class="keyword">any</span> <span class="type">Shape</span> <span class="operator">=</span> c      <span class="comment">// OK，Circle实例赋值给 any Shape 类型</span></span><br><span class="line"><span class="comment">// let s2 = Shape()       // ❌ 错误，protocol本身不能new出来！</span></span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/swift%E7%BC%96%E7%A8%8B/" rel="tag"># swift编程</a>
+              <a href="/tags/iOS%E7%BC%96%E7%A8%8B/" rel="tag"># iOS编程</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/04/26/swift%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E4%B8%ADget%E7%AD%89%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E7%94%A8%E6%B3%95/" rel="prev" title="swift编程语言中get等关键字的用法">
+      <i class="fa fa-chevron-left"></i> swift编程语言中get等关键字的用法
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2025/04/28/playground%E6%96%87%E4%BB%B6%E7%9A%84%E7%BB%93%E6%9E%84%E8%A7%A3%E6%9E%90/" rel="next" title="playground文件的结构解析">
+      playground文件的结构解析 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Swift-%E8%AF%AD%E8%A8%80-%E5%8D%8F%E8%AE%AE-%E6%89%A9%E5%B1%95%E7%BB%83%E4%B9%A0"><span class="nav-text">1. Swift 语言 - 协议+扩展练习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-SwiftUI-%E7%AE%80%E5%8D%95%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8A%A8%E7%94%BB%E6%8C%89%E9%92%AE"><span class="nav-text">2. SwiftUI - 简单的自定义动画按钮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E5%8D%8F%E8%AE%AE-Shape"><span class="nav-text">1. 定义一个协议 Shape</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AE%9A%E4%B9%89%E4%B8%A4%E4%B8%AA%E9%81%B5%E5%BE%AA-Shape-%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%BB%93%E6%9E%84%E4%BD%93"><span class="nav-text">2. 定义两个遵循 Shape 协议的结构体</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%86%E5%BD%A2-Circle%EF%BC%9A"><span class="nav-text">圆形 Circle：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9F%A9%E5%BD%A2-Rectangle%EF%BC%9A"><span class="nav-text">矩形 Rectangle：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E7%BB%99%E6%95%B0%E7%BB%84%E5%8A%A0%E5%8A%9F%E8%83%BD%EF%BC%9A%E6%89%A9%E5%B1%95-Array"><span class="nav-text">3. 给数组加功能：扩展 Array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%B5%8B%E8%AF%95%E4%B8%80%E4%B8%8B"><span class="nav-text">4. 测试一下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%E4%B8%80%E4%B8%8B"><span class="nav-text">总结一下</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%A6%E7%BB%86%E8%A7%A3%E9%87%8A%E8%BF%99%E6%AE%B5%E4%BB%A3%E7%A0%81-self-reduce-0-0-1-area"><span class="nav-text">详细解释这段代码 self.reduce(0) { $0 + $1.area }</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%88%E7%9C%8B%E6%95%B4%E4%BD%93%EF%BC%9A"><span class="nav-text">先看整体：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%90%E6%AD%A5%E8%A7%A3%E9%87%8A%EF%BC%9A"><span class="nav-text">逐步解释：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-reduce-0"><span class="nav-text">1. reduce(0)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-0-1-area"><span class="nav-text">2. { $0 + $1.area }</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA%E6%A8%A1%E6%8B%9F%E5%B0%8F%E4%BE%8B%E5%AD%90"><span class="nav-text">一个模拟小例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E9%95%BF%E4%B8%80%E7%82%B9%E5%86%99%E5%87%BA%E6%9D%A5%EF%BC%88%E7%AD%89%E4%BB%B7%E5%BD%A2%E5%BC%8F%EF%BC%89"><span class="nav-text">更长一点写出来（等价形式）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93%E4%B8%80%E5%8F%A5%E8%AF%9D%E7%89%88%EF%BC%9A"><span class="nav-text">小结一句话版：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%B6%E4%BC%B8%EF%BC%88%E8%BF%9B%E9%98%B6%E7%90%86%E8%A7%A3%EF%BC%89"><span class="nav-text">延伸（进阶理解）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#shapes-totalArea-%E8%AF%A5%E5%87%BD%E6%95%B0%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8%EF%BC%8C%E6%8F%90%E7%A4%BAthis-method-is-defined-on-array-may-not-be-available-in-context"><span class="nav-text">shapes.totalArea() 该函数无法使用，提示this method is defined on array ,may not be available in context</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E9%98%B6%E8%A7%A3%E5%86%B3%EF%BC%88%E6%A0%87%E5%87%86%E5%81%9A%E6%B3%95%EF%BC%89%E2%80%94%E2%80%94%E6%AD%A3%E7%A1%AE%E6%89%A9%E5%B1%95-any-Shape-%E7%9A%84-Array"><span class="nav-text">进阶解决（标准做法）——正确扩展 [any Shape] 的 Array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%90%8E%EF%BC%8C%E5%B0%8F%E6%80%BB%E7%BB%93%E4%B8%80%E5%8F%A5%E8%AF%9D%E7%89%88%EF%BC%9A"><span class="nav-text">最后，小总结一句话版：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#protocol-Shape-%E4%B8%8D%E8%83%BD%E5%BD%93%E7%B1%BB%E5%9E%8B%E4%BD%BF%E7%94%A8%E6%AF%94%E5%A6%82struct-%EF%BC%9F"><span class="nav-text">protocol Shape 不能当类型使用比如struct ？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%82%A3%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9C%89%E6%97%B6%E5%80%99%E5%8F%88%E7%9C%8B%E5%88%B0-Shape-%E8%BF%99%E6%A0%B7%E7%9A%84%E5%86%99%E6%B3%95%EF%BC%9F"><span class="nav-text">那为什么有时候又看到 [Shape] 这样的写法？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%86%E5%88%86%E6%9D%A5%E7%9C%8B%EF%BC%9A"><span class="nav-text">细分来看：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Swift-5-6-%E4%BB%A5%E5%90%8E%EF%BC%8CSwift-%E6%9B%B4%E4%B8%A5%E6%A0%BC%E5%8C%BA%E5%88%86%E4%BA%86%E4%B8%A4%E7%A7%8D%E6%83%85%E5%86%B5%EF%BC%9A"><span class="nav-text">Swift 5.6 以后，Swift 更严格区分了两种情况：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%82%A3%EF%BC%8Cprotocol-%E5%92%8C-struct%E3%80%81class%E7%9A%84%E5%8C%BA%E5%88%AB%E5%88%B0%E5%BA%95%E6%98%AF%E5%95%A5%EF%BC%9F"><span class="nav-text">那，protocol 和 struct、class的区别到底是啥？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%E4%B8%80%E5%8F%A5%E8%AF%9D%E7%89%88%EF%BC%9A"><span class="nav-text">总结一句话版：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%90%8E%E7%BB%99%E4%BD%A0%E4%B8%80%E7%BB%84%E5%AE%8C%E6%95%B4%E4%BE%8B%E5%AD%90%EF%BC%8C%E6%84%9F%E5%8F%97%E4%B8%80%E4%B8%8B"><span class="nav-text">最后给你一组完整例子，感受一下</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">YiDa</p>
+  <div class="site-description" itemprop="description">自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。</div>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2023 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YiDa</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

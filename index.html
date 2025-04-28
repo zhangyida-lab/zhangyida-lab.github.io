@@ -194,6 +194,693 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/28/playground%E6%96%87%E4%BB%B6%E7%9A%84%E7%BB%93%E6%9E%84%E8%A7%A3%E6%9E%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/04/28/playground%E6%96%87%E4%BB%B6%E7%9A%84%E7%BB%93%E6%9E%84%E8%A7%A3%E6%9E%90/" class="post-title-link" itemprop="url">playground文件的结构解析</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-04-28 16:32:08 / 修改时间：17:34:12" itemprop="dateCreated datePublished" datetime="2025-04-28T16:32:08+09:00">2025-04-28</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="📚-Playground-中的-Sources-和-Resources-作用"><a href="#📚-Playground-中的-Sources-和-Resources-作用" class="headerlink" title="📚 Playground 中的 Sources 和 Resources 作用"></a>📚 Playground 中的 Sources 和 Resources 作用</h1><h2 id="1-Sources-文件夹（源码文件夹）"><a href="#1-Sources-文件夹（源码文件夹）" class="headerlink" title="1. Sources 文件夹（源码文件夹）"></a>1. Sources 文件夹（源码文件夹）</h2><ul>
+<li><strong>作用</strong>：放<strong>Swift代码文件</strong>，比如 <code>.swift</code> 文件。</li>
+<li><strong>特点</strong>：</li>
+</ul>
+<p>Sources 中的代码<strong>会自动被 Playground 主体引用</strong>，不需要 <code>import</code>。</p>
+<p>Sources 中的代码<strong>默认是隐藏的</strong>（在 Playground 打开主界面时不会显示出来，需要自己点进去看）。</p>
+<p>适合放：</p>
+<p>工具类（比如扩展、数据结构、算法）</p>
+<p>辅助函数</p>
+<p>协议、模型定义（比如 <code>protocol Shape &#123;&#125;</code>）</p>
+<ul>
+<li><strong>好处</strong>：</li>
+</ul>
+<p>可以保持 Playground 主文件干净，逻辑清晰。</p>
+<p>编译速度快（Sources 的内容在 Playground 打开时是<strong>一次性编译</strong>的）。</p>
+<p>✅ <strong>简单理解</strong>：</p>
+<p>Sources &#x3D; 小型 “模块&#x2F;库” 专门放支持代码。</p>
+<h3 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a>举个例子</h3><p>假设你在 Sources 里放了一个文件 <code>MathHelper.swift</code>：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Sources/MathHelper.swift</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">func</span> <span class="title function_">square</span>(<span class="keyword">_</span> <span class="params">x</span>: <span class="type">Int</span>) <span class="operator">-&amp;</span>gt; <span class="type">Int</span> &#123;</span><br><span class="line">    x <span class="operator">*</span> x</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>在 Playground 主体中直接就可以使用：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> result <span class="operator">=</span> square(<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(result) <span class="comment">// 输出 25</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>注意</strong>：<br>Sources 里的函数或类型，要加 <code>public</code> 修饰，否则主 Playground 文件访问不到！</p>
+<h2 id="2-Resources-文件夹（资源文件夹）"><a href="#2-Resources-文件夹（资源文件夹）" class="headerlink" title="2. Resources 文件夹（资源文件夹）"></a>2. Resources 文件夹（资源文件夹）</h2><ul>
+<li><strong>作用</strong>：放<strong>资源文件</strong>，比如：</li>
+</ul>
+<p>图片（.png, .jpg）</p>
+<p>JSON 文件</p>
+<p>音频（.mp3）</p>
+<p>视频（.mp4）</p>
+<p>甚至小的数据库文件（.sqlite）</p>
+<ul>
+<li><strong>特点</strong>：</li>
+</ul>
+<p>Resources 中的文件可以通过代码访问，比如 <code>Bundle.main.url(forResource:)</code></p>
+<p>加载这些文件时，就像访问 App 的资源包一样。</p>
+<ul>
+<li><strong>适合放</strong>：</li>
+</ul>
+<p>图片素材</p>
+<p>测试数据（比如假数据 json）</p>
+<p>小型静态资源</p>
+<p>✅ <strong>简单理解</strong>：</p>
+<p>Resources &#x3D; 给你的 Playground 项目提供素材支持的地方。</p>
+<h3 id="举个例子-1"><a href="#举个例子-1" class="headerlink" title="举个例子"></a>举个例子</h3><p>假设你放了一张图 <code>logo.png</code> 在 Resources 里。</p>
+<p>你可以这样加载：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"><span class="keyword">import</span> PlaygroundSupport</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> url <span class="operator">=</span> <span class="type">Bundle</span>.main.url(forResource: <span class="string">&quot;logo&quot;</span>, withExtension: <span class="string">&quot;png&quot;</span>),</span><br><span class="line">   <span class="keyword">let</span> data <span class="operator">=</span> <span class="keyword">try?</span> <span class="type">Data</span>(contentsOf: url),</span><br><span class="line">   <span class="keyword">let</span> image <span class="operator">=</span> <span class="type">UIImage</span>(data: data) &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 展示图片</span></span><br><span class="line">    <span class="keyword">let</span> imageView <span class="operator">=</span> <span class="type">UIImageView</span>(image: image)</span><br><span class="line">    <span class="type">PlaygroundPage</span>.current.liveView <span class="operator">=</span> imageView</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>这样就可以在 Playground 里直接显示图片了！</p>
+<h1 id="🔥-总结一句话"><a href="#🔥-总结一句话" class="headerlink" title="🔥 总结一句话"></a>🔥 总结一句话</h1><table>
+<thead>
+<tr>
+<th>文件夹</th>
+<th>主要放什么</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Sources</td>
+<td>Swift 代码（模块、工具类、模型）</td>
+<td>组织代码结构，保持主界面简洁，优化编译速度</td>
+</tr>
+<tr>
+<td>Resources</td>
+<td>图片、JSON、音频等静态资源</td>
+<td>提供程序运行时需要用到的外部素材</td>
+</tr>
+</tbody></table>
+<h1 id="📚-Playground-中-“每个-Page-的-Sources-x2F-Resources”-vs-“总项目的-Sources-x2F-Resources”-区别"><a href="#📚-Playground-中-“每个-Page-的-Sources-x2F-Resources”-vs-“总项目的-Sources-x2F-Resources”-区别" class="headerlink" title="📚 Playground 中 “每个 Page 的 Sources&#x2F;Resources” vs “总项目的 Sources&#x2F;Resources” 区别"></a>📚 Playground 中 “每个 Page 的 Sources&#x2F;Resources” vs “总项目的 Sources&#x2F;Resources” 区别</h1><h1 id="1-Playground-总体结构"><a href="#1-Playground-总体结构" class="headerlink" title="1. Playground 总体结构"></a>1. Playground 总体结构</h1><p>先看最顶层（也叫 Playground 的 <strong>根目录</strong>）通常是这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">MyPlayground.playground</span><br><span class="line">├── Contents.swift （入口页）</span><br><span class="line">├── Sources/    （全局的 Swift 源码）</span><br><span class="line">├── Resources/  （全局的资源文件）</span><br><span class="line">├── Pages/</span><br><span class="line">│   ├── Page1.playgroundpage/</span><br><span class="line">│   │   ├── Contents.swift</span><br><span class="line">│   │   ├── Sources/    （Page1局部源码）</span><br><span class="line">│   │   ├── Resources/  （Page1局部资源）</span><br><span class="line">│   ├── Page2.playgroundpage/</span><br><span class="line">│   │   ├── Contents.swift</span><br><span class="line">│   │   ├── Sources/    （Page2局部源码）</span><br><span class="line">│   │   ├── Resources/  （Page2局部资源）</span><br></pre></td></tr></table></figure>
+
+
+<p>看出来了吧？<br>每个 <strong>Page</strong> 自己也可以有一套 <code>Sources/</code> 和 <code>Resources/</code>！</p>
+<h1 id="2-根-Sources-x2F-根-Resources（顶层）"><a href="#2-根-Sources-x2F-根-Resources（顶层）" class="headerlink" title="2. 根 Sources &#x2F; 根 Resources（顶层）"></a>2. 根 Sources &#x2F; 根 Resources（顶层）</h1><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>根 Sources&#x2F;</td>
+<td>供 <strong>整个 Playground 所有 Pages</strong> 公用的 Swift 代码。</td>
+</tr>
+<tr>
+<td>根 Resources&#x2F;</td>
+<td>供 <strong>整个 Playground 所有 Pages</strong> 公用的资源文件（图片、json、视频等）。</td>
+</tr>
+</tbody></table>
+<p>✅ 特点：</p>
+<ul>
+<li>任何 Page 都可以直接访问根 Sources&#x2F;Resources。</li>
+<li>根 Sources 里的 <code>.swift</code> 文件要加 <code>public</code> 才能在 Page 里被访问到。</li>
+</ul>
+<h1 id="3-Page-内自己的-Sources-x2F-Resources（局部）"><a href="#3-Page-内自己的-Sources-x2F-Resources（局部）" class="headerlink" title="3. Page 内自己的 Sources &#x2F; Resources（局部）"></a>3. Page 内自己的 Sources &#x2F; Resources（局部）</h1><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Page 自己的 Sources&#x2F;</td>
+<td><strong>只在这一页（Page）内部</strong>使用的小模块、小类。其他 Pages 看不到。</td>
+</tr>
+<tr>
+<td>Page 自己的 Resources&#x2F;</td>
+<td><strong>只在这一页（Page）内部</strong>使用的资源（比如这个Page专属的一张图）。</td>
+</tr>
+</tbody></table>
+<p>✅ 特点：</p>
+<ul>
+<li>只在自己那一页能访问，<strong>其他 Pages 无法访问</strong>。</li>
+<li>如果两个 Page 都要用，就应该放到 <strong>根目录</strong>的 Sources&#x2F;Resources。</li>
+<li>好处是可以避免污染，比如 Page1 有专用测试数据，Page2不会被干扰。</li>
+</ul>
+<h1 id="🔥-举例对比一下"><a href="#🔥-举例对比一下" class="headerlink" title="🔥 举例对比一下"></a>🔥 举例对比一下</h1><h2 id="（1）如果你在-Playground-根-Sources-里有个文件："><a href="#（1）如果你在-Playground-根-Sources-里有个文件：" class="headerlink" title="（1）如果你在 Playground 根 Sources 里有个文件："></a>（1）如果你在 Playground 根 Sources 里有个文件：</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Sources/MathHelper.swift</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">func</span> <span class="title function_">add</span>(<span class="keyword">_</span> <span class="params">a</span>: <span class="type">Int</span>, <span class="keyword">_</span> <span class="params">b</span>: <span class="type">Int</span>) <span class="operator">-&amp;</span>gt; <span class="type">Int</span> &#123;</span><br><span class="line">    a <span class="operator">+</span> b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>那么在 <strong>任何 Page</strong> 都能写：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> result <span class="operator">=</span> add(<span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p>都能用，没问题。</p>
+<h2 id="（2）如果你在-Pages-x2F-Page1-playgroundpage-x2F-Sources-x2F-LocalHelper-swift-里写："><a href="#（2）如果你在-Pages-x2F-Page1-playgroundpage-x2F-Sources-x2F-LocalHelper-swift-里写：" class="headerlink" title="（2）如果你在 Pages&#x2F;Page1.playgroundpage&#x2F;Sources&#x2F;LocalHelper.swift 里写："></a>（2）如果你在 Pages&#x2F;Page1.playgroundpage&#x2F;Sources&#x2F;LocalHelper.swift 里写：</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Pages/Page1.playgroundpage/Sources/LocalHelper.swift</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">func</span> <span class="title function_">localAdd</span>(<span class="keyword">_</span> <span class="params">a</span>: <span class="type">Int</span>, <span class="keyword">_</span> <span class="params">b</span>: <span class="type">Int</span>) <span class="operator">-&amp;</span>gt; <span class="type">Int</span> &#123;</span><br><span class="line">    a <span class="operator">+</span> b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>那么这个 <code>localAdd</code> 只在 <strong>Page1</strong> 里能用，在 <strong>Page2</strong> 用不了。</p>
+<p>如果你在 Page2 里写：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> r <span class="operator">=</span> localAdd(<span class="number">2</span>, <span class="number">5</span>) <span class="comment">// ❌ 报错：找不到 localAdd</span></span><br></pre></td></tr></table></figure>
+
+
+<p>就会出错！</p>
+<h1 id="4-最常见的合理用法是这样："><a href="#4-最常见的合理用法是这样：" class="headerlink" title="4. 最常见的合理用法是这样："></a>4. 最常见的合理用法是这样：</h1><table>
+<thead>
+<tr>
+<th>内容</th>
+<th>放到哪里</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>通用工具类（比如通用数学、通用模型）</td>
+<td>根 Sources&#x2F;</td>
+<td>所有 Pages 都可以共用</td>
+</tr>
+<tr>
+<td>只在某一页使用的小代码、小资源</td>
+<td>Page 自己的 Sources&#x2F;Resources&#x2F;</td>
+<td>避免污染别的 Page，隔离干净</td>
+</tr>
+<tr>
+<td>所有页面都需要访问的图片、json数据</td>
+<td>根 Resources&#x2F;</td>
+<td>公共资源方便管理</td>
+</tr>
+<tr>
+<td>某个页面特有的测试图片、专属小数据</td>
+<td>Page 局部 Resources&#x2F;</td>
+<td>避免不同Page相互影响</td>
+</tr>
+</tbody></table>
+<h1 id="🎯-总结一张表（直接记住）"><a href="#🎯-总结一张表（直接记住）" class="headerlink" title="🎯 总结一张表（直接记住）"></a>🎯 总结一张表（直接记住）</h1><table>
+<thead>
+<tr>
+<th>比较项</th>
+<th>顶层 Sources&#x2F;Resources</th>
+<th>Page 局部 Sources&#x2F;Resources</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>作用范围</td>
+<td>全 Playground 共享</td>
+<td>只限当前 Page</td>
+</tr>
+<tr>
+<td>访问权限</td>
+<td>任何 Page 都能用</td>
+<td>只有本 Page 可以用</td>
+</tr>
+<tr>
+<td>适合放</td>
+<td>通用代码&#x2F;通用资源</td>
+<td>特定页用的小模块&#x2F;小资源</td>
+</tr>
+<tr>
+<td>示例</td>
+<td>通用数学库 &#x2F; 公共图片</td>
+<td>特定 Page 的小组件 &#x2F; 测试数据</td>
+</tr>
+</tbody></table>
+<h1 id="✅-最后用一句话帮你记忆"><a href="#✅-最后用一句话帮你记忆" class="headerlink" title="✅ 最后用一句话帮你记忆"></a>✅ 最后用一句话帮你记忆</h1><p><strong>根Sources&#x2F;Resources是”全局共享”的，Page下Sources&#x2F;Resources是”本地专用”的。</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/26/Day01Swift%E7%BC%96%E7%A8%8BonPlayground/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/04/26/Day01Swift%E7%BC%96%E7%A8%8BonPlayground/" class="post-title-link" itemprop="url">Day01Swift编程onPlayground</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-04-26 22:20:17" itemprop="dateCreated datePublished" datetime="2025-04-26T22:20:17+09:00">2025-04-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-04-28 17:32:50" itemprop="dateModified" datetime="2025-04-28T17:32:50+09:00">2025-04-28</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>今天 Day 1 推荐：</strong></p>
+<h3 id="1-Swift-语言-协议-扩展练习"><a href="#1-Swift-语言-协议-扩展练习" class="headerlink" title="1. Swift 语言 - 协议+扩展练习"></a>1. Swift 语言 - 协议+扩展练习</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protocol</span> <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> area: <span class="type">Double</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Circle</span>: <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> radius: <span class="type">Double</span></span><br><span class="line">    <span class="keyword">var</span> area: <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">Double</span>.pi <span class="operator">*</span> radius <span class="operator">*</span> radius</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Rectangle</span>: <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> width: <span class="type">Double</span></span><br><span class="line">    <span class="keyword">var</span> height: <span class="type">Double</span></span><br><span class="line">    <span class="keyword">var</span> area: <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> width <span class="operator">*</span> height</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">extension</span> <span class="title class_">Array</span> <span class="title class_">where</span> <span class="title class_">Element</span>: <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">totalArea</span>() <span class="operator">-&amp;</span>gt; <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">self</span>.reduce(<span class="number">0</span>) &#123; <span class="variable">$0</span> <span class="operator">+</span> <span class="variable">$1</span>.area &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 测试</span></span><br><span class="line"><span class="keyword">let</span> shapes: [<span class="type">Shape</span>] <span class="operator">=</span> [</span><br><span class="line">    <span class="type">Circle</span>(radius: <span class="number">3</span>),</span><br><span class="line">    <span class="type">Rectangle</span>(width: <span class="number">4</span>, height: <span class="number">5</span>)</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Total area: <span class="subst">\(shapes.totalArea())</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>练习点：</strong> 协议+扩展+泛型约束</p>
+<h3 id="2-SwiftUI-简单的自定义动画按钮"><a href="#2-SwiftUI-简单的自定义动画按钮" class="headerlink" title="2. SwiftUI - 简单的自定义动画按钮"></a>2. SwiftUI - 简单的自定义动画按钮</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line"><span class="keyword">import</span> PlaygroundSupport</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">BouncyButton</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> isPressed <span class="operator">=</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">Button</span>(action: &#123;</span><br><span class="line">            withAnimation(.spring(response: <span class="number">0.3</span>, dampingFraction: <span class="number">0.5</span>)) &#123;</span><br><span class="line">                isPressed.toggle()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;) &#123;</span><br><span class="line">            <span class="type">Text</span>(<span class="string">&quot;Press Me&quot;</span>)</span><br><span class="line">                .font(.title)</span><br><span class="line">                .padding()</span><br><span class="line">                .background(isPressed <span class="operator">?</span> <span class="type">Color</span>.green : <span class="type">Color</span>.blue)</span><br><span class="line">                .foregroundColor(.white)</span><br><span class="line">                .clipShape(<span class="type">Capsule</span>())</span><br><span class="line">                .scaleEffect(isPressed <span class="operator">?</span> <span class="number">1.2</span> : <span class="number">1.0</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 预览</span></span><br><span class="line"><span class="type">PlaygroundPage</span>.current.setLiveView(<span class="type">BouncyButton</span>())</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>练习点：</strong></p>
+<ul>
+<li>SwiftUI 动画（<code>withAnimation</code>、<code>spring</code>）</li>
+<li><code>State</code>变量控制</li>
+<li>组件封装</li>
+</ul>
+<p>代码解释：</p>
+<h3 id="1-定义一个协议-Shape"><a href="#1-定义一个协议-Shape" class="headerlink" title="1. 定义一个协议 Shape"></a>1. 定义一个协议 Shape</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protocol</span> <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> area: <span class="type">Double</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li><code>protocol</code> 是 Swift 里面定义规范的一种方式。</li>
+<li><code>Shape</code> 这个协议要求<strong>所有遵循它的类型</strong>必须有一个只读属性 <code>area</code>，类型是 <code>Double</code>。</li>
+<li>这就像是给所有“形状”下了规定：“你必须能告诉我你的面积”。</li>
+</ul>
+<h3 id="2-定义两个遵循-Shape-协议的结构体"><a href="#2-定义两个遵循-Shape-协议的结构体" class="headerlink" title="2. 定义两个遵循 Shape 协议的结构体"></a>2. 定义两个遵循 Shape 协议的结构体</h3><h4 id="圆形-Circle："><a href="#圆形-Circle：" class="headerlink" title="圆形 Circle："></a>圆形 Circle：</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Circle</span>: <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> radius: <span class="type">Double</span></span><br><span class="line">    <span class="keyword">var</span> area: <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">Double</span>.pi <span class="operator">*</span> radius <span class="operator">*</span> radius</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li><code>Circle</code> 有个属性 <code>radius</code> 表示半径。</li>
+<li>它实现了协议要求的 <code>area</code>，用公式 <strong>π × 半径²</strong> 算面积。</li>
+</ul>
+<h4 id="矩形-Rectangle："><a href="#矩形-Rectangle：" class="headerlink" title="矩形 Rectangle："></a>矩形 Rectangle：</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Rectangle</span>: <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> width: <span class="type">Double</span></span><br><span class="line">    <span class="keyword">var</span> height: <span class="type">Double</span></span><br><span class="line">    <span class="keyword">var</span> area: <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> width <span class="operator">*</span> height</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li><code>Rectangle</code> 有 <code>width</code>（宽度）和 <code>height</code>（高度）。</li>
+<li>它的 <code>area</code> 就是 <strong>宽 × 高</strong>。</li>
+</ul>
+<h3 id="3-给数组加功能：扩展-Array"><a href="#3-给数组加功能：扩展-Array" class="headerlink" title="3. 给数组加功能：扩展 Array"></a>3. 给数组加功能：扩展 Array</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extension</span> <span class="title class_">Array</span> <span class="title class_">where</span> <span class="title class_">Element</span>: <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">totalArea</span>() -&gt; <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">self</span>.reduce(<span class="number">0</span>) &#123; <span class="variable">$0</span> <span class="operator">+</span> <span class="variable">$1</span>.area &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>这里很重要，稍微细一点解释：</p>
+<ul>
+<li><code>extension Array where Element: Shape</code><br>➔ 只给<strong>数组元素是 Shape 类型</strong>的数组加新功能。</li>
+<li><code>func totalArea() -&amp;gt; Double</code><br>➔ 新加一个方法叫 <code>totalArea()</code>，计算<strong>所有形状面积之和</strong>。</li>
+<li><code>self.reduce(0) &#123; $0 + $1.area &#125;</code><br>➔ <code>reduce</code> 是一个高阶函数，意思是：</li>
+</ul>
+<p>从 <code>0</code> 开始</p>
+<p>把数组里面每个元素的 <code>area</code> 加起来</p>
+<p>最终得出一个总面积</p>
+<p><strong>简化理解</strong>：<code>totalArea()</code> &#x3D; 把数组里每个 <code>Shape</code> 的面积加在一起！</p>
+<h3 id="4-测试一下"><a href="#4-测试一下" class="headerlink" title="4. 测试一下"></a>4. 测试一下</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> shapes: [<span class="type">Shape</span>] <span class="operator">=</span> [</span><br><span class="line">    <span class="type">Circle</span>(radius: <span class="number">3</span>),</span><br><span class="line">    <span class="type">Rectangle</span>(width: <span class="number">4</span>, height: <span class="number">5</span>)</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Total area: <span class="subst">\(shapes.totalArea())</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>定义了一个 <code>shapes</code> 数组，里面有一个半径是 3 的圆，和一个宽4高5的矩形。</li>
+<li>调用 <code>totalArea()</code>，求这两个形状的总面积并打印出来。</li>
+</ul>
+<h3 id="总结一下"><a href="#总结一下" class="headerlink" title="总结一下"></a>总结一下</h3><table>
+<thead>
+<tr>
+<th>元素</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>protocol Shape</td>
+<td>定了一个“形状”协议，所有形状都要能算面积。</td>
+</tr>
+<tr>
+<td>struct Circle、struct Rectangle</td>
+<td>实际的形状，实现了Shape协议。</td>
+</tr>
+<tr>
+<td>extension Array</td>
+<td>扩展数组，让<strong>装 Shape 的数组</strong>能直接求总面积。</td>
+</tr>
+<tr>
+<td>reduce</td>
+<td>用来把所有面积加起来，得出总面积。</td>
+</tr>
+</tbody></table>
+<h1 id="详细解释这段代码-self-reduce-0-0-1-area"><a href="#详细解释这段代码-self-reduce-0-0-1-area" class="headerlink" title="详细解释这段代码 self.reduce(0) { $0 + $1.area }"></a>详细解释这段代码 self.reduce(0) { $0 + $1.area }</h1><h3 id="先看整体："><a href="#先看整体：" class="headerlink" title="先看整体："></a>先看整体：</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.reduce(<span class="number">0</span>) &#123; <span class="variable">$0</span> <span class="operator">+</span> <span class="variable">$1</span>.area &#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>它是在数组上调用 <code>reduce</code> 方法。</p>
+<ul>
+<li><code>self</code> 指的是当前的数组（比如 <code>[Circle, Rectangle, ...]</code>）。</li>
+<li><code>reduce(初始值) &#123; 闭包 &#125;</code> 是 Swift 提供的一个<strong>高阶函数</strong>，用来<strong>把一个数组归并成一个值</strong>。</li>
+<li>它从一个“初始值”开始，不断把数组里的每个元素叠加&#x2F;处理进去。</li>
+</ul>
+<h3 id="逐步解释："><a href="#逐步解释：" class="headerlink" title="逐步解释："></a>逐步解释：</h3><h4 id="1-reduce-0"><a href="#1-reduce-0" class="headerlink" title="1. reduce(0)"></a>1. reduce(0)</h4><p>意思是：</p>
+<ul>
+<li>从数值 <code>0</code> 开始累加。</li>
+<li>这个 <code>0</code> 是初始的“总面积”。</li>
+</ul>
+<h4 id="2-0-1-area"><a href="#2-0-1-area" class="headerlink" title="2. { $0 + $1.area }"></a>2. { $0 + $1.area }</h4><p>这里是闭包，里面有两个参数：</p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>代表什么意思</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$0</td>
+<td>当前累加的“总和”</td>
+</tr>
+<tr>
+<td>$1</td>
+<td>当前正在遍历的数组元素（这里是一个 Shape 类型）</td>
+</tr>
+</tbody></table>
+<p>所以这个 <code>&#123; $0 + $1.area &#125;</code> 其实就是：</p>
+<p>“把当前总和 <code>($0)</code> 加上当前元素的面积 <code>($1.area)</code>，然后作为新的总和继续往下传”。</p>
+<h3 id="一个模拟小例子"><a href="#一个模拟小例子" class="headerlink" title="一个模拟小例子"></a>一个模拟小例子</h3><p>假设数组是：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ <span class="type">Circle</span>(radius: <span class="number">3</span>), <span class="type">Rectangle</span>(width: <span class="number">4</span>, height: <span class="number">5</span>) ]</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>第一次循环：</li>
+</ul>
+<p><code>$0 = 0</code></p>
+<p><code>$1 = Circle(radius: 3)</code></p>
+<p><code>$1.area = π × 3² ≈ 28.27</code></p>
+<p>新的总和 &#x3D; <code>0 + 28.27 = 28.27</code></p>
+<ul>
+<li>第二次循环：</li>
+</ul>
+<p><code>$0 = 28.27</code></p>
+<p><code>$1 = Rectangle(width: 4, height: 5)</code></p>
+<p><code>$1.area = 4 × 5 = 20</code></p>
+<p>新的总和 &#x3D; <code>28.27 + 20 = 48.27</code></p>
+<p>最后返回的就是：<strong>48.27</strong></p>
+<h3 id="更长一点写出来（等价形式）"><a href="#更长一点写出来（等价形式）" class="headerlink" title="更长一点写出来（等价形式）"></a>更长一点写出来（等价形式）</h3><p>如果不写得这么简洁，等价于下面这种形式：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.reduce(<span class="number">0</span>) &#123; (currentTotal, currentShape) <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">return</span> currentTotal <span class="operator">+</span> currentShape.area</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>这里把 <code>$0</code> 写成了 <code>currentTotal</code>，把 <code>$1</code> 写成了 <code>currentShape</code>，更好懂一些。</p>
+<h3 id="小结一句话版："><a href="#小结一句话版：" class="headerlink" title="小结一句话版："></a>小结一句话版：</h3><p><code>self.reduce(0) &#123; $0 + $1.area &#125;</code><br>👉 是在遍历数组，把所有 <code>Shape</code> 的 <code>area</code> 加在一起，得到总面积。</p>
+<h3 id="延伸（进阶理解）"><a href="#延伸（进阶理解）" class="headerlink" title="延伸（进阶理解）"></a>延伸（进阶理解）</h3><ul>
+<li><code>reduce</code> 不只是用来加法，它可以用来任何「聚合」的操作，比如乘法、拼接字符串、找最大值等等。</li>
+<li>这里用 <code>reduce</code> 是因为它比 <code>for</code> 循环更<strong>简洁</strong>，而且是<strong>函数式编程风格</strong>，Swift 非常推崇这种写法。</li>
+</ul>
+<h1 id="shapes-totalArea-该函数无法使用，提示this-method-is-defined-on-array-may-not-be-available-in-context"><a href="#shapes-totalArea-该函数无法使用，提示this-method-is-defined-on-array-may-not-be-available-in-context" class="headerlink" title="shapes.totalArea() 该函数无法使用，提示this method is defined on array ,may not be available in context"></a>shapes.totalArea() 该函数无法使用，提示this method is defined on array ,may not be available in context</h1><p>你遇到的这个提示：</p>
+<p>this method is defined on array and may not be available in context</p>
+<p>就是因为 <strong>你定义 shapes 的类型是 [Shape]<strong>，而我们扩展的方法要求的是</strong>元素是遵循 Shape 协议的具体类型</strong>，而不是<strong>协议类型本身</strong>。</p>
+<p>Swift 中，</p>
+<ul>
+<li><code>[Shape]</code> 是一个元素是 <strong>协议对象</strong>（existential type）的数组。</li>
+<li><code>Array where Element: Shape</code> 是要求元素是<strong>具体的遵循协议的类型</strong>（比如 <code>Circle</code>、<code>Rectangle</code>）。</li>
+</ul>
+<p>这两种概念不一样！导致你的 <code>shapes.totalArea()</code> 调用失败。</p>
+<h3 id="进阶解决（标准做法）——正确扩展-any-Shape-的-Array"><a href="#进阶解决（标准做法）——正确扩展-any-Shape-的-Array" class="headerlink" title="进阶解决（标准做法）——正确扩展 [any Shape] 的 Array"></a>进阶解决（标准做法）——正确扩展 [any Shape] 的 Array</h3><p>如果你想保留 <code>extension Array</code> 的写法，要这样做：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extension</span> <span class="title class_">Array</span> <span class="title class_">where</span> <span class="title class_">Element</span> == <span class="title class_">any</span> <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">totalArea</span>() -&gt; <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">self</span>.reduce(<span class="number">0</span>) &#123; <span class="variable">$0</span> <span class="operator">+</span> <span class="variable">$1</span>.area &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>这里用到了 Swift 的新特性，<code>Element == any Shape</code>，明确告诉编译器元素是**”符合 Shape 协议的任意对象”**。</p>
+<p>然后你的定义：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> shapes: [<span class="keyword">any</span> <span class="type">Shape</span>] <span class="operator">=</span> [</span><br><span class="line">    <span class="type">Circle</span>(radius: <span class="number">3</span>),</span><br><span class="line">    <span class="type">Rectangle</span>(width: <span class="number">4</span>, height: <span class="number">5</span>)</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(shapes.totalArea())</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h3 id="最后，小总结一句话版："><a href="#最后，小总结一句话版：" class="headerlink" title="最后，小总结一句话版："></a>最后，小总结一句话版：</h3><p>Swift 的 <code>Array where Element: 协议</code> 是要求具体类型，不是协议本身。如果你用 <code>[Shape]</code>，那就是“协议对象数组”，需要用 <code>[any Shape]</code> 或换种写法。</p>
+<h1 id="protocol-Shape-不能当类型使用比如struct-？"><a href="#protocol-Shape-不能当类型使用比如struct-？" class="headerlink" title="protocol Shape 不能当类型使用比如struct ？"></a>protocol Shape 不能当类型使用比如struct ？</h1><p><strong>protocol Shape 本身不是一个具体类型</strong>，不能直接当作 <code>struct</code>、<code>class</code>、或者别的值来用。<br>Swift 里，<code>protocol</code> 是<strong>一组规则的集合</strong>，而不是能直接实例化的类型。</p>
+<h3 id="那为什么有时候又看到-Shape-这样的写法？"><a href="#那为什么有时候又看到-Shape-这样的写法？" class="headerlink" title="那为什么有时候又看到 [Shape] 这样的写法？"></a>那为什么有时候又看到 [Shape] 这样的写法？</h3><p>因为 Swift 支持一种叫 “<strong>协议类型（existential type）</strong>“ 的概念。</p>
+<p>比如你可以定义：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> shapes: [<span class="type">Shape</span>] <span class="operator">=</span> [<span class="operator">...</span>]</span><br></pre></td></tr></table></figure>
+
+
+<p>这其实是说：</p>
+<p>我有一堆遵守 <code>Shape</code> 协议的对象，但我不关心它们具体是谁（可能是 <code>Circle</code>，也可能是 <code>Rectangle</code>），只关心它们都能提供 <code>area</code> 这个属性。</p>
+<p>但这背后 Swift 是有<strong>额外开销</strong>的，比如动态查找 <code>area</code>，因为 Swift 运行时需要跳到具体实现上。</p>
+<h3 id="细分来看："><a href="#细分来看：" class="headerlink" title="细分来看："></a>细分来看：</h3><table>
+<thead>
+<tr>
+<th>用途</th>
+<th>是否可以用 protocol</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>作为一组要求来让别人遵守（比如给 struct&#x2F;class 写协议）</td>
+<td>✅可以</td>
+</tr>
+<tr>
+<td>直接当作实例来用（像 struct 一样 new 一个）</td>
+<td>❌不可以</td>
+</tr>
+<tr>
+<td>作为参数、返回值、变量（比如 [Shape]）</td>
+<td>✅可以，但要小心性能、特性差异</td>
+</tr>
+<tr>
+<td>作为泛型约束（比如 T: Shape）</td>
+<td>✅可以，推荐</td>
+</tr>
+</tbody></table>
+<h3 id="Swift-5-6-以后，Swift-更严格区分了两种情况："><a href="#Swift-5-6-以后，Swift-更严格区分了两种情况：" class="headerlink" title="Swift 5.6 以后，Swift 更严格区分了两种情况："></a>Swift 5.6 以后，Swift 更严格区分了两种情况：</h3><ul>
+<li><code>protocol Shape &#123;&#125;</code> 是<strong>一组能力要求</strong>，不能直接实例化。</li>
+<li><code>[any Shape]</code> 才是真正明确说：「这是<strong>一堆遵循 Shape 的对象</strong>。」</li>
+</ul>
+<p>如果你写：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> shape: <span class="type">Shape</span> <span class="operator">=</span> <span class="type">Circle</span>(radius: <span class="number">3</span>) </span><br></pre></td></tr></table></figure>
+
+
+<p>Swift 5.7 以后，会强烈建议你写成：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> shape: <span class="keyword">any</span> <span class="type">Shape</span> <span class="operator">=</span> <span class="type">Circle</span>(radius: <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p>明确加上 <code>any</code>，表示这是一个 <strong>existential</strong>（存在类型）。</p>
+<h3 id="那，protocol-和-struct、class的区别到底是啥？"><a href="#那，protocol-和-struct、class的区别到底是啥？" class="headerlink" title="那，protocol 和 struct、class的区别到底是啥？"></a>那，protocol 和 struct、class的区别到底是啥？</h3><p>简单对比一下：</p>
+<p>| 特性 | protocol | struct&#x2F;class |<br>|:—|:—|<br>| 是不是实体？ | ❌不是实体（只是规范） | ✅是实体（可以实例化） |<br>| 用来干嘛？ | 描述行为、特征 | 存储数据和具体实现 |<br>| 能不能实例化？ | ❌不能 | ✅能 |<br>| 示例 | <code>protocol Shape &#123; var area: Double &#123; get &#125; &#125;</code> | <code>struct Circle: Shape &#123; ... &#125;</code> |</p>
+<h3 id="总结一句话版："><a href="#总结一句话版：" class="headerlink" title="总结一句话版："></a>总结一句话版：</h3><p><code>protocol</code> 是用来规定“必须有什么功能”，但不能直接造出来，真正能被造出来的是遵循这个协议的 <code>struct</code> 或 <code>class</code>。</p>
+<h3 id="最后给你一组完整例子，感受一下"><a href="#最后给你一组完整例子，感受一下" class="headerlink" title="最后给你一组完整例子，感受一下"></a>最后给你一组完整例子，感受一下</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protocol</span> <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> area: <span class="type">Double</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Circle</span>: <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> radius: <span class="type">Double</span></span><br><span class="line">    <span class="keyword">var</span> area: <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">Double</span>.pi <span class="operator">*</span> radius <span class="operator">*</span> radius</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> c <span class="operator">=</span> <span class="type">Circle</span>(radius: <span class="number">5</span>) <span class="comment">// OK，Circle可以实例化</span></span><br><span class="line"><span class="keyword">let</span> s: <span class="keyword">any</span> <span class="type">Shape</span> <span class="operator">=</span> c      <span class="comment">// OK，Circle实例赋值给 any Shape 类型</span></span><br><span class="line"><span class="comment">// let s2 = Shape()       // ❌ 错误，protocol本身不能new出来！</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/26/swift%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E4%B8%ADget%E7%AD%89%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E7%94%A8%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/04/26/swift%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E4%B8%ADget%E7%AD%89%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E7%94%A8%E6%B3%95/" class="post-title-link" itemprop="url">swift编程语言中get等关键字的用法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-04-26 21:32:10 / 修改时间：22:35:33" itemprop="dateCreated datePublished" datetime="2025-04-26T21:32:10+09:00">2025-04-26</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="关于get和set的代码示例："><a href="#关于get和set的代码示例：" class="headerlink" title="关于get和set的代码示例："></a>关于get和set的代码示例：</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Temperature</span> &#123;</span><br><span class="line"> <span class="keyword">var</span> celsius: <span class="type">Float</span> <span class="operator">=</span> <span class="number">0.0</span></span><br><span class="line"> <span class="keyword">var</span> fahrenheit: <span class="type">Float</span> &#123;</span><br><span class="line"> <span class="keyword">get</span> &#123;</span><br><span class="line"> <span class="keyword">return</span> ((celsius <span class="operator">*</span> <span class="number">1.8</span>) <span class="operator">+</span> <span class="number">32.0</span>)</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">set</span> &#123;</span><br><span class="line"> <span class="keyword">self</span>.celsius <span class="operator">=</span> ((newValue <span class="operator">-</span> <span class="number">32</span>) <span class="operator">/</span> <span class="number">1.8</span>)</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> temp <span class="operator">=</span> <span class="type">Temperature</span>(celsius: <span class="number">40</span>)</span><br><span class="line"><span class="built_in">print</span>(temp.fahrenheit)</span><br><span class="line">temp.fahrenheit <span class="operator">=</span> <span class="number">55</span></span><br><span class="line"><span class="built_in">print</span>(temp.celsius)</span><br></pre></td></tr></table></figure>
+
+<h2 id="这段-Swift-代码定义了一个叫-Temperature-的结构体，它实现了摄氏度（celsius）和华氏度（fahrenheit）之间的相互转换。我们来一步步解释："><a href="#这段-Swift-代码定义了一个叫-Temperature-的结构体，它实现了摄氏度（celsius）和华氏度（fahrenheit）之间的相互转换。我们来一步步解释：" class="headerlink" title="这段 Swift 代码定义了一个叫 Temperature 的结构体，它实现了摄氏度（celsius）和华氏度（fahrenheit）之间的相互转换。我们来一步步解释："></a>这段 Swift 代码定义了一个叫 <code>Temperature</code> 的<strong>结构体</strong>，它实现了摄氏度（<code>celsius</code>）和华氏度（<code>fahrenheit</code>）之间的相互转换。我们来一步步解释：</h2><h3 id="结构体部分"><a href="#结构体部分" class="headerlink" title="结构体部分"></a>结构体部分</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Temperature</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> celsius: <span class="type">Float</span> <span class="operator">=</span> <span class="number">0.0</span></span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>这里定义了一个属性 <code>celsius</code>，表示<strong>摄氏温度</strong>，默认是 <code>0.0</code>。</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">var</span> fahrenheit: <span class="type">Float</span> &#123;</span><br><span class="line">        <span class="keyword">get</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> ((celsius <span class="operator">*</span> <span class="number">1.8</span>) <span class="operator">+</span> <span class="number">32.0</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">set</span> &#123;</span><br><span class="line">            <span class="keyword">self</span>.celsius <span class="operator">=</span> ((newValue <span class="operator">-</span> <span class="number">32</span>) <span class="operator">/</span> <span class="number">1.8</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li><code>fahrenheit</code> 是一个<strong>计算属性</strong>（注意：它没有直接存储值，而是通过 <code>celsius</code> 动态计算出来的）。</li>
+<li><code>get</code>：读取 <code>fahrenheit</code> 时，根据摄氏温度计算出华氏温度：<br><code>华氏温度 = 摄氏温度 × 1.8 + 32</code></li>
+<li><code>set</code>：设置 <code>fahrenheit</code> 时，自动根据输入的华氏温度<strong>反推摄氏温度</strong>：<br><code>摄氏温度 = (华氏温度 - 32) ÷ 1.8</code></li>
+<li><code>newValue</code> 是 Swift 自动提供的，代表<strong>新设置的值</strong>。</li>
+</ul>
+<h3 id="使用部分"><a href="#使用部分" class="headerlink" title="使用部分"></a>使用部分</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> temp <span class="operator">=</span> <span class="type">Temperature</span>(celsius: <span class="number">40</span>)</span><br><span class="line"><span class="built_in">print</span>(temp.fahrenheit)</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>创建了一个 <code>Temperature</code> 实例 <code>temp</code>，初始摄氏温度是 40°C。</li>
+<li>打印 <code>temp.fahrenheit</code>，会触发 <code>get</code>，计算出对应的华氏温度：<br><code>40 * 1.8 + 32 = 104</code></li>
+</ul>
+<p>所以这里打印出来的是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">104.0</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">temp.fahrenheit <span class="operator">=</span> <span class="number">55</span></span><br><span class="line"><span class="built_in">print</span>(temp.celsius)</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>给 <code>temp.fahrenheit</code> 赋值为 55，这会触发 <code>set</code>，反过来计算新的摄氏温度：<br><code>celsius = (55 - 32) / 1.8 = 12.777...</code></li>
+<li>再打印 <code>temp.celsius</code>，所以输出：</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">12.777778</span><br></pre></td></tr></table></figure>
+
+
+<p>（浮点数打印可能会带很多小数位）</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这段代码实现了：</p>
+<ul>
+<li>根据摄氏度动态计算华氏度。</li>
+<li>根据华氏度反推摄氏度。</li>
+<li><strong>celsius</strong> 是实际存储的值，<strong>fahrenheit</strong> 是根据 <code>celsius</code> 实时计算出来的。</li>
+</ul>
+<p>要不要我顺便帮你画一张小图，展示 <code>celsius</code> 和 <code>fahrenheit</code> 之间的流转关系？🎯<br>（要的话告诉我哈～）</p>
+<h1 id="get-和set的其他用法吗？或者willset-didset等。"><a href="#get-和set的其他用法吗？或者willset-didset等。" class="headerlink" title="get 和set的其他用法吗？或者willset didset等。"></a>get 和set的其他用法吗？或者willset didset等。</h1><p><code>get</code> 和 <code>set</code> 在 Swift 里除了你刚看到的这种基本用法，还有一些<strong>更灵活</strong>、<strong>更高级</strong>的用法。简单说一下几个常见的：</p>
+<h3 id="1-只读计算属性（只有-get，没有-set）"><a href="#1-只读计算属性（只有-get，没有-set）" class="headerlink" title="1. 只读计算属性（只有 get，没有 set）"></a>1. <strong>只读计算属性</strong>（只有 get，没有 set）</h3><p>如果你只需要读取，不需要修改，可以只写 <code>get</code>，而且 <strong>可以省略 get 关键字</strong>！</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Rectangle</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> width: <span class="type">Double</span></span><br><span class="line">    <span class="keyword">var</span> height: <span class="type">Double</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> area: <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="comment">// 省略了 get</span></span><br><span class="line">        width <span class="operator">*</span> height</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> rect <span class="operator">=</span> <span class="type">Rectangle</span>(width: <span class="number">10</span>, height: <span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(rect.area)  <span class="comment">// 输出 50</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>这里 <code>area</code> 是只读的，不能直接改，只能通过改 <code>width</code> 或 <code>height</code> 间接改变。</p>
+<h3 id="2-带-private-的-set（读是公开的，写是私有的）"><a href="#2-带-private-的-set（读是公开的，写是私有的）" class="headerlink" title="2. 带 private 的 set（读是公开的，写是私有的）"></a>2. <strong>带 private 的 set</strong>（读是公开的，写是私有的）</h3><p>有时候你希望外部代码能读这个属性，但<strong>不能随便改</strong>，可以给 <code>set</code> 加上 <code>private</code>。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">BankAccount</span> &#123;</span><br><span class="line">    <span class="keyword">private(set)</span> <span class="keyword">var</span> balance: <span class="type">Double</span> <span class="operator">=</span> <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">mutating</span> <span class="keyword">func</span> <span class="title function_">deposit</span>(<span class="keyword">_</span> <span class="params">amount</span>: <span class="type">Double</span>) &#123;</span><br><span class="line">        balance <span class="operator">+=</span> amount</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> account <span class="operator">=</span> <span class="type">BankAccount</span>()</span><br><span class="line">account.deposit(<span class="number">100</span>)</span><br><span class="line"><span class="built_in">print</span>(account.balance)  <span class="comment">// 可以读</span></span><br><span class="line"><span class="comment">// account.balance = 500  ❌ 直接改会报错</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-属性观察器-willSet-和-didSet（不同于-get-x2F-set，但相关）"><a href="#3-属性观察器-willSet-和-didSet（不同于-get-x2F-set，但相关）" class="headerlink" title="3. 属性观察器 willSet 和 didSet（不同于 get&#x2F;set，但相关）"></a>3. <strong>属性观察器 willSet 和 didSet</strong>（不同于 get&#x2F;set，但相关）</h3><p>除了 <code>get/set</code>，Swift 还有<strong>属性观察器</strong>，让你在<strong>属性即将改变前&#x2F;改变后</strong>执行代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">StepCounter</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> steps: <span class="type">Int</span> <span class="operator">=</span> <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">willSet</span>(newSteps) &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;准备将步数改为 <span class="subst">\(newSteps)</span>&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">didSet</span> &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;步数增加了 <span class="subst">\(steps <span class="operator">-</span> oldValue)</span>&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> counter <span class="operator">=</span> <span class="type">StepCounter</span>()</span><br><span class="line">counter.steps <span class="operator">=</span> <span class="number">100</span></span><br></pre></td></tr></table></figure>
+
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">准备将步数改为 100</span><br><span class="line">步数增加了 100</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li><code>willSet</code> 在新值赋值之前触发</li>
+<li><code>didSet</code> 在新值赋值之后触发</li>
+<li><code>oldValue</code> 是修改前的旧值</li>
+</ul>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><table>
+<thead>
+<tr>
+<th>用法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>get &#x2F; set</td>
+<td>计算属性，读写控制</td>
+</tr>
+<tr>
+<td>只写 get</td>
+<td>只读属性，不能直接设置</td>
+</tr>
+<tr>
+<td>private set</td>
+<td>外部只能读，内部可以写</td>
+</tr>
+<tr>
+<td>willSet &#x2F; didSet</td>
+<td>属性变化前后做一些操作</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/25/swift%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%8F%8AswiftUI%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -494,7 +1181,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-04-23 20:06:14" itemprop="dateModified" datetime="2025-04-23T20:06:14+09:00">2025-04-23</time>
+                <time title="修改时间：2025-04-28 17:38:24" itemprop="dateModified" datetime="2025-04-28T17:38:24+09:00">2025-04-28</time>
               </span>
 
           
@@ -509,7 +1196,7 @@
 
       
           <h1 id="swift代码推荐"><a href="#swift代码推荐" class="headerlink" title="swift代码推荐"></a>swift代码推荐</h1><p>这个示例展示了如何使用闭包来对一个数组中的字符串进行排序：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> fruits <span class="operator">=</span> [<span class="string">&quot;Apple&quot;</span>, <span class="string">&quot;Banana&quot;</span>, <span class="string">&quot;Orange&quot;</span>, <span class="string">&quot;Mango&quot;</span>, <span class="string">&quot;Pineapple&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用闭包进行排序，按字母顺序升序排列</span></span><br><span class="line"><span class="keyword">let</span> sortedFruits <span class="operator">=</span> fruits.sorted &#123; (fruit1, fruit2) <span class="operator">-&amp;</span>gt; <span class="type">Bool</span> <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">return</span> fruit1 <span class="operator">&amp;</span>lt; fruit2</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Sorted fruits: <span class="subst">\(sortedFruits)</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> fruits <span class="operator">=</span> [<span class="string">&quot;Apple&quot;</span>, <span class="string">&quot;Banana&quot;</span>, <span class="string">&quot;Orange&quot;</span>, <span class="string">&quot;Mango&quot;</span>, <span class="string">&quot;Pineapple&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用闭包进行排序，按字母顺序升序排列</span></span><br><span class="line"><span class="keyword">let</span> sortedFruits <span class="operator">=</span> fruits.sorted &#123; (fruit1, fruit2) -&gt; <span class="type">Bool</span> <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">return</span> fruit1 <span class="operator">&amp;</span>lt; fruit2</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Sorted fruits: <span class="subst">\(sortedFruits)</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2025/04/02/swift%E4%B8%8D%E5%90%8C%E9%98%B6%E6%AE%B5%E7%9A%84%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B/#more" rel="contents">
@@ -658,226 +1345,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2025/03/28/ios%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%8D%8F%E8%AE%AE%E9%87%8D%E6%9E%84%E9%A1%B9%E7%9B%AE/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/28/ios%E9%A1%B9%E7%9B%AE%E6%B7%BB%E5%8A%A0-gitignore%E6%96%87%E4%BB%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="YiDa">
-      <meta itemprop="description" content="自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yi's Lab">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/03/28/ios%E9%A1%B9%E7%9B%AE%E6%B7%BB%E5%8A%A0-gitignore%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">ios项目添加.gitignore文件</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2025-03-28 22:21:59" itemprop="dateCreated datePublished" datetime="2025-03-28T22:21:59+09:00">2025-03-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-04-23 20:04:43" itemprop="dateModified" datetime="2025-04-23T20:04:43+09:00">2025-04-23</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="ios项目添加-gitignore文件"><a href="#ios项目添加-gitignore文件" class="headerlink" title="ios项目添加.gitignore文件"></a>ios项目添加.gitignore文件</h1><p>为了在 iOS 项目中添加 <code>.gitignore</code> 文件，你可以创建一个 <code>.gitignore</code> 文件并添加适合 Swift 和 SwiftUI 项目的常见忽略规则。下面是一个常见的 <code>.gitignore</code> 配置，它会忽略 Xcode 和 Swift 项目中常见的不需要纳入版本控制的文件。</p>
-<h3 id="1-创建-gitignore-文件"><a href="#1-创建-gitignore-文件" class="headerlink" title="1. 创建 .gitignore 文件"></a>1. <strong>创建 .gitignore 文件</strong></h3>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/03/28/ios%E9%A1%B9%E7%9B%AE%E6%B7%BB%E5%8A%A0-gitignore%E6%96%87%E4%BB%B6/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/28/python%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E5%88%9B%E5%BB%BA%E5%8F%8A%E5%8E%9F%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="YiDa">
-      <meta itemprop="description" content="自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yi's Lab">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/03/28/python%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E5%88%9B%E5%BB%BA%E5%8F%8A%E5%8E%9F%E7%90%86/" class="post-title-link" itemprop="url">python虚拟环境创建及原理</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2025-03-28 08:20:26" itemprop="dateCreated datePublished" datetime="2025-03-28T08:20:26+09:00">2025-03-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-04-23 20:04:53" itemprop="dateModified" datetime="2025-04-23T20:04:53+09:00">2025-04-23</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="python-虚拟环境的创建及原理"><a href="#python-虚拟环境的创建及原理" class="headerlink" title="python 虚拟环境的创建及原理"></a>python 虚拟环境的创建及原理</h1><p>Python 虚拟环境是一个自包含的、独立的运行环境，可以用来安装特定项目所需的包和依赖，避免与系统的 Python 环境产生冲突。创建虚拟环境的好处是，你可以为每个项目维护独立的库版本，确保不同项目的依赖不相互干扰。</p>
-<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>虚拟环境实际上是一个包含 Python 可执行文件的目录，它会拷贝或链接系统环境的 Python 执行文件及一些标准库文件，但不会包含系统的所有库。你可以在虚拟环境中单独安装和管理所需的第三方库，而这些库不会影响到全局环境中的其他项目。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/03/28/python%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E5%88%9B%E5%BB%BA%E5%8F%8A%E5%8E%9F%E7%90%86/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/28/git%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="YiDa">
-      <meta itemprop="description" content="自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yi's Lab">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/03/28/git%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">git工作原理及常用命令</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2025-03-28 08:14:35" itemprop="dateCreated datePublished" datetime="2025-03-28T08:14:35+09:00">2025-03-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-04-23 22:23:02" itemprop="dateModified" datetime="2025-04-23T22:23:02+09:00">2025-04-23</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="git的工作原理与常用命令"><a href="#git的工作原理与常用命令" class="headerlink" title="git的工作原理与常用命令"></a>git的工作原理与常用命令</h1><p>Git 是一个分布式版本控制系统，用于管理文件的更改和版本，特别适合开发团队进行协作。Git 的工作原理包括多个核心概念和操作，其中最重要的包括：工作区、暂存区和本地仓库。下面是 Git 的基本工作原理及常用命令：</p>
-<h3 id="Git-工作原理"><a href="#Git-工作原理" class="headerlink" title="Git 工作原理"></a>Git 工作原理</h3><ol>
-<li><strong>工作区（Working Directory）</strong>：
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/03/28/git%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
