@@ -20,7 +20,7 @@ struct Temperature {
  }
  }
 }
-
+<!--more-->
 
 
 var temp = Temperature(celsius: 40)

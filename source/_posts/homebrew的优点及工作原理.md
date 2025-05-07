@@ -25,7 +25,7 @@ Homebrew 类似于 Linux 下的 `apt` 或 `yum`，提供统一的方式安装工
 
 默认将软件安装在 `/opt/homebrew`（M1/M2 芯片）或 `/usr/local`（Intel 芯片）目录，不会污染系统目录，安全性高、易于管理。
 
-
+<!--more-->
 ### 3. 版本管理
 
 

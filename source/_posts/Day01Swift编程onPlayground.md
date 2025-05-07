@@ -48,7 +48,7 @@ print("Total area: \(shapes.totalArea())")
 
 **练习点：** 协议+扩展+泛型约束
 
-
+<!--more-->
 
 ### 2. SwiftUI - 简单的自定义动画按钮
 
