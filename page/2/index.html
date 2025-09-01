@@ -339,7 +339,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-09-01 17:36:04" itemprop="dateModified" datetime="2025-09-01T17:36:04+09:00">2025-09-01</time>
+                <time title="修改时间：2025-09-01 20:47:27" itemprop="dateModified" datetime="2025-09-01T20:47:27+09:00">2025-09-01</time>
               </span>
 
           
@@ -367,84 +367,15 @@
 <li>可以在这里做 <strong>过滤、格式化、解析 JSON</strong> 等预处理。</li>
 </ul>
 <ol start="3">
-<li><strong>日志传输到 Elasticsearch</strong></li>
-</ol>
-<ul>
-<li>处理好的日志被发送到 <strong>Elasticsearch</strong>，按照 <strong>索引 (Index)</strong> 存储。</li>
-<li>Elasticsearch 会自动为日志建立 <strong>倒排索引</strong>，方便后续全文检索。</li>
-</ul>
-<ol start="4">
-<li><strong>日志存储与索引</strong></li>
-</ol>
-<ul>
-<li>Elasticsearch 按时间、业务、服务维度切分日志索引。</li>
-<li>日志被分布式存储在多个节点上。</li>
-</ul>
-<ol start="5">
-<li><strong>日志可视化与分析（Kibana）</strong></li>
-</ol>
-<ul>
-<li><strong>Kibana</strong> 提供 Web 界面，连接 Elasticsearch。</li>
-<li>用户可以：</li>
-</ul>
-<p>检索关键字日志</p>
-<p>画出趋势图（比如错误量随时间的变化）</p>
-<p>构建仪表盘（Dashboard）</p>
-<h1 id="⚙️-具体操作流程（举例）"><a href="#⚙️-具体操作流程（举例）" class="headerlink" title="⚙️ 具体操作流程（举例）"></a>⚙️ 具体操作流程（举例）</h1><p>以 <strong>流程审批服务</strong> 的日志为例，走一遍：</p>
-<ol>
-<li><strong>应用写日志</strong></li>
-</ol>
-<ul>
-<li>你的审批服务在 <code>/var/log/approval-service.log</code> 里记录：</li>
-</ul>
-<figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2025</span>-<span class="number">08</span>-<span class="number">30</span> <span class="number">10</span>:<span class="number">10</span>:<span class="number">05</span> <span class="keyword">ERROR</span> OrderApprovalService - 审批流程失败，原因：数据库超时</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li><strong>Logstash &#x2F; Filebeat 采集</strong></li>
-</ol>
-<ul>
-<li>Filebeat&#x2F;Logstash 读取日志：</li>
-</ul>
-<p><strong>Input 插件</strong>：指定读取文件路径。</p>
-<p><strong>Filter 插件</strong>：用 Grok 正则解析日志格式，提取出时间戳、级别、模块、消息。</p>
-<p>转换成结构化 JSON：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;timestamp&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2025-08-30T10:10:05&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;level&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ERROR&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;service&quot;</span><span class="punctuation">:</span> <span class="string">&quot;OrderApprovalService&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;message&quot;</span><span class="punctuation">:</span> <span class="string">&quot;审批流程失败，原因：数据库超时&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li><strong>发送到 Elasticsearch</strong></li>
-</ol>
-<ul>
-<li>Logstash 用 <strong>Output 插件</strong> 把日志写入 Elasticsearch，存储到索引：</li>
-</ul>
-<p>index: <code>approval-service-2025.08.30</code><br>4. <strong>Elasticsearch 存储与索引</strong></p>
-<ul>
-<li>Elasticsearch 将日志存储在分片中，并建立索引。</li>
-<li>支持按 <code>level:ERROR</code> 或 <code>service:OrderApprovalService</code> 进行搜索。</li>
-</ul>
-<ol start="5">
-<li><strong>Kibana 可视化</strong></li>
-</ol>
-<ul>
-<li>在 Kibana 仪表盘里：</li>
-</ul>
-<p>搜索 <code>level:ERROR</code> → 可以看到所有错误日志。</p>
-<p>画一个图表：过去 24 小时审批失败次数的趋势。</p>
-<p>如果接入告警系统，还能在错误数量超过阈值时通知运维。</p>
-<h1 id="📊-ELK-在你项目里的价值"><a href="#📊-ELK-在你项目里的价值" class="headerlink" title="📊 ELK 在你项目里的价值"></a>📊 ELK 在你项目里的价值</h1><ul>
-<li><strong>基础平台服务</strong></li>
-</ul>
-<p>监控各个中间件（Kafka、MySQL、Redis 等）的运行日志。</p>
-<p>快速定位中间件故障。</p>
-<ul>
-<li><strong>流程审批服务</strong></li>
-</ul>
-<p>记录审批操作日志、异常信息。</p>
-<p>管理员可以通过 Kibana 查询“某用户审批历史”，或“最近 7 天失败的审批流程”。</p>
-<h1 id="✅-总结"><a href="#✅-总结" class="headerlink" title="✅ 总结"></a>✅ 总结</h1><p>ELK 的日志处理流程可以概括为：<br><strong>日志采集 → 格式化 → 存储索引 → 搜索分析 → 可视化 &amp; 告警</strong>。</p>
-<ul>
-<li><strong>Logstash&#x2F;Beats</strong>：采集 &amp; 格式化日志</li>
-<li><strong>Elasticsearch</strong>：存储 &amp; 检索日志</li>
-<li><strong>Kibana</strong>：展示 &amp; 可视化</li>
-</ul>
-
+<li><strong>日志传输到 Elasticsearch</strong>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/08/31/%E6%97%A5%E5%BF%97%E5%A4%84%E7%90%86%E7%9A%84%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -950,7 +881,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-09-01 17:36:04" itemprop="dateModified" datetime="2025-09-01T17:36:04+09:00">2025-09-01</time>
+                <time title="修改时间：2025-09-01 20:46:37" itemprop="dateModified" datetime="2025-09-01T20:46:37+09:00">2025-09-01</time>
               </span>
 
           
@@ -965,96 +896,14 @@
 
       
           <h1 id="实际项目微服务中间件的架构设计举例"><a href="#实际项目微服务中间件的架构设计举例" class="headerlink" title="实际项目微服务中间件的架构设计举例"></a>实际项目微服务中间件的架构设计举例</h1><p>这个项目涉及到的这些中间件，可以组合成一个完整的 <strong>分布式微服务架构</strong>，包括存储、消息通信、注册发现、监控日志、对象存储等等。我帮你梳理一下整体架构和每个中间件的作用。</p>
-<h2 id="🏗-项目架构梳理"><a href="#🏗-项目架构梳理" class="headerlink" title="🏗 项目架构梳理"></a>🏗 项目架构梳理</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">         ┌─────────────┐</span></span><br><span class="line"><span class="code">         │   客户端    │</span></span><br><span class="line"><span class="code">         └──────┬──────┘</span></span><br><span class="line"><span class="code">                │</span></span><br><span class="line"><span class="code">         ┌──────▼───────┐</span></span><br><span class="line"><span class="code">         │ API 网关/服务 │</span></span><br><span class="line"><span class="code">         └──────┬───────┘</span></span><br><span class="line"><span class="code">                │</span></span><br><span class="line"><span class="code">┌───────────────┴─────────────────┐</span></span><br><span class="line"><span class="code">│                                 │</span></span><br><span class="line"><span class="code">│         微服务核心层             │</span></span><br><span class="line"><span class="code">│   （通过 Nacos 服务发现）        │</span></span><br><span class="line"><span class="code">│                                 │</span></span><br><span class="line"><span class="code">└───────────────┬─────────────────┘</span></span><br><span class="line"><span class="code">                │</span></span><br><span class="line"><span class="code">┌───────────────┼─────────────────────────────────────────────┐</span></span><br><span class="line"><span class="code">│ 数据与消息支持层                                               │</span></span><br><span class="line"><span class="code">│                                                               │</span></span><br><span class="line"><span class="code">│  ┌─────────┐   ┌──────────────┐   ┌─────────┐   ┌─────────┐  │</span></span><br><span class="line"><span class="code">│  │ MySQL   │   │   MongoDB    │   │  Redis  │   │  MinIO  │  │</span></span><br><span class="line"><span class="code">│  │ 关系库  │   │ 文档型数据库 │   │缓存/会话│   │对象存储 │  │</span></span><br><span class="line"><span class="code">│  └─────────┘   └──────────────┘   └─────────┘   └─────────┘  │</span></span><br><span class="line"><span class="code">│                                                               │</span></span><br><span class="line"><span class="code">│  ┌─────────┐   ┌─────────────┐   ┌─────────────┐              │</span></span><br><span class="line"><span class="code">│  │ Kafka   │   │ RocketMQ     │   │ Zookeeper   │              │</span></span><br><span class="line"><span class="code">│  │流处理   │   │可靠消息队列  │   │分布式协调   │              │</span></span><br><span class="line"><span class="code">│  └─────────┘   └─────────────┘   └─────────────┘              │</span></span><br><span class="line"><span class="code">└───────────────────────────────────────────────────────────────┘</span></span><br><span class="line"><span class="code">                │</span></span><br><span class="line"><span class="code">┌───────────────┼─────────────────────────────────────────────┐</span></span><br><span class="line"><span class="code">│ 运维与监控层                                                 │</span></span><br><span class="line"><span class="code">│                                                             │</span></span><br><span class="line"><span class="code">│   ┌──────────┐  ┌───────────┐  ┌─────────────┐  ┌─────────┐ │</span></span><br><span class="line"><span class="code">│   │ Elastic  │  │ Logstash  │  │   Kibana    │  │ Dozzle  │ │</span></span><br><span class="line"><span class="code">│   │ 搜索引擎 │  │ 日志收集  │  │ 可视化展示  │  │ 容器日志 │ │</span></span><br><span class="line"><span class="code">│   └──────────┘  └───────────┘  └─────────────┘  └─────────┘ │</span></span><br><span class="line"><span class="code">│                                                             │</span></span><br><span class="line"><span class="code">│                ┌────────────────────────────┐               │</span></span><br><span class="line"><span class="code">│                │ RocketMQ-Dashboard         │               │</span></span><br><span class="line"><span class="code">│                │ MQ 消息监控与管理工具      │               │</span></span><br><span class="line"><span class="code">│                └────────────────────────────┘               │</span></span><br><span class="line"><span class="code">└─────────────────────────────────────────────────────────────┘</span></span><br><span class="line"><span class="code"></span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="📦-各中间件作用说明"><a href="#📦-各中间件作用说明" class="headerlink" title="📦 各中间件作用说明"></a>📦 各中间件作用说明</h2><h3 id="🔹-数据存储层"><a href="#🔹-数据存储层" class="headerlink" title="🔹 数据存储层"></a>🔹 数据存储层</h3><ol>
-<li><strong>MySQL</strong></li>
-</ol>
-<ul>
-<li>关系型数据库，存放核心业务数据（订单、用户、配置等）。</li>
-</ul>
-<ol start="2">
-<li><strong>MongoDB</strong></li>
-</ol>
-<ul>
-<li>文档型数据库，适合存储 JSON&#x2F;非结构化数据，比如日志、配置、产品详情等。</li>
-</ul>
-<ol start="3">
-<li><strong>Redis</strong></li>
-</ol>
-<ul>
-<li>高速缓存、分布式锁、会话管理（比如存用户 token、验证码、排行榜等）。</li>
-</ul>
-<ol start="4">
-<li><strong>MinIO</strong></li>
-</ol>
-<ul>
-<li>对象存储，兼容 S3 API，用来存放大文件（视频、图片、文档等）。</li>
-</ul>
-<h3 id="🔹-消息与通信层"><a href="#🔹-消息与通信层" class="headerlink" title="🔹 消息与通信层"></a>🔹 消息与通信层</h3><ol>
-<li><strong>Kafka</strong></li>
-</ol>
-<ul>
-<li>高吞吐量流式处理平台，适合日志采集、实时计算、流式数据分析。</li>
-</ul>
-<ol start="2">
-<li><strong>RocketMQ</strong></li>
-</ol>
-<ul>
-<li>可靠消息队列（事务消息、延时消息），适合订单、支付、库存等强一致场景。</li>
-</ul>
-<ol start="3">
-<li><strong>Zookeeper</strong></li>
-</ol>
-<ul>
-<li>分布式协调服务，RocketMQ&#x2F;Kafka 都依赖它来做元数据存储、选举、分布式锁。</li>
-</ul>
-<h3 id="🔹-服务治理层"><a href="#🔹-服务治理层" class="headerlink" title="🔹 服务治理层"></a>🔹 服务治理层</h3><ol>
-<li><strong>Nacos</strong></li>
-</ol>
-<ul>
-<li>服务注册与发现（微服务相互调用时找到彼此）。</li>
-<li>配置中心（集中管理配置）。</li>
-</ul>
-<h3 id="🔹-日志与监控层"><a href="#🔹-日志与监控层" class="headerlink" title="🔹 日志与监控层"></a>🔹 日志与监控层</h3><ol>
-<li><strong>ElasticSearch</strong></li>
-</ol>
-<ul>
-<li>全文搜索引擎，存储和索引日志、指标数据。</li>
-</ul>
-<ol start="2">
-<li><strong>Logstash</strong></li>
-</ol>
-<ul>
-<li>日志收集、过滤和转发，把应用日志送进 Elasticsearch。</li>
-</ul>
-<ol start="3">
-<li><strong>Kibana</strong></li>
-</ol>
-<ul>
-<li>数据可视化，配合 ElasticSearch 展示监控大盘、日志分析。</li>
-</ul>
-<ol start="4">
-<li><strong>Dozzle</strong></li>
-</ol>
-<ul>
-<li>实时查看 Docker 容器日志（轻量级 Web UI）。</li>
-</ul>
-<ol start="5">
-<li><strong>RocketMQ-Dashboard</strong></li>
-</ol>
-<ul>
-<li>RocketMQ 的可视化监控台（查看 Topic、消费情况、积压消息等）。</li>
-</ul>
-<h2 id="🎯-总结"><a href="#🎯-总结" class="headerlink" title="🎯 总结"></a>🎯 总结</h2><ul>
-<li><strong>数据库层</strong>：MySQL（关系型）、MongoDB（文档）、Redis（缓存）、MinIO（文件存储）</li>
-<li><strong>消息队列层</strong>：Kafka（日志流）、RocketMQ（业务消息）、Zookeeper（协调）</li>
-<li><strong>服务治理层</strong>：Nacos（注册发现 + 配置中心）</li>
-<li><strong>监控日志层</strong>：ELK（Elastic + Logstash + Kibana）、Dozzle、RocketMQ Dashboard</li>
-</ul>
-<p>👉 这套组合基本能支撑一个 <strong>大规模微服务平台</strong>，涵盖 <strong>存储、消息、注册、监控</strong> 四大关键部分。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/08/31/%E5%AE%9E%E9%99%85%E9%A1%B9%E7%9B%AE%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E4%B8%BE%E4%BE%8B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1104,7 +953,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-09-01 17:36:04" itemprop="dateModified" datetime="2025-09-01T17:36:04+09:00">2025-09-01</time>
+                <time title="修改时间：2025-09-01 20:46:43" itemprop="dateModified" datetime="2025-09-01T20:46:43+09:00">2025-09-01</time>
               </span>
 
           
@@ -1119,51 +968,14 @@
 
       
           <h1 id="微服务的优点"><a href="#微服务的优点" class="headerlink" title="微服务的优点"></a>微服务的优点</h1><p>微服务是一种将应用拆分成多个<strong>小而独立的服务</strong>的架构模式，每个服务专注于单一功能，通过网络接口（通常是 HTTP&#x2F;REST 或 gRPC）通信。它和传统单体应用相比，有很多优点。下面我给你系统整理一下：</p>
-<h3 id="1️⃣-独立部署"><a href="#1️⃣-独立部署" class="headerlink" title="1️⃣ 独立部署"></a>1️⃣ 独立部署</h3><ul>
-<li>每个微服务可以<strong>独立开发、测试、部署</strong>，不需要和整个应用捆绑。</li>
-<li>优势：</li>
-</ul>
-<p>更新某个功能不影响其他服务。</p>
-<p>可以缩短发布周期，提高敏捷性。</p>
-<h3 id="2️⃣-技术多样性"><a href="#2️⃣-技术多样性" class="headerlink" title="2️⃣ 技术多样性"></a>2️⃣ 技术多样性</h3><ul>
-<li>不同微服务可以使用<strong>不同的技术栈</strong>、数据库或编程语言。</li>
-<li>优势：</li>
-</ul>
-<p>可以选择最适合业务需求的技术。</p>
-<p>避免全局技术锁定。</p>
-<h3 id="3️⃣-高可维护性"><a href="#3️⃣-高可维护性" class="headerlink" title="3️⃣ 高可维护性"></a>3️⃣ 高可维护性</h3><ul>
-<li>微服务代码量小、功能单一，逻辑清晰。</li>
-<li>优势：</li>
-</ul>
-<p>容易理解和修改。</p>
-<p>降低出错概率。</p>
-<h3 id="4️⃣-可扩展性（水平扩展）"><a href="#4️⃣-可扩展性（水平扩展）" class="headerlink" title="4️⃣ 可扩展性（水平扩展）"></a>4️⃣ 可扩展性（水平扩展）</h3><ul>
-<li>可以针对负载高的服务<strong>单独扩展实例</strong>，而不需要扩展整个应用。</li>
-<li>优势：</li>
-</ul>
-<p>提高资源利用率。</p>
-<p>降低硬件成本。</p>
-<h3 id="5️⃣-容错性与高可用性"><a href="#5️⃣-容错性与高可用性" class="headerlink" title="5️⃣ 容错性与高可用性"></a>5️⃣ 容错性与高可用性</h3><ul>
-<li>单个服务失败不会影响整个系统。</li>
-<li>可以通过<strong>服务冗余和自动恢复</strong>提升系统稳定性。</li>
-</ul>
-<h3 id="6️⃣-团队协作优化"><a href="#6️⃣-团队协作优化" class="headerlink" title="6️⃣ 团队协作优化"></a>6️⃣ 团队协作优化</h3><ul>
-<li>微服务可以按业务模块划分团队，每个团队独立负责一组服务。</li>
-<li>优势：</li>
-</ul>
-<p>团队自治，减少跨模块依赖。</p>
-<p>提高开发效率和责任清晰度。</p>
-<h3 id="7️⃣-易于持续集成-x2F-持续交付（CI-x2F-CD）"><a href="#7️⃣-易于持续集成-x2F-持续交付（CI-x2F-CD）" class="headerlink" title="7️⃣ 易于持续集成&#x2F;持续交付（CI&#x2F;CD）"></a>7️⃣ 易于持续集成&#x2F;持续交付（CI&#x2F;CD）</h3><ul>
-<li>小服务、独立部署，非常适合自动化构建、测试和部署。</li>
-<li>可以频繁发布新功能。</li>
-</ul>
-<h3 id="⚠️-注意"><a href="#⚠️-注意" class="headerlink" title="⚠️ 注意"></a>⚠️ 注意</h3><p>虽然微服务有很多优点，但也带来<strong>复杂性</strong>：</p>
-<ul>
-<li>服务间通信成本增加（网络延迟、消息格式）。</li>
-<li>分布式事务、数据一致性和日志追踪更复杂。</li>
-<li>部署和运维难度提升，需要服务注册、监控、网关等支撑。</li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/08/31/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9A%84%E4%BC%98%E7%82%B9%E6%9C%89%E5%93%AA%E4%BA%9B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1213,7 +1025,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-09-01 17:36:04" itemprop="dateModified" datetime="2025-09-01T17:36:04+09:00">2025-09-01</time>
+                <time title="修改时间：2025-09-01 20:46:29" itemprop="dateModified" datetime="2025-09-01T20:46:29+09:00">2025-09-01</time>
               </span>
 
           
@@ -1229,30 +1041,14 @@
       
           <h1 id="什么是分布式"><a href="#什么是分布式" class="headerlink" title="什么是分布式"></a>什么是分布式</h1><p>“分布式”是一个计算机和系统设计中的概念，指的是<strong>把计算任务或数据分散到多个计算节点（机器、服务器或设备）上协同完成</strong>的一种方式。简单说，就是“不把所有东西放在一个地方，而是让多个地方一起工作”。</p>
 <p>分几部分解释：</p>
-<h3 id="1️⃣-核心思想"><a href="#1️⃣-核心思想" class="headerlink" title="1️⃣ 核心思想"></a>1️⃣ 核心思想</h3><ul>
-<li><strong>多台机器协作</strong>：系统由多个独立的节点组成，每个节点可以处理一部分任务。</li>
-<li><strong>协作完成任务</strong>：节点之间通过网络通信，实现资源共享、任务分工和协同处理。</li>
-<li><strong>增加可靠性和扩展性</strong>：单台机器坏了不影响整体，系统容易扩展。</li>
-</ul>
-<h3 id="2️⃣-特点"><a href="#2️⃣-特点" class="headerlink" title="2️⃣ 特点"></a>2️⃣ 特点</h3><ol>
-<li><strong>资源分布</strong>：计算、存储和网络资源分散在不同节点。</li>
-<li><strong>并行处理</strong>：多个节点同时处理任务，提高效率。</li>
-<li><strong>可扩展性</strong>：增加更多节点可以提高系统能力。</li>
-<li><strong>容错性</strong>：某些节点出问题，系统仍能继续运行。</li>
-<li><strong>数据一致性问题</strong>：多个节点可能存储相同数据，需要解决同步问题。</li>
-</ol>
-<h3 id="3️⃣-常见形式"><a href="#3️⃣-常见形式" class="headerlink" title="3️⃣ 常见形式"></a>3️⃣ 常见形式</h3><ul>
-<li><strong>分布式存储</strong>：例如 HDFS（Hadoop 分布式文件系统）、Ceph、MinIO。</li>
-<li><strong>分布式计算</strong>：如 Spark、Hadoop MapReduce，把计算任务分成小块在多台机器上处理。</li>
-<li><strong>分布式数据库</strong>：如 MongoDB、Cassandra、TiDB，把数据分片存储在不同节点。</li>
-<li><strong>分布式系统服务</strong>：如 Nacos、ZooKeeper，实现服务注册、配置管理。</li>
-</ul>
-<h3 id="4️⃣-举个生活例子"><a href="#4️⃣-举个生活例子" class="headerlink" title="4️⃣ 举个生活例子"></a>4️⃣ 举个生活例子</h3><p>想象你在做一份大报告：</p>
-<ul>
-<li>单机方式：你一个人完成，慢且容易出错。</li>
-<li>分布式方式：你把报告分成章节，分给5个人同时写，最后整合。<br>这样不仅快，还能避免某个人临时无法工作导致整个报告延迟。</li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/08/31/%E4%BB%80%E4%B9%88%E6%98%AF%E5%88%86%E5%B8%83%E5%BC%8F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

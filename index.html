@@ -380,7 +380,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-09-01 17:08:57 / 修改时间：18:09:20" itemprop="dateCreated datePublished" datetime="2025-09-01T17:08:57+09:00">2025-09-01</time>
+              <time title="创建时间：2025-09-01 17:08:57 / 修改时间：20:47:18" itemprop="dateCreated datePublished" datetime="2025-09-01T17:08:57+09:00">2025-09-01</time>
             </span>
 
           
@@ -396,563 +396,15 @@
       
           <h1 id="3DP-Docker实施部署原理"><a href="#3DP-Docker实施部署原理" class="headerlink" title="3DP Docker实施部署原理"></a>3DP Docker实施部署原理</h1><h2 id="一、docker安装脚本解析"><a href="#一、docker安装脚本解析" class="headerlink" title="一、docker安装脚本解析"></a>一、docker安装脚本解析</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xzvf docker-20.10.15.tgz <span class="built_in">yes</span> | <span class="built_in">cp</span> -f ./docker/* /bin/ <span class="built_in">cp</span> daemon.json /etc/docker/ <span class="built_in">cp</span> docker.service /usr/lib/systemd/system/ <span class="built_in">cp</span> docker-compose-linux-aarch64 /bin/docker-compose <span class="built_in">chmod</span> +x /bin/docker-compose systemctl <span class="built_in">enable</span> docker systemctl start docker.service docker network create -d bridge 3dp_net</span><br></pre></td></tr></table></figure>
 
-<h3 id="📌-脚本解析"><a href="#📌-脚本解析" class="headerlink" title="📌 脚本解析"></a>📌 脚本解析</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xzvf docker-20.10.15.tgz</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>解压 <code>docker-20.10.15.tgz</code> 压缩包，里面通常包含 <code>docker</code> 的二进制文件。</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">yes</span> | <span class="built_in">cp</span> -f ./docker/* /bin/</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>将解压出来的 <code>docker/*</code> 文件强制复制到 <code>/bin/</code> 目录下。</p>
-</li>
-<li><p><code>yes |</code> 是自动回答 <code>y</code>，避免覆盖提示。</p>
-</li>
-<li><p>这样 <code>docker</code>、<code>dockerd</code> 等可执行文件会放到系统 PATH 中，方便直接使用。</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> daemon.json /etc/docker/</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>复制 <code>daemon.json</code> 配置文件到 <code>/etc/docker/</code>。</p>
-</li>
-<li><p><code>daemon.json</code> 是 Docker 守护进程的配置文件（比如镜像加速、日志驱动等）。</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> docker.service /usr/lib/systemd/system/</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>将 <code>docker.service</code> 复制到 <code>systemd</code> 的服务目录。</p>
-</li>
-<li><p>这样 <code>systemctl</code> 就能管理 Docker 进程（开机自启、停止、重启等）。</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> docker-compose-linux-aarch64 /bin/docker-compose</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>把 <code>docker-compose</code> 二进制文件拷贝到 <code>/bin/</code>，命名为 <code>docker-compose</code>。</p>
-</li>
-<li><p>文件名带 <code>aarch64</code>，说明这是 <strong>ARM64 架构</strong>（常见于 ARM 服务器、部分国产 CPU）的版本。</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x /bin/docker-compose</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>给 <code>docker-compose</code> 添加执行权限。</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> docker</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>设置 Docker 服务 <strong>开机自启</strong>。</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker.service</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>启动 Docker 服务。</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network create -d bridge 3dp_net</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>创建一个名为 <code>3dp_net</code> 的 Docker 自定义网络，驱动为 <code>bridge</code>。</p>
-</li>
-<li><p>方便后续 <code>docker-compose.yml</code> 中的容器通过该网络互相通信。</p>
-</li>
-</ul>
-<h3 id="✅-总结"><a href="#✅-总结" class="headerlink" title="✅ 总结"></a>✅ 总结</h3><p>这段命令的完整流程是：</p>
-<ol>
-<li><p><strong>解压 Docker 二进制包</strong></p>
-</li>
-<li><p><strong>复制可执行文件到 &#x2F;bin&#x2F;</strong></p>
-</li>
-<li><p><strong>安装配置文件（daemon.json, systemd service）</strong></p>
-</li>
-<li><p><strong>安装 Docker Compose</strong></p>
-</li>
-<li><p><strong>启用并启动 Docker 服务</strong></p>
-</li>
-<li><p><strong>创建容器间通信网络 3dp_net</strong></p>
-</li>
-</ol>
-<p>换句话说，这是一份 <strong>离线部署 Docker + Compose 环境，并初始化网络的脚本</strong>。</p>
-<h3 id="docker-network-create-d-bridge-3dp-net-创建自定义网络的意义以及后续容器间沟通的原理"><a href="#docker-network-create-d-bridge-3dp-net-创建自定义网络的意义以及后续容器间沟通的原理" class="headerlink" title="docker network create -d bridge 3dp_net 创建自定义网络的意义以及后续容器间沟通的原理"></a>docker network create -d bridge 3dp_net 创建自定义网络的意义以及后续容器间沟通的原理</h3><p>这其实涉及到 <strong>Docker 网络模型</strong>。我帮你分两部分讲清楚：</p>
-<h4 id="一、创建自定义网络的意义"><a href="#一、创建自定义网络的意义" class="headerlink" title="一、创建自定义网络的意义"></a>一、创建自定义网络的意义</h4><p>命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network create -d bridge 3dp_net</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p><code>-d bridge</code> → 使用 <strong>bridge 桥接网络驱动</strong>（默认类型）。</p>
-</li>
-<li><p><code>3dp_net</code> → 网络名字。</p>
-</li>
-</ul>
-<p><strong>为什么不直接用默认的 bridge 网络？</strong></p>
-<ol>
-<li><strong>容器互通性更好</strong></li>
-</ol>
-<ul>
-<li><p>在 Docker 默认的 <code>bridge</code> 网络中，容器只能通过 <strong>IP 地址</strong>互相访问。</p>
-</li>
-<li><p>在自定义 <code>bridge</code> 网络（比如 <code>3dp_net</code>）里，容器可以通过 <strong>容器名&#x2F;服务名</strong> 来互相访问（Docker 内置 DNS 解析）。</p>
-</li>
-<li><p>举例：</p>
-</li>
-</ul>
-<p>有两个容器：<code>mysql</code> 和 <code>app</code>，都在 <code>3dp_net</code> 网络里</p>
-<p><code>app</code> 容器里可以直接用 <code>mysql:3306</code> 访问数据库，不需要写 IP。</p>
-<ol start="2">
-<li><strong>网络隔离</strong></li>
-</ol>
-<ul>
-<li><p>不同的自定义网络是相互隔离的。</p>
-</li>
-<li><p>这样可以把一组服务（例如你 3DPlaza 系统的 nacos、workflow、mysql、minio）放到同一个网络，和其他无关容器区分开。</p>
-</li>
-</ul>
-<ol start="3">
-<li><strong>便于维护</strong></li>
-</ol>
-<ul>
-<li>多个 <code>docker-compose.yml</code> 文件可以都接入同一个 <code>3dp_net</code> 网络，实现不同 Compose 项目之间的容器通信。</li>
-</ul>
-<h4 id="二、容器间通信的原理"><a href="#二、容器间通信的原理" class="headerlink" title="二、容器间通信的原理"></a>二、容器间通信的原理</h4><ol>
-<li><strong>Bridge 网络机制</strong></li>
-</ol>
-<ul>
-<li><p>Docker 在宿主机上创建一张虚拟网桥（类似 Linux 的 <code>br0</code>）。</p>
-</li>
-<li><p>每个容器启动时会被分配一个虚拟网卡（veth pair），另一端连接到这张网桥。</p>
-</li>
-<li><p>所有加入 <code>3dp_net</code> 的容器都在同一网桥里，就像在同一个交换机下。</p>
-</li>
-</ul>
-<ol start="2">
-<li><strong>IP 分配</strong></li>
-</ol>
-<ul>
-<li>Docker 内置一个小型的 DHCP 服务，容器启动时会分配一个私有 IP（默认 172.18.x.x 之类）。</li>
-</ul>
-<ol start="3">
-<li><strong>DNS 解析</strong></li>
-</ol>
-<ul>
-<li><p>自定义网络中，Docker 自带一个 DNS 服务。</p>
-</li>
-<li><p>容器可以通过 <strong>容器名</strong> 或 <strong>服务名</strong> 互相解析到对方的 IP。</p>
-</li>
-<li><p>例如：</p>
-</li>
-</ul>
-<p><code>3DP-mysql</code> 的 IP 可能是 <code>172.18.0.3</code></p>
-<p><code>3DP-app</code> 里访问数据库时，只需要写 <code>mysql:3306</code>，Docker 会自动解析成 <code>172.18.0.3:3306</code>。</p>
-<ol start="4">
-<li><strong>跨容器通信</strong></li>
-</ol>
-<ul>
-<li><p>在同一个自定义网络的容器之间，网络通信是直接透传的（类似同一个二层交换机）。</p>
-</li>
-<li><p>如果容器在不同网络，可以用 <code>docker network connect</code> 手动把一个容器加入多个网络。</p>
-</li>
-</ul>
-<h4 id="✅-总结-1"><a href="#✅-总结-1" class="headerlink" title="✅ 总结"></a>✅ 总结</h4><ul>
-<li>创建 <code>3dp_net</code> 的意义：</li>
-</ul>
-<p>容器间能通过名字互相访问（无需写死 IP）。</p>
-<p>保持服务之间的隔离和可维护性。</p>
-<p>方便不同 <code>docker-compose</code> 项目共享网络，形成一个逻辑内网。</p>
-<ul>
-<li>通信原理：</li>
-</ul>
-<p>Docker 在宿主机上建一张虚拟网桥。</p>
-<p>容器通过虚拟网卡接入网桥，分配到一个私有 IP。</p>
-<p>Docker 内置 DNS，允许容器通过 <strong>容器名&#x2F;服务名</strong> 来互相访问。</p>
-<h3 id="二、docker-commpose-配置文件解析-以minio为例"><a href="#二、docker-commpose-配置文件解析-以minio为例" class="headerlink" title="二、docker commpose 配置文件解析-以minio为例"></a>二、docker commpose 配置文件解析-以minio为例</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">3DP-minio:</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">image:</span> <span class="string">minio/minio:RELEASE.2023-09-07T02-05-02Z</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">3DP-minio</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;/data/3DPlaza/minio/data:/data&quot;</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;/data/3DPlaza/minio/.minio:/root/.minio&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line"></span><br><span class="line">      <span class="attr">TZ:</span> <span class="string">Asia/Shanghai</span></span><br><span class="line"></span><br><span class="line">      <span class="attr">MINIO_ACCESS_KEY:</span> <span class="string">admin</span></span><br><span class="line"></span><br><span class="line">      <span class="attr">MINIO_SECRET_KEY:</span> <span class="string">3DplazaPlatform2024</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;9000:9000&quot;</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;9090:9090&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">command:</span> <span class="string">server</span> <span class="string">/data</span> <span class="string">--console-address</span> <span class="string">&quot;:9090&quot;</span> <span class="string">-address</span> <span class="string">&quot;:9000&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="string">3dp_net</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">logging:</span></span><br><span class="line"></span><br><span class="line">      <span class="attr">options:</span></span><br><span class="line"></span><br><span class="line">        <span class="attr">max-size:</span> <span class="string">&quot;20m&quot;</span></span><br><span class="line"></span><br><span class="line">        <span class="attr">max-file:</span> <span class="string">&quot;4&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">3dp_net:</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p>这个 <code>docker-compose.yml</code> 文件定义了一个 <strong>MinIO</strong> 服务容器配置。MinIO 是一个开源的对象存储服务，兼容 Amazon S3 协议，常用于私有云存储。下面我帮你逐行解释一下：</p>
-<h3 id="📌-文件结构说明"><a href="#📌-文件结构说明" class="headerlink" title="📌 文件结构说明"></a>📌 文件结构说明</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>使用 Docker Compose v3 文件语法。</li>
-</ul>
-<h3 id="📦-services-部分"><a href="#📦-services-部分" class="headerlink" title="📦 services 部分"></a>📦 services 部分</h3><h4 id="🔹-3DP-minio"><a href="#🔹-3DP-minio" class="headerlink" title="🔹 3DP-minio"></a>🔹 3DP-minio</h4><ul>
-<li><strong>image: minio&#x2F;minio:RELEASE.2023-09-07T02-05-02Z</strong></li>
-</ul>
-<p>使用的镜像是 <code>minio/minio</code>，版本号固定为 <code>RELEASE.2023-09-07T02-05-02Z</code>。</p>
-<p>（这保证了部署的可重复性，不会随镜像更新而变化）</p>
-<ul>
-<li><strong>container_name: 3DP-minio</strong></li>
-</ul>
-<p>容器名称固定为 <code>3DP-minio</code>。</p>
-<ul>
-<li><strong>restart: always</strong></li>
-</ul>
-<p>容器异常退出或系统重启时会自动拉起。</p>
-<ul>
-<li><strong>volumes</strong></li>
-</ul>
-<p><code>/data/3DPlaza/minio/data:/data</code></p>
-<p>→ 容器的 <code>/data</code> 目录映射到宿主机的 <code>/data/3DPlaza/minio/data</code>，用于存放实际的对象数据。</p>
-<p><code>/data/3DPlaza/minio/.minio:/root/.minio</code></p>
-<p>→ 存放 MinIO 的用户配置文件、凭证等。</p>
-<p>该配置保证以后迁移服务器时只需要将文件辅助就可以，降低迁移成本</p>
-<ul>
-<li><strong>environment</strong></li>
-</ul>
-<p><code>TZ=Asia/Shanghai</code> → 设置时区为上海时间。</p>
-<p><code>MINIO_ACCESS_KEY=admin</code> → MinIO 的管理账号。</p>
-<p><code>MINIO_SECRET_KEY=3DplazaPlatform2024</code> → MinIO 的管理密码。</p>
-<p>⚠️ 注意：<code>MINIO_ACCESS_KEY</code> 和 <code>MINIO_SECRET_KEY</code> 这两个参数在新版本 MinIO 中已被替换为 <code>MINIO_ROOT_USER</code> 和 <code>MINIO_ROOT_PASSWORD</code>，但在你用的这个版本中仍然有效。</p>
-<ul>
-<li><strong>ports</strong></li>
-</ul>
-<p><code>&quot;9000:9000&quot;</code> → 映射对象存储服务 API 端口</p>
-<p><code>&quot;9090:9090&quot;</code> → 映射管理控制台端口</p>
-<ul>
-<li><strong>command</strong></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">server /data --console-address <span class="string">&quot;:9090&quot;</span> -address <span class="string">&quot;:9000&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p><code>server /data</code> → 指定存储目录为 <code>/data</code>（已挂载到宿主机）。</p>
-<p><code>--console-address &quot;:9090&quot;</code> → 管理控制台监听 <code>9090</code> 端口。</p>
-<p><code>-address &quot;:9000&quot;</code> → API 服务监听 <code>9000</code> 端口。</p>
-<ul>
-<li><strong>networks</strong></li>
-</ul>
-<p>加入外部网络 <code>3dp_net</code>，以便和其他容器（例如 Nacos、业务服务）通信。</p>
-<ul>
-<li><strong>logging</strong></li>
-</ul>
-<p>配置日志滚动：</p>
-<p><code>max-size: &quot;20m&quot;</code> → 每个日志文件最大 20MB</p>
-<p><code>max-file: &quot;4&quot;</code> → 最多保留 4 个日志文件</p>
-<h3 id="🌐-networks-部分"><a href="#🌐-networks-部分" class="headerlink" title="🌐 networks 部分"></a>🌐 networks 部分</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">networks:</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">3dp_net:</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>使用外部已存在的 <code>3dp_net</code> 网络，而不是由当前 Compose 文件创建。</li>
-</ul>
-<h3 id="✅-总结-2"><a href="#✅-总结-2" class="headerlink" title="✅ 总结"></a>✅ 总结</h3><p>这个 Compose 文件会启动一个 <strong>MinIO 对象存储服务</strong>，特点是：</p>
-<ul>
-<li><p>对象存储数据存放在宿主机 <code>/data/3DPlaza/minio/data</code></p>
-</li>
-<li><p>管理控制台在 <code>http://&amp;lt;host&amp;gt;:9090</code></p>
-</li>
-<li><p>API 接口在 <code>http://&amp;lt;host&amp;gt;:9000</code></p>
-</li>
-<li><p>管理账号：<code>admin</code></p>
-</li>
-<li><p>管理密码：<code>3DplazaPlatform2024</code></p>
-</li>
-<li><p>容器加入 <code>3dp_net</code> 网络，方便和你的其他 3DP 服务交互</p>
-</li>
-</ul>
-<h3 id="nacos的配置"><a href="#nacos的配置" class="headerlink" title="nacos的配置"></a>nacos的配置</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3&#x27;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">3DP-nacos:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">nacos/nacos-server:v2.2.0</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">3DP-nacos</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">TZ=Asia/Shanghai</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">MODE=standalone</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SPRING_DATASOURCE_PLATFORM=mysql</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">MYSQL_SERVICE_HOST=200.157.100.42</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">MYSQL_SERVICE_PORT=3306</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">MYSQL_SERVICE_USER=root</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">MYSQL_SERVICE_PASSWORD=3DplazaPlatform2024</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">MYSQL_SERVICE_DB_NAME=nacos_config</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">NACOS.CORE.AUTH.ENABLED=true</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;8848:8848&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;9848:9848&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;9849:9849&quot;</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">3dp_net</span></span><br><span class="line">    <span class="attr">logging:</span></span><br><span class="line">      <span class="attr">options:</span></span><br><span class="line">        <span class="attr">max-size:</span> <span class="string">&quot;20m&quot;</span></span><br><span class="line">        <span class="attr">max-file:</span> <span class="string">&quot;4&quot;</span></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line">  <span class="attr">3dp_net:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="nacos服务注册与发现的原理"><a href="#nacos服务注册与发现的原理" class="headerlink" title="nacos服务注册与发现的原理"></a>nacos服务注册与发现的原理</h3><p>Nacos 的 <strong>服务注册与发现</strong> 原理可以拆分成 <strong>服务注册（Provider 注册到 Nacos）</strong> 和 <strong>服务发现（Consumer 从 Nacos 获取 Provider 列表）</strong> 两部分。它本质上是一个 <strong>注册中心 + 配置中心</strong>。下面我从原理角度详细说明：</p>
-<h2 id="1-服务注册原理"><a href="#1-服务注册原理" class="headerlink" title="1. 服务注册原理"></a>1. 服务注册原理</h2><p>当一个服务实例（Provider，比如用户服务 user-service）启动时，它会把自己的信息注册到 Nacos：</p>
-<ul>
-<li><strong>注册内容</strong></li>
-</ul>
-<p>服务名（如 <code>user-service</code>）</p>
-<p>IP 地址（如 <code>10.0.0.5</code>）</p>
-<p>端口号（如 <code>8080</code>）</p>
-<p>权重、集群名、健康检查信息</p>
-<ul>
-<li><strong>注册方式</strong></li>
-</ul>
-<p>服务启动后，Nacos 客户端会调用 <strong>Nacos Server 提供的 HTTP&#x2F;GRPC API</strong> 发送注册请求</p>
-<p>Nacos Server 把服务信息写入内存中的注册表（Registry），并持久化到数据库（默认 Derby&#x2F;MySQL）</p>
-<ul>
-<li><strong>心跳机制</strong></li>
-</ul>
-<p>Provider 会定期（默认 5s）向 Nacos 发送心跳包</p>
-<p>如果 Nacos 在一定时间（默认 30s）没收到心跳，会认为该实例下线，将其剔除</p>
-<h2 id="2-服务发现原理"><a href="#2-服务发现原理" class="headerlink" title="2. 服务发现原理"></a>2. 服务发现原理</h2><p>当一个消费者服务（Consumer，比如订单服务 order-service）需要调用 <code>user-service</code> 时，它的服务发现流程如下：</p>
-<ol>
-<li><strong>拉取注册表</strong></li>
-</ol>
-<ul>
-<li><p>Consumer 启动时，会向 Nacos 请求自己依赖的服务列表（如 <code>user-service</code> 的所有可用实例）</p>
-</li>
-<li><p>客户端本地缓存一份服务列表</p>
-</li>
-</ul>
-<ol start="2">
-<li><strong>本地负载均衡</strong></li>
-</ol>
-<ul>
-<li>Consumer 在调用时，并不会每次都去问 Nacos，而是直接从本地缓存的服务列表里选择一个实例（一般采用 <strong>Ribbon、Spring LoadBalancer 或 Dubbo 内置策略</strong>）</li>
-</ul>
-<ol start="3">
-<li><strong>服务列表更新（推拉结合）</strong></li>
-</ol>
-<ul>
-<li>Consumer 本地缓存会随着 Nacos 的变更而更新：</li>
-</ul>
-<p><strong>推模式</strong>：Nacos Server 通过长轮询或 gRPC 推送最新的服务列表到 Consumer</p>
-<p><strong>拉模式</strong>：Consumer 也会定期（默认 30s）去 Nacos 拉取一次更新，做兜底</p>
-<h2 id="3-健康检查"><a href="#3-健康检查" class="headerlink" title="3. 健康检查"></a>3. 健康检查</h2><ul>
-<li><p><strong>临时实例（ephemeral &#x3D; true）</strong>：靠心跳维持，心跳超时就被剔除</p>
-</li>
-<li><p><strong>持久实例（ephemeral &#x3D; false）</strong>：不依赖心跳，Nacos 不会自动剔除，需要人工下线</p>
-</li>
-</ul>
-<h2 id="4-高可用与一致性"><a href="#4-高可用与一致性" class="headerlink" title="4. 高可用与一致性"></a>4. 高可用与一致性</h2><ul>
-<li><p><strong>多节点集群模式</strong>：Nacos Server 自身也可以多节点部署</p>
-</li>
-<li><p><strong>一致性协议</strong>：</p>
-</li>
-</ul>
-<p>临时实例的注册表数据用 <strong>AP 模式</strong>（可用性优先，最终一致）</p>
-<p>持久实例的数据用 <strong>CP 模式</strong>（一致性优先，依赖 Raft 协议）</p>
-<h2 id="总结流程图"><a href="#总结流程图" class="headerlink" title="总结流程图"></a>总结流程图</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Provider</span> 启动 → 注册到 Nacos → 定期发送心跳  </span><br><span class="line"></span><br><span class="line">Consumer 启动 → 从 Nacos 拉取服务列表 → 本地缓存 → 负载均衡调用  </span><br><span class="line"></span><br><span class="line">服务上下线 → Nacos 更新注册表 → 推送/拉取同步到 Consumer</span><br></pre></td></tr></table></figure>
-
-<h3 id="nacos配置微服务的原理"><a href="#nacos配置微服务的原理" class="headerlink" title="nacos配置微服务的原理"></a>nacos配置微服务的原理</h3><p><strong>Nacos 配置微服务的原理</strong>，其实就是它作为 <strong>配置中心（Configuration Center）</strong> 的工作机制，和它的 <strong>服务注册与发现</strong> 部分相辅相成</p>
-<h3 id="1-为什么要有配置中心"><a href="#1-为什么要有配置中心" class="headerlink" title="1. 为什么要有配置中心"></a>1. 为什么要有配置中心</h3><p>在微服务架构里，每个服务都需要一堆配置：</p>
-<ul>
-<li><p>数据库连接（地址、用户名、密码）</p>
-</li>
-<li><p>Redis、消息队列地址</p>
-</li>
-<li><p>限流、开关参数</p>
-</li>
-<li><p>不同环境（dev&#x2F;test&#x2F;prod）的配置差异</p>
-</li>
-</ul>
-<p>如果这些配置都写死在每个服务的本地文件里：</p>
-<ul>
-<li><p>修改配置要 <strong>重新打包、重启</strong> 服务</p>
-</li>
-<li><p>多个服务要改相同配置（比如数据库地址）非常麻烦</p>
-</li>
-<li><p>不利于动态调优（比如流量控制参数）</p>
-</li>
-</ul>
-<p>👉 于是需要一个 <strong>集中式配置中心</strong>，Nacos 就扮演了这个角色。</p>
-<h2 id="2-Nacos-配置管理的核心原理"><a href="#2-Nacos-配置管理的核心原理" class="headerlink" title="2. Nacos 配置管理的核心原理"></a>2. Nacos 配置管理的核心原理</h2><h3 id="（1）配置存储"><a href="#（1）配置存储" class="headerlink" title="（1）配置存储"></a>（1）配置存储</h3><ul>
-<li><p>配置以 <strong>键值对（DataId, Group, Namespace）</strong> 的形式存储在 Nacos Server 里</p>
-</li>
-<li><p>可以存放 <strong>properties、yaml、json</strong> 等文本格式</p>
-</li>
-<li><p>底层存储：Nacos 内存 + 数据库（默认 Derby，可切换 MySQL）</p>
-</li>
-</ul>
-<h3 id="（2）客户端获取配置"><a href="#（2）客户端获取配置" class="headerlink" title="（2）客户端获取配置"></a>（2）客户端获取配置</h3><ul>
-<li><p>微服务启动时，通过 <strong>Nacos SDK</strong> 或 <strong>Spring Cloud Alibaba Nacos Starter</strong> 连接到 Nacos Server</p>
-</li>
-<li><p>客户端根据 <strong>namespace + group + dataId</strong> 拉取对应的配置文件</p>
-</li>
-<li><p>拉取到的配置会被注入到应用的 <strong>Environment</strong> 或者 Spring 的 <code>@Value</code> &#x2F; <code>@ConfigurationProperties</code> 里</p>
-</li>
-</ul>
-<h3 id="（3）配置动态刷新"><a href="#（3）配置动态刷新" class="headerlink" title="（3）配置动态刷新"></a>（3）配置动态刷新</h3><ul>
-<li><p>Nacos 提供 <strong>长轮询 &#x2F; gRPC 推送</strong> 机制</p>
-</li>
-<li><p>当配置在控制台被修改时，Nacos Server 会通知所有订阅该配置的客户端</p>
-</li>
-<li><p>客户端自动更新本地配置，并触发 Spring 的 <code>@RefreshScope</code> 或监听器机制，实时生效</p>
-</li>
-</ul>
-<p>举个例子：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Nacos 里配置了</span></span><br><span class="line"></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://10.0.0.5:3306/test</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">password:</span> <span class="number">123456</span></span><br></pre></td></tr></table></figure>
-
-<p>如果你在 Nacos 控制台把 <code>password</code> 改成 <code>654321</code>，客户端不用重启，下一次获取数据连接时就会用新密码。</p>
-<h3 id="（4）配置隔离"><a href="#（4）配置隔离" class="headerlink" title="（4）配置隔离"></a>（4）配置隔离</h3><ul>
-<li><p><strong>Namespace</strong>：环境隔离（如 dev&#x2F;test&#x2F;prod）</p>
-</li>
-<li><p><strong>Group</strong>：项目或业务隔离（如 order-service-group &#x2F; user-service-group）</p>
-</li>
-<li><p><strong>DataId</strong>：具体配置文件（如 <code>application.yaml</code>、<code>db-config.yaml</code>）</p>
-</li>
-</ul>
-<h2 id="3-高可用与一致性"><a href="#3-高可用与一致性" class="headerlink" title="3. 高可用与一致性"></a>3. 高可用与一致性</h2><ul>
-<li><p>配置中心数据通过 <strong>MySQL 存储 + Raft 协议</strong> 保证一致性</p>
-</li>
-<li><p>多节点 Nacos 集群可以保证高可用</p>
-</li>
-<li><p>客户端会有本地缓存配置（<code>nacos/config</code> 目录），即使 Nacos 挂了，也能用上一次的配置启动</p>
-</li>
-</ul>
-<h2 id="4-总结工作流程"><a href="#4-总结工作流程" class="headerlink" title="4. 总结工作流程"></a>4. 总结工作流程</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">微服务启动 → 从 Nacos 拉取配置（DataId + Group + Namespace）</span><br><span class="line"></span><br><span class="line">         → 配置注入到应用环境（Environment）</span><br><span class="line"></span><br><span class="line">         → 应用运行时使用这些配置</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">当配置在 Nacos 修改 → Nacos Server 通知客户端</span><br><span class="line"></span><br><span class="line">                  → 客户端刷新配置（动态生效，无需重启）</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-<h3 id="以ibase-server配置文件为例"><a href="#以ibase-server配置文件为例" class="headerlink" title="以ibase server配置文件为例"></a>以ibase server配置文件为例</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">port:</span> <span class="number">30108</span></span><br><span class="line"></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">name:</span> <span class="string">i-base</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line"></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line"></span><br><span class="line">        <span class="attr">service:</span> <span class="string">&#x27;$&#123;spring.application.name&#125;&#x27;</span></span><br><span class="line"></span><br><span class="line">        <span class="attr">ip:</span> <span class="string">&#x27;$&#123;spring.cloud.client.ip-address&#125;&#x27;</span></span><br><span class="line"></span><br><span class="line">        <span class="attr">port:</span> <span class="string">&#x27;$&#123;server.port&#125;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">sprite:</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">global-config:</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#项目编号</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">project-code:</span> <span class="string">PROJECT_1635185673461960704_1678843508667</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#版本号</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">version:</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#实体类生成路径</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">asm-main-class:</span> <span class="string">com.hoteamsoft.touchy.goblin.cordial.doppler.domain.MainEntity</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#项目创建人账号，若mongodb内的userId为空时，可删除此配置</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># login-name: liuyaowei@hoteamsoft.com</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">metadata-center:</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#mongodb地址</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">host:</span> <span class="number">200.157</span><span class="number">.100</span><span class="number">.42</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#mongodb端口</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">port:</span> <span class="number">27017</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#mongodb库名</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">db-name:</span> <span class="string">jitunahuadev</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#mongodb集合名(元数据初始化后会在mongodb中创建一个以项目编号命名的集合)</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">collection-name:</span> <span class="string">PROJECT_1635185673461960704_1678843508667</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#mongodb用户名</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">credential-user-name:</span> <span class="string">admin</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#mongodb用户名</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">credential-db-location:</span> <span class="string">admin</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#mongodb密码</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">credential-password:</span> <span class="string">3DplazaPlatform2024</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#暂不了解</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">cluster-deployment:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">druid:</span></span><br><span class="line"></span><br><span class="line">      <span class="attr">connect-properties:</span> <span class="string">oracle.jdbc.J2EE13Compliant=true</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">enableStudioDataBase:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">enableLog:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">strict:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 是否懒加载元数据中心数据源元数据</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">enableLazyLoadMetadataCenter:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 是否开启数据源分组功能</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">enableDsGroup:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">studioAopPackage:</span> <span class="string">com.hoteamsoft.loki.server.controller</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">cache:</span></span><br><span class="line"></span><br><span class="line">      <span class="attr">enableCacheExpire:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">dataSources:</span></span><br><span class="line"></span><br><span class="line">      <span class="attr">MYSQL:</span></span><br><span class="line"></span><br><span class="line">        <span class="attr">url:</span> <span class="string">jdbc:dm://200.157.100.42:5236/PLM_RUN_1?user=PLM_RUN_1&amp;password=3DplazaPlatform2024</span></span><br><span class="line"></span><br><span class="line">        <span class="attr">username:</span> <span class="string">PLM_RUN_1</span></span><br><span class="line"></span><br><span class="line">        <span class="attr">password:</span> <span class="string">3DplazaPlatform2024</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">primary:</span> <span class="string">mysql</span></span><br><span class="line"></span><br><span class="line"><span class="attr">nebula:</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">enabled:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#缓存配置</span></span><br><span class="line"></span><br><span class="line"><span class="attr">cache:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">#  系统基本缓存key前缀</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">sysPrefixKey:</span> <span class="string">i_base</span></span><br><span class="line"></span><br><span class="line"><span class="attr">logging:</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">level:</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">org:</span></span><br><span class="line"></span><br><span class="line">      <span class="attr">springframework:</span></span><br><span class="line"></span><br><span class="line">        <span class="attr">data:</span></span><br><span class="line"></span><br><span class="line">          <span class="attr">mongodb:</span> <span class="string">info</span></span><br><span class="line"></span><br><span class="line"><span class="attr">keen:</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">remote:</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">redis:</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">#  valueSerializer: java</span></span><br><span class="line"></span><br><span class="line">      <span class="attr">single:</span></span><br><span class="line"></span><br><span class="line">        <span class="attr">default:</span></span><br><span class="line"></span><br><span class="line">          <span class="attr">host:</span> <span class="number">200.157</span><span class="number">.100</span><span class="number">.42</span></span><br><span class="line"></span><br><span class="line">          <span class="attr">password:</span> <span class="number">123456</span></span><br><span class="line"></span><br><span class="line">          <span class="attr">port:</span> <span class="number">6379</span></span><br><span class="line"></span><br><span class="line">          <span class="attr">db:</span> <span class="number">26</span></span><br><span class="line"></span><br><span class="line"><span class="attr">feign:</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">platform-base-service:</span> <span class="string">platform-base-service</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">platform-base-log:</span> <span class="string">platform-base-service</span></span><br><span class="line"></span><br><span class="line"><span class="attr">loki:</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">minio:</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">enabled:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">bucket-name:</span> <span class="string">studio-cache</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">endpoint:</span> <span class="string">http://200.157.100.42:9000</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">accessKey:</span> <span class="string">admin</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">secretKey:</span> <span class="string">3DplazaPlatform2024</span>  </span><br><span class="line"></span><br><span class="line"><span class="attr">projectCode:</span> <span class="string">$&#123;project:PROJECT_1635185673461960704_1678843508667&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">rocketmq:</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">consumer:</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">group:</span> <span class="string">i-base-test</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">namesrvAddr:</span> <span class="number">200.157</span><span class="number">.100</span><span class="number">.42</span><span class="string">:9876</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">topic:</span> <span class="string">&quot;workFlowPluginTopicTest&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">tag:</span> <span class="string">&quot;*&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">CommandService:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">#转换节点从系统中获取图幅、反签水印等配置的Url</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">ConfigServerUrl:</span> <span class="string">http://200.157.100.42:80</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p>是一个 <strong>Spring Boot 微服务 + Nacos 配置中心</strong> 的配置文件（看起来像 <code>application.yml</code> 或从 Nacos 拉取的配置），里面包含 <strong>服务注册、数据库、MongoDB、Redis、MinIO、RocketMQ</strong> 等多个子系统的配置。</p>
-<p>我帮你逐块拆解一下：</p>
-<h2 id="1-服务基础配置"><a href="#1-服务基础配置" class="headerlink" title="1. 服务基础配置"></a>1. 服务基础配置</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">port:</span> <span class="number">30108</span></span><br><span class="line"></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">name:</span> <span class="string">i-base</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line"></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line"></span><br><span class="line">        <span class="attr">service:</span> <span class="string">&#x27;$&#123;spring.application.name&#125;&#x27;</span></span><br><span class="line"></span><br><span class="line">        <span class="attr">ip:</span> <span class="string">&#x27;$&#123;spring.cloud.client.ip-address&#125;&#x27;</span></span><br><span class="line"></span><br><span class="line">        <span class="attr">port:</span> <span class="string">&#x27;$&#123;server.port&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p><code>server.port: 30108</code> → 微服务运行端口</p>
-</li>
-<li><p><code>spring.application.name: i-base</code> → 微服务的名字，服务注册到 Nacos 时用这个名字</p>
-</li>
-<li><p><code>spring.cloud.nacos.discovery</code> → Nacos 注册中心配置：</p>
-</li>
-</ul>
-<p><code>service</code> → 服务名（这里引用 <code>i-base</code>）</p>
-<p><code>ip</code> → 服务注册时使用的 IP</p>
-<p><code>port</code> → 服务注册时使用的端口</p>
-<p>👉 <strong>作用</strong>：把本服务（i-base）注册到 Nacos，供其他微服务发现和调用。</p>
-<h2 id="2-sprite-配置（自定义模块，可能是你们内部框架）"><a href="#2-sprite-配置（自定义模块，可能是你们内部框架）" class="headerlink" title="2. sprite 配置（自定义模块，可能是你们内部框架）"></a>2. sprite 配置（自定义模块，可能是你们内部框架）</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sprite:</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">global-config:</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">project-code:</span> <span class="string">PROJECT_1635185673461960704_1678843508667</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">version:</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">asm-main-class:</span> <span class="string">com.hoteamsoft.touchy.goblin.cordial.doppler.domain.MainEntity</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p><code>project-code</code> → 项目唯一编号</p>
-</li>
-<li><p><code>version</code> → 项目版本号</p>
-</li>
-<li><p><code>asm-main-class</code> → 主实体类路径，可能用于代码生成或业务逻辑入口</p>
-</li>
-</ul>
-<h3 id="metadata-center"><a href="#metadata-center" class="headerlink" title="metadata-center"></a>metadata-center</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">  <span class="attr">metadata-center:</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">host:</span> <span class="number">200.157</span><span class="number">.100</span><span class="number">.42</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">port:</span> <span class="number">27017</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">db-name:</span> <span class="string">jitunahuadev</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">collection-name:</span> <span class="string">PROJECT_1635185673461960704_1678843508667</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">credential-user-name:</span> <span class="string">admin</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">credential-db-location:</span> <span class="string">admin</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">credential-password:</span> <span class="string">3DplazaPlatform2024</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">cluster-deployment:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-
-<p>👉 MongoDB 作为 <strong>元数据存储中心</strong>：</p>
-<ul>
-<li><p><code>db-name</code> → 库名</p>
-</li>
-<li><p><code>collection-name</code> → 集合名（通常和项目编号绑定）</p>
-</li>
-<li><p><code>credential-*</code> → MongoDB 用户名、密码、认证数据库</p>
-</li>
-</ul>
-<h2 id="3-数据源配置"><a href="#3-数据源配置" class="headerlink" title="3. 数据源配置"></a>3. 数据源配置</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">  <span class="attr">datasource:</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">druid:</span></span><br><span class="line"></span><br><span class="line">      <span class="attr">connect-properties:</span> <span class="string">oracle.jdbc.J2EE13Compliant=true</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">enableStudioDataBase:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">enableLog:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">strict:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">enableLazyLoadMetadataCenter:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">enableDsGroup:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">studioAopPackage:</span> <span class="string">com.hoteamsoft.loki.server.controller</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">cache:</span></span><br><span class="line"></span><br><span class="line">      <span class="attr">enableCacheExpire:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">dataSources:</span></span><br><span class="line"></span><br><span class="line">      <span class="attr">MYSQL:</span></span><br><span class="line"></span><br><span class="line">        <span class="attr">url:</span> <span class="string">jdbc:dm://200.157.100.42:5236/PLM_RUN_1?user=PLM_RUN_1&amp;password=3DplazaPlatform2024</span></span><br><span class="line"></span><br><span class="line">        <span class="attr">username:</span> <span class="string">PLM_RUN_1</span></span><br><span class="line"></span><br><span class="line">        <span class="attr">password:</span> <span class="string">3DplazaPlatform2024</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">primary:</span> <span class="string">mysql</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>使用 <strong>Druid 连接池</strong></p>
-</li>
-<li><p><code>enableStudioDataBase</code> → 是否启用工作室数据库</p>
-</li>
-<li><p><code>enableLog</code> → 是否启用 SQL 日志</p>
-</li>
-<li><p><code>dataSources.MYSQL</code> → 定义了一个数据源（但注意这里用的是 <code>jdbc:dm://</code>，其实是 <strong>达梦数据库 DM</strong> 协议，不是 MySQL）</p>
-</li>
-<li><p><code>primary: mysql</code> → 默认数据源</p>
-</li>
-</ul>
-<p>👉 说明：虽然写的是 MYSQL，但底层连的是 <strong>达梦数据库 DM8</strong>。</p>
-<h2 id="4-nebula-配置"><a href="#4-nebula-配置" class="headerlink" title="4. nebula 配置"></a>4. nebula 配置</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">nebula:</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">enabled:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>可能是图数据库 Nebula Graph，当前关闭。</li>
-</ul>
-<h2 id="5-缓存配置"><a href="#5-缓存配置" class="headerlink" title="5. 缓存配置"></a>5. 缓存配置</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">cache:</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">sysPrefixKey:</span> <span class="string">i_base</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>定义缓存的 Key 前缀，避免不同服务的缓存冲突。</li>
-</ul>
-<h2 id="6-日志级别"><a href="#6-日志级别" class="headerlink" title="6. 日志级别"></a>6. 日志级别</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">logging:</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">level:</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">org:</span></span><br><span class="line"></span><br><span class="line">      <span class="attr">springframework:</span></span><br><span class="line"></span><br><span class="line">        <span class="attr">data:</span></span><br><span class="line"></span><br><span class="line">          <span class="attr">mongodb:</span> <span class="string">info</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>设置 <code>spring-data-mongodb</code> 的日志级别为 <code>info</code>，避免日志太多。</li>
-</ul>
-<h2 id="7-Redis-配置"><a href="#7-Redis-配置" class="headerlink" title="7. Redis 配置"></a>7. Redis 配置</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">keen:</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">remote:</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">redis:</span></span><br><span class="line"></span><br><span class="line">      <span class="attr">single:</span></span><br><span class="line"></span><br><span class="line">        <span class="attr">default:</span></span><br><span class="line"></span><br><span class="line">          <span class="attr">host:</span> <span class="number">200.157</span><span class="number">.100</span><span class="number">.42</span></span><br><span class="line"></span><br><span class="line">          <span class="attr">password:</span> <span class="number">123456</span></span><br><span class="line"></span><br><span class="line">          <span class="attr">port:</span> <span class="number">6379</span></span><br><span class="line"></span><br><span class="line">          <span class="attr">db:</span> <span class="number">26</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>启用了 <code>keen</code>（你们内部组件）</p>
-</li>
-<li><p><code>redis.single.default</code> → 连接单机 Redis</p>
-</li>
-</ul>
-<p>地址：200.157.100.42:6379</p>
-<p>密码：123456</p>
-<p>使用 DB 26</p>
-<h2 id="8-Feign-配置（服务调用）"><a href="#8-Feign-配置（服务调用）" class="headerlink" title="8. Feign 配置（服务调用）"></a>8. Feign 配置（服务调用）</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">feign:</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">platform-base-service:</span> <span class="string">platform-base-service</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">platform-base-log:</span> <span class="string">platform-base-service</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Feign 调用时指定服务名（从 Nacos 里发现 <code>platform-base-service</code>）。</li>
-</ul>
-<h2 id="9-MinIO-配置（对象存储）"><a href="#9-MinIO-配置（对象存储）" class="headerlink" title="9. MinIO 配置（对象存储）"></a>9. MinIO 配置（对象存储）</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">loki:</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">minio:</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">enabled:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">bucket-name:</span> <span class="string">studio-cache</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">endpoint:</span> <span class="string">http://200.157.100.42:9000</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">accessKey:</span> <span class="string">admin</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">secretKey:</span> <span class="string">3DplazaPlatform2024</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>MinIO 文件存储开启，桶名 <code>studio-cache</code></p>
-</li>
-<li><p>连接地址 <code>200.157.100.42:9000</code></p>
-</li>
-<li><p>访问密钥 <code>admin / 3DplazaPlatform2024</code></p>
-</li>
-</ul>
-<p>👉 用来存储缓存文件、资源文件。</p>
-<h2 id="10-项目编号引用"><a href="#10-项目编号引用" class="headerlink" title="10. 项目编号引用"></a>10. 项目编号引用</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">projectCode:</span> <span class="string">$&#123;project:PROJECT_1635185673461960704_1678843508667&#125;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>从外部 <code>project</code> 变量读取，若无则用默认值 <code>PROJECT_1635185673461960704_1678843508667</code>。</li>
-</ul>
-<h2 id="11-RocketMQ-消息队列"><a href="#11-RocketMQ-消息队列" class="headerlink" title="11. RocketMQ 消息队列"></a>11. RocketMQ 消息队列</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">rocketmq:</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">consumer:</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">group:</span> <span class="string">i-base-test</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">namesrvAddr:</span> <span class="number">200.157</span><span class="number">.100</span><span class="number">.42</span><span class="string">:9876</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">topic:</span> <span class="string">&quot;workFlowPluginTopicTest&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">tag:</span> <span class="string">&quot;*&quot;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>配置 <strong>RocketMQ 消费者</strong>：</li>
-</ul>
-<p>消费组：<code>i-base-test</code></p>
-<p>NameServer 地址：<code>200.157.100.42:9876</code></p>
-<p>订阅 Topic：<code>workFlowPluginTopicTest</code></p>
-<p>Tag：<code>*</code>（所有消息）</p>
-<h2 id="12-CommandService-配置"><a href="#12-CommandService-配置" class="headerlink" title="12. CommandService 配置"></a>12. CommandService 配置</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">CommandService:</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">ConfigServerUrl:</span> <span class="string">http://200.157.100.42:80</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>远程配置服务地址（可能用于文件转换、图幅、反签水印等）。</li>
-</ul>
-<p>✅ <strong>总结一下：</strong></p>
-<ul>
-<li><p><strong>Nacos 部分</strong>：主要是 <code>spring.cloud.nacos.discovery</code>，用于注册服务到 Nacos。</p>
-</li>
-<li><p><strong>其余部分</strong>：数据库（达梦）、MongoDB、Redis、MinIO、RocketMQ、Feign、缓存、日志等，是本微服务 <code>i-base</code> 的业务配置。</p>
-</li>
-<li><p><strong>整体作用</strong>：</p>
-</li>
-</ul>
-<p><code>i-base</code> 微服务启动 → 注册到 Nacos → 可被别的微服务发现</p>
-<p>运行时使用 Nacos 配置中心下发的这些配置，完成数据库、缓存、消息队列、存储等初始化</p>
-<h3 id="其他命令解析"><a href="#其他命令解析" class="headerlink" title="其他命令解析"></a>其他命令解析</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose -f /data/3DPlaza/docker-config/b1-mysql/docker-compose.yaml up -d</span><br></pre></td></tr></table></figure>
-
-<h3 id="📝-命令分解"><a href="#📝-命令分解" class="headerlink" title="📝 命令分解"></a>📝 命令分解</h3><ol>
-<li><strong>docker-compose</strong></li>
-</ol>
-<p>使用 Docker Compose 工具来管理和运行多容器应用。</p>
-<ol start="2">
-<li><strong>-f &#x2F;data&#x2F;3DPlaza&#x2F;docker-config&#x2F;b1-mysql&#x2F;docker-compose.yaml</strong></li>
-</ol>
-<ul>
-<li><p><code>-f</code> 选项指定要使用的 Compose 配置文件路径。</p>
-</li>
-<li><p>这里用的文件是 <code>/data/3DPlaza/docker-config/b1-mysql/docker-compose.yaml</code>，而不是默认的 <code>docker-compose.yml</code>。</p>
-</li>
-<li><p>说明项目的 Compose 配置文件存放在 <code>/data/3DPlaza/docker-config/b1-mysql/</code> 目录下。</p>
-</li>
-</ul>
-<ol start="3">
-<li><strong>up</strong></li>
-</ol>
-<ul>
-<li><p>根据指定的 <code>docker-compose.yaml</code> 文件创建并启动容器。</p>
-</li>
-<li><p>如果镜像没有，会自动拉取。</p>
-</li>
-<li><p>如果容器不存在，会自动创建。</p>
-</li>
-<li><p>如果容器已经存在但停止了，会自动启动。</p>
-</li>
-</ul>
-<ol start="4">
-<li><strong>-d (detached mode)</strong></li>
-</ol>
-<ul>
-<li><p>让容器在后台运行（不会占用当前终端）。</p>
-</li>
-<li><p>不加 <code>-d</code> 会在前台运行，日志直接打印在终端。</p>
-</li>
-</ul>
-<h3 id="🚀-整体意思"><a href="#🚀-整体意思" class="headerlink" title="🚀 整体意思"></a>🚀 整体意思</h3><p><strong>使用 &#x2F;data&#x2F;3DPlaza&#x2F;docker-config&#x2F;b1-mysql&#x2F;docker-compose.yaml 这个 Compose 文件，在后台模式启动（或创建）其中定义的所有服务容器。</strong></p>
-
+<h3 id="📌-脚本解析"><a href="#📌-脚本解析" class="headerlink" title="📌 脚本解析"></a>📌 脚本解析</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/09/01/3DPDocker%E5%AE%9E%E6%96%BD%E9%83%A8%E7%BD%B2%E5%8E%9F%E7%90%86/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -996,7 +448,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-09-01 17:05:48 / 修改时间：18:06:45" itemprop="dateCreated datePublished" datetime="2025-09-01T17:05:48+09:00">2025-09-01</time>
+              <time title="创建时间：2025-09-01 17:05:48 / 修改时间：20:46:01" itemprop="dateCreated datePublished" datetime="2025-09-01T17:05:48+09:00">2025-09-01</time>
             </span>
 
           
@@ -1012,69 +464,14 @@
       
           <h1 id="什么是默认约定大于配置（Convention-over-Configuration）"><a href="#什么是默认约定大于配置（Convention-over-Configuration）" class="headerlink" title="什么是默认约定大于配置（Convention over Configuration）"></a>什么是默认约定大于配置（Convention over Configuration）</h1><p>这个概念在 <strong>Spring Boot</strong> 和很多现代框架里都非常重要。我们来拆开解释一下 <strong>“默认约定大于配置”（Convention over Configuration）</strong>。</p>
 <h1 id="🔹-1-背景问题"><a href="#🔹-1-背景问题" class="headerlink" title="🔹 1. 背景问题"></a>🔹 1. 背景问题</h1><p>在传统的 <strong>Spring Framework</strong> 里，开发者需要写很多 <strong>配置</strong> 才能让应用跑起来：</p>
-<ul>
-<li>哪个类是 Controller？</li>
-<li>哪个类是 Service？</li>
-<li>数据源是什么？</li>
-<li>Web 服务器用哪个端口？</li>
-</ul>
-<p>👉 如果每个地方都要写配置，工作量大，而且容易出错。</p>
-<h1 id="🔹-2-什么是“约定大于配置”"><a href="#🔹-2-什么是“约定大于配置”" class="headerlink" title="🔹 2. 什么是“约定大于配置”"></a>🔹 2. 什么是“约定大于配置”</h1><p><strong>核心思想</strong>：<br>👉 <strong>框架先提供一套合理的默认规则（约定），开发者只需要在默认不满足需求时才写配置。</strong></p>
-<p>也就是说：</p>
-<ul>
-<li><strong>约定</strong>：大多数情况下都能用，能快速跑起来。</li>
-<li><strong>配置</strong>：只有当你要“个性化”时才写。</li>
-</ul>
-<h1 id="🔹-3-在-Spring-Boot-里的体现"><a href="#🔹-3-在-Spring-Boot-里的体现" class="headerlink" title="🔹 3. 在 Spring Boot 里的体现"></a>🔹 3. 在 Spring Boot 里的体现</h1><p>几个常见的例子：</p>
-<ol>
-<li><strong>项目结构约定</strong></li>
-</ol>
-<ul>
-<li>只要在 <code>src/main/resources/static</code> 放置静态文件（如 <code>index.html</code>、CSS、JS），Spring Boot 就会自动映射为静态资源。</li>
-<li>你不需要再写额外的配置。</li>
-</ul>
-<ol start="2">
-<li><strong>主类约定</strong></li>
-</ol>
-<ul>
-<li>默认 <code>@SpringBootApplication</code> 所在的包及其子包会被扫描（Component Scan）。</li>
-<li>所以我们一般把主类放在根包下，不用写扫描路径。</li>
-</ul>
-<ol start="3">
-<li><strong>内嵌服务器约定</strong></li>
-</ol>
-<ul>
-<li>默认使用 Tomcat，端口是 <code>8080</code>。</li>
-<li>如果你想改，就写配置：</li>
-</ul>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">9090</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li><strong>数据库配置约定</strong></li>
-</ol>
-<ul>
-<li>如果你引入了 <code>spring-boot-starter-data-jpa</code>，Spring Boot 默认会自动配置 Hibernate，并尝试连接数据库。</li>
-<li>你只需要提供连接信息：</li>
-</ul>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">spring.datasource.url=jdbc:mysql://localhost:3306/demo</span></span><br><span class="line"><span class="string">spring.datasource.username=root</span></span><br><span class="line"><span class="string">spring.datasource.password=123456</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h1 id="🔹-4-好处"><a href="#🔹-4-好处" class="headerlink" title="🔹 4. 好处"></a>🔹 4. 好处</h1><ul>
-<li><strong>减少配置量</strong> → 快速启动项目。</li>
-<li><strong>提高一致性</strong> → 团队成员都遵循相同约定。</li>
-<li><strong>降低学习成本</strong> → 开发者只需学习“少数配置”，而不是每一步都手动指定。</li>
-</ul>
-<h1 id="🔹-5-举个形象的例子"><a href="#🔹-5-举个形象的例子" class="headerlink" title="🔹 5. 举个形象的例子"></a>🔹 5. 举个形象的例子</h1><p>就好比去餐厅：</p>
-<ul>
-<li><strong>传统方式</strong>：你要自己点菜、说口味、决定配料、确定餐具……很麻烦。</li>
-<li><strong>约定大于配置</strong>：餐厅已经有一份“套餐”（约定好的组合），你只要点套餐就能吃；如果你想加辣或换饮料，再额外说明（配置）。</li>
-</ul>
-<p>✅ <strong>总结</strong></p>
-<ul>
-<li>“约定大于配置” &#x3D; <strong>用默认规则覆盖大多数场景，减少配置工作量</strong>。</li>
-<li>在 Spring Boot 里：你只需要写最少的配置，其他都交给“默认约定”。</li>
-<li>想自定义时 → 覆盖默认配置即可。</li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/09/01/%E4%BB%80%E4%B9%88%E6%98%AF%E7%BA%A6%E5%AE%9A%E5%A4%A7%E4%BA%8E%E9%85%8D%E7%BD%AE/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1118,7 +515,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-09-01 17:03:45 / 修改时间：18:04:33" itemprop="dateCreated datePublished" datetime="2025-09-01T17:03:45+09:00">2025-09-01</time>
+              <time title="创建时间：2025-09-01 17:03:45 / 修改时间：20:45:48" itemprop="dateCreated datePublished" datetime="2025-09-01T17:03:45+09:00">2025-09-01</time>
             </span>
 
           
@@ -1135,93 +532,14 @@
           <h1 id="什么是sprigboot"><a href="#什么是sprigboot" class="headerlink" title="什么是sprigboot"></a>什么是sprigboot</h1><p> <strong>Spring Boot</strong>，这是 Spring 生态里最常用的框架之一。</p>
 <h1 id="🔹-1-什么是-Spring-Boot"><a href="#🔹-1-什么是-Spring-Boot" class="headerlink" title="🔹 1. 什么是 Spring Boot"></a>🔹 1. 什么是 Spring Boot</h1><p><strong>Spring Boot</strong> 是 <strong>Spring 框架的快速开发脚手架</strong>。<br>它的目标是：<br>👉 <strong>让你几分钟就能构建一个可运行的 Spring 应用，而不是几天</strong>。</p>
 <p>换句话说：</p>
-<ul>
-<li><strong>Spring Framework</strong>：功能强大，但配置复杂（XML + JavaConfig）。</li>
-<li><strong>Spring Boot</strong>：在 Spring 之上做了大量自动化封装，简化开发。</li>
-</ul>
-<h1 id="🔹-2-Spring-Boot-的核心特性"><a href="#🔹-2-Spring-Boot-的核心特性" class="headerlink" title="🔹 2. Spring Boot 的核心特性"></a>🔹 2. Spring Boot 的核心特性</h1><ol>
-<li><strong>自动配置（Auto Configuration）</strong></li>
-</ol>
-<ul>
-<li>不用手写大量的 XML 或 Java 配置，Spring Boot 会根据依赖自动配置常见组件。</li>
-<li>比如你引入 <code>spring-boot-starter-web</code>，就自动配置好 Tomcat、Spring MVC、Jackson。</li>
-</ul>
-<ol start="2">
-<li><strong>起步依赖（Starter）</strong></li>
-</ol>
-<ul>
-<li>提供一组“开箱即用”的依赖管理包。</li>
-<li>比如：</li>
-</ul>
-<p><code>spring-boot-starter-web</code> → Web 应用（MVC + Tomcat + JSON）</p>
-<p><code>spring-boot-starter-data-jpa</code> → JPA + Hibernate</p>
-<p><code>spring-boot-starter-security</code> → 安全认证</p>
-<p><code>spring-boot-starter-test</code> → 测试框架<br>3. <strong>内嵌 Web 服务器</strong></p>
-<ul>
-<li>内置 Tomcat、Jetty、Undertow，直接 <code>java -jar</code> 就能启动应用，不需要额外安装。</li>
-</ul>
-<ol start="4">
-<li><strong>生产级特性（Actuator）</strong></li>
-</ol>
-<ul>
-<li>监控、健康检查、日志、度量指标（Metrics）开箱即用。</li>
-</ul>
-<ol start="5">
-<li><strong>零配置运行</strong></li>
-</ol>
-<ul>
-<li>默认约定大于配置（Convention over Configuration）。</li>
-<li>配置文件通常只需改 <code>application.yml</code> 或 <code>application.properties</code>。</li>
-</ul>
-<h1 id="🔹-3-Spring-Boot-的项目结构"><a href="#🔹-3-Spring-Boot-的项目结构" class="headerlink" title="🔹 3. Spring Boot 的项目结构"></a>🔹 3. Spring Boot 的项目结构</h1><p>一个典型的 Spring Boot 项目：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">src/main/java</span><br><span class="line"> └── com.example.demo</span><br><span class="line">     ├── DemoApplication.java   <span class="comment"># 主程序入口</span></span><br><span class="line">     ├── controller/            <span class="comment"># 控制层</span></span><br><span class="line">     ├── service/               <span class="comment"># 业务层</span></span><br><span class="line">     └── repository/            <span class="comment"># 数据访问层</span></span><br><span class="line">src/main/resources</span><br><span class="line"> ├── application.yml            <span class="comment"># 配置文件</span></span><br><span class="line"> └── static/                    <span class="comment"># 静态资源</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>主类：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DemoApplication</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        SpringApplication.run(DemoApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h1 id="🔹-4-常用注解"><a href="#🔹-4-常用注解" class="headerlink" title="🔹 4. 常用注解"></a>🔹 4. 常用注解</h1><ul>
-<li><strong>核心注解</strong></li>
-</ul>
-<p><code>@SpringBootApplication</code> → 启动类注解（包含 <code>@Configuration + @EnableAutoConfiguration + @ComponentScan</code>）。</p>
-<ul>
-<li><strong>Web 层</strong></li>
-</ul>
-<p><code>@RestController</code> → 标记控制器类（返回 JSON）。</p>
-<p><code>@RequestMapping</code>, <code>@GetMapping</code>, <code>@PostMapping</code> → 请求映射。</p>
-<ul>
-<li><strong>Bean 管理</strong></li>
-</ul>
-<p><code>@Component</code>, <code>@Service</code>, <code>@Repository</code>, <code>@Controller</code> → 标记 Spring 管理的组件。</p>
-<p><code>@Autowired</code> → 依赖注入。</p>
-<p><code>@Configuration</code>, <code>@Bean</code> → JavaConfig 方式定义 Bean。</p>
-<ul>
-<li><strong>配置</strong></li>
-</ul>
-<p><code>@ConfigurationProperties</code> → 绑定配置文件到对象。</p>
-<p><code>@Value</code> → 读取配置项。</p>
-<h1 id="🔹-5-Spring-Boot-配置文件"><a href="#🔹-5-Spring-Boot-配置文件" class="headerlink" title="🔹 5. Spring Boot 配置文件"></a>🔹 5. Spring Boot 配置文件</h1><p>支持两种：</p>
-<ul>
-<li><code>application.properties</code></li>
-<li><code>application.yml</code>（推荐，层次更清晰）</li>
-</ul>
-<p>示例：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8081</span></span><br><span class="line"></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/demo</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">root</span></span><br><span class="line">  <span class="attr">jpa:</span></span><br><span class="line">    <span class="attr">hibernate:</span></span><br><span class="line">      <span class="attr">ddl-auto:</span> <span class="string">update</span></span><br><span class="line">    <span class="attr">show-sql:</span> <span class="literal">true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h1 id="🔹-6-Spring-Boot-的优势"><a href="#🔹-6-Spring-Boot-的优势" class="headerlink" title="🔹 6. Spring Boot 的优势"></a>🔹 6. Spring Boot 的优势</h1><p>✅ 快速上手，几行代码就能跑一个 Web 应用。<br>✅ 内嵌服务器，打包成 <code>jar</code> 就能部署。<br>✅ 自动配置，大量默认设置，减少样板代码。<br>✅ 统一的 Starter 依赖管理。<br>✅ 生产级监控与健康检查。</p>
-<h1 id="🔹-7-适用场景"><a href="#🔹-7-适用场景" class="headerlink" title="🔹 7. 适用场景"></a>🔹 7. 适用场景</h1><ul>
-<li><strong>微服务架构</strong>（通常结合 Spring Cloud 使用）。</li>
-<li><strong>企业级 Web 应用</strong>（REST API、管理后台）。</li>
-<li><strong>中小型快速开发项目</strong>（CRUD 系统）。</li>
-<li><strong>云原生应用</strong>（Docker + Kubernetes 部署）。</li>
-</ul>
-<p>✅ <strong>总结</strong><br>Spring Boot 是 Spring 的“加速器”：</p>
-<ul>
-<li>让开发者只关注业务逻辑，减少配置负担；</li>
-<li>结合 Spring Cloud 可以快速构建 <strong>微服务系统</strong>。</li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/09/01/%E4%BB%80%E4%B9%88%E6%98%AFspringBoot/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1265,7 +583,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-09-01 17:02:34 / 修改时间：18:03:20" itemprop="dateCreated datePublished" datetime="2025-09-01T17:02:34+09:00">2025-09-01</time>
+              <time title="创建时间：2025-09-01 17:02:34 / 修改时间：20:46:16" itemprop="dateCreated datePublished" datetime="2025-09-01T17:02:34+09:00">2025-09-01</time>
             </span>
 
           
@@ -1281,70 +599,14 @@
       
           <h1 id="spring中的事务管理"><a href="#spring中的事务管理" class="headerlink" title="spring中的事务管理"></a>spring中的事务管理</h1><p><strong>Spring 中的事务管理</strong>是一个非常核心的知识点，既是开发中经常用到的功能，也是面试高频考点。下面我给你系统讲解。</p>
 <h1 id="🔹-1-为什么需要事务管理"><a href="#🔹-1-为什么需要事务管理" class="headerlink" title="🔹 1. 为什么需要事务管理"></a>🔹 1. 为什么需要事务管理</h1><p>事务（Transaction）的四大特性（ACID）：</p>
-<ul>
-<li><strong>A</strong> 原子性（Atomicity）：要么全部成功，要么全部失败。</li>
-<li><strong>C</strong> 一致性（Consistency）：事务前后，数据要保持一致。</li>
-<li><strong>I</strong> 隔离性（Isolation）：并发事务之间互不干扰。</li>
-<li><strong>D</strong> 持久性（Durability）：事务一旦提交，数据永久保存。</li>
-</ul>
-<p>在业务中，事务非常常见：<br>比如 <strong>转账</strong>：扣款成功但存款失败，就会造成数据不一致，这时就需要事务来保证“要么都成功，要么都失败”。</p>
-<h1 id="🔹-2-Spring-事务管理的方式"><a href="#🔹-2-Spring-事务管理的方式" class="headerlink" title="🔹 2. Spring 事务管理的方式"></a>🔹 2. Spring 事务管理的方式</h1><p>Spring 提供两种事务管理方式：</p>
-<h3 id="（1）编程式事务管理"><a href="#（1）编程式事务管理" class="headerlink" title="（1）编程式事务管理"></a>（1）编程式事务管理</h3><p>👉 通过代码手动控制事务的开启、提交和回滚。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">transfer</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        transactionManager.getTransaction(def);</span><br><span class="line">        accountDao.debit(<span class="number">100</span>);</span><br><span class="line">        accountDao.credit(<span class="number">100</span>);</span><br><span class="line">        transactionManager.commit(status);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        transactionManager.rollback(status);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>这种方式灵活，但会让业务代码和事务代码耦合，实际开发很少用。</p>
-<h3 id="（2）声明式事务管理（常用）"><a href="#（2）声明式事务管理（常用）" class="headerlink" title="（2）声明式事务管理（常用）"></a>（2）声明式事务管理（常用）</h3><p>👉 通过 <code>@Transactional</code> 注解，让 Spring AOP 自动帮我们管理事务。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AccountService</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Transactional</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">transfer</span><span class="params">(String from, String to, <span class="type">double</span> money)</span> &#123;</span><br><span class="line">        accountDao.debit(from, money);</span><br><span class="line">        accountDao.credit(to, money);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>Spring 会在方法调用时，自动开启事务，执行成功就提交，异常就回滚。<br>这就是 <strong>最常用的方式</strong>。</p>
-<h1 id="🔹-3-Transactional-的关键属性"><a href="#🔹-3-Transactional-的关键属性" class="headerlink" title="🔹 3. @Transactional 的关键属性"></a>🔹 3. @Transactional 的关键属性</h1><p>常用的属性有：</p>
-<ul>
-<li><strong>propagation（事务传播行为）</strong><br>定义方法在事务中如何传播（如果已经存在事务）：</li>
-</ul>
-<p><code>REQUIRED</code>（默认）：如果有事务就加入，没有就新建。</p>
-<p><code>REQUIRES_NEW</code>：不管有没有事务，都新建一个事务。</p>
-<p><code>SUPPORTS</code>：有事务就加入，没有就不用事务。</p>
-<p><code>MANDATORY</code>：必须在事务中，否则报错。</p>
-<p><code>NOT_SUPPORTED</code>：不支持事务，挂起当前事务。</p>
-<p><code>NEVER</code>：不能在事务中，否则报错。</p>
-<p><code>NESTED</code>：嵌套事务，支持部分回滚。</p>
-<ul>
-<li><strong>isolation（事务隔离级别）</strong><br>用于解决并发问题（脏读、不可重复读、幻读）：</li>
-</ul>
-<p><code>DEFAULT</code>：数据库默认隔离级别（常见是 READ_COMMITTED）。</p>
-<p><code>READ_UNCOMMITTED</code>：可能脏读。</p>
-<p><code>READ_COMMITTED</code>：避免脏读（Oracle 默认）。</p>
-<p><code>REPEATABLE_READ</code>：避免脏读、不可重复读（MySQL 默认）。</p>
-<p><code>SERIALIZABLE</code>：最高隔离级别，避免所有问题，但效率最低。</p>
-<ul>
-<li><strong>rollbackFor</strong><br>指定哪些异常需要回滚（默认只对运行时异常回滚）。</li>
-<li><strong>timeout</strong><br>事务超时时间（秒），超过会自动回滚。</li>
-</ul>
-<h1 id="🔹-4-Spring-事务实现原理"><a href="#🔹-4-Spring-事务实现原理" class="headerlink" title="🔹 4. Spring 事务实现原理"></a>🔹 4. Spring 事务实现原理</h1><p>Spring 事务底层基于 <strong>AOP 动态代理</strong>：</p>
-<ul>
-<li>在方法执行前：开启事务。</li>
-<li>方法正常返回：提交事务。</li>
-<li>方法抛异常：回滚事务。</li>
-</ul>
-<p>所以要注意：</p>
-<ul>
-<li><code>@Transactional</code> <strong>必须加在 public 方法上</strong>（因为 JDK 动态代理只代理 public 方法）。</li>
-<li>不能在同类方法内部调用（事务不会生效，因为代理对象没被用到）。</li>
-</ul>
-<h1 id="🔹-5-常见的事务失效场景"><a href="#🔹-5-常见的事务失效场景" class="headerlink" title="🔹 5. 常见的事务失效场景"></a>🔹 5. 常见的事务失效场景</h1><ol>
-<li><strong>@Transactional 加在 private 方法上 → 无效</strong>。</li>
-<li><strong>同类内部调用方法 → 无效</strong>（绕过代理）。</li>
-<li><strong>异常被捕获且未抛出 → 无法回滚</strong>。</li>
-<li><strong>默认只对 RuntimeException 回滚</strong>，受检异常不会回滚（除非 <code>rollbackFor=Exception.class</code>）。</li>
-<li><strong>数据库不支持事务</strong>（比如 MyISAM 引擎）。</li>
-</ol>
-<h1 id="🔹-6-总结"><a href="#🔹-6-总结" class="headerlink" title="🔹 6. 总结"></a>🔹 6. 总结</h1><p>Spring 的事务管理：</p>
-<ul>
-<li><strong>编程式事务</strong>：自己控制，灵活但繁琐。</li>
-<li><strong>声明式事务（推荐）</strong>：用 <code>@Transactional</code> 注解，简单实用。</li>
-<li><strong>核心要点</strong>：传播行为（Propagation）、隔离级别（Isolation）、回滚规则。</li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/09/01/%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1388,7 +650,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-09-01 17:01:32 / 修改时间：18:01:58" itemprop="dateCreated datePublished" datetime="2025-09-01T17:01:32+09:00">2025-09-01</time>
+              <time title="创建时间：2025-09-01 17:01:32 / 修改时间：20:45:54" itemprop="dateCreated datePublished" datetime="2025-09-01T17:01:32+09:00">2025-09-01</time>
             </span>
 
           
@@ -1404,70 +666,14 @@
       
           <h1 id="什么是IoC-容器（Inversion-of-Control）"><a href="#什么是IoC-容器（Inversion-of-Control）" class="headerlink" title="什么是IoC 容器（Inversion of Control）"></a>什么是IoC 容器（Inversion of Control）</h1><p> <strong>IoC 容器（Inversion of Control Container）</strong>，它是 Spring 框架的<strong>核心概念</strong>之一。</p>
 <h1 id="🔹-1-什么是-IoC（控制反转）"><a href="#🔹-1-什么是-IoC（控制反转）" class="headerlink" title="🔹 1. 什么是 IoC（控制反转）"></a>🔹 1. 什么是 IoC（控制反转）</h1><p><strong>IoC（Inversion of Control，控制反转）</strong> 的核心思想是：<br>👉 <strong>对象的创建与依赖关系的管理，不再由对象本身控制，而是交给一个统一的容器来管理</strong>。</p>
-<p>对比一下：</p>
-<ul>
-<li><strong>传统方式</strong>（自己控制）</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UserService</span> <span class="variable">userService</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">UserService</span>(<span class="keyword">new</span> <span class="title class_">UserRepository</span>());</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<p><code>UserService</code> 自己决定依赖谁，并且要主动去 <code>new</code>。</p>
-<ul>
-<li><strong>IoC 方式</strong>（控制反转）</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ApplicationContext</span> <span class="variable">context</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AnnotationConfigApplicationContext</span>(AppConfig.class);</span><br><span class="line"><span class="type">UserService</span> <span class="variable">userService</span> <span class="operator">=</span> context.getBean(UserService.class);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<p>对象由 Spring 容器创建和注入，程序员只需“声明需要什么”，不用“亲手创建”。</p>
-<p>👉 这就是 “控制权反转”：从自己管理对象 → 交给容器管理。</p>
-<h1 id="🔹-2-IoC-容器是什么"><a href="#🔹-2-IoC-容器是什么" class="headerlink" title="🔹 2. IoC 容器是什么"></a>🔹 2. IoC 容器是什么</h1><p>在 Spring 中，IoC 容器就是用来 <strong>创建对象（Bean）、管理它们的生命周期、处理依赖关系</strong> 的核心模块。</p>
-<p>主要接口：</p>
-<ul>
-<li><strong>BeanFactory</strong>：最底层的 IoC 容器，只在需要时才创建对象（懒加载）。</li>
-<li><strong>ApplicationContext</strong>：更高级的容器，基于 <code>BeanFactory</code>，支持国际化、事件机制、自动扫描 Bean、AOP 等（实际开发常用）。</li>
-</ul>
-<h1 id="🔹-3-IoC-容器的工作原理"><a href="#🔹-3-IoC-容器的工作原理" class="headerlink" title="🔹 3. IoC 容器的工作原理"></a>🔹 3. IoC 容器的工作原理</h1><p>容器启动时会做以下事情：</p>
-<ol>
-<li><strong>加载配置</strong></li>
-</ol>
-<ul>
-<li>XML 配置文件</li>
-<li>Java 注解（<code>@Component</code>, <code>@Configuration</code>, <code>@Bean</code>）</li>
-<li>JavaConfig 类</li>
-</ul>
-<ol start="2">
-<li><strong>实例化 Bean</strong><br>根据配置创建对象实例。</li>
-<li><strong>依赖注入</strong><br>把需要的依赖对象注入进去（DI）。</li>
-<li><strong>初始化 Bean</strong><br>执行 <code>@PostConstruct</code>、<code>InitializingBean</code> 等。</li>
-<li><strong>使用 Bean</strong><br>应用程序通过 <code>context.getBean()</code> 或 <code>@Autowired</code> 获取 Bean。</li>
-<li><strong>销毁 Bean</strong><br>容器关闭时，执行 <code>@PreDestroy</code>、<code>DisposableBean</code> 等。</li>
-</ol>
-<h1 id="🔹-4-Bean-的作用域（Scope）"><a href="#🔹-4-Bean-的作用域（Scope）" class="headerlink" title="🔹 4. Bean 的作用域（Scope）"></a>🔹 4. Bean 的作用域（Scope）</h1><p>IoC 容器中 Bean 的作用域有：</p>
-<ul>
-<li><code>singleton</code>（默认） → 整个容器中只有一个实例</li>
-<li><code>prototype</code> → 每次获取都会创建新对象</li>
-<li><code>request</code>（Web） → 每次 HTTP 请求创建一个实例</li>
-<li><code>session</code>（Web） → 每个 HTTP 会话创建一个实例</li>
-</ul>
-<h1 id="🔹-5-IoC-的好处"><a href="#🔹-5-IoC-的好处" class="headerlink" title="🔹 5. IoC 的好处"></a>🔹 5. IoC 的好处</h1><ul>
-<li><strong>解耦</strong>：对象只关心“做什么”，不关心“依赖谁”。</li>
-<li><strong>灵活</strong>：更换实现只需改配置，不改业务代码。</li>
-<li><strong>可测试</strong>：方便注入 Mock 对象进行单元测试。</li>
-<li><strong>统一管理</strong>：生命周期和依赖关系由容器统一管理。</li>
-</ul>
-<h1 id="🔹-6-举个例子"><a href="#🔹-6-举个例子" class="headerlink" title="🔹 6. 举个例子"></a>🔹 6. 举个例子</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UserRepository</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">save</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;保存用户：&quot;</span> + name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UserService</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> UserRepository userRepository;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">UserService</span><span class="params">(UserRepository userRepository)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.userRepository = userRepository;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addUser</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        userRepository.save(name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>启动 Spring 容器后：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ApplicationContext</span> <span class="variable">context</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AnnotationConfigApplicationContext</span>(AppConfig.class);</span><br><span class="line"><span class="type">UserService</span> <span class="variable">userService</span> <span class="operator">=</span> context.getBean(UserService.class);</span><br><span class="line">userService.addUser(<span class="string">&quot;张三&quot;</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>👉 这里的 <code>UserService</code> 和 <code>UserRepository</code> 都是由 <strong>IoC 容器创建并组装好的</strong>。</p>
-<p>✅ <strong>总结</strong></p>
-<ul>
-<li>IoC 是一种思想：把对象的创建与依赖管理交给容器。</li>
-<li>IoC 容器 &#x3D; Bean 工厂 + 依赖管理 + 生命周期管理。</li>
-<li>在 Spring 中，<code>ApplicationContext</code> 是最常用的 IoC 容器实现。</li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/09/01/%E4%BB%80%E4%B9%88%E6%98%AFIOC%E5%AE%B9%E5%99%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1511,7 +717,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-09-01 16:58:40 / 修改时间：17:59:58" itemprop="dateCreated datePublished" datetime="2025-09-01T16:58:40+09:00">2025-09-01</time>
+              <time title="创建时间：2025-09-01 16:58:40 / 修改时间：20:46:23" itemprop="dateCreated datePublished" datetime="2025-09-01T16:58:40+09:00">2025-09-01</time>
             </span>
 
           
@@ -1527,51 +733,14 @@
       
           <h1 id="什么时面向切面编程"><a href="#什么时面向切面编程" class="headerlink" title="什么时面向切面编程"></a>什么时面向切面编程</h1><p> <strong>面向切面编程（AOP, Aspect Oriented Programming）</strong>。</p>
 <h2 id="1️⃣-背景：为什么需要-AOP"><a href="#1️⃣-背景：为什么需要-AOP" class="headerlink" title="1️⃣ 背景：为什么需要 AOP"></a>1️⃣ 背景：为什么需要 AOP</h2><p>在传统编程中，有些功能会分散在系统的很多地方反复出现，例如：</p>
-<ul>
-<li>日志记录（Logging）</li>
-<li>权限控制（Security）</li>
-<li>性能监控（Profiling）</li>
-<li>事务管理（Transaction）</li>
-</ul>
-<p>这些功能不属于具体的业务逻辑，但又对系统非常重要。<br>如果我们在每个方法里都去写日志、做权限校验，就会造成 <strong>代码重复、难以维护</strong>。</p>
-<h2 id="2️⃣-什么是-AOP"><a href="#2️⃣-什么是-AOP" class="headerlink" title="2️⃣ 什么是 AOP"></a>2️⃣ 什么是 AOP</h2><p>AOP 就是 <strong>把这些与业务逻辑无关、却对多个模块都需要的功能</strong>（称为<strong>横切关注点 cross-cutting concerns</strong>）<br>从业务逻辑代码中抽取出来，形成一个单独的“切面（Aspect）”。</p>
-<p>这样，业务代码只管业务，日志、事务、权限等统一交给 AOP 处理。</p>
-<p>👉 可以理解为：</p>
-<ul>
-<li>OOP（面向对象）&#x3D; 解决“对象的功能划分”</li>
-<li>AOP（面向切面）&#x3D; 解决“跨越多个对象的共性功能”</li>
-</ul>
-<h2 id="3️⃣-核心概念"><a href="#3️⃣-核心概念" class="headerlink" title="3️⃣ 核心概念"></a>3️⃣ 核心概念</h2><p>在 Spring AOP 中，主要有以下几个概念：</p>
-<ul>
-<li><strong>Aspect（切面）</strong><br>横切关注点的模块化，比如“日志切面”“事务切面”。</li>
-<li><strong>Join Point（连接点）</strong><br>程序执行的某个点，比如方法调用、异常抛出等。</li>
-<li><strong>Pointcut（切点）</strong><br>定义在哪些 Join Point 上织入代码，比如“所有 <code>@Service</code> 注解的方法”。</li>
-<li><strong>Advice（通知）</strong><br>在切点位置要做的动作，比如“方法执行前打印日志”。</li>
-</ul>
-<p>前置通知（Before）</p>
-<p>后置通知（After）</p>
-<p>返回后通知（AfterReturning）</p>
-<p>异常通知（AfterThrowing）</p>
-<p>环绕通知（Around）</p>
-<ul>
-<li><strong>Weaving（织入）</strong><br>把切面应用到目标对象上，生成代理对象。</li>
-</ul>
-<h2 id="4️⃣-举个例子（Spring-AOP）"><a href="#4️⃣-举个例子（Spring-AOP）" class="headerlink" title="4️⃣ 举个例子（Spring AOP）"></a>4️⃣ 举个例子（Spring AOP）</h2><p>比如我有一个业务方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">OrderService</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">createOrder</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;创建订单...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>需求：每次调用 <code>createOrder</code> 方法前后都记录日志。<br>如果不用 AOP，可能要手写日志：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">createOrder</span><span class="params">()</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;开始日志&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;创建订单...&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;结束日志&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>有了 AOP，可以写一个切面类：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LogAspect</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Before(&quot;execution(* com.example.service.OrderService.createOrder(..))&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">beforeLog</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;开始日志&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@After(&quot;execution(* com.example.service.OrderService.createOrder(..))&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">afterLog</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;结束日志&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>👉 这样业务类 <code>OrderService</code> 就不用管日志的事了，日志逻辑由 AOP 自动“织入”。</p>
-<h2 id="5️⃣-总结"><a href="#5️⃣-总结" class="headerlink" title="5️⃣ 总结"></a>5️⃣ 总结</h2><ul>
-<li><strong>AOP &#x3D; 解耦“业务逻辑”和“系统级服务”</strong></li>
-<li>把日志、事务、安全这些“横切关注点”从业务逻辑中抽离出来，统一管理。</li>
-<li>Spring AOP 底层基于 <strong>动态代理（JDK Proxy、CGLIB）</strong> 实现。</li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/09/01/%E4%BB%80%E4%B9%88%E6%98%AF%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1615,7 +784,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-09-01 16:57:04 / 修改时间：17:58:19" itemprop="dateCreated datePublished" datetime="2025-09-01T16:57:04+09:00">2025-09-01</time>
+              <time title="创建时间：2025-09-01 16:57:04 / 修改时间：20:46:09" itemprop="dateCreated datePublished" datetime="2025-09-01T16:57:04+09:00">2025-09-01</time>
             </span>
 
           
@@ -1631,45 +800,14 @@
       
           <h1 id="什么是依赖注入"><a href="#什么是依赖注入" class="headerlink" title="什么是依赖注入"></a>什么是依赖注入</h1><p>详细解释一下 <strong>依赖注入（Dependency Injection, 简称 DI）</strong>。</p>
 <h2 id="1️⃣-背景：为什么需要依赖注入"><a href="#1️⃣-背景：为什么需要依赖注入" class="headerlink" title="1️⃣ 背景：为什么需要依赖注入"></a>1️⃣ 背景：为什么需要依赖注入</h2><p>在编程中，类往往需要依赖其他类才能完成工作。比如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserService</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">UserRepository</span> <span class="variable">userRepository</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">UserRepository</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addUser</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        userRepository.save(name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>这里 <code>UserService</code> 直接在内部 <code>new</code> 了一个 <code>UserRepository</code> 对象。<br>这样会产生两个问题：</p>
-<ol>
-<li><strong>耦合度高</strong>：如果以后要换成 <code>MysqlUserRepository</code> 或 <code>RedisUserRepository</code>，就得改 <code>UserService</code> 的代码。</li>
-<li><strong>难以测试</strong>：如果我只想单元测试 <code>UserService</code>，就没办法传一个“假的 UserRepository（Mock）”进去。</li>
-</ol>
-<h2 id="2️⃣-什么是依赖注入"><a href="#2️⃣-什么是依赖注入" class="headerlink" title="2️⃣ 什么是依赖注入"></a>2️⃣ 什么是依赖注入</h2><p><strong>依赖注入</strong> 就是：</p>
-<ul>
-<li>把一个类所依赖的对象（即“依赖”），交给 <strong>外部容器（如 Spring）来创建和管理</strong>，</li>
-<li>然后“注入”到这个类里，而不是让类自己去创建。</li>
-</ul>
-<p>👉 换句话说：<br>类只声明“我需要什么”（依赖），而不关心“这个依赖怎么来”。</p>
-<h2 id="3️⃣-实现方式"><a href="#3️⃣-实现方式" class="headerlink" title="3️⃣ 实现方式"></a>3️⃣ 实现方式</h2><p>在 Spring 里，DI 主要有三种实现方式：</p>
-<ol>
-<li><strong>构造器注入</strong></li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserService</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> UserRepository userRepository;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">UserService</span><span class="params">(UserRepository userRepository)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.userRepository = userRepository;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li><strong>Setter 注入</strong></li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserService</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> UserRepository userRepository;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setUserRepository</span><span class="params">(UserRepository userRepository)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.userRepository = userRepository;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li><strong>字段注入（不推荐）</strong></li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserService</span> &#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> UserRepository userRepository;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>Spring 会在容器启动时，扫描到这些类，自动把 <code>UserRepository</code> 的实例注入到 <code>UserService</code> 里。</p>
-<h2 id="4️⃣-好处"><a href="#4️⃣-好处" class="headerlink" title="4️⃣ 好处"></a>4️⃣ 好处</h2><ul>
-<li><strong>降低耦合</strong>：类不依赖具体实现，而依赖抽象接口。</li>
-<li><strong>提高可测试性</strong>：可以轻松替换依赖（比如用 Mock）。</li>
-<li><strong>更灵活</strong>：只需要在配置里声明依赖关系，代码不用改。</li>
-<li><strong>符合“控制反转（IoC）”原则</strong>：对象的控制权交给 Spring 容器，而不是自己控制。</li>
-</ul>
-<h2 id="5️⃣-小结"><a href="#5️⃣-小结" class="headerlink" title="5️⃣ 小结"></a>5️⃣ 小结</h2><ul>
-<li><strong>IoC（控制反转）</strong> &#x3D; 思想：对象创建与管理交给容器。</li>
-<li><strong>DI（依赖注入）</strong> &#x3D; 实现 IoC 的主要方式：容器把对象注入到需要它的类中。</li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/09/01/%E4%BB%80%E4%B9%88%E6%98%AF%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
