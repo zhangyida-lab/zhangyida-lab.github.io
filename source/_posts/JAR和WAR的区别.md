@@ -114,6 +114,3 @@ java -jar myapp.jar
 
 - **JAR** = Java 程序或库，通常可执行或供别人调用。
 - **WAR** = Web 应用程序，必须运行在 Web 服务器中（除非是 Spring Boot 这种“可执行 WAR”）。
-
-
-要不要我顺便给你画一个 **JAR 与 WAR 的对比图表**，一目了然？

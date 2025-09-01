@@ -20,6 +20,86 @@ npm install hexo-deployer-git --save
 
 ```
 
+### 1️⃣ 克隆仓库
+
+
+```bash
+git clone https://github.com/zhangyida-lab/zhangyida-lab.github.io.git
+cd zhangyida-lab.github.io
+
+```
+
+
+### 2️⃣ 安装 Hexo CLI（全局）
+
+
+```bash
+npm install -g hexo-cli
+
+```
+
+
+⚠️ 这样你才能在命令行中使用 `hexo` 命令。
+
+
+
+
+### 3️⃣ 安装项目依赖
+
+
+```bash
+npm install
+
+```
+
+
+会根据 `package.json` 安装所有主题和插件依赖。
+
+
+
+
+### 4️⃣ 安装部署插件（如果你用 GitHub Pages 部署）
+
+
+```bash
+npm install hexo-deployer-git --save
+
+```
+
+
+这个插件会在 Hexo 里用 `hexo deploy` 把生成的静态文件推送到 GitHub 仓库。
+
+
+
+
+### 5️⃣ 生成静态文件 & 本地预览
+
+
+```bash
+hexo clean       # 清理缓存
+hexo generate    # 生成静态文件
+hexo server      # 本地预览，访问 http://localhost:4000
+
+```
+
+
+### 6️⃣ 部署到 GitHub（可选）
+
+
+如果 `_config.yml` 配置了 deploy：
+
+
+```bash
+hexo deploy
+
+```
+
+
+
+
+
+
+
 ## 操作说明
 
 ```bash
