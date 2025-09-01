@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|consolas:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","Muse | Mist":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="盖将自其变者而观之，则天地曾不能以一瞬；自其不变而观之，则物与我皆无尽也。——《前赤壁赋》  # 什么是计算机科学？计算机就是输入 计算 输出，对于常见的计算机设备输入设备就是键盘、鼠标、麦克风、摄像头，输出设备就是音响、屏幕等；计算设备就是CPU等。自下而上，从简单的原理构建出错综复杂的系统，自上而下循着足迹一步一步去解构大系统，这就是计算机科学的巨大魅力。 # Hardware about">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ComputerSystem">
+<meta property="og:url" content="http://example.com/2023/05/24/ComputerSystem/index.html">
+<meta property="og:site_name" content="Yi&#39;s Lab">
+<meta property="og:description" content="盖将自其变者而观之，则天地曾不能以一瞬；自其不变而观之，则物与我皆无尽也。——《前赤壁赋》  # 什么是计算机科学？计算机就是输入 计算 输出，对于常见的计算机设备输入设备就是键盘、鼠标、麦克风、摄像头，输出设备就是音响、屏幕等；计算设备就是CPU等。自下而上，从简单的原理构建出错综复杂的系统，自上而下循着足迹一步一步去解构大系统，这就是计算机科学的巨大魅力。 # Hardware about">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2023/05/24/ComputerSystem/computerHardware.jpg">
+<meta property="og:image" content="http://example.com/2023/05/24/ComputerSystem/8bitADD.png">
+<meta property="og:image" content="http://example.com/2023/05/24/ComputerSystem/8bitADD2.png">
+<meta property="og:image" content="http://example.com/2023/05/24/ComputerSystem/CPU.jpg">
+<meta property="og:image" content="http://example.com/2023/05/24/ComputerSystem/RAM0001.png">
+<meta property="og:image" content="http://example.com/2023/05/24/ComputerSystem/RAM0002.png">
+<meta property="og:image" content="http://example.com/2023/05/24/ComputerSystem/RAM0003.png">
+<meta property="og:image" content="http://example.com/2023/05/24/ComputerSystem/RAM.png">
+<meta property="article:published_time" content="2023-05-24T04:24:32.000Z">
+<meta property="article:modified_time" content="2025-09-01T08:36:04.580Z">
+<meta property="article:author" content="YiDa">
+<meta property="article:tag" content="softwareDevelopment">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/05/24/ComputerSystem/computerHardware.jpg">
+
+<link rel="canonical" href="http://example.com/2023/05/24/ComputerSystem/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>ComputerSystem | Yi's Lab</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Yi's Lab</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">You Find Your Own Tree.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section">首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section">关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section">标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section">分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section">归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/zhangyida-lab" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/24/ComputerSystem/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ComputerSystem
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-05-24 13:24:32" itemprop="dateCreated datePublished" datetime="2023-05-24T13:24:32+09:00">2023-05-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-09-01 17:36:04" itemprop="dateModified" datetime="2025-09-01T17:36:04+09:00">2025-09-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">计算机科学</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>盖将自其变者而观之，则天地曾不能以一瞬；自其不变而观之，则物与我皆无尽也。——《前赤壁赋》</p>
+</blockquote>
+<h2 id="什么是计算机科学？"><a href="#什么是计算机科学？" class="headerlink" title="# 什么是计算机科学？"></a># 什么是计算机科学？</h2><p>计算机就是输入 计算 输出，对于常见的计算机设备输入设备就是键盘、鼠标、麦克风、摄像头，输出设备就是音响、屏幕等；计算设备就是CPU等。自下而上，从简单的原理构建出错综复杂的系统，自上而下循着足迹一步一步去解构大系统，这就是计算机科学的巨大魅力。</p>
+<h2 id="Hardware-about-CPU-and-RAM"><a href="#Hardware-about-CPU-and-RAM" class="headerlink" title="# Hardware about CPU and RAM"></a># Hardware about CPU and RAM</h2><span id="more"></span>
+<blockquote>
+<p>计算机科学，是逻辑、抽象、规则、协作的伟大发明，但是归根结底就是规则（协议）。在基础科学的基石上不断推进技术向纵深发展，形成一种文化，将人类的生活不断推向前进。</p>
+</blockquote>
+<p><img src="/2023/05/24/ComputerSystem/computerHardware.jpg" alt="computerHardware"></p>
+<h3 id="CPU"><a href="#CPU" class="headerlink" title="# CPU"></a># CPU</h3><p>CPU和内存是由许多晶体管组成的电子部件，通常称为IC(Integrated Circuit，集成电路)。CPU的内部由寄存器、控制器、运算器和时钟四个部分构成，各部分之间由电流信号相互连通。寄存器可用来暂存指令、数据等处理对象，可以将其看作是内存的一种。根据种类的不同，一个 CPU 内部会有20~100 个寄存器。控制器负责把内存上的指令、数据等读人寄存器并根据指令的执行结果来控制整个计算机。运算器负责运算从内存读入寄存器的数据。时钟负责发出 CPU 开始计时的时钟信号 。</p>
+<hr>
+<p>内存指的是计算机的主存储器(main memory),简称主存。主存通过控制片等与CPU相连主要负责存储指令和数据。主存由可读写的元素构成，每个字节(1字节 &#x3D;8位)都带有一个地址编号。CPU 可以通过该地址读取主存中的指令和数据，当然也可以写入数据。</p>
+<hr>
+<p>我们可以将寄存器大致划分为八类可以看出，寄存器中存储的内容既可以是指令也可以是数据。其中，数据分为“用于运算的数值”和“表示内存地址的数值”两种。数据种类不同，存储该数值的寄存器也不同，CPU 中每个寄存器的功能都是不同的。用于运算的数值放在累加寄存器中存储，表示内存地址的数值则放在基址寄存器和变址寄存器中存储。</p>
+<hr>
+<p>程序的流程分为顺序执行、条件分支和循环三种。顺序执行是指按照地址内容的顺序执行指令。条件分支是指根据条件执行任意地址的指令。循环是指重复执行同一地址的指令。顺序执行的情况比较简单，每执行一个指令程序计数器的值就自动加 1。但若程序中存在条件分支和循环，机器语言的指令就可以将程序计数器的值设定为任意地址(不是 +1)。这样一来，程序便可以返回到上一个地址来重复执行同一个指令，或者跳转到任意地址。</p>
+<hr>
+<p>下图一般常见CPU的结构。</p>
+<p><img src="/2023/05/24/ComputerSystem/8bitADD.png" alt="CPU"><br><img src="/2023/05/24/ComputerSystem/8bitADD2.png" alt="CPU2"><br><img src="/2023/05/24/ComputerSystem/CPU.jpg" alt="CPU3"></p>
+<table>
+<thead>
+<tr>
+<th>种类</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>累加寄存器( accumulator register )</td>
+<td>存储执行运算的数据和运算后的数据</td>
+</tr>
+<tr>
+<td>标志寄存器(flag register )</td>
+<td>存储运算处理后的 CPU的状态</td>
+</tr>
+<tr>
+<td>程序计数器( program counter )</td>
+<td>存储下一条指令所在内存的地址</td>
+</tr>
+<tr>
+<td>基址寄存器( base register )</td>
+<td>存储数据内存的起始地址</td>
+</tr>
+<tr>
+<td>变址寄存器(index register)</td>
+<td>存储基址寄存器的相对地址</td>
+</tr>
+<tr>
+<td>通用寄存器( general purpose register )</td>
+<td>存储任意数据</td>
+</tr>
+<tr>
+<td>指令寄存器(instruction register )</td>
+<td>过程序对该寄存器进行读写操作</td>
+</tr>
+<tr>
+<td>栈寄存器(stack register )</td>
+<td>存储栈区域的起始地址</td>
+</tr>
+</tbody></table>
+<h3 id="加法器可以衍生出减法器乘法器等"><a href="#加法器可以衍生出减法器乘法器等" class="headerlink" title="# 加法器可以衍生出减法器乘法器等"></a># 加法器可以衍生出减法器乘法器等</h3><p>加法器（英语：adder）是一种用于执行加法运算的数位电路部件，是构成电子计算机核心微处理器中算术逻辑单元的基础.</p>
+<p>半加器（英语：half adder）的功能是将两个一位二进制数相加。它有两个输出：</p>
+<ul>
+<li>和：记作 S，来自对应的英语 Sum;</li>
+<li>进位：记作 C;</li>
+</ul>
+<p>全加器（full adder）将两个一位二进制数相加，并根据接收到的低位进位信号，输出和、进位输出。全加器的三个输入信号为两个加数A、B和低位进位Cin</p>
+<p>触发器：电路的奇怪之处是:同样是在两个开关都断开的状态下，灯泡有时亮着，有时却不亮。当两个开关都断开时，电路有两个稳定态，这类电路统称为触发器 (Flip-Flop)，<br>触发器和跷跷板有着很强的相似性。跷跷板也有两个稳定状态，它不会长期停留在不稳定的中间位置。</p>
+<blockquote>
+<p>逻辑门电路如下例如：异或门,若两个输入的电平相异，则输出为高电平（1）；若两个输入的电平相同，则输出为低电平（0）。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>OR</th>
+<th>NAND</th>
+<th>XOR</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<h3 id="RAM"><a href="#RAM" class="headerlink" title="# RAM"></a># RAM</h3><p>内存IC中有电源、地址信号、数据信号、控制信号等用于输入输出的大量引脚(IC 的引脚 )，通过为其指定地址(address )，来进行数据的读写。</p>
+<p>数组是指多个同样数据类型的数据在内存中连续排列的形式。作为数组元素的各个数据会通过连续的编号被区分开来，这个编号称为索引(index)。指定索引后，就可以对该索引所对应地址的内存进行读写操作而索引和内存地址的变换工作则是由编译器自动实现的。<br>数组是链表和树结构的基础。</p>
+<p>栈和队列，都可以不通过指定地址和索引来对数组的元素进行读写。需要临时保存计算过程中的数据、连接在计算机上的设备或者输人输出的数据时，都可以通过这些方法来使用内存。如果每次保存临时数据都需指定地址和索引，程序就会变得比较麻烦，因此要加以改进<br>栈和队列的区别在于数据出入的顺序是不同的。在对内存数据进行读写时，栈用的是 LIFO(Last Input First Out），后入先出)方式，而队列用的则是 FIFO( First Input First Out），先入先出)方式。如果我们在内存中预留出栈和队列所需要的空间，并确定好写入和读出的顺序就不用再指定地址和索引了。</p>
+<p>下图是内存的组织结构<br><img src="/2023/05/24/ComputerSystem/RAM0001.png" alt="RAM2"><br><img src="/2023/05/24/ComputerSystem/RAM0002.png" alt="RAM3"><br><img src="/2023/05/24/ComputerSystem/RAM0003.png" alt="RAM4"><br><img src="/2023/05/24/ComputerSystem/RAM.png" alt="RAM1"></p>
+<h2 id="为什么我们需要编程语言？"><a href="#为什么我们需要编程语言？" class="headerlink" title="# 为什么我们需要编程语言？"></a># 为什么我们需要编程语言？</h2><blockquote>
+<p>因为计算机时走向微型化，集成化我们“不能”使用物理的开关去操作内存，所以我们需要微观的操作方式，因此产生了计算机语言，用于人与机器的沟通，甚至说人与人的沟通也可以。</p>
+</blockquote>
+<h3 id="What’s-the-difference-between-Compiled-language-and-Interpreted-language"><a href="#What’s-the-difference-between-Compiled-language-and-Interpreted-language" class="headerlink" title="# What’s the difference between Compiled language and Interpreted language?"></a># What’s the difference between Compiled language and Interpreted language?</h3><ul>
+<li>A compiled language is converted into machine code so that the processor can execute it.</li>
+<li>An interpreted language is a language in which the implementations execute instructions directly without earlier compiling a program into machine language.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>计算机语言</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>C语言</td>
+<td>C是一种通用的、过程式编程编程语言，支持结构化编程、词法作用域和递归，使用静态类型系统，并且广泛用于系统软件与应用软件的开发。</td>
+</tr>
+<tr>
+<td>Python</td>
+<td>Python是一种广泛使用的解释型、高级和通用的编程语言</td>
+</tr>
+<tr>
+<td>Java</td>
+<td>Java不同于一般的编译语言或解释型语言。它首先将源代码编译成字节码，再依赖各种不同平台上的虚拟机来解释执行字节码，从而具有“一次编写，到处运行”的跨平台特性。</td>
+</tr>
+<tr>
+<td>Swift</td>
+<td>Swift编程语言，支持多编程范式和编译式，面向对象，面向协议。</td>
+</tr>
+<tr>
+<td>Go</td>
+<td>Go是Google开发的一种静态强类型、编译型、并发型，并具有垃圾回收功能的编程语言</td>
+</tr>
+<tr>
+<td>JS</td>
+<td>JavaScript是一门基于原型和头等函数的多范式高级解释型编程语言，它支持面向对象程序设计、指令式编程和函数式编程。</td>
+</tr>
+<tr>
+<td>C++</td>
+<td>The main difference between C and C++ is that C++ support classes and objects, while C does not</td>
+</tr>
+</tbody></table>
+<h2 id="What-are-Environment-Variables"><a href="#What-are-Environment-Variables" class="headerlink" title="# What are Environment Variables?"></a># What are Environment Variables?</h2><p>Environment variables are global system variables accessible by all the processes&#x2F;users running under the Operating System (OS), such as Windows, macOS and Linux. Environment variables are useful to store system-wide values, for examples,</p>
+<p>PATH: the most frequently-used environment variable, which stores a list of directories to search for executable programs.<br>OS: the operating system.<br>COMPUTENAME, USERNAME: stores the computer and current user name.<br>SystemRoot: the system root directory.<br>(Windows) HOMEDRIVE, HOMEPATH: Current user’s home directory.</p>
+<h2 id="How-to-set-Windows-Environment-Variables"><a href="#How-to-set-Windows-Environment-Variables" class="headerlink" title="# How to set Windows Environment Variables"></a># How to set Windows Environment Variables</h2><p> Set&#x2F;Unset&#x2F;Change an Environment Variable for the “Current” CMD Session</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"><span class="built_in">set</span> varname  Display the value of the variable</span><br><span class="line"><span class="built_in">set</span> varname=value Set or change the value of the variable (Note: no space before and after <span class="string">&#x27;=&#x27;</span>)</span><br><span class="line"><span class="built_in">set</span> varname=    Delete the variable by setting to empty string (Note: nothing after <span class="string">&#x27;=&#x27;</span>)</span><br><span class="line"><span class="built_in">set</span>   Display ALL the environment variables</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// Append a directory <span class="keyword">in</span> front of the existing PATH</span><br><span class="line"><span class="built_in">set</span> PATH=c:\myBin;%PATH%</span><br><span class="line">PATH=c:\myBin;[existing entries]</span><br></pre></td></tr></table></figure>
+
+<h2 id="How-to-Add-or-Change-an-Environment-Variable-“Permanently”"><a href="#How-to-Add-or-Change-an-Environment-Variable-“Permanently”" class="headerlink" title="# How to Add or Change an Environment Variable “Permanently”"></a># How to Add or Change an Environment Variable “Permanently”</h2><p>   Launch “Control Panel”</p>
+<h2 id="How-to-set-macOS-x2F-Linux-Environment-Variables"><a href="#How-to-set-macOS-x2F-Linux-Environment-Variables" class="headerlink" title="# How to set (macOS&#x2F;Linux) Environment Variables"></a># How to set (macOS&#x2F;Linux) Environment Variables</h2><p>Most of the Unixes (Ubuntu&#x2F;macOS) use the so-called Bash shell. Under bash shell:</p>
+<p>To list all the environment variables, use the command “env” (or “printenv”). You could also use “set” to list all the variables, including all local variables.<br>To reference a variable, use $varname, with a prefix ‘$’ (Windows uses %varname%).<br>To print the value of a particular variable, use the command “echo $varname”.<br>To set an environment variable, use the command “export varname&#x3D;value”, which sets the variable and exports it to the global environment (available to other processes). Enclosed the value with double quotes if it contains spaces.<br>To set a local variable, use the command “varname&#x3D;value” (or “set varname&#x3D;value”). Local variable is available within this process only.<br>To unset a local variable, use command “varname&#x3D;”, i.e., set to empty string (or “unset varname”).</p>
+<h2 id="How-to-Set-an-Environment-Variable-Permanently-in-Bash-Shell"><a href="#How-to-Set-an-Environment-Variable-Permanently-in-Bash-Shell" class="headerlink" title="# How to Set an Environment Variable Permanently in Bash Shell"></a># How to Set an Environment Variable Permanently in Bash Shell</h2><p>You can set an environment variable permanently by placing an export command in your Bash shell’s startup script “<del>&#x2F;.bashrc” (or “</del>&#x2F;.bash_profile”, or “~&#x2F;.profile”) of your home directory; or “&#x2F;etc&#x2F;profile” for system-wide operations. Take note that files beginning with dot (.) is hidden by default. To display hidden files, use command “ls -a” or “ls -al”.</p>
+<p>For example, to add a directory to the PATH environment variable, add the following line at the end of “<del>&#x2F;.bashrc” (or “</del>&#x2F;.bash_profile”, or “~&#x2F;.profile”), where ~ denotes the home directory of the current user, or “&#x2F;etc&#x2F;profile” for ALL users.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// Append a directory <span class="keyword">in</span> front of the existing PATH</span><br><span class="line"><span class="built_in">export</span> PATH=/usr/local/mysql/bin:<span class="variable">$PATH</span></span><br><span class="line">// Refresh the bash shell</span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br><span class="line">// or</span><br><span class="line"><span class="built_in">source</span> ~/.bash_profile</span><br><span class="line"><span class="built_in">source</span> ~/.profile</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/softwareDevelopment/" rel="tag"># softwareDevelopment</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/05/24/AboutCode/" rel="prev" title="AboutCode">
+      <i class="fa fa-chevron-left"></i> AboutCode
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/05/25/WhyWeShouldKnowAlgorithmsAndDataStructures/" rel="next" title="WhyWeShouldKnowAlgorithmsAndDataStructures">
+      WhyWeShouldKnowAlgorithmsAndDataStructures <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%EF%BC%9F"><span class="nav-text"># 什么是计算机科学？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hardware-about-CPU-and-RAM"><span class="nav-text"># Hardware about CPU and RAM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CPU"><span class="nav-text"># CPU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E6%B3%95%E5%99%A8%E5%8F%AF%E4%BB%A5%E8%A1%8D%E7%94%9F%E5%87%BA%E5%87%8F%E6%B3%95%E5%99%A8%E4%B9%98%E6%B3%95%E5%99%A8%E7%AD%89"><span class="nav-text"># 加法器可以衍生出减法器乘法器等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RAM"><span class="nav-text"># RAM</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%AC%E9%9C%80%E8%A6%81%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%EF%BC%9F"><span class="nav-text"># 为什么我们需要编程语言？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#What%E2%80%99s-the-difference-between-Compiled-language-and-Interpreted-language"><span class="nav-text"># What’s the difference between Compiled language and Interpreted language?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-are-Environment-Variables"><span class="nav-text"># What are Environment Variables?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-set-Windows-Environment-Variables"><span class="nav-text"># How to set Windows Environment Variables</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-Add-or-Change-an-Environment-Variable-%E2%80%9CPermanently%E2%80%9D"><span class="nav-text"># How to Add or Change an Environment Variable “Permanently”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-set-macOS-x2F-Linux-Environment-Variables"><span class="nav-text"># How to set (macOS&#x2F;Linux) Environment Variables</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-Set-an-Environment-Variable-Permanently-in-Bash-Shell"><span class="nav-text"># How to Set an Environment Variable Permanently in Bash Shell</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">YiDa</p>
+  <div class="site-description" itemprop="description">自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。</div>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2023 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YiDa</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

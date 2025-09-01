@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|consolas:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","Muse | Mist":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="如何快速看懂apple 的 developer documentation快速看懂 Apple 的 Developer Documentation（苹果开发者文档）是很多 iOS 开发者提升效率的重要一步。下面是一些实用的技巧和建议，帮你快速掌握文档的阅读方法： ✅ 1. 了解文档结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何快速查看苹果的开发文档">
+<meta property="og:url" content="http://example.com/2025/04/23/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E6%9F%A5%E7%9C%8B%E8%8B%B9%E6%9E%9C%E7%9A%84%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/index.html">
+<meta property="og:site_name" content="Yi&#39;s Lab">
+<meta property="og:description" content="如何快速看懂apple 的 developer documentation快速看懂 Apple 的 Developer Documentation（苹果开发者文档）是很多 iOS 开发者提升效率的重要一步。下面是一些实用的技巧和建议，帮你快速掌握文档的阅读方法： ✅ 1. 了解文档结构">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-04-23T10:02:07.000Z">
+<meta property="article:modified_time" content="2025-09-01T08:36:04.807Z">
+<meta property="article:author" content="YiDa">
+<meta property="article:tag" content="swift编程">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2025/04/23/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E6%9F%A5%E7%9C%8B%E8%8B%B9%E6%9E%9C%E7%9A%84%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>如何快速查看苹果的开发文档 | Yi's Lab</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Yi's Lab</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">You Find Your Own Tree.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section">首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section">关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section">标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section">分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section">归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/zhangyida-lab" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/23/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E6%9F%A5%E7%9C%8B%E8%8B%B9%E6%9E%9C%E7%9A%84%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          如何快速查看苹果的开发文档
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-04-23 19:02:07" itemprop="dateCreated datePublished" datetime="2025-04-23T19:02:07+09:00">2025-04-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-09-01 17:36:04" itemprop="dateModified" datetime="2025-09-01T17:36:04+09:00">2025-09-01</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="如何快速看懂apple-的-developer-documentation"><a href="#如何快速看懂apple-的-developer-documentation" class="headerlink" title="如何快速看懂apple 的 developer documentation"></a>如何快速看懂apple 的 developer documentation</h1><p>快速看懂 Apple 的 Developer Documentation（苹果开发者文档）是很多 iOS 开发者提升效率的重要一步。下面是一些实用的技巧和建议，帮你快速掌握文档的阅读方法：</p>
+<h3 id="✅-1-了解文档结构"><a href="#✅-1-了解文档结构" class="headerlink" title="✅ 1. 了解文档结构"></a>✅ 1. <strong>了解文档结构</strong></h3><span id="more"></span>
+<p>Apple 的文档通常有以下几个部分：</p>
+<ul>
+<li><strong>Overview</strong>（概览）：介绍这个类、结构或协议的作用。</li>
+<li><strong>Declaration</strong>（声明）：展示语法定义。</li>
+<li><strong>Topics</strong>（主题）：按功能分组的方法和属性说明。</li>
+<li><strong>Relationships</strong>（关系）：显示它继承了什么，遵循了哪些协议。</li>
+<li><strong>See Also</strong>（参考）：相关文档或 API 链接。</li>
+</ul>
+<p>👉 重点：<strong>看 Overview 和 Topics 就能快速掌握核心用法。</strong></p>
+<h3 id="✅-2-优先看代码示例"><a href="#✅-2-优先看代码示例" class="headerlink" title="✅ 2. 优先看代码示例"></a>✅ 2. <strong>优先看代码示例</strong></h3><ul>
+<li>Apple 文档中很多页面会有 <strong>“Sample Code”</strong> 或者在每个方法下方会有代码片段。</li>
+<li>这是最直接了解“怎么用”的方式，<strong>比光看文字解释快很多！</strong></li>
+</ul>
+<h3 id="✅-3-搜索定位：别从首页找，直接-Google"><a href="#✅-3-搜索定位：别从首页找，直接-Google" class="headerlink" title="✅ 3. 搜索定位：别从首页找，直接 Google"></a>✅ 3. <strong>搜索定位：别从首页找，直接 Google</strong></h3><p>举个例子：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swift <span class="built_in">UIView</span>.animate site:developer.apple.com</span><br></pre></td></tr></table></figure>
+
+
+<p>用 Google 或 DuckDuckGo 搜索，比在 Developer 文档首页点来点去更快。</p>
+<h3 id="✅-4-关注-Availability（可用性）"><a href="#✅-4-关注-Availability（可用性）" class="headerlink" title="✅ 4. 关注 Availability（可用性）"></a>✅ 4. <strong>关注 Availability（可用性）</strong></h3><p>文档中的方法和属性都有 “Availability” 标签，标注了 iOS 的版本范围：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@available</span>(<span class="keyword">iOS</span> <span class="number">13.0</span>, <span class="operator">*</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p>这个很关键，避免用到新 API 导致旧系统 crash。</p>
+<h3 id="✅-5-结合-Xcode-Quick-Help（⌥-点击）"><a href="#✅-5-结合-Xcode-Quick-Help（⌥-点击）" class="headerlink" title="✅ 5. 结合 Xcode Quick Help（⌥ + 点击）"></a>✅ 5. <strong>结合 Xcode Quick Help（⌥ + 点击）</strong></h3><p>在 Xcode 中按住 <strong>Option + 点击一个类或方法</strong>，可以快速弹出简化版文档，节省切换时间。</p>
+<h3 id="✅-6-善用“Related-Documentation”"><a href="#✅-6-善用“Related-Documentation”" class="headerlink" title="✅ 6. 善用“Related Documentation”"></a>✅ 6. <strong>善用“Related Documentation”</strong></h3><p>每个 API 页面底部的 <strong>“See Also”</strong> 都是极其有用的资源，很多时候你找到的方法并不是你真正需要的，而相关方法可能更合适。</p>
+<h3 id="✅-7-不懂就跑-Playground-试一下"><a href="#✅-7-不懂就跑-Playground-试一下" class="headerlink" title="✅ 7. 不懂就跑 Playground 试一下"></a>✅ 7. <strong>不懂就跑 Playground 试一下</strong></h3><p>理解文档最快的方式是：</p>
+<p><strong>自己跑一遍代码片段！</strong></p>
+<p>用 Swift Playground 或 Xcode 的 playground 直接试，跑一次比看 10 行文档更管用。</p>
+<h3 id="✅-8-英文看不懂？建议不要用机器翻译"><a href="#✅-8-英文看不懂？建议不要用机器翻译" class="headerlink" title="✅ 8. 英文看不懂？建议不要用机器翻译"></a>✅ 8. <strong>英文看不懂？建议不要用机器翻译</strong></h3><p>Apple 文档的专业术语和上下文依赖强，翻译可能会误导。<br>建议：</p>
+<ul>
+<li>用英文看；</li>
+<li>配合英文注释词典，比如 <a target="_blank" rel="noopener" href="https://support.apple.com/guide/dictionary/welcome/mac">macOS built-in Dictionary</a>；</li>
+<li>实在看不懂，可以找我 😎。</li>
+</ul>
+<h3 id="✅-推荐资源练习："><a href="#✅-推荐资源练习：" class="headerlink" title="✅ 推荐资源练习："></a>✅ 推荐资源练习：</h3><ul>
+<li>Apple 的 <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/swiftui/">SwiftUI Documentation</a>（结构清晰，适合新手）</li>
+<li>Apple 的 <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/uikit/">UIKit Documentation</a></li>
+<li>SwiftUI 示例代码：<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/swiftui">Apple SwiftUI Sample Code</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/swift%E7%BC%96%E7%A8%8B/" rel="tag"># swift编程</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/04/23/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%88%86%E7%B1%BB/" rel="prev" title="软件开发测试的基本分类">
+      <i class="fa fa-chevron-left"></i> 软件开发测试的基本分类
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2025/04/25/swift%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%8F%8AswiftUI%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" rel="next" title="swift编程语言及swiftUI框架学习计划">
+      swift编程语言及swiftUI框架学习计划 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E7%9C%8B%E6%87%82apple-%E7%9A%84-developer-documentation"><span class="nav-text">如何快速看懂apple 的 developer documentation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%9C%85-1-%E4%BA%86%E8%A7%A3%E6%96%87%E6%A1%A3%E7%BB%93%E6%9E%84"><span class="nav-text">✅ 1. 了解文档结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%9C%85-2-%E4%BC%98%E5%85%88%E7%9C%8B%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B"><span class="nav-text">✅ 2. 优先看代码示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%9C%85-3-%E6%90%9C%E7%B4%A2%E5%AE%9A%E4%BD%8D%EF%BC%9A%E5%88%AB%E4%BB%8E%E9%A6%96%E9%A1%B5%E6%89%BE%EF%BC%8C%E7%9B%B4%E6%8E%A5-Google"><span class="nav-text">✅ 3. 搜索定位：别从首页找，直接 Google</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%9C%85-4-%E5%85%B3%E6%B3%A8-Availability%EF%BC%88%E5%8F%AF%E7%94%A8%E6%80%A7%EF%BC%89"><span class="nav-text">✅ 4. 关注 Availability（可用性）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%9C%85-5-%E7%BB%93%E5%90%88-Xcode-Quick-Help%EF%BC%88%E2%8C%A5-%E7%82%B9%E5%87%BB%EF%BC%89"><span class="nav-text">✅ 5. 结合 Xcode Quick Help（⌥ + 点击）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%9C%85-6-%E5%96%84%E7%94%A8%E2%80%9CRelated-Documentation%E2%80%9D"><span class="nav-text">✅ 6. 善用“Related Documentation”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%9C%85-7-%E4%B8%8D%E6%87%82%E5%B0%B1%E8%B7%91-Playground-%E8%AF%95%E4%B8%80%E4%B8%8B"><span class="nav-text">✅ 7. 不懂就跑 Playground 试一下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%9C%85-8-%E8%8B%B1%E6%96%87%E7%9C%8B%E4%B8%8D%E6%87%82%EF%BC%9F%E5%BB%BA%E8%AE%AE%E4%B8%8D%E8%A6%81%E7%94%A8%E6%9C%BA%E5%99%A8%E7%BF%BB%E8%AF%91"><span class="nav-text">✅ 8. 英文看不懂？建议不要用机器翻译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%9C%85-%E6%8E%A8%E8%8D%90%E8%B5%84%E6%BA%90%E7%BB%83%E4%B9%A0%EF%BC%9A"><span class="nav-text">✅ 推荐资源练习：</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">YiDa</p>
+  <div class="site-description" itemprop="description">自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。</div>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2023 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YiDa</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

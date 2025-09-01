@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|consolas:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","Muse | Mist":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="在swift编程中mvvm与mvc设计模式的区别与应用实例在 Swift 编程中，MVC（Model-View-Controller）和 MVVM（Model-View-ViewModel）是两种常见的架构模式，它们的主要区别如下： MVC（Model-View-Controller）概念">
+<meta property="og:type" content="article">
+<meta property="og:title" content="swift编程中mvvm与mvc设计模式的区别与应用实例">
+<meta property="og:url" content="http://example.com/2025/03/22/swift%E7%BC%96%E7%A8%8B%E4%B8%ADmvvm%E4%B8%8Emvc%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/index.html">
+<meta property="og:site_name" content="Yi&#39;s Lab">
+<meta property="og:description" content="在swift编程中mvvm与mvc设计模式的区别与应用实例在 Swift 编程中，MVC（Model-View-Controller）和 MVVM（Model-View-ViewModel）是两种常见的架构模式，它们的主要区别如下： MVC（Model-View-Controller）概念">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-03-22T04:44:54.000Z">
+<meta property="article:modified_time" content="2025-09-01T08:36:04.802Z">
+<meta property="article:author" content="YiDa">
+<meta property="article:tag" content="swift编程">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2025/03/22/swift%E7%BC%96%E7%A8%8B%E4%B8%ADmvvm%E4%B8%8Emvc%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>swift编程中mvvm与mvc设计模式的区别与应用实例 | Yi's Lab</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Yi's Lab</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">You Find Your Own Tree.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section">首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section">关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section">标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section">分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section">归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/zhangyida-lab" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/22/swift%E7%BC%96%E7%A8%8B%E4%B8%ADmvvm%E4%B8%8Emvc%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          swift编程中mvvm与mvc设计模式的区别与应用实例
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-03-22 13:44:54" itemprop="dateCreated datePublished" datetime="2025-03-22T13:44:54+09:00">2025-03-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-09-01 17:36:04" itemprop="dateModified" datetime="2025-09-01T17:36:04+09:00">2025-09-01</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="在swift编程中mvvm与mvc设计模式的区别与应用实例"><a href="#在swift编程中mvvm与mvc设计模式的区别与应用实例" class="headerlink" title="在swift编程中mvvm与mvc设计模式的区别与应用实例"></a>在swift编程中mvvm与mvc设计模式的区别与应用实例</h1><p>在 Swift 编程中，MVC（Model-View-Controller）和 MVVM（Model-View-ViewModel）是两种常见的架构模式，它们的主要区别如下：</p>
+<h2 id="MVC（Model-View-Controller）"><a href="#MVC（Model-View-Controller）" class="headerlink" title="MVC（Model-View-Controller）"></a><strong>MVC（Model-View-Controller）</strong></h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a><strong>概念</strong></h3><span id="more"></span>
+<ul>
+<li><strong>Model（模型）</strong>：数据层，负责数据的存储、获取和处理。</li>
+<li><strong>View（视图）</strong>：UI 层，负责显示数据，直接与用户交互。</li>
+<li><strong>Controller（控制器）</strong>：负责协调 Model 和 View 之间的交互，处理用户输入，并更新 View。</li>
+</ul>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a><strong>特点</strong></h3><ul>
+<li>结构简单，易于理解。</li>
+<li>Controller 过于臃肿，容易变成“大胖子控制器”。</li>
+<li>View 和 Controller 耦合较高，不易于测试。</li>
+</ul>
+<h3 id="MVC-示例"><a href="#MVC-示例" class="headerlink" title="MVC 示例"></a><strong>MVC 示例</strong></h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"></span><br><span class="line"><span class="comment">// Model</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> name: <span class="type">String</span></span><br><span class="line">    <span class="keyword">let</span> age: <span class="type">Int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Controller</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UserViewController</span>: <span class="title class_">UIViewController</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">let</span> user <span class="operator">=</span> <span class="type">User</span>(name: <span class="string">&quot;Tom&quot;</span>, age: <span class="number">25</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">func</span> <span class="title function_">viewDidLoad</span>() &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">        view.backgroundColor <span class="operator">=</span> .white</span><br><span class="line">        showUserInfo()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">showUserInfo</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;User: <span class="subst">\(user.name)</span>, Age: <span class="subst">\(user.age)</span>&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>问题</strong>：在 MVC 中，<code>UserViewController</code> 既负责 UI，又负责数据处理，容易造成代码耦合过高，导致难以维护。</p>
+<h2 id="MVVM（Model-View-ViewModel）"><a href="#MVVM（Model-View-ViewModel）" class="headerlink" title="MVVM（Model-View-ViewModel）"></a><strong>MVVM（Model-View-ViewModel）</strong></h2><h3 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a><strong>概念</strong></h3><ul>
+<li><strong>Model（模型）</strong>：数据层，和 MVC 一样，处理数据存储、获取和逻辑。</li>
+<li><strong>View（视图）</strong>：负责 UI 显示，与用户交互。</li>
+<li><strong>ViewModel（视图模型）</strong>：负责业务逻辑和数据绑定，将 Model 处理后提供给 View。</li>
+</ul>
+<h3 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a><strong>特点</strong></h3><ul>
+<li>通过 ViewModel 分离了 UI 和业务逻辑，提高代码的可测试性。</li>
+<li>View 层和 ViewModel 之间可以使用数据绑定（如 Combine、RxSwift）来简化交互。</li>
+<li>适用于 SwiftUI，结合 @StateObject 和 @Published 实现响应式 UI。</li>
+</ul>
+<h3 id="MVVM-示例"><a href="#MVVM-示例" class="headerlink" title="MVVM 示例"></a><strong>MVVM 示例</strong></h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line"><span class="keyword">import</span> Combine</span><br><span class="line"></span><br><span class="line"><span class="comment">// Model</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> name: <span class="type">String</span></span><br><span class="line">    <span class="keyword">let</span> age: <span class="type">Int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ViewModel</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UserViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> user: <span class="type">User</span> <span class="operator">=</span> <span class="type">User</span>(name: <span class="string">&quot;Tom&quot;</span>, age: <span class="number">25</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">updateUser</span>() &#123;</span><br><span class="line">        user <span class="operator">=</span> <span class="type">User</span>(name: <span class="string">&quot;Jerry&quot;</span>, age: <span class="number">30</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// View</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">UserView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@StateObject</span> <span class="keyword">private</span> <span class="keyword">var</span> viewModel <span class="operator">=</span> <span class="type">UserViewModel</span>()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">VStack</span> &#123;</span><br><span class="line">            <span class="type">Text</span>(<span class="string">&quot;User: <span class="subst">\(viewModel.user.name)</span>, Age: <span class="subst">\(viewModel.user.age)</span>&quot;</span>)</span><br><span class="line">                .padding()</span><br><span class="line">            <span class="type">Button</span>(<span class="string">&quot;Update User&quot;</span>) &#123;</span><br><span class="line">                viewModel.updateUser()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="MVVM-优势"><a href="#MVVM-优势" class="headerlink" title="MVVM 优势"></a><strong>MVVM 优势</strong></h3><ul>
+<li><strong>解耦</strong>：View 只负责 UI，ViewModel 处理业务逻辑，避免 Controller 过于臃肿。</li>
+<li><strong>易于测试</strong>：ViewModel 逻辑可以独立测试，而不依赖 UI。</li>
+<li><strong>适用于 SwiftUI</strong>：结合 @Published 进行数据绑定，实现响应式编程。</li>
+</ul>
+<h2 id="何时使用？"><a href="#何时使用？" class="headerlink" title="何时使用？"></a><strong>何时使用？</strong></h2><table>
+<thead>
+<tr>
+<th></th>
+<th>MVC</th>
+<th>MVVM</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>代码复杂度</td>
+<td>适合小型项目</td>
+<td>适合中大型项目</td>
+</tr>
+<tr>
+<td>可读性</td>
+<td>可能会导致 Controller 代码过多</td>
+<td>View 和 ViewModel 分离，提高可读性</td>
+</tr>
+<tr>
+<td>可测试性</td>
+<td>UI 和逻辑耦合，难以单独测试</td>
+<td>ViewModel 可独立测试</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>UIKit 传统开发</td>
+<td>SwiftUI 和响应式编程</td>
+</tr>
+</tbody></table>
+<p>如果你是 <strong>UIKit 项目</strong>，且逻辑简单，MVC 可能更直观；如果你使用 <strong>SwiftUI</strong>，或项目较大，建议采用 MVVM，以便管理复杂的 UI 交互和数据流。</p>
+<h1 id="详细解释下mvvm中viewmodel的作用"><a href="#详细解释下mvvm中viewmodel的作用" class="headerlink" title="详细解释下mvvm中viewmodel的作用"></a>详细解释下mvvm中viewmodel的作用</h1><p>在 <strong>MVVM（Model-View-ViewModel）</strong> 架构中，<strong>ViewModel</strong> 扮演着至关重要的角色，它位于 <strong>Model（数据层）</strong> 和 <strong>View（UI 层）</strong> 之间，负责数据的管理、转换和业务逻辑处理，使 View 变得更轻量化，并减少 View 与 Model 之间的直接交互。</p>
+<h2 id="1-ViewModel-的主要作用"><a href="#1-ViewModel-的主要作用" class="headerlink" title="1. ViewModel 的主要作用"></a><strong>1. ViewModel 的主要作用</strong></h2><h3 id="1-负责业务逻辑处理"><a href="#1-负责业务逻辑处理" class="headerlink" title="(1) 负责业务逻辑处理"></a><strong>(1) 负责业务逻辑处理</strong></h3><p>ViewModel 主要负责处理数据的获取、转换、存储和操作，避免这些逻辑直接出现在 View 层，从而保持 View 的简洁性。例如，ViewModel 可以：</p>
+<ul>
+<li>调用 API 获取数据，并转换成 UI 需要的格式</li>
+<li>处理数据的计算、筛选、排序等业务逻辑</li>
+<li>执行数据持久化（如存储到数据库或 UserDefaults）</li>
+</ul>
+<h3 id="2-提供数据绑定"><a href="#2-提供数据绑定" class="headerlink" title="(2) 提供数据绑定"></a><strong>(2) 提供数据绑定</strong></h3><p>ViewModel 负责管理数据，并且与 View 进行数据绑定（SwiftUI 使用 <code>@Published</code> 和 <code>@StateObject</code>，UIKit 可以使用 Combine 或者 RxSwift）。</p>
+<ul>
+<li><strong>当数据变化时，View 会自动更新</strong></li>
+<li><strong>ViewModel 处理数据，不需要 View 直接操作 Model</strong></li>
+</ul>
+<h3 id="3-促进模块解耦"><a href="#3-促进模块解耦" class="headerlink" title="(3) 促进模块解耦"></a><strong>(3) 促进模块解耦</strong></h3><ul>
+<li>View 只负责 UI 展示，不直接操作 Model</li>
+<li>Model 只负责数据存储和管理</li>
+<li>ViewModel 充当桥梁，使 View 和 Model 互不依赖，降低耦合度</li>
+</ul>
+<h2 id="2-ViewModel-在-SwiftUI-中的应用"><a href="#2-ViewModel-在-SwiftUI-中的应用" class="headerlink" title="2. ViewModel 在 SwiftUI 中的应用"></a><strong>2. ViewModel 在 SwiftUI 中的应用</strong></h2><p>SwiftUI 使用 <code>ObservableObject</code> 和 <code>@Published</code> 实现 ViewModel，使 UI 和数据能够自动同步。</p>
+<h3 id="示例：一个用户信息的-MVVM-结构"><a href="#示例：一个用户信息的-MVVM-结构" class="headerlink" title="示例：一个用户信息的 MVVM 结构"></a><strong>示例：一个用户信息的 MVVM 结构</strong></h3><h4 id="1-Model（数据层）"><a href="#1-Model（数据层）" class="headerlink" title="(1) Model（数据层）"></a><strong>(1) Model（数据层）</strong></h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> name: <span class="type">String</span></span><br><span class="line">    <span class="keyword">let</span> age: <span class="type">Int</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="2-ViewModel（负责管理数据）"><a href="#2-ViewModel（负责管理数据）" class="headerlink" title="(2) ViewModel（负责管理数据）"></a><strong>(2) ViewModel（负责管理数据）</strong></h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UserViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> user: <span class="type">User</span> <span class="operator">=</span> <span class="type">User</span>(name: <span class="string">&quot;Tom&quot;</span>, age: <span class="number">25</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">updateUser</span>() &#123;</span><br><span class="line">        user <span class="operator">=</span> <span class="type">User</span>(name: <span class="string">&quot;Jerry&quot;</span>, age: <span class="number">30</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li><strong>继承 ObservableObject</strong>：让 ViewModel 可被 SwiftUI 观察</li>
+<li><strong>使用 @Published</strong>：使 user 的值变化时，自动通知 UI 更新</li>
+<li>**定义业务逻辑 updateUser()**：修改 user 信息，触发 UI 更新</li>
+</ul>
+<h4 id="3-View（UI-层，绑定-ViewModel）"><a href="#3-View（UI-层，绑定-ViewModel）" class="headerlink" title="(3) View（UI 层，绑定 ViewModel）"></a><strong>(3) View（UI 层，绑定 ViewModel）</strong></h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">UserView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@StateObject</span> <span class="keyword">private</span> <span class="keyword">var</span> viewModel <span class="operator">=</span> <span class="type">UserViewModel</span>()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">VStack</span> &#123;</span><br><span class="line">            <span class="type">Text</span>(<span class="string">&quot;User: <span class="subst">\(viewModel.user.name)</span>, Age: <span class="subst">\(viewModel.user.age)</span>&quot;</span>)</span><br><span class="line">                .padding()</span><br><span class="line">            <span class="type">Button</span>(<span class="string">&quot;Update User&quot;</span>) &#123;</span><br><span class="line">                viewModel.updateUser()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li><strong>@StateObject</strong>：让 View 监听 ViewModel 的变化</li>
+<li><strong>数据绑定 viewModel.user</strong>：当 user 发生变化，UI 自动更新</li>
+<li>**按钮操作 updateUser()**：触发 ViewModel 的方法，更新数据</li>
+</ul>
+<h5 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a><strong>最终效果</strong></h5><p>当点击 <code>Update User</code> 按钮时，用户信息会更新，View 也会自动刷新，无需手动管理 UI。</p>
+<h2 id="3-ViewModel-在-UIKit-Combine-中的应用"><a href="#3-ViewModel-在-UIKit-Combine-中的应用" class="headerlink" title="3. ViewModel 在 UIKit + Combine 中的应用"></a><strong>3. ViewModel 在 UIKit + Combine 中的应用</strong></h2><p>如果你使用的是 UIKit，而不是 SwiftUI，你可以使用 <strong>Combine</strong> 进行数据绑定。</p>
+<h4 id="1-ViewModel"><a href="#1-ViewModel" class="headerlink" title="(1) ViewModel"></a><strong>(1) ViewModel</strong></h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Combine</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UserViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> user: <span class="type">User</span> <span class="operator">=</span> <span class="type">User</span>(name: <span class="string">&quot;Tom&quot;</span>, age: <span class="number">25</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">updateUser</span>() &#123;</span><br><span class="line">        user <span class="operator">=</span> <span class="type">User</span>(name: <span class="string">&quot;Jerry&quot;</span>, age: <span class="number">30</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>这里的 <code>@Published</code> 使得 <code>user</code> 发生变化时，UI 能够自动接收到更新。</p>
+<h4 id="2-ViewController（UIKit-视图层）"><a href="#2-ViewController（UIKit-视图层）" class="headerlink" title="(2) ViewController（UIKit 视图层）"></a><strong>(2) ViewController（UIKit 视图层）</strong></h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"><span class="keyword">import</span> Combine</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UserViewController</span>: <span class="title class_">UIViewController</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">let</span> viewModel <span class="operator">=</span> <span class="type">UserViewModel</span>()</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> cancellables <span class="operator">=</span> <span class="type">Set</span>()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">let</span> nameLabel: <span class="type">UILabel</span> <span class="operator">=</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> label <span class="operator">=</span> <span class="type">UILabel</span>()</span><br><span class="line">        label.textAlignment <span class="operator">=</span> .center</span><br><span class="line">        <span class="keyword">return</span> label</span><br><span class="line">    &#125;()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">let</span> button: <span class="type">UIButton</span> <span class="operator">=</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> button <span class="operator">=</span> <span class="type">UIButton</span>(type: .system)</span><br><span class="line">        button.setTitle(<span class="string">&quot;Update User&quot;</span>, for: .normal)</span><br><span class="line">        <span class="keyword">return</span> button</span><br><span class="line">    &#125;()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">func</span> <span class="title function_">viewDidLoad</span>() &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">        setupUI()</span><br><span class="line">        bindViewModel()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">func</span> <span class="title function_">setupUI</span>() &#123;</span><br><span class="line">        view.backgroundColor <span class="operator">=</span> .white</span><br><span class="line">        view.addSubview(nameLabel)</span><br><span class="line">        view.addSubview(button)</span><br><span class="line">        </span><br><span class="line">        nameLabel.translatesAutoresizingMaskIntoConstraints <span class="operator">=</span> <span class="literal">false</span></span><br><span class="line">        button.translatesAutoresizingMaskIntoConstraints <span class="operator">=</span> <span class="literal">false</span></span><br><span class="line">        </span><br><span class="line">        <span class="type">NSLayoutConstraint</span>.activate([</span><br><span class="line">            nameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),</span><br><span class="line">            nameLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),</span><br><span class="line">            button.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: <span class="number">20</span>),</span><br><span class="line">            button.centerXAnchor.constraint(equalTo: view.centerXAnchor)</span><br><span class="line">        ])</span><br><span class="line">        </span><br><span class="line">        button.addTarget(<span class="keyword">self</span>, action: <span class="keyword">#selector</span>(buttonTapped), for: .touchUpInside)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">func</span> <span class="title function_">bindViewModel</span>() &#123;</span><br><span class="line">        viewModel.<span class="variable">$user</span></span><br><span class="line">            .sink &#123; [<span class="keyword">weak</span> <span class="keyword">self</span>] user <span class="keyword">in</span></span><br><span class="line">                <span class="keyword">self</span><span class="operator">?</span>.nameLabel.text <span class="operator">=</span> <span class="string">&quot;User: <span class="subst">\(user.name)</span>, Age: <span class="subst">\(user.age)</span>&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">            .store(in: <span class="operator">&amp;</span>cancellables)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">@objc</span> <span class="keyword">private</span> <span class="keyword">func</span> <span class="title function_">buttonTapped</span>() &#123;</span><br><span class="line">        viewModel.updateUser()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="UIKit-Combine-的数据绑定"><a href="#UIKit-Combine-的数据绑定" class="headerlink" title="UIKit + Combine 的数据绑定"></a><strong>UIKit + Combine 的数据绑定</strong></h3><ul>
+<li>viewModel.$user.sink {} 监听 user 的变化，并自动更新 UI</li>
+<li>@objc private func buttonTapped() 调用 updateUser() 修改数据，UI 立即刷新</li>
+</ul>
+<h2 id="4-MVVM-的优势总结"><a href="#4-MVVM-的优势总结" class="headerlink" title="4. MVVM 的优势总结"></a><strong>4. MVVM 的优势总结</strong></h2><table>
+<thead>
+<tr>
+<th><strong>特点</strong></th>
+<th><strong>MVC</strong></th>
+<th><strong>MVVM</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>模块化</strong></td>
+<td>View 和 Controller 耦合较高</td>
+<td>View 与 ViewModel 分离，模块独立</td>
+</tr>
+<tr>
+<td><strong>可测试性</strong></td>
+<td>逻辑与 UI 混杂，难测试</td>
+<td>业务逻辑独立，易测试</td>
+</tr>
+<tr>
+<td><strong>数据绑定</strong></td>
+<td>需要手动更新 UI</td>
+<td>SwiftUI + @Published，UIKit + Combine</td>
+</tr>
+<tr>
+<td><strong>适用场景</strong></td>
+<td>适合小型项目</td>
+<td>适合中大型项目，特别是 SwiftUI</td>
+</tr>
+</tbody></table>
+<h3 id="什么时候使用-MVVM？"><a href="#什么时候使用-MVVM？" class="headerlink" title="什么时候使用 MVVM？"></a><strong>什么时候使用 MVVM？</strong></h3><ul>
+<li>适用于 <strong>SwiftUI</strong>，可以充分利用数据绑定特性</li>
+<li>适用于 <strong>复杂的 UI 交互</strong>，让 View 层更轻量</li>
+<li>适用于 <strong>多人协作项目</strong>，模块化程度更高</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><p><strong>ViewModel 在 MVVM 中起到承上启下的作用</strong>：</p>
+<ul>
+<li><strong>连接 Model 和 View</strong></li>
+<li><strong>处理业务逻辑</strong></li>
+<li><strong>管理数据转换</strong></li>
+<li><strong>支持数据绑定，使 UI 自动更新</strong></li>
+</ul>
+<p>对于 <strong>SwiftUI</strong>，MVVM 是默认推荐的架构；对于 <strong>UIKit</strong>，MVVM 结合 Combine 也是一种优化方案。这样可以让代码更清晰、易维护，并且提高可测试性。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/swift%E7%BC%96%E7%A8%8B/" rel="tag"># swift编程</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/03/22/swift%E7%BC%96%E7%A8%8B%E4%B8%ADDispatchQueue%E8%AF%A6%E8%A7%A3/" rel="prev" title="swift编程中DispatchQueue详解">
+      <i class="fa fa-chevron-left"></i> swift编程中DispatchQueue详解
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2025/03/22/xcode%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" rel="next" title="xcode常用技巧">
+      xcode常用技巧 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%A8swift%E7%BC%96%E7%A8%8B%E4%B8%ADmvvm%E4%B8%8Emvc%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B"><span class="nav-text">在swift编程中mvvm与mvc设计模式的区别与应用实例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MVC%EF%BC%88Model-View-Controller%EF%BC%89"><span class="nav-text">MVC（Model-View-Controller）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E7%82%B9"><span class="nav-text">特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MVC-%E7%A4%BA%E4%BE%8B"><span class="nav-text">MVC 示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVVM%EF%BC%88Model-View-ViewModel%EF%BC%89"><span class="nav-text">MVVM（Model-View-ViewModel）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-1"><span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E7%82%B9-1"><span class="nav-text">特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MVVM-%E7%A4%BA%E4%BE%8B"><span class="nav-text">MVVM 示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MVVM-%E4%BC%98%E5%8A%BF"><span class="nav-text">MVVM 优势</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%95%E6%97%B6%E4%BD%BF%E7%94%A8%EF%BC%9F"><span class="nav-text">何时使用？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%A6%E7%BB%86%E8%A7%A3%E9%87%8A%E4%B8%8Bmvvm%E4%B8%ADviewmodel%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-text">详细解释下mvvm中viewmodel的作用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-ViewModel-%E7%9A%84%E4%B8%BB%E8%A6%81%E4%BD%9C%E7%94%A8"><span class="nav-text">1. ViewModel 的主要作用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E8%B4%9F%E8%B4%A3%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91%E5%A4%84%E7%90%86"><span class="nav-text">(1) 负责业务逻辑处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%8F%90%E4%BE%9B%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A"><span class="nav-text">(2) 提供数据绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E4%BF%83%E8%BF%9B%E6%A8%A1%E5%9D%97%E8%A7%A3%E8%80%A6"><span class="nav-text">(3) 促进模块解耦</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-ViewModel-%E5%9C%A8-SwiftUI-%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-text">2. ViewModel 在 SwiftUI 中的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A%E4%B8%80%E4%B8%AA%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF%E7%9A%84-MVVM-%E7%BB%93%E6%9E%84"><span class="nav-text">示例：一个用户信息的 MVVM 结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Model%EF%BC%88%E6%95%B0%E6%8D%AE%E5%B1%82%EF%BC%89"><span class="nav-text">(1) Model（数据层）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-ViewModel%EF%BC%88%E8%B4%9F%E8%B4%A3%E7%AE%A1%E7%90%86%E6%95%B0%E6%8D%AE%EF%BC%89"><span class="nav-text">(2) ViewModel（负责管理数据）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-View%EF%BC%88UI-%E5%B1%82%EF%BC%8C%E7%BB%91%E5%AE%9A-ViewModel%EF%BC%89"><span class="nav-text">(3) View（UI 层，绑定 ViewModel）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%80%E7%BB%88%E6%95%88%E6%9E%9C"><span class="nav-text">最终效果</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-ViewModel-%E5%9C%A8-UIKit-Combine-%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-text">3. ViewModel 在 UIKit + Combine 中的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-ViewModel"><span class="nav-text">(1) ViewModel</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-ViewController%EF%BC%88UIKit-%E8%A7%86%E5%9B%BE%E5%B1%82%EF%BC%89"><span class="nav-text">(2) ViewController（UIKit 视图层）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UIKit-Combine-%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A"><span class="nav-text">UIKit + Combine 的数据绑定</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-MVVM-%E7%9A%84%E4%BC%98%E5%8A%BF%E6%80%BB%E7%BB%93"><span class="nav-text">4. MVVM 的优势总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BD%BF%E7%94%A8-MVVM%EF%BC%9F"><span class="nav-text">什么时候使用 MVVM？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">YiDa</p>
+  <div class="site-description" itemprop="description">自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。</div>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2023 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YiDa</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|consolas:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","Muse | Mist":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="实际项目微服务中间件的架构设计举例这个项目涉及到的这些中间件，可以组合成一个完整的 分布式微服务架构，包括存储、消息通信、注册发现、监控日志、对象存储等等。我帮你梳理一下整体架构和每个中间件的作用。 🏗 项目架构梳理12345678910111213141516171819202122232425262728293031323334353637383940414243         ┌────">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实际项目微服务中间件的架构设计举例">
+<meta property="og:url" content="http://example.com/2025/08/31/%E5%AE%9E%E9%99%85%E9%A1%B9%E7%9B%AE%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E4%B8%BE%E4%BE%8B/index.html">
+<meta property="og:site_name" content="Yi&#39;s Lab">
+<meta property="og:description" content="实际项目微服务中间件的架构设计举例这个项目涉及到的这些中间件，可以组合成一个完整的 分布式微服务架构，包括存储、消息通信、注册发现、监控日志、对象存储等等。我帮你梳理一下整体架构和每个中间件的作用。 🏗 项目架构梳理12345678910111213141516171819202122232425262728293031323334353637383940414243         ┌────">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-08-31T01:25:08.000Z">
+<meta property="article:modified_time" content="2025-09-01T08:36:04.807Z">
+<meta property="article:author" content="YiDa">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2025/08/31/%E5%AE%9E%E9%99%85%E9%A1%B9%E7%9B%AE%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E4%B8%BE%E4%BE%8B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>实际项目微服务中间件的架构设计举例 | Yi's Lab</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Yi's Lab</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">You Find Your Own Tree.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section">首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section">关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section">标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section">分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section">归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/zhangyida-lab" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/08/31/%E5%AE%9E%E9%99%85%E9%A1%B9%E7%9B%AE%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E4%B8%BE%E4%BE%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          实际项目微服务中间件的架构设计举例
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-08-31 10:25:08" itemprop="dateCreated datePublished" datetime="2025-08-31T10:25:08+09:00">2025-08-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-09-01 17:36:04" itemprop="dateModified" datetime="2025-09-01T17:36:04+09:00">2025-09-01</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="实际项目微服务中间件的架构设计举例"><a href="#实际项目微服务中间件的架构设计举例" class="headerlink" title="实际项目微服务中间件的架构设计举例"></a>实际项目微服务中间件的架构设计举例</h1><p>这个项目涉及到的这些中间件，可以组合成一个完整的 <strong>分布式微服务架构</strong>，包括存储、消息通信、注册发现、监控日志、对象存储等等。我帮你梳理一下整体架构和每个中间件的作用。</p>
+<h2 id="🏗-项目架构梳理"><a href="#🏗-项目架构梳理" class="headerlink" title="🏗 项目架构梳理"></a>🏗 项目架构梳理</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">         ┌─────────────┐</span></span><br><span class="line"><span class="code">         │   客户端    │</span></span><br><span class="line"><span class="code">         └──────┬──────┘</span></span><br><span class="line"><span class="code">                │</span></span><br><span class="line"><span class="code">         ┌──────▼───────┐</span></span><br><span class="line"><span class="code">         │ API 网关/服务 │</span></span><br><span class="line"><span class="code">         └──────┬───────┘</span></span><br><span class="line"><span class="code">                │</span></span><br><span class="line"><span class="code">┌───────────────┴─────────────────┐</span></span><br><span class="line"><span class="code">│                                 │</span></span><br><span class="line"><span class="code">│         微服务核心层             │</span></span><br><span class="line"><span class="code">│   （通过 Nacos 服务发现）        │</span></span><br><span class="line"><span class="code">│                                 │</span></span><br><span class="line"><span class="code">└───────────────┬─────────────────┘</span></span><br><span class="line"><span class="code">                │</span></span><br><span class="line"><span class="code">┌───────────────┼─────────────────────────────────────────────┐</span></span><br><span class="line"><span class="code">│ 数据与消息支持层                                               │</span></span><br><span class="line"><span class="code">│                                                               │</span></span><br><span class="line"><span class="code">│  ┌─────────┐   ┌──────────────┐   ┌─────────┐   ┌─────────┐  │</span></span><br><span class="line"><span class="code">│  │ MySQL   │   │   MongoDB    │   │  Redis  │   │  MinIO  │  │</span></span><br><span class="line"><span class="code">│  │ 关系库  │   │ 文档型数据库 │   │缓存/会话│   │对象存储 │  │</span></span><br><span class="line"><span class="code">│  └─────────┘   └──────────────┘   └─────────┘   └─────────┘  │</span></span><br><span class="line"><span class="code">│                                                               │</span></span><br><span class="line"><span class="code">│  ┌─────────┐   ┌─────────────┐   ┌─────────────┐              │</span></span><br><span class="line"><span class="code">│  │ Kafka   │   │ RocketMQ     │   │ Zookeeper   │              │</span></span><br><span class="line"><span class="code">│  │流处理   │   │可靠消息队列  │   │分布式协调   │              │</span></span><br><span class="line"><span class="code">│  └─────────┘   └─────────────┘   └─────────────┘              │</span></span><br><span class="line"><span class="code">└───────────────────────────────────────────────────────────────┘</span></span><br><span class="line"><span class="code">                │</span></span><br><span class="line"><span class="code">┌───────────────┼─────────────────────────────────────────────┐</span></span><br><span class="line"><span class="code">│ 运维与监控层                                                 │</span></span><br><span class="line"><span class="code">│                                                             │</span></span><br><span class="line"><span class="code">│   ┌──────────┐  ┌───────────┐  ┌─────────────┐  ┌─────────┐ │</span></span><br><span class="line"><span class="code">│   │ Elastic  │  │ Logstash  │  │   Kibana    │  │ Dozzle  │ │</span></span><br><span class="line"><span class="code">│   │ 搜索引擎 │  │ 日志收集  │  │ 可视化展示  │  │ 容器日志 │ │</span></span><br><span class="line"><span class="code">│   └──────────┘  └───────────┘  └─────────────┘  └─────────┘ │</span></span><br><span class="line"><span class="code">│                                                             │</span></span><br><span class="line"><span class="code">│                ┌────────────────────────────┐               │</span></span><br><span class="line"><span class="code">│                │ RocketMQ-Dashboard         │               │</span></span><br><span class="line"><span class="code">│                │ MQ 消息监控与管理工具      │               │</span></span><br><span class="line"><span class="code">│                └────────────────────────────┘               │</span></span><br><span class="line"><span class="code">└─────────────────────────────────────────────────────────────┘</span></span><br><span class="line"><span class="code"></span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="📦-各中间件作用说明"><a href="#📦-各中间件作用说明" class="headerlink" title="📦 各中间件作用说明"></a>📦 各中间件作用说明</h2><h3 id="🔹-数据存储层"><a href="#🔹-数据存储层" class="headerlink" title="🔹 数据存储层"></a>🔹 数据存储层</h3><ol>
+<li><strong>MySQL</strong></li>
+</ol>
+<ul>
+<li>关系型数据库，存放核心业务数据（订单、用户、配置等）。</li>
+</ul>
+<ol start="2">
+<li><strong>MongoDB</strong></li>
+</ol>
+<ul>
+<li>文档型数据库，适合存储 JSON&#x2F;非结构化数据，比如日志、配置、产品详情等。</li>
+</ul>
+<ol start="3">
+<li><strong>Redis</strong></li>
+</ol>
+<ul>
+<li>高速缓存、分布式锁、会话管理（比如存用户 token、验证码、排行榜等）。</li>
+</ul>
+<ol start="4">
+<li><strong>MinIO</strong></li>
+</ol>
+<ul>
+<li>对象存储，兼容 S3 API，用来存放大文件（视频、图片、文档等）。</li>
+</ul>
+<h3 id="🔹-消息与通信层"><a href="#🔹-消息与通信层" class="headerlink" title="🔹 消息与通信层"></a>🔹 消息与通信层</h3><ol>
+<li><strong>Kafka</strong></li>
+</ol>
+<ul>
+<li>高吞吐量流式处理平台，适合日志采集、实时计算、流式数据分析。</li>
+</ul>
+<ol start="2">
+<li><strong>RocketMQ</strong></li>
+</ol>
+<ul>
+<li>可靠消息队列（事务消息、延时消息），适合订单、支付、库存等强一致场景。</li>
+</ul>
+<ol start="3">
+<li><strong>Zookeeper</strong></li>
+</ol>
+<ul>
+<li>分布式协调服务，RocketMQ&#x2F;Kafka 都依赖它来做元数据存储、选举、分布式锁。</li>
+</ul>
+<h3 id="🔹-服务治理层"><a href="#🔹-服务治理层" class="headerlink" title="🔹 服务治理层"></a>🔹 服务治理层</h3><ol>
+<li><strong>Nacos</strong></li>
+</ol>
+<ul>
+<li>服务注册与发现（微服务相互调用时找到彼此）。</li>
+<li>配置中心（集中管理配置）。</li>
+</ul>
+<h3 id="🔹-日志与监控层"><a href="#🔹-日志与监控层" class="headerlink" title="🔹 日志与监控层"></a>🔹 日志与监控层</h3><ol>
+<li><strong>ElasticSearch</strong></li>
+</ol>
+<ul>
+<li>全文搜索引擎，存储和索引日志、指标数据。</li>
+</ul>
+<ol start="2">
+<li><strong>Logstash</strong></li>
+</ol>
+<ul>
+<li>日志收集、过滤和转发，把应用日志送进 Elasticsearch。</li>
+</ul>
+<ol start="3">
+<li><strong>Kibana</strong></li>
+</ol>
+<ul>
+<li>数据可视化，配合 ElasticSearch 展示监控大盘、日志分析。</li>
+</ul>
+<ol start="4">
+<li><strong>Dozzle</strong></li>
+</ol>
+<ul>
+<li>实时查看 Docker 容器日志（轻量级 Web UI）。</li>
+</ul>
+<ol start="5">
+<li><strong>RocketMQ-Dashboard</strong></li>
+</ol>
+<ul>
+<li>RocketMQ 的可视化监控台（查看 Topic、消费情况、积压消息等）。</li>
+</ul>
+<h2 id="🎯-总结"><a href="#🎯-总结" class="headerlink" title="🎯 总结"></a>🎯 总结</h2><ul>
+<li><strong>数据库层</strong>：MySQL（关系型）、MongoDB（文档）、Redis（缓存）、MinIO（文件存储）</li>
+<li><strong>消息队列层</strong>：Kafka（日志流）、RocketMQ（业务消息）、Zookeeper（协调）</li>
+<li><strong>服务治理层</strong>：Nacos（注册发现 + 配置中心）</li>
+<li><strong>监控日志层</strong>：ELK（Elastic + Logstash + Kibana）、Dozzle、RocketMQ Dashboard</li>
+</ul>
+<p>👉 这套组合基本能支撑一个 <strong>大规模微服务平台</strong>，涵盖 <strong>存储、消息、注册、监控</strong> 四大关键部分。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/08/31/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9A%84%E4%BC%98%E7%82%B9%E6%9C%89%E5%93%AA%E4%BA%9B/" rel="prev" title="微服务的优点有哪些">
+      <i class="fa fa-chevron-left"></i> 微服务的优点有哪些
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2025/08/31/MinIO%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E5%8F%8A%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/" rel="next" title="MinIO的优缺点及应用场景">
+      MinIO的优缺点及应用场景 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%99%85%E9%A1%B9%E7%9B%AE%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E4%B8%BE%E4%BE%8B"><span class="nav-text">实际项目微服务中间件的架构设计举例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%8F%97-%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84%E6%A2%B3%E7%90%86"><span class="nav-text">🏗 项目架构梳理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%A6-%E5%90%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E4%BD%9C%E7%94%A8%E8%AF%B4%E6%98%8E"><span class="nav-text">📦 各中间件作用说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%94%B9-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E5%B1%82"><span class="nav-text">🔹 数据存储层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%94%B9-%E6%B6%88%E6%81%AF%E4%B8%8E%E9%80%9A%E4%BF%A1%E5%B1%82"><span class="nav-text">🔹 消息与通信层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%94%B9-%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%E5%B1%82"><span class="nav-text">🔹 服务治理层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%94%B9-%E6%97%A5%E5%BF%97%E4%B8%8E%E7%9B%91%E6%8E%A7%E5%B1%82"><span class="nav-text">🔹 日志与监控层</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%8E%AF-%E6%80%BB%E7%BB%93"><span class="nav-text">🎯 总结</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">YiDa</p>
+  <div class="site-description" itemprop="description">自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。</div>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2023 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YiDa</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

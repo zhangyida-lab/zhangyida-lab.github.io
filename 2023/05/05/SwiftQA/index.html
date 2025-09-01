@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|consolas:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","Muse | Mist":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Brevity is the soul of wit.  How to use swift to development an ios APPThe idea of this applicationWhat is first-class type ?Functions are a first-class type. This means that a function can return an">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SwiftQA">
+<meta property="og:url" content="http://example.com/2023/05/05/SwiftQA/index.html">
+<meta property="og:site_name" content="Yi&#39;s Lab">
+<meta property="og:description" content="Brevity is the soul of wit.  How to use swift to development an ios APPThe idea of this applicationWhat is first-class type ?Functions are a first-class type. This means that a function can return an">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2023/05/05/SwiftQA/PLQA.jpg">
+<meta property="article:published_time" content="2023-05-05T06:53:10.000Z">
+<meta property="article:modified_time" content="2025-09-01T08:36:04.682Z">
+<meta property="article:author" content="YiDa">
+<meta property="article:tag" content="softwareDevelopment">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/05/05/SwiftQA/PLQA.jpg">
+
+<link rel="canonical" href="http://example.com/2023/05/05/SwiftQA/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>SwiftQA | Yi's Lab</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Yi's Lab</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">You Find Your Own Tree.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section">首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section">关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section">标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section">分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section">归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/zhangyida-lab" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/05/SwiftQA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          SwiftQA
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-05-05 15:53:10" itemprop="dateCreated datePublished" datetime="2023-05-05T15:53:10+09:00">2023-05-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-09-01 17:36:04" itemprop="dateModified" datetime="2025-09-01T17:36:04+09:00">2025-09-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>Brevity is the soul of wit.<br><img src="/2023/05/05/SwiftQA/PLQA.jpg" alt="SwiftQA"></p>
+</blockquote>
+<h2 id="How-to-use-swift-to-development-an-ios-APP"><a href="#How-to-use-swift-to-development-an-ios-APP" class="headerlink" title="How to use swift to development an ios APP"></a>How to use swift to development an ios APP</h2><h2 id="The-idea-of-this-application"><a href="#The-idea-of-this-application" class="headerlink" title="The idea of this application"></a>The idea of this application</h2><h2 id="What-is-first-class-type"><a href="#What-is-first-class-type" class="headerlink" title="What is first-class type ?"></a>What is first-class type ?</h2><p>Functions are a first-class type. This means that a function can return another function as its value.</p>
+<h2 id="What-is-type-safe-language"><a href="#What-is-type-safe-language" class="headerlink" title="What is type-safe language?"></a>What is type-safe language?</h2><span id="more"></span>
+<p>Swift is a type-safe language, which means the language helps you to be clear about the types of values your code can work with. If part of your code requires a String, type safety prevents you from passing it an Int by mistake. Likewise, type safety prevents you from accidentally passing an optional String to a piece of code that requires a non-optional String. Type safety helps you catch and fix errors as early as possible in the development process</p>
+<p>“An algorithm is a set of instructions for accomplishing a task”</p>
+<p>“There are three essential building blocks in all algorithms: sequencing, selection, and iteration”</p>
+<p>Organizing Data<br>“Instances, Methods, and Properties”</p>
+<p>“Much of the code you write for an app is event-based, executing in response to a constantly changing environment.<br>”</p>
+<p>“Apps receive all kinds of input: touches on their screens, files, sensor input (such as a camera), data from the internet. Inputs can even come from other programs. For example, you can use the Share sheet in your Photos app to send a photo to another editing app, or to include it in a message to your friend. When it comes to output, apps can return images, sounds, music, text, tactile sensations, and animations.<br>”</p>
+<h2 id="what-is-clourse"><a href="#what-is-clourse" class="headerlink" title="what is clourse?"></a>what is clourse?</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;(parameters) -&gt; <span class="keyword">return</span> type <span class="keyword">in</span></span><br><span class="line"> <span class="comment">// Code</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>Closures can take advantage of Swift’s type inference system, so you can clean up your closure even more by trimming<br>out the type information.</p>
+<p>Closures that appear at the end of the argument list can be written outside of and after the function’s<br>parentheses; this is called trailing closure syntax.<br>If doing so would leave an empty pair of parentheses<br>behind, you may remove them entirely.</p>
+<p>Notice that when the closure moves outside the parentheses, its argument label is removed from the<br>call. If there are multiple trailing closures, this only applies to the first; subsequent trailing closures<br>retain their argument labels. For example, a function whose signature looks like this:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">doAwesomeWork</span>(<span class="params">on</span> <span class="params">input</span>: <span class="type">String</span>,</span><br><span class="line"> <span class="params">using</span> <span class="params">transformer</span>: () -&gt; <span class="type">Void</span>,</span><br><span class="line"><span class="params">then</span> <span class="params">completion</span>: () -&gt; <span class="type">Void</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="type">Would</span> be called using trailing closure syntax like this:</span><br><span class="line"></span><br><span class="line">```swift</span><br><span class="line">doAwesomeWork(on: <span class="string">&quot;My Project&quot;</span>) &#123;</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Doing work on <span class="subst">\(input)</span> in `transformer`&quot;</span>)</span><br><span class="line">&#125; then: &#123;</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Finishing up in `completion`&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="wuat-is-Initialization"><a href="#wuat-is-Initialization" class="headerlink" title="wuat is Initialization?"></a>wuat is Initialization?</h2><p>Initialization is the operation of setting up an instance of a type. It entails giving each stored property<br>an initial value and may involve other preparatory work. After this process, the instance is prepared and<br>available to use.</p>
+<p><strong>But unlike other methods, initializers do not return values. Instead, initializers are tasked with giving values to a type’s stored properties.</strong></p>
+<h3 id="Default-initializers-for-structs"><a href="#Default-initializers-for-structs" class="headerlink" title="Default initializers for structs"></a>Default initializers for structs</h3><p>Structures can have both <strong>default</strong> and <strong>custom initializers</strong></p>
+<ul>
+<li>an empty initializer (an initializer without parameters) provided to you by the Swift compiler automatically</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">init</span>() &#123;</span><br><span class="line"></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>A <em>memberwise initializer</em> has a parameter for each stored property on the instance, and it will use default parameter syntax to provide any default values you have declared on the type. This allows you to decide which parameters you wish to provide at the call site.</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">init</span>(<span class="params">population</span>: <span class="type">Int</span> <span class="operator">=</span> <span class="number">5422</span>, <span class="params">numberOfStoplights</span>: <span class="type">Int</span> <span class="operator">=</span> <span class="number">4</span>) &#123;</span><br><span class="line"> <span class="keyword">self</span>.population <span class="operator">=</span> population</span><br><span class="line"> <span class="keyword">self</span>.numberOfStoplights <span class="operator">=</span> numberOfStoplights</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>The types that you have been creating up to this point have all been created in more or less the same<br>way: Properties were either given default stored values or their values were computed on demand.<br>Initialization was not customized, and we did not give it much consideration.<br>It is very common to want control over how an instance of a type is created. For example, you have<br>been giving default values to an instance’s stored properties and then changing the properties’ values<br>after you create the instance. This strategy is inelegant. It would be ideal for the instance to have all the<br>correct values in its properties immediately. Initializers help you create an instance with the appropriate<br>values.</p>
+<p>one of the principal goals of initialization is to give all the type’s stored properties values<br>so that the new instance is ready to use. The compiler will enforce the requirement that your new<br>instance have values in its stored properties. If you do not provide an initializer for your custom struct,<br>you must provide the necessary values through default values or memberwise initialization</p>
+<p>To tell the compiler “I intend to equate two instances of this type,” you start by declaring that your type<br>wants to conform to the Equatable protocol</p>
+<p>Free default memberwise initializers are a benefit of structs; they are not available on classes</p>
+<h2 id="Hashable"><a href="#Hashable" class="headerlink" title="Hashable"></a>Hashable</h2><p>Hashability has a straightforward purpose: the ability of a type to generate an integer based on its content</p>
+<p>If you want to know whether two strings are equal, you can first check their hashes, which takes nearly<br>no time at all. If their hashes are different, then you know the strings are different.<br>But, because strings can be larger and more complex than integers, it is possible for two different<br>strings to have the same hash. So, if two strings’ hashes are the same, you have not learned anything,<br>and you must proceed with a complete equality check to be sure.<br>(As an aside: Because an equality check is a necessary backup plan when comparing the hashes of<br>instances, Hashable inherits from Equatable.)</p>
+<p>An ideal hashing algorithm is one that is fast to compute and unlikely to collide with another instance’s<br>hash – but does not need to guarantee that two hashes will never be the same.</p>
+<h2 id="Get-set-in-swift"><a href="#Get-set-in-swift" class="headerlink" title="Get set in swift"></a>Get set in swift</h2><p>there are three code  example:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Car</span> &#123;</span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">var</span> fuelLevelStorage: <span class="type">Double</span> <span class="operator">=</span> <span class="number">1.0</span></span><br><span class="line"> <span class="keyword">var</span> fuelLevel: <span class="type">Double</span> &#123;</span><br><span class="line"> <span class="keyword">set</span> &#123;</span><br><span class="line"> fuelLevelStorage <span class="operator">=</span> <span class="built_in">max</span>(<span class="built_in">min</span>(newValue, <span class="number">1</span>), <span class="number">0</span>)</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">get</span> &#123;</span><br><span class="line"> <span class="keyword">return</span> fuelLevelStorage</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">family</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> _members: <span class="type">Int</span> <span class="operator">=</span> <span class="number">2</span></span><br><span class="line">    <span class="keyword">var</span> members: <span class="type">Int</span> &#123;</span><br><span class="line">      <span class="keyword">get</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> _members</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">set</span> (newVal) &#123;</span><br><span class="line">        <span class="keyword">if</span> newVal <span class="operator">&gt;=</span> <span class="number">2</span> &#123;</span><br><span class="line">          _members <span class="operator">=</span> newVal</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          println(&#x27;error: cannot have family with less than <span class="number">2</span> members&#x27;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>thanks to the setter function, we can also set it’s value  by typing, for example: instanceOfFamily.members &#x3D; 3. What has changed, however, is the fact that we cannot set this variable to anything smaller than 2 anymore.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="type">A</span>:<span class="type">Int</span> <span class="operator">=</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">var</span> <span class="type">B</span>:<span class="type">Int</span> <span class="operator">=</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> <span class="type">C</span>:<span class="type">Int</span> &#123;</span><br><span class="line"><span class="keyword">get</span> &#123;<span class="keyword">return</span> <span class="number">1</span>&#125;</span><br><span class="line"><span class="keyword">set</span> &#123;<span class="built_in">print</span>(<span class="string">&quot;Recived new value&quot;</span>, newValue, <span class="string">&quot; and stored into &#x27;B&#x27; &quot;</span>)</span><br><span class="line">     <span class="type">B</span> <span class="operator">=</span> newValue</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// When we are getting a value of C it fires get&#123;&#125; part of C property</span></span><br><span class="line"><span class="type">A</span> <span class="operator">=</span> <span class="type">C</span></span><br><span class="line"><span class="type">A</span>            <span class="comment">// Now A = 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// When we are setting a value to C it fires set&#123;&#125; part of C property</span></span><br><span class="line"><span class="type">C</span> <span class="operator">=</span> <span class="number">2</span></span><br><span class="line"><span class="type">B</span>            <span class="comment">// Now B = 2</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="What-does-playground-source-folder-do"><a href="#What-does-playground-source-folder-do" class="headerlink" title="What does playground source folder do ?"></a>What does playground source folder do ?</h2><p>when you are working in a playground and want to separate some of your code into other files like you do in a project, you can do it by adding those files to the Sources group like this. Note that when you do this, any declarations in your Sources are compiled into a separate module from your main<br>playground content, so they must be declared public to be usable by the playground.</p>
+<h2 id="Property-wrapper"><a href="#Property-wrapper" class="headerlink" title="Property wrapper"></a>Property wrapper</h2><ul>
+<li>Defining a property wrapper</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@propertyWrapper</span> <span class="keyword">public</span> <span class="keyword">struct</span> <span class="title class_">Percentage</span> &#123;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">var</span> storage: <span class="type">Double</span></span><br><span class="line"></span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">init</span>(<span class="params">wrappedValue</span>: <span class="type">Double</span>) &#123;</span><br><span class="line"> storage <span class="operator">=</span> <span class="built_in">max</span>(<span class="built_in">min</span>(wrappedValue, <span class="number">1</span>), <span class="number">0</span>)</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">var</span> wrappedValue: <span class="type">Double</span> &#123;</span><br><span class="line"> <span class="keyword">set</span> &#123;</span><br><span class="line"> storage <span class="operator">=</span> <span class="built_in">max</span>(<span class="built_in">min</span>(newValue, <span class="number">1</span>), <span class="number">0</span>)</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">get</span> &#123;</span><br><span class="line"> <span class="keyword">return</span> storage</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Using a property wrapper</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Car</span> &#123;</span><br><span class="line"> <span class="meta">@Percentage</span> <span class="keyword">var</span> fuelLevel: <span class="type">Double</span> <span class="operator">=</span> <span class="number">1.0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> myCar <span class="operator">=</span> <span class="type">Car</span>()</span><br><span class="line">myCar.fuelLevel <span class="operator">=</span> <span class="number">1.1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Fuel:&quot;</span>, myCar.fuelLevel)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>The principle of property wrapper<br>when you declare a property using a property wrapper attribute such as @Percentage, the compiler rewrites your property declaration to use an instance of the wrapper type (Percentage) to handle the storage and transformation of its value. In this case, the compiler takes your fuelLevel property declaration:</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Percentage</span> <span class="keyword">var</span> fuelLevel: <span class="type">Double</span> <span class="operator">=</span> <span class="number">1.0</span></span><br></pre></td></tr></table></figure>
+
+<p>And rewrites it at compile time to something more like this:</p>
+ <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">var</span> _fuelLevel <span class="operator">=</span> <span class="type">Percentage</span>(wrappedValue: <span class="number">1.0</span>)</span><br><span class="line"><span class="keyword">var</span> fuelLevel: <span class="type">Double</span> &#123;</span><br><span class="line"><span class="keyword">get</span> &#123; <span class="keyword">return</span> _fuelLevel.wrappedValue &#125;</span><br><span class="line"><span class="keyword">set</span> &#123; _fuelLevel.wrappedValue <span class="operator">=</span> newValue &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Generic-Data-Structures"><a href="#Generic-Data-Structures" class="headerlink" title="Generic Data Structures"></a>Generic Data Structures</h2><ul>
+<li>stack</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Stack</span> &#123;</span><br><span class="line"> <span class="keyword">var</span> items <span class="operator">=</span> [<span class="type">Int</span>]()</span><br><span class="line"> <span class="keyword">mutating</span> <span class="keyword">func</span> <span class="title function_">push</span>(<span class="keyword">_</span> <span class="params">newItem</span>: <span class="type">Int</span>) &#123;</span><br><span class="line"> items.append(newItem)</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">mutating</span> <span class="keyword">func</span> <span class="title function_">pop</span>() -&gt; <span class="type">Int</span>? &#123;</span><br><span class="line"> <span class="keyword">guard</span> <span class="operator">!</span>items.isEmpty <span class="keyword">else</span> &#123; <span class="keyword">return</span> <span class="literal">nil</span> &#125;</span><br><span class="line"> <span class="keyword">return</span> items.removeLast()</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Generic stack</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Stack</span>&lt;<span class="title class_">Element</span>&gt; &#123;</span><br><span class="line"> <span class="keyword">var</span> items <span class="operator">=</span> [<span class="type">Element</span>]()</span><br><span class="line"> <span class="keyword">mutating</span> <span class="keyword">func</span> <span class="title function_">push</span>(<span class="keyword">_</span> <span class="params">newItem</span>: <span class="type">Element</span>) &#123;</span><br><span class="line"> items.append(newItem)</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">mutating</span> <span class="keyword">func</span> <span class="title function_">pop</span>() -&gt; <span class="type">Element</span>? &#123;</span><br><span class="line"> <span class="keyword">guard</span> <span class="operator">!</span>items.isEmpty <span class="keyword">else</span> &#123; <span class="keyword">return</span> <span class="literal">nil</span> &#125;</span><br><span class="line"> <span class="keyword">return</span> items.removeLast()</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Array uses Element as its placeholder type name. Optional uses Wrapped. It is common to use T (short for “Type”), U, and so on.</p>
+<hr>
+<h2 id="swift-omit-return"><a href="#swift-omit-return" class="headerlink" title="swift omit return"></a>swift omit return</h2><p>The return keyword can now be omitted when declaring functions and computed properties that only contain a single expression.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extension</span> <span class="title class_">MarkdownReader</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> isAtStart: <span class="type">Bool</span> &#123; index <span class="operator">==</span> string.startIndex &#125;</span><br><span class="line">    <span class="keyword">var</span> didReachEnd: <span class="type">Bool</span> &#123; index <span class="operator">==</span> string.endIndex &#125;</span><br><span class="line">    <span class="keyword">var</span> currentCharacter: <span class="type">Character</span> &#123; string[index] &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">encodeCurrentCharacter</span>() -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        currentCharacter.encoded()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>see more information on apple offical <strong><a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/Swift">docment</a></strong> about swift.</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/softwareDevelopment/" rel="tag"># softwareDevelopment</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/05/05/PythonQA/" rel="prev" title="PythonQA">
+      <i class="fa fa-chevron-left"></i> PythonQA
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/05/19/EnglishAndCommandApp/" rel="next" title="EnglishAndCommandApp">
+      EnglishAndCommandApp <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-use-swift-to-development-an-ios-APP"><span class="nav-text">How to use swift to development an ios APP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-idea-of-this-application"><span class="nav-text">The idea of this application</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-first-class-type"><span class="nav-text">What is first-class type ?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-type-safe-language"><span class="nav-text">What is type-safe language?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#what-is-clourse"><span class="nav-text">what is clourse?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wuat-is-Initialization"><span class="nav-text">wuat is Initialization?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Default-initializers-for-structs"><span class="nav-text">Default initializers for structs</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hashable"><span class="nav-text">Hashable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Get-set-in-swift"><span class="nav-text">Get set in swift</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-does-playground-source-folder-do"><span class="nav-text">What does playground source folder do ?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Property-wrapper"><span class="nav-text">Property wrapper</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generic-Data-Structures"><span class="nav-text">Generic Data Structures</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swift-omit-return"><span class="nav-text">swift omit return</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">YiDa</p>
+  <div class="site-description" itemprop="description">自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。</div>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2023 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YiDa</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

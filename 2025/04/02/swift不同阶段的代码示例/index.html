@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|consolas:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","Muse | Mist":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="swift代码推荐这个示例展示了如何使用闭包来对一个数组中的字符串进行排序： 12345678910import Foundationlet fruits &#x3D; [&quot;Apple&quot;, &quot;Banana&quot;, &quot;Orange&quot;, &quot;Mango&quot;, &quot;Pineapple&quot;]&#x2F;&#x2F; 使用闭包进行排序，按字母顺序升序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="swift不同阶段的代码示例">
+<meta property="og:url" content="http://example.com/2025/04/02/swift%E4%B8%8D%E5%90%8C%E9%98%B6%E6%AE%B5%E7%9A%84%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B/index.html">
+<meta property="og:site_name" content="Yi&#39;s Lab">
+<meta property="og:description" content="swift代码推荐这个示例展示了如何使用闭包来对一个数组中的字符串进行排序： 12345678910import Foundationlet fruits &#x3D; [&quot;Apple&quot;, &quot;Banana&quot;, &quot;Orange&quot;, &quot;Mango&quot;, &quot;Pineapple&quot;]&#x2F;&#x2F; 使用闭包进行排序，按字母顺序升序">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-04-02T14:51:45.000Z">
+<meta property="article:modified_time" content="2025-09-01T08:36:04.797Z">
+<meta property="article:author" content="YiDa">
+<meta property="article:tag" content="swift编程">
+<meta property="article:tag" content="代码示例">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2025/04/02/swift%E4%B8%8D%E5%90%8C%E9%98%B6%E6%AE%B5%E7%9A%84%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>swift不同阶段的代码示例 | Yi's Lab</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Yi's Lab</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">You Find Your Own Tree.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section">首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section">关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section">标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section">分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section">归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/zhangyida-lab" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/02/swift%E4%B8%8D%E5%90%8C%E9%98%B6%E6%AE%B5%E7%9A%84%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          swift不同阶段的代码示例
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-04-02 23:51:45" itemprop="dateCreated datePublished" datetime="2025-04-02T23:51:45+09:00">2025-04-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-09-01 17:36:04" itemprop="dateModified" datetime="2025-09-01T17:36:04+09:00">2025-09-01</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="swift代码推荐"><a href="#swift代码推荐" class="headerlink" title="swift代码推荐"></a>swift代码推荐</h1><p>这个示例展示了如何使用闭包来对一个数组中的字符串进行排序：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> fruits <span class="operator">=</span> [<span class="string">&quot;Apple&quot;</span>, <span class="string">&quot;Banana&quot;</span>, <span class="string">&quot;Orange&quot;</span>, <span class="string">&quot;Mango&quot;</span>, <span class="string">&quot;Pineapple&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用闭包进行排序，按字母顺序升序排列</span></span><br><span class="line"><span class="keyword">let</span> sortedFruits <span class="operator">=</span> fruits.sorted &#123; (fruit1, fruit2) -&gt; <span class="type">Bool</span> <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">return</span> fruit1 <span class="operator">&amp;</span>lt; fruit2</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Sorted fruits: <span class="subst">\(sortedFruits)</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
+<p>在这个例子中，我们使用了 <code>sorted</code> 函数，它接收一个闭包来定义排序的规则。闭包接收两个参数 <code>fruit1</code> 和 <code>fruit2</code>，并返回一个 <code>Bool</code> 值来指示它们的顺序。<code>fruit1 &amp;lt; fruit2</code> 会返回 <code>true</code>，意味着 <code>fruit1</code> 应该排在 <code>fruit2</code> 前面。</p>
+<p>这种写法非常灵活，闭包可以根据需要修改排序的逻辑。比如你可以改为按字符串的长度、逆序排序等。</p>
+<p>另一个 Swift 代码示例，展示了如何使用 <code>map</code>、<code>filter</code> 和 <code>reduce</code> 函数来处理数组：</p>
+<h3 id="示例-1-使用-map-进行转换"><a href="#示例-1-使用-map-进行转换" class="headerlink" title="示例 1: 使用 map 进行转换"></a>示例 1: 使用 map 进行转换</h3><p>假设我们有一个整数数组，并想将每个数值乘以 2：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> numbers <span class="operator">=</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 map 函数将每个数字乘以 2</span></span><br><span class="line"><span class="keyword">let</span> doubledNumbers <span class="operator">=</span> numbers.map &#123; <span class="variable">$0</span> <span class="operator">*</span> <span class="number">2</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Doubled numbers: <span class="subst">\(doubledNumbers)</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="示例-2-使用-filter-进行筛选"><a href="#示例-2-使用-filter-进行筛选" class="headerlink" title="示例 2: 使用 filter 进行筛选"></a>示例 2: 使用 filter 进行筛选</h3><p>假设我们想要筛选出所有偶数：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> numbers <span class="operator">=</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 filter 函数筛选出所有偶数</span></span><br><span class="line"><span class="keyword">let</span> evenNumbers <span class="operator">=</span> numbers.filter &#123; <span class="variable">$0</span> <span class="operator">%</span> <span class="number">2</span> <span class="operator">==</span> <span class="number">0</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Even numbers: <span class="subst">\(evenNumbers)</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="示例-3-使用-reduce-进行求和"><a href="#示例-3-使用-reduce-进行求和" class="headerlink" title="示例 3: 使用 reduce 进行求和"></a>示例 3: 使用 reduce 进行求和</h3><p>假设我们想要计算数组所有元素的和：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> numbers <span class="operator">=</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 reduce 函数求和</span></span><br><span class="line"><span class="keyword">let</span> sum <span class="operator">=</span> numbers.reduce(<span class="number">0</span>) &#123; <span class="variable">$0</span> <span class="operator">+</span> <span class="variable">$1</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Sum of numbers: <span class="subst">\(sum)</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><ul>
+<li><code>map</code> 用于将数组中的每个元素转换为新的值。</li>
+<li><code>filter</code> 用于从数组中筛选出符合条件的元素。</li>
+<li><code>reduce</code> 用于将数组中的元素“归约”成一个单一的值，比如求和或累积。</li>
+</ul>
+<p>这些函数非常适合进行链式操作，可以让代码更加简洁和易读。你可以组合使用它们，进行更复杂的操作！</p>
+<h1 id="一些更高级的-Swift-代码示例，涉及-泛型、高阶函数、组合式函数式编程、属性包装器、Async-x2F-Await-并发-等内容。"><a href="#一些更高级的-Swift-代码示例，涉及-泛型、高阶函数、组合式函数式编程、属性包装器、Async-x2F-Await-并发-等内容。" class="headerlink" title="一些更高级的 Swift 代码示例，涉及 泛型、高阶函数、组合式函数式编程、属性包装器、Async&#x2F;Await 并发 等内容。"></a>一些更高级的 Swift 代码示例，涉及 <strong>泛型、高阶函数、组合式函数式编程、属性包装器、Async&#x2F;Await 并发</strong> 等内容。</h1><h3 id="示例-1-泛型-关联类型-协议"><a href="#示例-1-泛型-关联类型-协议" class="headerlink" title="示例 1: 泛型 + 关联类型 + 协议"></a><strong>示例 1: 泛型 + 关联类型 + 协议</strong></h3><p>使用泛型和协议扩展 Swift 类型的适用性：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protocol</span> <span class="title class_">Stackable</span> &#123;</span><br><span class="line">    <span class="keyword">associatedtype</span> <span class="type">Element</span></span><br><span class="line">    <span class="keyword">mutating</span> <span class="keyword">func</span> <span class="title function_">push</span>(<span class="keyword">_</span> <span class="params">element</span>: <span class="type">Element</span>)</span><br><span class="line">    <span class="keyword">mutating</span> <span class="keyword">func</span> <span class="title function_">pop</span>() -&gt; <span class="type">Element</span>?</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Stack</span>: <span class="title class_">Stackable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> elements: [<span class="type">T</span>] <span class="operator">=</span> []</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">mutating</span> <span class="keyword">func</span> <span class="title function_">push</span>(<span class="keyword">_</span> <span class="params">element</span>: <span class="type">T</span>) &#123;</span><br><span class="line">        elements.append(element)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">mutating</span> <span class="keyword">func</span> <span class="title function_">pop</span>() -&gt; <span class="type">T</span>? &#123;</span><br><span class="line">        <span class="keyword">return</span> elements.popLast()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> intStack <span class="operator">=</span> <span class="type">Stack</span>()</span><br><span class="line">intStack.push(<span class="number">10</span>)</span><br><span class="line">intStack.push(<span class="number">20</span>)</span><br><span class="line"><span class="built_in">print</span>(intStack.pop() <span class="operator">??</span> <span class="string">&quot;Empty&quot;</span>) <span class="comment">// 输出 20</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>知识点：</strong></p>
+<ul>
+<li><code>associatedtype</code> 允许协议定义一个泛型类型。</li>
+<li><code>mutating</code> 确保 <code>struct</code> 可以修改其自身的属性。</li>
+</ul>
+<h3 id="示例-2-高阶函数-amp-组合式编程"><a href="#示例-2-高阶函数-amp-组合式编程" class="headerlink" title="示例 2: 高阶函数 &amp; 组合式编程"></a><strong>示例 2: 高阶函数 &amp; 组合式编程</strong></h3><p>假设我们有一个用户列表，需要筛选出年龄大于 18 岁的用户，并提取他们的姓名，然后转换为大写。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> name: <span class="type">String</span></span><br><span class="line">    <span class="keyword">let</span> age: <span class="type">Int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> users <span class="operator">=</span> [</span><br><span class="line">    <span class="type">User</span>(name: <span class="string">&quot;Alice&quot;</span>, age: <span class="number">24</span>),</span><br><span class="line">    <span class="type">User</span>(name: <span class="string">&quot;Bob&quot;</span>, age: <span class="number">17</span>),</span><br><span class="line">    <span class="type">User</span>(name: <span class="string">&quot;Charlie&quot;</span>, age: <span class="number">30</span>)</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> adultNames <span class="operator">=</span> users</span><br><span class="line">    .filter &#123; <span class="variable">$0</span>.age <span class="operator">&amp;</span>gt;<span class="operator">=</span> <span class="number">18</span> &#125;  <span class="comment">// 过滤出年龄 &amp;gt;= 18 的用户</span></span><br><span class="line">    .map &#123; <span class="variable">$0</span>.name.uppercased() &#125; <span class="comment">// 提取名字并转换为大写</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(adultNames) <span class="comment">// 输出 [&quot;ALICE&quot;, &quot;CHARLIE&quot;]</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>知识点：</strong></p>
+<ul>
+<li><code>filter</code> 进行筛选。</li>
+<li><code>map</code> 进行数据转换。</li>
+<li>组合式函数式编程，让代码更简洁。</li>
+</ul>
+<h3 id="示例-3-自定义属性包装器"><a href="#示例-3-自定义属性包装器" class="headerlink" title="示例 3: 自定义属性包装器"></a><strong>示例 3: 自定义属性包装器</strong></h3><p>Swift 的 <code>@propertyWrapper</code> 允许你创建自定义的属性行为。这里实现一个 <code>Clamped</code>，用于确保变量值保持在指定范围内。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@propertyWrapper</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Clamped</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> value: <span class="type">Value</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">let</span> range: <span class="type">ClosedRange</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">init</span>(<span class="params">wrappedValue</span>: <span class="type">Value</span>, <span class="keyword">_</span> <span class="params">range</span>: <span class="type">ClosedRange</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.range <span class="operator">=</span> range</span><br><span class="line">        <span class="keyword">self</span>.value <span class="operator">=</span> <span class="built_in">min</span>(<span class="built_in">max</span>(wrappedValue, range.lowerBound), range.upperBound)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> wrappedValue: <span class="type">Value</span> &#123;</span><br><span class="line">        <span class="keyword">get</span> &#123; value &#125;</span><br><span class="line">        <span class="keyword">set</span> &#123; value <span class="operator">=</span> <span class="built_in">min</span>(<span class="built_in">max</span>(newValue, range.lowerBound), range.upperBound) &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Player</span> &#123;</span><br><span class="line">    <span class="meta">@Clamped</span>(<span class="number">0</span><span class="operator">...</span><span class="number">100</span>) <span class="keyword">var</span> health: <span class="type">Int</span> <span class="operator">=</span> <span class="number">50</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> player <span class="operator">=</span> <span class="type">Player</span>()</span><br><span class="line">player.health <span class="operator">=</span> <span class="number">120</span></span><br><span class="line"><span class="built_in">print</span>(player.health) <span class="comment">// 输出 100</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>知识点：</strong></p>
+<ul>
+<li><code>@propertyWrapper</code> 让你封装通用的属性行为，如范围约束。</li>
+</ul>
+<h3 id="示例-4-Async-x2F-Await-并发"><a href="#示例-4-Async-x2F-Await-并发" class="headerlink" title="示例 4: Async&#x2F;Await 并发"></a><strong>示例 4: Async&#x2F;Await 并发</strong></h3><p>Swift 的 <code>async/await</code> 使异步代码更易读。以下示例模拟一个网络请求：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">fetchUserData</span>() <span class="keyword">async</span> <span class="keyword">throws</span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> <span class="keyword">await</span> <span class="type">Task</span>.sleep(nanoseconds: <span class="number">2_000_000_000</span>) <span class="comment">// 模拟 2 秒网络延迟</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;User Data Loaded&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">Task</span> &#123;</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> data <span class="operator">=</span> <span class="keyword">try</span> <span class="keyword">await</span> fetchUserData()</span><br><span class="line">        <span class="built_in">print</span>(data) <span class="comment">// 输出 &quot;User Data Loaded&quot;</span></span><br><span class="line">    &#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Failed to fetch data: <span class="subst">\(error)</span>&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>知识点：</strong></p>
+<ul>
+<li><code>async/await</code> 让异步代码像同步代码一样易读。</li>
+<li><code>Task.sleep(nanoseconds:)</code> 模拟异步操作。</li>
+</ul>
+<p>这些示例涉及 Swift 进阶概念，如泛型、组合式编程、属性包装器和并发。你可以试着改造和优化它们，挑战更复杂的实现！🚀</p>
+<h1 id="涉及-高级泛型、Combine-响应式编程、Actor-并发安全、Swift-反射（Mirror），以及-DSL（领域特定语言）设计。"><a href="#涉及-高级泛型、Combine-响应式编程、Actor-并发安全、Swift-反射（Mirror），以及-DSL（领域特定语言）设计。" class="headerlink" title="涉及 高级泛型、Combine 响应式编程、Actor 并发安全、Swift 反射（Mirror），以及 DSL（领域特定语言）设计。"></a>涉及 <strong>高级泛型、Combine 响应式编程、Actor 并发安全、Swift 反射（Mirror）</strong>，以及 <strong>DSL（领域特定语言）设计</strong>。</h1><h2 id="示例-1-结合泛型、协议和依赖注入"><a href="#示例-1-结合泛型、协议和依赖注入" class="headerlink" title="示例 1: 结合泛型、协议和依赖注入"></a><strong>示例 1: 结合泛型、协议和依赖注入</strong></h2><p>我们构建一个 <strong>泛型存储系统</strong>，可以存储不同类型的数据，并支持解耦的依赖注入：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protocol</span> <span class="title class_">Storage</span> &#123;</span><br><span class="line">    <span class="keyword">associatedtype</span> <span class="type">Item</span></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">save</span>(<span class="keyword">_</span> <span class="params">item</span>: <span class="type">Item</span>)</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">load</span>() -&gt; <span class="type">Item</span>?</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UserDefaultsStorage</span>: <span class="title class_">Storage</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">let</span> key: <span class="type">String</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">init</span>(<span class="params">key</span>: <span class="type">String</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.key <span class="operator">=</span> key</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">save</span>(<span class="keyword">_</span> <span class="params">item</span>: <span class="type">T</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> data <span class="operator">=</span> <span class="keyword">try?</span> <span class="type">JSONEncoder</span>().encode(item) &#123;</span><br><span class="line">            <span class="type">UserDefaults</span>.standard.set(data, forKey: key)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">load</span>() -&gt; <span class="type">T</span>? &#123;</span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> data <span class="operator">=</span> <span class="type">UserDefaults</span>.standard.data(forKey: key),</span><br><span class="line">              <span class="keyword">let</span> item <span class="operator">=</span> <span class="keyword">try?</span> <span class="type">JSONDecoder</span>().decode(<span class="type">T</span>.<span class="keyword">self</span>, from: data) <span class="keyword">else</span> &#123; <span class="keyword">return</span> <span class="literal">nil</span> &#125;</span><br><span class="line">        <span class="keyword">return</span> item</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用示例</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">User</span>: <span class="title class_">Codable</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> name: <span class="type">String</span></span><br><span class="line">    <span class="keyword">let</span> age: <span class="type">Int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> userStorage <span class="operator">=</span> <span class="type">UserDefaultsStorage</span>(key: <span class="string">&quot;savedUser&quot;</span>)</span><br><span class="line">userStorage.save(<span class="type">User</span>(name: <span class="string">&quot;Alice&quot;</span>, age: <span class="number">25</span>))</span><br><span class="line"><span class="built_in">print</span>(userStorage.load() <span class="operator">??</span> <span class="string">&quot;No user found&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="关键点"><a href="#关键点" class="headerlink" title="关键点"></a><strong>关键点</strong></h3><p>✅ 使用 <code>associatedtype</code> 让 <code>Storage</code> 支持泛型存储。<br>✅ <code>Codable</code> 让存储数据更加灵活。<br>✅ <code>UserDefaultsStorage&amp;lt;T&amp;gt;</code> 可以存储 <strong>任意 Codable 类型</strong>，增强了代码的可复用性。</p>
+<h2 id="示例-2-使用-Combine-进行响应式数据流"><a href="#示例-2-使用-Combine-进行响应式数据流" class="headerlink" title="示例 2: 使用 Combine 进行响应式数据流"></a><strong>示例 2: 使用 Combine 进行响应式数据流</strong></h2><p>我们创建一个 <strong>响应式计时器</strong>，它会每秒发送当前时间：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Combine</span><br><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TimerPublisher</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> cancellable: <span class="type">AnyCancellable</span>?</span><br><span class="line"></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">start</span>() &#123;</span><br><span class="line">        cancellable <span class="operator">=</span> <span class="type">Timer</span>.publish(every: <span class="number">1</span>, on: .main, in: .common)</span><br><span class="line">            .autoconnect()</span><br><span class="line">            .sink &#123; time <span class="keyword">in</span></span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;Current Time: <span class="subst">\(time)</span>&quot;</span>)</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">stop</span>() &#123;</span><br><span class="line">        cancellable<span class="operator">?</span>.cancel()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> timer <span class="operator">=</span> <span class="type">TimerPublisher</span>()</span><br><span class="line">timer.start()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 让程序运行 5 秒钟</span></span><br><span class="line"><span class="type">DispatchQueue</span>.main.asyncAfter(deadline: .now() <span class="operator">+</span> <span class="number">5</span>) &#123;</span><br><span class="line">    timer.stop()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="关键点-1"><a href="#关键点-1" class="headerlink" title="关键点"></a><strong>关键点</strong></h3><p>✅ <code>Timer.publish</code> 创建定时器事件流。<br>✅ <code>autoconnect()</code> 让订阅者自动开始接收数据。<br>✅ <code>sink &#123;&#125;</code> 处理数据，每秒打印一次时间。<br>✅ <code>cancellable?.cancel()</code> 释放资源，防止内存泄漏。</p>
+<h2 id="示例-3-使用-actor-保护共享资源"><a href="#示例-3-使用-actor-保护共享资源" class="headerlink" title="示例 3: 使用 actor 保护共享资源"></a><strong>示例 3: 使用 actor 保护共享资源</strong></h2><p>在 Swift 的多线程环境中，我们用 <code>actor</code> 确保线程安全：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">actor</span> <span class="title class_">SafeCounter</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> value <span class="operator">=</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">increment</span>() &#123;</span><br><span class="line">        value <span class="operator">+=</span> <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">getValue</span>() -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> value</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> counter <span class="operator">=</span> <span class="type">SafeCounter</span>()</span><br><span class="line"></span><br><span class="line"><span class="type">Task</span> &#123;</span><br><span class="line">    <span class="keyword">await</span> counter.increment()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Counter: <span class="subst">\(<span class="keyword">await</span> counter.getValue())</span>&quot;</span>) <span class="comment">// 1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="关键点-2"><a href="#关键点-2" class="headerlink" title="关键点"></a><strong>关键点</strong></h3><p>✅ <code>actor</code> 使 <code>SafeCounter</code> 线程安全。<br>✅ <code>await</code> 确保并发调用时的正确性。<br>✅ 解决 <strong>数据竞争</strong> 问题。</p>
+<h2 id="示例-4-使用-Mirror-进行-Swift-反射"><a href="#示例-4-使用-Mirror-进行-Swift-反射" class="headerlink" title="示例 4: 使用 Mirror 进行 Swift 反射"></a><strong>示例 4: 使用 Mirror 进行 Swift 反射</strong></h2><p>Swift 的 <code>Mirror</code> 可以在 <strong>运行时</strong> 获取对象的属性和方法：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> name: <span class="type">String</span></span><br><span class="line">    <span class="keyword">let</span> age: <span class="type">Int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">inspect</span>(<span class="keyword">_</span> <span class="params">object</span>: <span class="keyword">Any</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> mirror <span class="operator">=</span> <span class="type">Mirror</span>(reflecting: object)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Type: <span class="subst">\(mirror.subjectType)</span>&quot;</span>)</span><br><span class="line">    <span class="keyword">for</span> (label, value) <span class="keyword">in</span> mirror.children &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;<span class="subst">\(label <span class="operator">??</span> <span class="string">&quot;unknown&quot;</span>)</span>: <span class="subst">\(value)</span>&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> alice <span class="operator">=</span> <span class="type">Person</span>(name: <span class="string">&quot;Alice&quot;</span>, age: <span class="number">25</span>)</span><br><span class="line">inspect(alice)</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>输出</strong></p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">Type: Person</span></span><br><span class="line"><span class="section">name: Alice</span></span><br><span class="line"><span class="section">age: 25</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="关键点-3"><a href="#关键点-3" class="headerlink" title="关键点"></a><strong>关键点</strong></h3><p>✅ <code>Mirror(reflecting:)</code> 获取对象信息。<br>✅ <code>mirror.children</code> 遍历对象的属性和值。<br>✅ 适用于 <strong>调试、序列化、动态 UI 生成</strong> 等。</p>
+<h2 id="示例-5-设计-DSL（领域特定语言）"><a href="#示例-5-设计-DSL（领域特定语言）" class="headerlink" title="示例 5: 设计 DSL（领域特定语言）"></a><strong>示例 5: 设计 DSL（领域特定语言）</strong></h2><p>Swift 的 <strong>Result Builder</strong> 让我们可以创建类似 SwiftUI 的 DSL：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@resultBuilder</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">QueryBuilder</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">func</span> <span class="title function_">buildBlock</span>(<span class="keyword">_</span> <span class="params">queries</span>: <span class="type">String</span>...) -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> queries.joined(separator: <span class="string">&quot; AND &quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">buildQuery</span>(<span class="meta">@QueryBuilder</span> <span class="keyword">_</span> <span class="params">builder</span>: () -&gt; <span class="type">String</span>) -&gt; <span class="type">String</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;SELECT * FROM users WHERE <span class="subst">\(builder())</span>&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 DSL</span></span><br><span class="line"><span class="keyword">let</span> query <span class="operator">=</span> buildQuery &#123;</span><br><span class="line">    <span class="string">&quot;age &amp;gt; 18&quot;</span></span><br><span class="line">    <span class="string">&quot;name LIKE &#x27;A%&#x27;&quot;</span></span><br><span class="line">    <span class="string">&quot;city = &#x27;Shanghai&#x27;&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(query)</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>输出</strong></p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> age &amp;gt; <span class="number">18</span> <span class="keyword">AND</span> <span class="type">name</span> <span class="keyword">LIKE</span> <span class="string">&#x27;A%&#x27;</span> <span class="keyword">AND</span> city = <span class="string">&#x27;Shanghai&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="关键点-4"><a href="#关键点-4" class="headerlink" title="关键点"></a><strong>关键点</strong></h3><p>✅ <code>@resultBuilder</code> 让代码更符合 <strong>DSL 语法</strong>。<br>✅ <code>buildBlock(_ queries: String...)</code> 组合多个查询条件。<br>✅ 这种写法在 <strong>SQL 查询、JSON 生成、构建 UI</strong> 方面特别有用。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><p>今天的示例更加高级，涉及：<br>1️⃣ 泛型与协议：创建 <strong>类型安全的存储</strong>。<br>2️⃣ Combine 响应式编程：<strong>订阅并处理数据流</strong>。<br>3️⃣ <code>actor</code> 线程安全：<strong>并发环境下的数据安全保护</strong>。<br>4️⃣ Swift 反射：<strong>在运行时动态获取对象信息</strong>。<br>5️⃣ Swift DSL：<strong>构建简洁的查询语法</strong>。</p>
+<p>这些示例都可以直接在 Swift Playground 或 Xcode 运行！如果有兴趣，可以尝试拓展这些功能 🚀</p>
+<h1 id="那今天我们深入-元编程、并发控制、运行时操作、自动微分（Automatic-Differentiation）、Swift-Macro（宏）-这些高级概念。🚀"><a href="#那今天我们深入-元编程、并发控制、运行时操作、自动微分（Automatic-Differentiation）、Swift-Macro（宏）-这些高级概念。🚀" class="headerlink" title="那今天我们深入 元编程、并发控制、运行时操作、自动微分（Automatic Differentiation）、Swift Macro（宏） 这些高级概念。🚀"></a>那今天我们深入 <strong>元编程、并发控制、运行时操作、自动微分（Automatic Differentiation）、Swift Macro（宏）</strong> 这些高级概念。🚀</h1><h2 id="示例-1-使用-Macro（Swift-5-9-）进行代码生成"><a href="#示例-1-使用-Macro（Swift-5-9-）进行代码生成" class="headerlink" title="示例 1: 使用 Macro（Swift 5.9+）进行代码生成"></a><strong>示例 1: 使用 Macro（Swift 5.9+）进行代码生成</strong></h2><p>Swift 5.9 引入了 <strong>宏（Macro）</strong>，允许你在编译时修改代码。这相当于 <strong>Swift 版本的元编程</strong>！</p>
+<p><strong>目标</strong>：创建一个 <code>@Uppercased</code> 宏，自动将 <code>String</code> 变成大写。</p>
+<p><strong>1️⃣ 创建 Macro Target</strong><br>在 Xcode 中，创建 <code>Macro</code> 目标，并添加以下代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftCompilerPlugin</span><br><span class="line"><span class="keyword">import</span> SwiftSyntax</span><br><span class="line"><span class="keyword">import</span> SwiftSyntaxBuilder</span><br><span class="line"><span class="keyword">import</span> SwiftSyntaxMacros</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">struct</span> <span class="title class_">UppercasedMacro</span>: <span class="title class_">MemberMacro</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="title function_">expansion</span>(</span><br><span class="line">        <span class="params">of</span> <span class="params">node</span>: <span class="type">SwiftSyntax</span>.<span class="type">AttributeSyntax</span>,</span><br><span class="line">        <span class="params">providingMembersOf</span> <span class="params">declaration</span>: <span class="keyword">some</span> <span class="type">SwiftSyntax</span>.<span class="type">DeclSyntaxProtocol</span>,</span><br><span class="line">        <span class="params">in</span> <span class="params">context</span>: <span class="keyword">some</span> <span class="type">SwiftSyntaxMacros</span>.<span class="type">MacroExpansionContext</span></span><br><span class="line">    ) <span class="keyword">throws</span> -&gt; [<span class="type">SwiftSyntax</span>.<span class="type">DeclSyntax</span>] &#123;</span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> structDecl <span class="operator">=</span> declaration.as(<span class="type">StructDeclSyntax</span>.<span class="keyword">self</span>) <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> structDecl.memberBlock.members.compactMap &#123; member <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">guard</span> <span class="keyword">let</span> varDecl <span class="operator">=</span> member.decl.as(<span class="type">VariableDeclSyntax</span>.<span class="keyword">self</span>),</span><br><span class="line">                  <span class="keyword">let</span> binding <span class="operator">=</span> varDecl.bindings.first,</span><br><span class="line">                  <span class="keyword">let</span> identifier <span class="operator">=</span> binding.pattern.as(<span class="type">IdentifierPatternSyntax</span>.<span class="keyword">self</span>) <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">let</span> uppercasedName <span class="operator">=</span> identifier.identifier.text.uppercased()</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">            var <span class="subst">\(raw: uppercasedName)</span>: String &#123; self.<span class="subst">\(identifier.identifier.text)</span>.uppercased() &#125;</span></span><br><span class="line"><span class="string">            &quot;&quot;&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>2️⃣ 注册 Macro</strong></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@main</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">UppercasedMacroPlugin</span>: <span class="title class_">CompilerPlugin</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> providingMacros: [<span class="type">Macro</span>.<span class="keyword">Type</span>] <span class="operator">=</span> [<span class="type">UppercasedMacro</span>.<span class="keyword">self</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>3️⃣ 在主项目中使用</strong></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Uppercased</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> name: <span class="type">String</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> user <span class="operator">=</span> <span class="type">User</span>(name: <span class="string">&quot;alice&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(user.<span class="type">NAME</span>) <span class="comment">// 输出: &quot;ALICE&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>核心知识点</strong>：<br>✅ <code>SwiftSyntax</code> 解析 Swift 代码并修改 AST。<br>✅ <code>SwiftCompilerPlugin</code> 让我们可以在 <strong>编译时</strong> 生成新代码。<br>✅ <code>Macro</code> 是 <strong>Swift 的元编程能力</strong>，能极大减少重复代码。</p>
+<h2 id="示例-2-Swift-运行时动态方法调用（使用-NSClassFromString-和-Selector）"><a href="#示例-2-Swift-运行时动态方法调用（使用-NSClassFromString-和-Selector）" class="headerlink" title="示例 2: Swift 运行时动态方法调用（使用 NSClassFromString 和 Selector）"></a><strong>示例 2: Swift 运行时动态方法调用（使用 NSClassFromString 和 Selector）</strong></h2><p>在 Swift 中，我们可以在 <strong>运行时</strong> 通过 <strong>字符串</strong> 反射创建对象，并调用方法：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="keyword">@objc</span> <span class="keyword">class</span> <span class="title class_">DynamicClass</span>: <span class="title class_">NSObject</span> &#123;</span><br><span class="line">    <span class="keyword">@objc</span> <span class="keyword">func</span> <span class="title function_">sayHello</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Hello from DynamicClass&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 运行时创建类实例</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> dynamicType <span class="operator">=</span> <span class="type">NSClassFromString</span>(<span class="string">&quot;DynamicClass&quot;</span>) <span class="keyword">as?</span> <span class="type">NSObject</span>.<span class="keyword">Type</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> instance <span class="operator">=</span> dynamicType.<span class="keyword">init</span>()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> selector <span class="operator">=</span> <span class="type">NSSelectorFromString</span>(<span class="string">&quot;sayHello&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> instance.responds(to: selector) &#123;</span><br><span class="line">        instance.perform(selector)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>输出</strong></p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello <span class="keyword">from</span> DynamicClass</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>核心知识点</strong>：<br>✅ <code>NSClassFromString(&quot;DynamicClass&quot;)</code> <strong>动态获取类</strong>。<br>✅ <code>NSSelectorFromString(&quot;sayHello&quot;)</code> <strong>动态方法调用</strong>。<br>✅ Swift 本身是静态语言，但可以用 <strong>Objective-C 运行时</strong> 进行动态调用。</p>
+<h2 id="示例-3-使用-async-let-实现超高效并发计算"><a href="#示例-3-使用-async-let-实现超高效并发计算" class="headerlink" title="示例 3: 使用 async let 实现超高效并发计算"></a><strong>示例 3: 使用 async let 实现超高效并发计算</strong></h2><p>使用 <code>async let</code> <strong>并发运行多个任务</strong>，极大提高 CPU 利用率。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">fetchData</span>(<span class="keyword">_</span> <span class="params">id</span>: <span class="type">Int</span>) <span class="keyword">async</span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Fetching <span class="subst">\(id)</span>...&quot;</span>)</span><br><span class="line">    <span class="keyword">try?</span> <span class="keyword">await</span> <span class="type">Task</span>.sleep(nanoseconds: <span class="type">UInt64</span>(id) <span class="operator">*</span> <span class="number">1_000_000_000</span>)</span><br><span class="line">    <span class="keyword">return</span> id <span class="operator">*</span> <span class="number">10</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">process</span>() <span class="keyword">async</span> &#123;</span><br><span class="line">    <span class="keyword">async</span> <span class="keyword">let</span> value1 <span class="operator">=</span> fetchData(<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">async</span> <span class="keyword">let</span> value2 <span class="operator">=</span> fetchData(<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">async</span> <span class="keyword">let</span> value3 <span class="operator">=</span> fetchData(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> results <span class="operator">=</span> <span class="keyword">await</span> [value1, value2, value3]</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Results: <span class="subst">\(results)</span>&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">Task</span> &#123;</span><br><span class="line">    <span class="keyword">await</span> process()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>输出</strong></p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">Fetching</span> <span class="number">1</span>...</span><br><span class="line"><span class="selector-tag">Fetching</span> <span class="number">2</span>...</span><br><span class="line"><span class="selector-tag">Fetching</span> <span class="number">3</span>...</span><br><span class="line"><span class="selector-tag">Results</span>: <span class="selector-attr">[10, 20, 30]</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>核心知识点</strong>：<br>✅ <code>async let</code> 并行执行多个任务，效率远超 <code>await</code> 串行执行。<br>✅ <code>Task.sleep(nanoseconds:)</code> 模拟网络请求。<br>✅ <code>await [value1, value2, value3]</code> <strong>同时等待多个异步任务</strong>。</p>
+<h2 id="示例-4-使用-Automatic-Differentiation（自动微分）"><a href="#示例-4-使用-Automatic-Differentiation（自动微分）" class="headerlink" title="示例 4: 使用 Automatic Differentiation（自动微分）"></a><strong>示例 4: 使用 Automatic Differentiation（自动微分）</strong></h2><p>Swift for TensorFlow（S4TF）引入了 <strong>自动微分</strong>，用于深度学习、数学计算等场景。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> _Differentiation</span><br><span class="line"></span><br><span class="line"><span class="meta">@differentiable</span></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">square</span>(<span class="keyword">_</span> <span class="params">x</span>: <span class="type">Float</span>) -&gt; <span class="type">Float</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> x <span class="operator">*</span> x</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 计算 f&#x27;(x) 在 x=3 处的值</span></span><br><span class="line"><span class="keyword">let</span> df <span class="operator">=</span> gradient(of: square)(<span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span>(df) <span class="comment">// 输出 6.0</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>核心知识点</strong>：<br>✅ <code>@differentiable</code> 让 Swift <strong>自动计算导数</strong>。<br>✅ <code>gradient(of: square)(3)</code> 计算 <code>f&#39;(3)</code>，等于 <code>2*x</code>。<br>✅ 适用于 <strong>机器学习、科学计算、数学建模</strong>。</p>
+<h2 id="示例-5-使用-UnsafeRawPointer-直接操作内存"><a href="#示例-5-使用-UnsafeRawPointer-直接操作内存" class="headerlink" title="示例 5: 使用 UnsafeRawPointer 直接操作内存"></a><strong>示例 5: 使用 UnsafeRawPointer 直接操作内存</strong></h2><p>Swift 是 <strong>安全语言</strong>，但我们仍可以用 <code>UnsafeRawPointer</code> 直接操作内存！</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> size <span class="operator">=</span> <span class="type">MemoryLayout</span>.size</span><br><span class="line"><span class="keyword">let</span> pointer <span class="operator">=</span> <span class="type">UnsafeMutableRawPointer</span>.allocate(byteCount: size, alignment: <span class="type">MemoryLayout</span>.alignment)</span><br><span class="line"></span><br><span class="line">pointer.storeBytes(of: <span class="number">42</span>, as: <span class="type">Int</span>.<span class="keyword">self</span>)</span><br><span class="line"><span class="keyword">let</span> value: <span class="type">Int</span> <span class="operator">=</span> pointer.load(as: <span class="type">Int</span>.<span class="keyword">self</span>)</span><br><span class="line"><span class="built_in">print</span>(value) <span class="comment">// 42</span></span><br><span class="line"></span><br><span class="line">pointer.deallocate()</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>核心知识点</strong>：<br>✅ <code>UnsafeMutableRawPointer.allocate</code> 直接分配内存。<br>✅ <code>storeBytes(of:as:)</code> 手动存储值。<br>✅ <code>load(as:)</code> 直接从内存读取。<br>✅ ⚠ <strong>这会绕过 Swift 的类型安全性</strong>，小心使用！</p>
+<h2 id="示例-6-使用-Generative-Type-创建自扩展结构"><a href="#示例-6-使用-Generative-Type-创建自扩展结构" class="headerlink" title="示例 6: 使用 Generative Type 创建自扩展结构"></a><strong>示例 6: 使用 Generative Type 创建自扩展结构</strong></h2><p><strong>目标</strong>：创建一个 <strong>可以动态扩展自身的方法</strong> 的结构体！</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protocol</span> <span class="title class_">Expandable</span> &#123;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">expand</span>() -&gt; <span class="keyword">Self</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Number</span>: <span class="title class_">Expandable</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> value: <span class="type">Int</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">expand</span>() -&gt; <span class="type">Number</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">Number</span>(value: <span class="keyword">self</span>.value <span class="operator">*</span> <span class="number">2</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> num <span class="operator">=</span> <span class="type">Number</span>(value: <span class="number">10</span>)</span><br><span class="line"><span class="keyword">let</span> expanded <span class="operator">=</span> num.expand().expand().expand()</span><br><span class="line"><span class="built_in">print</span>(expanded.value) <span class="comment">// 80</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>核心知识点</strong>：<br>✅ <code>Self</code> 关键字，确保方法返回 <strong>相同类型的实例</strong>。<br>✅ 适用于 <strong>递归式扩展，如数学计算、数据结构增长</strong>。</p>
+<h2 id="终极挑战"><a href="#终极挑战" class="headerlink" title="终极挑战"></a><strong>终极挑战</strong></h2><p>如果你想挑战自己，可以尝试：<br>1️⃣ <strong>使用 macro 生成 Codable 代码</strong>。<br>2️⃣ <strong>用 actor + Distributed 进行多节点分布式计算</strong>。<br>3️⃣ <strong>用 UnsafeMutablePointer 创建手写的链表或数组池</strong>。<br>4️⃣ <strong>使用 Reflection 创建 ORM（对象关系映射）</strong>。</p>
+<p>这些示例展示了 <strong>Swift 的最高级特性</strong>，包括 <strong>宏、自动微分、反射、动态类型、并发控制</strong>。如果你想在 Swift 高级开发中更进一步，快试试这些代码吧！🚀</p>
+<h1 id="更难的"><a href="#更难的" class="headerlink" title="更难的"></a>更难的</h1><p>你追求更极致的 Swift 高级挑战？今天我们深入 <strong>Swift 运行时（Runtime）、LLVM IR 代码生成、JIT（即时编译）、分布式计算、异构计算（Metal）、代码自我修改（Self-Modifying Code）</strong> 这些真正高阶的技术领域！🚀</p>
+<h2 id="示例-1-使用-LLVM-IR-直接生成机器码（Swift-编译器底层）"><a href="#示例-1-使用-LLVM-IR-直接生成机器码（Swift-编译器底层）" class="headerlink" title="示例 1: 使用 LLVM IR 直接生成机器码（Swift 编译器底层）"></a><strong>示例 1: 使用 LLVM IR 直接生成机器码</strong>（Swift 编译器底层）</h2><p>Swift 本质上是 <strong>LLVM IR（中间表示）</strong> 的一个前端。你可以直接用 Swift 代码生成 LLVM IR，然后让它变成机器码。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">emitLLVMIR</span>(<span class="params">for</span> <span class="params">source</span>: <span class="type">String</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> process <span class="operator">=</span> <span class="type">Process</span>()</span><br><span class="line">    process.executableURL <span class="operator">=</span> <span class="type">URL</span>(fileURLWithPath: <span class="string">&quot;/usr/bin/swiftc&quot;</span>)</span><br><span class="line">    process.arguments <span class="operator">=</span> [<span class="string">&quot;-emit-llvm&quot;</span>, <span class="string">&quot;-o&quot;</span>, <span class="string">&quot;/tmp/output.ll&quot;</span>, <span class="string">&quot;-&quot;</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> inputPipe <span class="operator">=</span> <span class="type">Pipe</span>()</span><br><span class="line">    process.standardInput <span class="operator">=</span> inputPipe</span><br><span class="line">    process.launch()</span><br><span class="line"></span><br><span class="line">    inputPipe.fileHandleForWriting.write(source.data(using: .utf8)<span class="operator">!</span>)</span><br><span class="line">    inputPipe.fileHandleForWriting.closeFile()</span><br><span class="line">    </span><br><span class="line">    process.waitUntilExit()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;LLVM IR generated at /tmp/output.ll&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 生成 LLVM IR</span></span><br><span class="line">emitLLVMIR(for: <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">func add(_ a: Int, _ b: Int) -&gt; Int &#123;</span></span><br><span class="line"><span class="string">    return a + b</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>核心知识点</strong>：<br>✅ 直接调用 Swift 编译器生成 LLVM IR 代码。<br>✅ 可用于 <strong>高级编译器优化、JIT 执行、自定义代码分析</strong>。<br>✅ 适合 <strong>研究 Swift 代码如何转换成汇编指令</strong>。</p>
+<h2 id="示例-2-Swift-运行时（Runtime）动态替换方法"><a href="#示例-2-Swift-运行时（Runtime）动态替换方法" class="headerlink" title="示例 2: Swift 运行时（Runtime）动态替换方法"></a><strong>示例 2: Swift 运行时（Runtime）动态替换方法</strong></h2><p>利用 Swift 运行时，<strong>在运行时替换类的方法</strong>，类似于 Python 的 <code>monkey patching</code>。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ObjectiveC</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TargetClass</span>: <span class="title class_">NSObject</span> &#123;</span><br><span class="line">    <span class="keyword">@objc</span> <span class="keyword">dynamic</span> <span class="keyword">func</span> <span class="title function_">originalMethod</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Original Method&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">swizzledMethod</span>(<span class="params">self</span>: <span class="type">AnyObject</span>, <span class="keyword">_</span> <span class="params">cmd</span>: <span class="type">Selector</span>) &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Swizzled Method&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> method <span class="operator">=</span> class_getInstanceMethod(<span class="type">TargetClass</span>.<span class="keyword">self</span>, <span class="keyword">#selector</span>(<span class="type">TargetClass</span>.originalMethod))<span class="operator">!</span></span><br><span class="line"><span class="keyword">let</span> newIMP <span class="operator">=</span> imp_implementationWithBlock(swizzledMethod <span class="keyword">as</span> <span class="keyword">@convention(block)</span> (<span class="type">AnyObject</span>, <span class="type">Selector</span>) -&gt; <span class="type">Void</span>)</span><br><span class="line">method_setImplementation(method, newIMP)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> instance <span class="operator">=</span> <span class="type">TargetClass</span>()</span><br><span class="line">instance.originalMethod()  <span class="comment">// 输出: &quot;Swizzled Method&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>核心知识点</strong>：<br>✅ <code>class_getInstanceMethod</code> 获取方法指针。<br>✅ <code>imp_implementationWithBlock</code> 生成新的方法实现。<br>✅ <code>method_setImplementation</code> 动态替换方法，类似 <strong>AOP（面向切面编程）</strong>。<br>✅ 适用于 <strong>热修复、日志注入、动态调试</strong>。</p>
+<h2 id="示例-3-用-Swift-编写-JIT-编译器"><a href="#示例-3-用-Swift-编写-JIT-编译器" class="headerlink" title="示例 3: 用 Swift 编写 JIT 编译器"></a><strong>示例 3: 用 Swift 编写 JIT 编译器</strong></h2><p>Swift 不能直接 JIT 编译代码，但我们可以使用 <strong>LLVM ORC JIT</strong> 进行运行时代码生成。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> jitCode <span class="operator">=</span> <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">#include </span></span><br><span class="line"><span class="string">void execute() &#123;</span></span><br><span class="line"><span class="string">    printf(&quot;Hello from JIT!<span class="subst">\\</span>n&quot;);</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">compileAndRunC</span>(<span class="keyword">_</span> <span class="params">source</span>: <span class="type">String</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> tempFile <span class="operator">=</span> <span class="string">&quot;/tmp/jit_code.c&quot;</span></span><br><span class="line">    <span class="keyword">let</span> binaryFile <span class="operator">=</span> <span class="string">&quot;/tmp/jit_executable&quot;</span></span><br><span class="line">    <span class="keyword">try?</span> source.write(toFile: tempFile, atomically: <span class="literal">true</span>, encoding: .utf8)</span><br><span class="line"></span><br><span class="line">    system(<span class="string">&quot;clang <span class="subst">\(tempFile)</span> -o <span class="subst">\(binaryFile)</span>&quot;</span>)</span><br><span class="line">    system(binaryFile)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">compileAndRunC(jitCode)</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>核心知识点</strong>：<br>✅ <code>system()</code> <strong>在运行时编译并执行代码</strong>。<br>✅ 类似于 **Python 的 exec()**，可以执行任意代码。<br>✅ 适用于 <strong>自定义 DSL、插件系统、动态代码生成</strong>。</p>
+<h2 id="示例-4-Swift-分布式计算"><a href="#示例-4-Swift-分布式计算" class="headerlink" title="示例 4: Swift 分布式计算"></a><strong>示例 4: Swift 分布式计算</strong></h2><p>Swift <strong>分布式 actor</strong> 允许你在多个机器间安全地共享状态。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">distributed</span> <span class="keyword">actor</span> <span class="title class_">Node</span> &#123;</span><br><span class="line">    <span class="keyword">distributed</span> <span class="keyword">func</span> <span class="title function_">compute</span>(<span class="params">value</span>: <span class="type">Int</span>) -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> value <span class="operator">*</span> <span class="number">2</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> node <span class="operator">=</span> <span class="type">Node</span>(actorSystem: <span class="type">ClusterSystem</span>())</span><br><span class="line"><span class="keyword">let</span> result <span class="operator">=</span> <span class="keyword">await</span> node.compute(value: <span class="number">10</span>)</span><br><span class="line"><span class="built_in">print</span>(result) <span class="comment">// 20</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>核心知识点</strong>：<br>✅ <code>distributed actor</code> 让 actor 可以 <strong>跨机器</strong> 运行。<br>✅ <code>ClusterSystem</code> 让多个 <strong>Swift 进程组成计算集群</strong>。<br>✅ 可用于 <strong>分布式计算、云计算</strong>。</p>
+<h2 id="示例-5-使用-Metal-进行异构计算（GPU-加速）"><a href="#示例-5-使用-Metal-进行异构计算（GPU-加速）" class="headerlink" title="示例 5: 使用 Metal 进行异构计算（GPU 加速）"></a><strong>示例 5: 使用 Metal 进行异构计算（GPU 加速）</strong></h2><p>我们可以直接在 Swift 中使用 <strong>Metal</strong>，让代码跑在 GPU 上，<strong>比 CPU 快 100 倍</strong>！</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Metal</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> device <span class="operator">=</span> <span class="type">MTLCreateSystemDefaultDevice</span>()<span class="operator">!</span></span><br><span class="line"><span class="keyword">let</span> commandQueue <span class="operator">=</span> device.makeCommandQueue()<span class="operator">!</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> kernelSource <span class="operator">=</span> <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">kernel void add_one(device int *data [[buffer(0)]], uint id [[thread_position_in_grid]]) &#123;</span></span><br><span class="line"><span class="string">    data[id] += 1;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> library <span class="operator">=</span> <span class="keyword">try</span> device.makeLibrary(source: kernelSource, options: <span class="literal">nil</span>)</span><br><span class="line"><span class="keyword">let</span> function <span class="operator">=</span> library.makeFunction(name: <span class="string">&quot;add_one&quot;</span>)<span class="operator">!</span></span><br><span class="line"><span class="keyword">let</span> computePipeline <span class="operator">=</span> <span class="keyword">try</span> device.makeComputePipelineState(function: function)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> buffer <span class="operator">=</span> device.makeBuffer(length: <span class="number">4</span> <span class="operator">*</span> <span class="type">MemoryLayout</span>.size, options: [])<span class="operator">!</span></span><br><span class="line"><span class="keyword">var</span> numbers <span class="operator">=</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line">buffer.contents().copyMemory(from: <span class="operator">&amp;</span>numbers, byteCount: numbers.count <span class="operator">*</span> <span class="type">MemoryLayout</span>.size)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> commandBuffer <span class="operator">=</span> commandQueue.makeCommandBuffer()<span class="operator">!</span></span><br><span class="line"><span class="keyword">let</span> computeEncoder <span class="operator">=</span> commandBuffer.makeComputeCommandEncoder()<span class="operator">!</span></span><br><span class="line">computeEncoder.setComputePipelineState(computePipeline)</span><br><span class="line">computeEncoder.setBuffer(buffer, offset: <span class="number">0</span>, index: <span class="number">0</span>)</span><br><span class="line">computeEncoder.dispatchThreads(<span class="type">MTLSize</span>(width: numbers.count, height: <span class="number">1</span>, depth: <span class="number">1</span>), threadsPerThreadgroup: <span class="type">MTLSize</span>(width: <span class="number">1</span>, height: <span class="number">1</span>, depth: <span class="number">1</span>))</span><br><span class="line">computeEncoder.endEncoding()</span><br><span class="line">commandBuffer.commit()</span><br><span class="line">commandBuffer.waitUntilCompleted()</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> result <span class="operator">=</span> buffer.contents().assumingMemoryBound(to: <span class="type">Int</span>.<span class="keyword">self</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;GPU 计算结果: <span class="subst">\(result[<span class="number">0</span>])</span>, <span class="subst">\(result[<span class="number">1</span>])</span>, <span class="subst">\(result[<span class="number">2</span>])</span>, <span class="subst">\(result[<span class="number">3</span>])</span>&quot;</span>) <span class="comment">// 2, 3, 4, 5</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>核心知识点</strong>：<br>✅ <code>MTLCreateSystemDefaultDevice()</code> 获取 GPU 设备。<br>✅ <code>dispatchThreads()</code> 让 GPU 并行计算数据。<br>✅ 可用于 <strong>机器学习、图像处理、科学计算</strong>。</p>
+<h2 id="示例-6-Self-Modifying-Code（代码自我修改）"><a href="#示例-6-Self-Modifying-Code（代码自我修改）" class="headerlink" title="示例 6: Self-Modifying Code（代码自我修改）"></a><strong>示例 6: Self-Modifying Code（代码自我修改）</strong></h2><p>Swift 本身 <strong>禁止自我修改代码</strong>，但我们可以用 <code>mprotect()</code> 绕过。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> code: [<span class="type">UInt8</span>] <span class="operator">=</span> [</span><br><span class="line">    <span class="number">0x48</span>, <span class="number">0xC7</span>, <span class="number">0xC0</span>, <span class="number">0x2A</span>, <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="comment">// mov rax, 42</span></span><br><span class="line">    <span class="number">0xC3</span>                                     <span class="comment">// ret</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ptr <span class="operator">=</span> mmap(<span class="literal">nil</span>, <span class="number">4096</span>, <span class="type">PROT_READ</span> <span class="operator">|</span> <span class="type">PROT_WRITE</span> <span class="operator">|</span> <span class="type">PROT_EXEC</span>, <span class="type">MAP_ANONYMOUS</span> <span class="operator">|</span> <span class="type">MAP_PRIVATE</span>, <span class="operator">-</span><span class="number">1</span>, <span class="number">0</span>)<span class="operator">!</span></span><br><span class="line">memcpy(ptr, code, code.count)</span><br><span class="line"></span><br><span class="line"><span class="keyword">typealias</span> <span class="type">Function</span> <span class="operator">=</span> <span class="keyword">@convention(c)</span> () -&gt; <span class="type">Int</span></span><br><span class="line"><span class="keyword">let</span> function <span class="operator">=</span> <span class="built_in">unsafeBitCast</span>(ptr, to: <span class="type">Function</span>.<span class="keyword">self</span>)</span><br><span class="line"><span class="built_in">print</span>(function()) <span class="comment">// 输出 42</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>核心知识点</strong>：<br>✅ <code>mmap()</code> 申请 <strong>可执行内存</strong>。<br>✅ <code>memcpy()</code> <strong>动态修改代码</strong>。<br>✅ <code>unsafeBitCast()</code> 让 Swift 调用 <strong>手写机器码</strong>。<br>✅ <strong>极端情况下可用于 JIT、虚拟机、沙盒逃逸</strong>。⚠ <strong>危险操作，需谨慎使用！</strong></p>
+<h2 id="终极挑战-1"><a href="#终极挑战-1" class="headerlink" title="终极挑战"></a><strong>终极挑战</strong></h2><p>如果你觉得还不够难，试试：<br>1️⃣ <strong>用 Swift 实现一个 Tiny Swift 解释器</strong>（用 Swift 解析 Swift）。<br>2️⃣ <strong>用 Swift 编写一个自定义 CPU 指令集模拟器</strong>。<br>3️⃣ <strong>用 Metal 和 Swift 实现一个 GPU 加速的 AI 推理引擎</strong>。<br>4️⃣ <strong>用 Swift 运行时自动生成和调用 Objective-C 代码</strong>。<br>5️⃣ <strong>用 Swift + WebAssembly 让代码在浏览器中运行</strong>。</p>
+<p>这些都是 <strong>极限级别</strong> 的 Swift 玩法！有兴趣的话，挑一个来挑战吧！🚀</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/swift%E7%BC%96%E7%A8%8B/" rel="tag"># swift编程</a>
+              <a href="/tags/%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B/" rel="tag"># 代码示例</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/03/29/swiftui%E4%B8%AD%E7%9A%84lazyVGrid%E7%94%A8%E6%B3%95/" rel="prev" title="swiftui中的lazyVGrid用法">
+      <i class="fa fa-chevron-left"></i> swiftui中的lazyVGrid用法
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2025/04/23/Macbook%E5%BF%AB%E6%8D%B7%E9%94%AE%E7%9A%84%E8%AE%BE%E8%AE%A1%E7%90%86%E5%BF%B5/" rel="next" title="Macbook快捷键的设计理念">
+      Macbook快捷键的设计理念 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#swift%E4%BB%A3%E7%A0%81%E6%8E%A8%E8%8D%90"><span class="nav-text">swift代码推荐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-1-%E4%BD%BF%E7%94%A8-map-%E8%BF%9B%E8%A1%8C%E8%BD%AC%E6%8D%A2"><span class="nav-text">示例 1: 使用 map 进行转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-2-%E4%BD%BF%E7%94%A8-filter-%E8%BF%9B%E8%A1%8C%E7%AD%9B%E9%80%89"><span class="nav-text">示例 2: 使用 filter 进行筛选</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-3-%E4%BD%BF%E7%94%A8-reduce-%E8%BF%9B%E8%A1%8C%E6%B1%82%E5%92%8C"><span class="nav-text">示例 3: 使用 reduce 进行求和</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="nav-text">总结：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E6%9B%B4%E9%AB%98%E7%BA%A7%E7%9A%84-Swift-%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%EF%BC%8C%E6%B6%89%E5%8F%8A-%E6%B3%9B%E5%9E%8B%E3%80%81%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E3%80%81%E7%BB%84%E5%90%88%E5%BC%8F%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E3%80%81%E5%B1%9E%E6%80%A7%E5%8C%85%E8%A3%85%E5%99%A8%E3%80%81Async-x2F-Await-%E5%B9%B6%E5%8F%91-%E7%AD%89%E5%86%85%E5%AE%B9%E3%80%82"><span class="nav-text">一些更高级的 Swift 代码示例，涉及 泛型、高阶函数、组合式函数式编程、属性包装器、Async&#x2F;Await 并发 等内容。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-1-%E6%B3%9B%E5%9E%8B-%E5%85%B3%E8%81%94%E7%B1%BB%E5%9E%8B-%E5%8D%8F%E8%AE%AE"><span class="nav-text">示例 1: 泛型 + 关联类型 + 协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-2-%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0-amp-%E7%BB%84%E5%90%88%E5%BC%8F%E7%BC%96%E7%A8%8B"><span class="nav-text">示例 2: 高阶函数 &amp; 组合式编程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-3-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7%E5%8C%85%E8%A3%85%E5%99%A8"><span class="nav-text">示例 3: 自定义属性包装器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-4-Async-x2F-Await-%E5%B9%B6%E5%8F%91"><span class="nav-text">示例 4: Async&#x2F;Await 并发</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B6%89%E5%8F%8A-%E9%AB%98%E7%BA%A7%E6%B3%9B%E5%9E%8B%E3%80%81Combine-%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E3%80%81Actor-%E5%B9%B6%E5%8F%91%E5%AE%89%E5%85%A8%E3%80%81Swift-%E5%8F%8D%E5%B0%84%EF%BC%88Mirror%EF%BC%89%EF%BC%8C%E4%BB%A5%E5%8F%8A-DSL%EF%BC%88%E9%A2%86%E5%9F%9F%E7%89%B9%E5%AE%9A%E8%AF%AD%E8%A8%80%EF%BC%89%E8%AE%BE%E8%AE%A1%E3%80%82"><span class="nav-text">涉及 高级泛型、Combine 响应式编程、Actor 并发安全、Swift 反射（Mirror），以及 DSL（领域特定语言）设计。</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-1-%E7%BB%93%E5%90%88%E6%B3%9B%E5%9E%8B%E3%80%81%E5%8D%8F%E8%AE%AE%E5%92%8C%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5"><span class="nav-text">示例 1: 结合泛型、协议和依赖注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E7%82%B9"><span class="nav-text">关键点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-2-%E4%BD%BF%E7%94%A8-Combine-%E8%BF%9B%E8%A1%8C%E5%93%8D%E5%BA%94%E5%BC%8F%E6%95%B0%E6%8D%AE%E6%B5%81"><span class="nav-text">示例 2: 使用 Combine 进行响应式数据流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E7%82%B9-1"><span class="nav-text">关键点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-3-%E4%BD%BF%E7%94%A8-actor-%E4%BF%9D%E6%8A%A4%E5%85%B1%E4%BA%AB%E8%B5%84%E6%BA%90"><span class="nav-text">示例 3: 使用 actor 保护共享资源</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E7%82%B9-2"><span class="nav-text">关键点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-4-%E4%BD%BF%E7%94%A8-Mirror-%E8%BF%9B%E8%A1%8C-Swift-%E5%8F%8D%E5%B0%84"><span class="nav-text">示例 4: 使用 Mirror 进行 Swift 反射</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E7%82%B9-3"><span class="nav-text">关键点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-5-%E8%AE%BE%E8%AE%A1-DSL%EF%BC%88%E9%A2%86%E5%9F%9F%E7%89%B9%E5%AE%9A%E8%AF%AD%E8%A8%80%EF%BC%89"><span class="nav-text">示例 5: 设计 DSL（领域特定语言）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E7%82%B9-4"><span class="nav-text">关键点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%82%A3%E4%BB%8A%E5%A4%A9%E6%88%91%E4%BB%AC%E6%B7%B1%E5%85%A5-%E5%85%83%E7%BC%96%E7%A8%8B%E3%80%81%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6%E3%80%81%E8%BF%90%E8%A1%8C%E6%97%B6%E6%93%8D%E4%BD%9C%E3%80%81%E8%87%AA%E5%8A%A8%E5%BE%AE%E5%88%86%EF%BC%88Automatic-Differentiation%EF%BC%89%E3%80%81Swift-Macro%EF%BC%88%E5%AE%8F%EF%BC%89-%E8%BF%99%E4%BA%9B%E9%AB%98%E7%BA%A7%E6%A6%82%E5%BF%B5%E3%80%82%F0%9F%9A%80"><span class="nav-text">那今天我们深入 元编程、并发控制、运行时操作、自动微分（Automatic Differentiation）、Swift Macro（宏） 这些高级概念。🚀</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-1-%E4%BD%BF%E7%94%A8-Macro%EF%BC%88Swift-5-9-%EF%BC%89%E8%BF%9B%E8%A1%8C%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90"><span class="nav-text">示例 1: 使用 Macro（Swift 5.9+）进行代码生成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-2-Swift-%E8%BF%90%E8%A1%8C%E6%97%B6%E5%8A%A8%E6%80%81%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8%EF%BC%88%E4%BD%BF%E7%94%A8-NSClassFromString-%E5%92%8C-Selector%EF%BC%89"><span class="nav-text">示例 2: Swift 运行时动态方法调用（使用 NSClassFromString 和 Selector）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-3-%E4%BD%BF%E7%94%A8-async-let-%E5%AE%9E%E7%8E%B0%E8%B6%85%E9%AB%98%E6%95%88%E5%B9%B6%E5%8F%91%E8%AE%A1%E7%AE%97"><span class="nav-text">示例 3: 使用 async let 实现超高效并发计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-4-%E4%BD%BF%E7%94%A8-Automatic-Differentiation%EF%BC%88%E8%87%AA%E5%8A%A8%E5%BE%AE%E5%88%86%EF%BC%89"><span class="nav-text">示例 4: 使用 Automatic Differentiation（自动微分）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-5-%E4%BD%BF%E7%94%A8-UnsafeRawPointer-%E7%9B%B4%E6%8E%A5%E6%93%8D%E4%BD%9C%E5%86%85%E5%AD%98"><span class="nav-text">示例 5: 使用 UnsafeRawPointer 直接操作内存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-6-%E4%BD%BF%E7%94%A8-Generative-Type-%E5%88%9B%E5%BB%BA%E8%87%AA%E6%89%A9%E5%B1%95%E7%BB%93%E6%9E%84"><span class="nav-text">示例 6: 使用 Generative Type 创建自扩展结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%88%E6%9E%81%E6%8C%91%E6%88%98"><span class="nav-text">终极挑战</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%B4%E9%9A%BE%E7%9A%84"><span class="nav-text">更难的</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-1-%E4%BD%BF%E7%94%A8-LLVM-IR-%E7%9B%B4%E6%8E%A5%E7%94%9F%E6%88%90%E6%9C%BA%E5%99%A8%E7%A0%81%EF%BC%88Swift-%E7%BC%96%E8%AF%91%E5%99%A8%E5%BA%95%E5%B1%82%EF%BC%89"><span class="nav-text">示例 1: 使用 LLVM IR 直接生成机器码（Swift 编译器底层）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-2-Swift-%E8%BF%90%E8%A1%8C%E6%97%B6%EF%BC%88Runtime%EF%BC%89%E5%8A%A8%E6%80%81%E6%9B%BF%E6%8D%A2%E6%96%B9%E6%B3%95"><span class="nav-text">示例 2: Swift 运行时（Runtime）动态替换方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-3-%E7%94%A8-Swift-%E7%BC%96%E5%86%99-JIT-%E7%BC%96%E8%AF%91%E5%99%A8"><span class="nav-text">示例 3: 用 Swift 编写 JIT 编译器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-4-Swift-%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97"><span class="nav-text">示例 4: Swift 分布式计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-5-%E4%BD%BF%E7%94%A8-Metal-%E8%BF%9B%E8%A1%8C%E5%BC%82%E6%9E%84%E8%AE%A1%E7%AE%97%EF%BC%88GPU-%E5%8A%A0%E9%80%9F%EF%BC%89"><span class="nav-text">示例 5: 使用 Metal 进行异构计算（GPU 加速）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-6-Self-Modifying-Code%EF%BC%88%E4%BB%A3%E7%A0%81%E8%87%AA%E6%88%91%E4%BF%AE%E6%94%B9%EF%BC%89"><span class="nav-text">示例 6: Self-Modifying Code（代码自我修改）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%88%E6%9E%81%E6%8C%91%E6%88%98-1"><span class="nav-text">终极挑战</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">YiDa</p>
+  <div class="site-description" itemprop="description">自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。</div>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2023 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YiDa</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|consolas:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","Muse | Mist":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Yi&#39;s Lab">
+<meta property="og:url" content="http://example.com/page/3/index.html">
+<meta property="og:site_name" content="Yi&#39;s Lab">
+<meta property="og:description" content="自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="YiDa">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/page/3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Yi's Lab</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Yi's Lab</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">You Find Your Own Tree.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section">首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section">关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section">标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section">分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section">归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/zhangyida-lab" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/28/playground%E6%96%87%E4%BB%B6%E7%9A%84%E7%BB%93%E6%9E%84%E8%A7%A3%E6%9E%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/04/28/playground%E6%96%87%E4%BB%B6%E7%9A%84%E7%BB%93%E6%9E%84%E8%A7%A3%E6%9E%90/" class="post-title-link" itemprop="url">playground文件的结构解析</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-04-28 16:32:08" itemprop="dateCreated datePublished" datetime="2025-04-28T16:32:08+09:00">2025-04-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-09-01 17:36:04" itemprop="dateModified" datetime="2025-09-01T17:36:04+09:00">2025-09-01</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="📚-Playground-中的-Sources-和-Resources-作用"><a href="#📚-Playground-中的-Sources-和-Resources-作用" class="headerlink" title="📚 Playground 中的 Sources 和 Resources 作用"></a>📚 Playground 中的 Sources 和 Resources 作用</h1><h2 id="1-Sources-文件夹（源码文件夹）"><a href="#1-Sources-文件夹（源码文件夹）" class="headerlink" title="1. Sources 文件夹（源码文件夹）"></a>1. Sources 文件夹（源码文件夹）</h2><ul>
+<li><strong>作用</strong>：放<strong>Swift代码文件</strong>，比如 <code>.swift</code> 文件。</li>
+<li><strong>特点</strong>：</li>
+</ul>
+<p>Sources 中的代码<strong>会自动被 Playground 主体引用</strong>，不需要 <code>import</code>。</p>
+<p>Sources 中的代码<strong>默认是隐藏的</strong>（在 Playground 打开主界面时不会显示出来，需要自己点进去看）。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/04/28/playground%E6%96%87%E4%BB%B6%E7%9A%84%E7%BB%93%E6%9E%84%E8%A7%A3%E6%9E%90/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/26/Day01Swift%E7%BC%96%E7%A8%8BonPlayground/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/04/26/Day01Swift%E7%BC%96%E7%A8%8BonPlayground/" class="post-title-link" itemprop="url">Day01Swift编程onPlayground</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-04-26 22:20:17" itemprop="dateCreated datePublished" datetime="2025-04-26T22:20:17+09:00">2025-04-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-09-01 17:36:04" itemprop="dateModified" datetime="2025-09-01T17:36:04+09:00">2025-09-01</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>今天 Day 1 推荐：</strong></p>
+<h3 id="1-Swift-语言-协议-扩展练习"><a href="#1-Swift-语言-协议-扩展练习" class="headerlink" title="1. Swift 语言 - 协议+扩展练习"></a>1. Swift 语言 - 协议+扩展练习</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protocol</span> <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> area: <span class="type">Double</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Circle</span>: <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> radius: <span class="type">Double</span></span><br><span class="line">    <span class="keyword">var</span> area: <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">Double</span>.pi <span class="operator">*</span> radius <span class="operator">*</span> radius</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Rectangle</span>: <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> width: <span class="type">Double</span></span><br><span class="line">    <span class="keyword">var</span> height: <span class="type">Double</span></span><br><span class="line">    <span class="keyword">var</span> area: <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> width <span class="operator">*</span> height</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">extension</span> <span class="title class_">Array</span> <span class="title class_">where</span> <span class="title class_">Element</span>: <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">totalArea</span>() -&gt; <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">self</span>.reduce(<span class="number">0</span>) &#123; <span class="variable">$0</span> <span class="operator">+</span> <span class="variable">$1</span>.area &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 测试</span></span><br><span class="line"><span class="keyword">let</span> shapes: [<span class="type">Shape</span>] <span class="operator">=</span> [</span><br><span class="line">    <span class="type">Circle</span>(radius: <span class="number">3</span>),</span><br><span class="line">    <span class="type">Rectangle</span>(width: <span class="number">4</span>, height: <span class="number">5</span>)</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Total area: <span class="subst">\(shapes.totalArea())</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>练习点：</strong> 协议+扩展+泛型约束</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/04/26/Day01Swift%E7%BC%96%E7%A8%8BonPlayground/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/26/swift%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E4%B8%ADget%E7%AD%89%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E7%94%A8%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/04/26/swift%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E4%B8%ADget%E7%AD%89%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E7%94%A8%E6%B3%95/" class="post-title-link" itemprop="url">swift编程语言中get等关键字的用法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-04-26 21:32:10" itemprop="dateCreated datePublished" datetime="2025-04-26T21:32:10+09:00">2025-04-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-09-01 17:36:04" itemprop="dateModified" datetime="2025-09-01T17:36:04+09:00">2025-09-01</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="关于get和set的代码示例："><a href="#关于get和set的代码示例：" class="headerlink" title="关于get和set的代码示例："></a>关于get和set的代码示例：</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Temperature</span> &#123;</span><br><span class="line"> <span class="keyword">var</span> celsius: <span class="type">Float</span> <span class="operator">=</span> <span class="number">0.0</span></span><br><span class="line"> <span class="keyword">var</span> fahrenheit: <span class="type">Float</span> &#123;</span><br><span class="line"> <span class="keyword">get</span> &#123;</span><br><span class="line"> <span class="keyword">return</span> ((celsius <span class="operator">*</span> <span class="number">1.8</span>) <span class="operator">+</span> <span class="number">32.0</span>)</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">set</span> &#123;</span><br><span class="line"> <span class="keyword">self</span>.celsius <span class="operator">=</span> ((newValue <span class="operator">-</span> <span class="number">32</span>) <span class="operator">/</span> <span class="number">1.8</span>)</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="operator">&lt;!--</span>more<span class="operator">--&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> temp <span class="operator">=</span> <span class="type">Temperature</span>(celsius: <span class="number">40</span>)</span><br><span class="line"><span class="built_in">print</span>(temp.fahrenheit)</span><br><span class="line">temp.fahrenheit <span class="operator">=</span> <span class="number">55</span></span><br><span class="line"><span class="built_in">print</span>(temp.celsius)</span><br></pre></td></tr></table></figure>
+
+<h2 id="这段-Swift-代码定义了一个叫-Temperature-的结构体，它实现了摄氏度（celsius）和华氏度（fahrenheit）之间的相互转换。我们来一步步解释："><a href="#这段-Swift-代码定义了一个叫-Temperature-的结构体，它实现了摄氏度（celsius）和华氏度（fahrenheit）之间的相互转换。我们来一步步解释：" class="headerlink" title="这段 Swift 代码定义了一个叫 Temperature 的结构体，它实现了摄氏度（celsius）和华氏度（fahrenheit）之间的相互转换。我们来一步步解释："></a>这段 Swift 代码定义了一个叫 <code>Temperature</code> 的<strong>结构体</strong>，它实现了摄氏度（<code>celsius</code>）和华氏度（<code>fahrenheit</code>）之间的相互转换。我们来一步步解释：</h2><h3 id="结构体部分"><a href="#结构体部分" class="headerlink" title="结构体部分"></a>结构体部分</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Temperature</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> celsius: <span class="type">Float</span> <span class="operator">=</span> <span class="number">0.0</span></span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>这里定义了一个属性 <code>celsius</code>，表示<strong>摄氏温度</strong>，默认是 <code>0.0</code>。</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">var</span> fahrenheit: <span class="type">Float</span> &#123;</span><br><span class="line">        <span class="keyword">get</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> ((celsius <span class="operator">*</span> <span class="number">1.8</span>) <span class="operator">+</span> <span class="number">32.0</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">set</span> &#123;</span><br><span class="line">            <span class="keyword">self</span>.celsius <span class="operator">=</span> ((newValue <span class="operator">-</span> <span class="number">32</span>) <span class="operator">/</span> <span class="number">1.8</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li><code>fahrenheit</code> 是一个<strong>计算属性</strong>（注意：它没有直接存储值，而是通过 <code>celsius</code> 动态计算出来的）。</li>
+<li><code>get</code>：读取 <code>fahrenheit</code> 时，根据摄氏温度计算出华氏温度：<br><code>华氏温度 = 摄氏温度 × 1.8 + 32</code></li>
+<li><code>set</code>：设置 <code>fahrenheit</code> 时，自动根据输入的华氏温度<strong>反推摄氏温度</strong>：<br><code>摄氏温度 = (华氏温度 - 32) ÷ 1.8</code></li>
+<li><code>newValue</code> 是 Swift 自动提供的，代表<strong>新设置的值</strong>。</li>
+</ul>
+<h3 id="使用部分"><a href="#使用部分" class="headerlink" title="使用部分"></a>使用部分</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> temp <span class="operator">=</span> <span class="type">Temperature</span>(celsius: <span class="number">40</span>)</span><br><span class="line"><span class="built_in">print</span>(temp.fahrenheit)</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>创建了一个 <code>Temperature</code> 实例 <code>temp</code>，初始摄氏温度是 40°C。</li>
+<li>打印 <code>temp.fahrenheit</code>，会触发 <code>get</code>，计算出对应的华氏温度：<br><code>40 * 1.8 + 32 = 104</code></li>
+</ul>
+<p>所以这里打印出来的是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">104.0</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">temp.fahrenheit <span class="operator">=</span> <span class="number">55</span></span><br><span class="line"><span class="built_in">print</span>(temp.celsius)</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>给 <code>temp.fahrenheit</code> 赋值为 55，这会触发 <code>set</code>，反过来计算新的摄氏温度：<br><code>celsius = (55 - 32) / 1.8 = 12.777...</code></li>
+<li>再打印 <code>temp.celsius</code>，所以输出：</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">12.777778</span><br></pre></td></tr></table></figure>
+
+
+<p>（浮点数打印可能会带很多小数位）</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这段代码实现了：</p>
+<ul>
+<li>根据摄氏度动态计算华氏度。</li>
+<li>根据华氏度反推摄氏度。</li>
+<li><strong>celsius</strong> 是实际存储的值，<strong>fahrenheit</strong> 是根据 <code>celsius</code> 实时计算出来的。</li>
+</ul>
+<p>要不要我顺便帮你画一张小图，展示 <code>celsius</code> 和 <code>fahrenheit</code> 之间的流转关系？🎯<br>（要的话告诉我哈～）</p>
+<h1 id="get-和set的其他用法吗？或者willset-didset等。"><a href="#get-和set的其他用法吗？或者willset-didset等。" class="headerlink" title="get 和set的其他用法吗？或者willset didset等。"></a>get 和set的其他用法吗？或者willset didset等。</h1><p><code>get</code> 和 <code>set</code> 在 Swift 里除了你刚看到的这种基本用法，还有一些<strong>更灵活</strong>、<strong>更高级</strong>的用法。简单说一下几个常见的：</p>
+<h3 id="1-只读计算属性（只有-get，没有-set）"><a href="#1-只读计算属性（只有-get，没有-set）" class="headerlink" title="1. 只读计算属性（只有 get，没有 set）"></a>1. <strong>只读计算属性</strong>（只有 get，没有 set）</h3><p>如果你只需要读取，不需要修改，可以只写 <code>get</code>，而且 <strong>可以省略 get 关键字</strong>！</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Rectangle</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> width: <span class="type">Double</span></span><br><span class="line">    <span class="keyword">var</span> height: <span class="type">Double</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> area: <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="comment">// 省略了 get</span></span><br><span class="line">        width <span class="operator">*</span> height</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> rect <span class="operator">=</span> <span class="type">Rectangle</span>(width: <span class="number">10</span>, height: <span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(rect.area)  <span class="comment">// 输出 50</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>这里 <code>area</code> 是只读的，不能直接改，只能通过改 <code>width</code> 或 <code>height</code> 间接改变。</p>
+<h3 id="2-带-private-的-set（读是公开的，写是私有的）"><a href="#2-带-private-的-set（读是公开的，写是私有的）" class="headerlink" title="2. 带 private 的 set（读是公开的，写是私有的）"></a>2. <strong>带 private 的 set</strong>（读是公开的，写是私有的）</h3><p>有时候你希望外部代码能读这个属性，但<strong>不能随便改</strong>，可以给 <code>set</code> 加上 <code>private</code>。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">BankAccount</span> &#123;</span><br><span class="line">    <span class="keyword">private(set)</span> <span class="keyword">var</span> balance: <span class="type">Double</span> <span class="operator">=</span> <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">mutating</span> <span class="keyword">func</span> <span class="title function_">deposit</span>(<span class="keyword">_</span> <span class="params">amount</span>: <span class="type">Double</span>) &#123;</span><br><span class="line">        balance <span class="operator">+=</span> amount</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> account <span class="operator">=</span> <span class="type">BankAccount</span>()</span><br><span class="line">account.deposit(<span class="number">100</span>)</span><br><span class="line"><span class="built_in">print</span>(account.balance)  <span class="comment">// 可以读</span></span><br><span class="line"><span class="comment">// account.balance = 500  ❌ 直接改会报错</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-属性观察器-willSet-和-didSet（不同于-get-x2F-set，但相关）"><a href="#3-属性观察器-willSet-和-didSet（不同于-get-x2F-set，但相关）" class="headerlink" title="3. 属性观察器 willSet 和 didSet（不同于 get&#x2F;set，但相关）"></a>3. <strong>属性观察器 willSet 和 didSet</strong>（不同于 get&#x2F;set，但相关）</h3><p>除了 <code>get/set</code>，Swift 还有<strong>属性观察器</strong>，让你在<strong>属性即将改变前&#x2F;改变后</strong>执行代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">StepCounter</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> steps: <span class="type">Int</span> <span class="operator">=</span> <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">willSet</span>(newSteps) &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;准备将步数改为 <span class="subst">\(newSteps)</span>&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">didSet</span> &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;步数增加了 <span class="subst">\(steps <span class="operator">-</span> oldValue)</span>&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> counter <span class="operator">=</span> <span class="type">StepCounter</span>()</span><br><span class="line">counter.steps <span class="operator">=</span> <span class="number">100</span></span><br></pre></td></tr></table></figure>
+
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">准备将步数改为 100</span><br><span class="line">步数增加了 100</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li><code>willSet</code> 在新值赋值之前触发</li>
+<li><code>didSet</code> 在新值赋值之后触发</li>
+<li><code>oldValue</code> 是修改前的旧值</li>
+</ul>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><table>
+<thead>
+<tr>
+<th>用法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>get &#x2F; set</td>
+<td>计算属性，读写控制</td>
+</tr>
+<tr>
+<td>只写 get</td>
+<td>只读属性，不能直接设置</td>
+</tr>
+<tr>
+<td>private set</td>
+<td>外部只能读，内部可以写</td>
+</tr>
+<tr>
+<td>willSet &#x2F; didSet</td>
+<td>属性变化前后做一些操作</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/25/swift%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%8F%8AswiftUI%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/04/25/swift%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%8F%8AswiftUI%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" class="post-title-link" itemprop="url">swift编程语言及swiftUI框架学习计划</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-04-25 17:29:06" itemprop="dateCreated datePublished" datetime="2025-04-25T17:29:06+09:00">2025-04-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-09-01 17:36:04" itemprop="dateModified" datetime="2025-09-01T17:36:04+09:00">2025-09-01</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="🚀-90-天-Swift-SwiftUI-中高级学习计划"><a href="#🚀-90-天-Swift-SwiftUI-中高级学习计划" class="headerlink" title="🚀 90 天 Swift + SwiftUI 中高级学习计划"></a>🚀 90 天 Swift + SwiftUI 中高级学习计划</h1><h2 id="🌱-阶段一（第-1～30-天）：Swift-核心语法-amp-SwiftUI-入门"><a href="#🌱-阶段一（第-1～30-天）：Swift-核心语法-amp-SwiftUI-入门" class="headerlink" title="🌱 阶段一（第 1～30 天）：Swift 核心语法 &amp; SwiftUI 入门"></a>🌱 阶段一（第 1～30 天）：Swift 核心语法 &amp; SwiftUI 入门</h2><h3 id="🎯-目标"><a href="#🎯-目标" class="headerlink" title="🎯 目标"></a>🎯 目标</h3><ul>
+<li>熟练掌握 Swift 核心语法、标准库使用</li>
+<li>初步理解 SwiftUI 的布局系统与状态绑定机制</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/04/25/swift%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%8F%8AswiftUI%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/23/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E6%9F%A5%E7%9C%8B%E8%8B%B9%E6%9E%9C%E7%9A%84%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/04/23/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E6%9F%A5%E7%9C%8B%E8%8B%B9%E6%9E%9C%E7%9A%84%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/" class="post-title-link" itemprop="url">如何快速查看苹果的开发文档</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-04-23 19:02:07" itemprop="dateCreated datePublished" datetime="2025-04-23T19:02:07+09:00">2025-04-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-09-01 17:36:04" itemprop="dateModified" datetime="2025-09-01T17:36:04+09:00">2025-09-01</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="如何快速看懂apple-的-developer-documentation"><a href="#如何快速看懂apple-的-developer-documentation" class="headerlink" title="如何快速看懂apple 的 developer documentation"></a>如何快速看懂apple 的 developer documentation</h1><p>快速看懂 Apple 的 Developer Documentation（苹果开发者文档）是很多 iOS 开发者提升效率的重要一步。下面是一些实用的技巧和建议，帮你快速掌握文档的阅读方法：</p>
+<h3 id="✅-1-了解文档结构"><a href="#✅-1-了解文档结构" class="headerlink" title="✅ 1. 了解文档结构"></a>✅ 1. <strong>了解文档结构</strong></h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/04/23/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E6%9F%A5%E7%9C%8B%E8%8B%B9%E6%9E%9C%E7%9A%84%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/23/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%88%86%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/04/23/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%88%86%E7%B1%BB/" class="post-title-link" itemprop="url">软件开发测试的基本分类</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-04-23 14:50:22" itemprop="dateCreated datePublished" datetime="2025-04-23T14:50:22+09:00">2025-04-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-09-01 17:36:04" itemprop="dateModified" datetime="2025-09-01T17:36:04+09:00">2025-09-01</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="unit-test、integration-test、UI-test、performance-test-的区别与联系"><a href="#unit-test、integration-test、UI-test、performance-test-的区别与联系" class="headerlink" title="unit test、integration test、UI test、performance test 的区别与联系"></a>unit test、integration test、UI test、performance test 的区别与联系</h1><p>这些测试类型都是软件测试体系中的重要组成部分，各自有不同的侧重点，下面是它们的 <strong>区别与联系</strong>：</p>
+<h2 id="✅-一、区别"><a href="#✅-一、区别" class="headerlink" title="✅ 一、区别"></a>✅ 一、区别</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/04/23/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%88%86%E7%B1%BB/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/23/Macbook%E5%BF%AB%E6%8D%B7%E9%94%AE%E7%9A%84%E8%AE%BE%E8%AE%A1%E7%90%86%E5%BF%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/04/23/Macbook%E5%BF%AB%E6%8D%B7%E9%94%AE%E7%9A%84%E8%AE%BE%E8%AE%A1%E7%90%86%E5%BF%B5/" class="post-title-link" itemprop="url">Macbook快捷键的设计理念</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-04-23 14:46:41" itemprop="dateCreated datePublished" datetime="2025-04-23T14:46:41+09:00">2025-04-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-09-01 17:36:04" itemprop="dateModified" datetime="2025-09-01T17:36:04+09:00">2025-09-01</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Mac-键盘上的-Control（-）、Option（⌥）和-Command（⌘）键看起来有点复杂，但它们分别承担着不同的功能角色，同时也是-macOS-设计理念中的重要体现。下面分为两个部分来说说："><a href="#Mac-键盘上的-Control（-）、Option（⌥）和-Command（⌘）键看起来有点复杂，但它们分别承担着不同的功能角色，同时也是-macOS-设计理念中的重要体现。下面分为两个部分来说说：" class="headerlink" title="Mac 键盘上的 Control（^）、Option（⌥）和 Command（⌘）键看起来有点复杂，但它们分别承担着不同的功能角色，同时也是 macOS 设计理念中的重要体现。下面分为两个部分来说说："></a>Mac 键盘上的 Control（^）、Option（⌥）和 Command（⌘）键看起来有点复杂，但它们分别承担着不同的功能角色，同时也是 macOS 设计理念中的重要体现。下面分为两个部分来说说：</h1><h2 id="✅-一、实用技巧（操作方面）"><a href="#✅-一、实用技巧（操作方面）" class="headerlink" title="✅ 一、实用技巧（操作方面）"></a>✅ 一、实用技巧（操作方面）</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/04/23/Macbook%E5%BF%AB%E6%8D%B7%E9%94%AE%E7%9A%84%E8%AE%BE%E8%AE%A1%E7%90%86%E5%BF%B5/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/02/swift%E4%B8%8D%E5%90%8C%E9%98%B6%E6%AE%B5%E7%9A%84%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/04/02/swift%E4%B8%8D%E5%90%8C%E9%98%B6%E6%AE%B5%E7%9A%84%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B/" class="post-title-link" itemprop="url">swift不同阶段的代码示例</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-04-02 23:51:45" itemprop="dateCreated datePublished" datetime="2025-04-02T23:51:45+09:00">2025-04-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-09-01 17:36:04" itemprop="dateModified" datetime="2025-09-01T17:36:04+09:00">2025-09-01</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="swift代码推荐"><a href="#swift代码推荐" class="headerlink" title="swift代码推荐"></a>swift代码推荐</h1><p>这个示例展示了如何使用闭包来对一个数组中的字符串进行排序：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> fruits <span class="operator">=</span> [<span class="string">&quot;Apple&quot;</span>, <span class="string">&quot;Banana&quot;</span>, <span class="string">&quot;Orange&quot;</span>, <span class="string">&quot;Mango&quot;</span>, <span class="string">&quot;Pineapple&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用闭包进行排序，按字母顺序升序排列</span></span><br><span class="line"><span class="keyword">let</span> sortedFruits <span class="operator">=</span> fruits.sorted &#123; (fruit1, fruit2) -&gt; <span class="type">Bool</span> <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">return</span> fruit1 <span class="operator">&amp;</span>lt; fruit2</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Sorted fruits: <span class="subst">\(sortedFruits)</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/04/02/swift%E4%B8%8D%E5%90%8C%E9%98%B6%E6%AE%B5%E7%9A%84%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/29/swiftui%E4%B8%AD%E7%9A%84lazyVGrid%E7%94%A8%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/03/29/swiftui%E4%B8%AD%E7%9A%84lazyVGrid%E7%94%A8%E6%B3%95/" class="post-title-link" itemprop="url">swiftui中的lazyVGrid用法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-03-29 12:12:48" itemprop="dateCreated datePublished" datetime="2025-03-29T12:12:48+09:00">2025-03-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-09-01 17:36:04" itemprop="dateModified" datetime="2025-09-01T17:36:04+09:00">2025-09-01</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="swiftui中LazyVGrid的原理用法及示例"><a href="#swiftui中LazyVGrid的原理用法及示例" class="headerlink" title="swiftui中LazyVGrid的原理用法及示例"></a>swiftui中LazyVGrid的原理用法及示例</h1><p><code>LazyVGrid</code> 是 SwiftUI 中用于创建垂直方向上具有惰性加载的网格视图的容器。与 <code>VGrid</code> 不同，<code>LazyVGrid</code> 在需要时才加载其内容，这有助于提升性能，尤其是当网格中包含大量内容时。这个视图在滚动过程中会按需加载和销毁视图，避免了内存的浪费。</p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p><code>LazyVGrid</code> 会延迟视图的创建，直到它们需要在屏幕上显示。换句话说，它会根据用户滚动位置只渲染当前屏幕内的内容，而不是一次性加载所有的元素。这个惰性加载的特性使得它特别适合展示大量数据。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/03/29/swiftui%E4%B8%AD%E7%9A%84lazyVGrid%E7%94%A8%E6%B3%95/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/28/ios%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%8D%8F%E8%AE%AE%E9%87%8D%E6%9E%84%E9%A1%B9%E7%9B%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/03/28/ios%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%8D%8F%E8%AE%AE%E9%87%8D%E6%9E%84%E9%A1%B9%E7%9B%AE/" class="post-title-link" itemprop="url">ios项目中使用协议重构项目</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-03-28 22:25:12" itemprop="dateCreated datePublished" datetime="2025-03-28T22:25:12+09:00">2025-03-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-09-01 17:36:04" itemprop="dateModified" datetime="2025-09-01T17:36:04+09:00">2025-09-01</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="json数据结构示例"><a href="#json数据结构示例" class="headerlink" title="json数据结构示例"></a>json数据结构示例</h1><p>[<br>  {<br>    “author”: “駱賓王”,<br>    “paragraphs”: [<br>      “西陸蟬聲唱，南冠客思侵。”,<br>      “那堪玄鬢影，來對白頭吟。”,<br>      “露重飛難進，風多響易沈。”,<br>      “無人信高潔，誰爲表予心。”<br>    ],<br>    “tags”: [<br>      “唐诗三百首”,<br>      “咏物”,<br>      “咏物诗”,<br>      “五言律诗”<br>    ],<br>    “title”: “在嶽詠蟬”,<br>    “id”: “c65539db-4e2b-4ce4-a22b-563b6ef3f4f1”<br>  },<br>  {<br>    “author”: “陳子昂”,<br>    “paragraphs”: [<br>      “前不見古人，後不見來者。”,<br>      “念天地之悠悠，獨愴然而涕下。”<br>    ],<br>    “tags”: [<br>      “唐诗三百首”,<br>      “隋・唐・五代”,<br>      “八年级下册(课外)”,<br>      “伤怀”,<br>      “初中古诗”,<br>      “七言古诗”<br>    ],<br>    “title”: “登幽州臺歌”,<br>    “id”: “c244a5b4-0ed0-48fe-8694-95309acac184”<br>  }]</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/03/28/ios%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%8D%8F%E8%AE%AE%E9%87%8D%E6%9E%84%E9%A1%B9%E7%9B%AE/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">YiDa</p>
+  <div class="site-description" itemprop="description">自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。</div>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2023 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YiDa</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

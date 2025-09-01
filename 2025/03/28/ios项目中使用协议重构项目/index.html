@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|consolas:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","Muse | Mist":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="json数据结构示例[  {    “author”: “駱賓王”,    “paragraphs”: [      “西陸蟬聲唱，南冠客思侵。”,      “那堪玄鬢影，來對白頭吟。”,      “露重飛難進，風多響易沈。”,      “無人信高潔，誰爲表予心。”    ],    “tags”: [      “唐诗三百首”,      “咏物”,      “咏物诗”,      “五">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ios项目中使用协议重构项目">
+<meta property="og:url" content="http://example.com/2025/03/28/ios%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%8D%8F%E8%AE%AE%E9%87%8D%E6%9E%84%E9%A1%B9%E7%9B%AE/index.html">
+<meta property="og:site_name" content="Yi&#39;s Lab">
+<meta property="og:description" content="json数据结构示例[  {    “author”: “駱賓王”,    “paragraphs”: [      “西陸蟬聲唱，南冠客思侵。”,      “那堪玄鬢影，來對白頭吟。”,      “露重飛難進，風多響易沈。”,      “無人信高潔，誰爲表予心。”    ],    “tags”: [      “唐诗三百首”,      “咏物”,      “咏物诗”,      “五">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-03-28T13:25:12.000Z">
+<meta property="article:modified_time" content="2025-09-01T08:36:04.787Z">
+<meta property="article:author" content="YiDa">
+<meta property="article:tag" content="swift编程">
+<meta property="article:tag" content="重构">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2025/03/28/ios%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%8D%8F%E8%AE%AE%E9%87%8D%E6%9E%84%E9%A1%B9%E7%9B%AE/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>ios项目中使用协议重构项目 | Yi's Lab</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Yi's Lab</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">You Find Your Own Tree.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section">首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section">关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section">标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section">分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section">归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/zhangyida-lab" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/28/ios%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%8D%8F%E8%AE%AE%E9%87%8D%E6%9E%84%E9%A1%B9%E7%9B%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ios项目中使用协议重构项目
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-03-28 22:25:12" itemprop="dateCreated datePublished" datetime="2025-03-28T22:25:12+09:00">2025-03-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-09-01 17:36:04" itemprop="dateModified" datetime="2025-09-01T17:36:04+09:00">2025-09-01</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="json数据结构示例"><a href="#json数据结构示例" class="headerlink" title="json数据结构示例"></a>json数据结构示例</h1><p>[<br>  {<br>    “author”: “駱賓王”,<br>    “paragraphs”: [<br>      “西陸蟬聲唱，南冠客思侵。”,<br>      “那堪玄鬢影，來對白頭吟。”,<br>      “露重飛難進，風多響易沈。”,<br>      “無人信高潔，誰爲表予心。”<br>    ],<br>    “tags”: [<br>      “唐诗三百首”,<br>      “咏物”,<br>      “咏物诗”,<br>      “五言律诗”<br>    ],<br>    “title”: “在嶽詠蟬”,<br>    “id”: “c65539db-4e2b-4ce4-a22b-563b6ef3f4f1”<br>  },<br>  {<br>    “author”: “陳子昂”,<br>    “paragraphs”: [<br>      “前不見古人，後不見來者。”,<br>      “念天地之悠悠，獨愴然而涕下。”<br>    ],<br>    “tags”: [<br>      “唐诗三百首”,<br>      “隋・唐・五代”,<br>      “八年级下册(课外)”,<br>      “伤怀”,<br>      “初中古诗”,<br>      “七言古诗”<br>    ],<br>    “title”: “登幽州臺歌”,<br>    “id”: “c244a5b4-0ed0-48fe-8694-95309acac184”<br>  }]</p>
+<span id="more"></span>
+<h1 id="SwiftUI-构建这个应用的一个基本示例："><a href="#SwiftUI-构建这个应用的一个基本示例：" class="headerlink" title="SwiftUI 构建这个应用的一个基本示例："></a>SwiftUI 构建这个应用的一个基本示例：</h1><h3 id="1-数据模型"><a href="#1-数据模型" class="headerlink" title="1. 数据模型"></a>1. 数据模型</h3><p>我们需要先定义数据模型来解析你的 JSON 数据。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Poem</span>: <span class="title class_">Identifiable</span>, <span class="title class_">Codable</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> id: <span class="type">String</span></span><br><span class="line">    <span class="keyword">var</span> author: <span class="type">String</span></span><br><span class="line">    <span class="keyword">var</span> paragraphs: [<span class="type">String</span>]</span><br><span class="line">    <span class="keyword">var</span> tags: [<span class="type">String</span>]</span><br><span class="line">    <span class="keyword">var</span> title: <span class="type">String</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-示例-JSON-解析"><a href="#2-示例-JSON-解析" class="headerlink" title="2. 示例 JSON 解析"></a>2. 示例 JSON 解析</h3><p>接下来，我们创建一个 ViewModel 来加载和解析这个 JSON 数据。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PoemViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> poems: [<span class="type">Poem</span>] <span class="operator">=</span> []</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>() &#123;</span><br><span class="line">        loadPoems()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">loadPoems</span>() &#123;</span><br><span class="line">        <span class="comment">// 假设你已经有一个 JSON 数据作为字符串或从文件中读取</span></span><br><span class="line">        <span class="keyword">let</span> jsonData <span class="operator">=</span> <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        [</span></span><br><span class="line"><span class="string">            &#123;</span></span><br><span class="line"><span class="string">                &quot;author&quot;: &quot;駱賓王&quot;,</span></span><br><span class="line"><span class="string">                &quot;paragraphs&quot;: [</span></span><br><span class="line"><span class="string">                    &quot;西陸蟬聲唱，南冠客思侵。&quot;,</span></span><br><span class="line"><span class="string">                    &quot;那堪玄鬢影，來對白頭吟。&quot;,</span></span><br><span class="line"><span class="string">                    &quot;露重飛難進，風多響易沈。&quot;,</span></span><br><span class="line"><span class="string">                    &quot;無人信高潔，誰爲表予心。&quot;</span></span><br><span class="line"><span class="string">                ],</span></span><br><span class="line"><span class="string">                &quot;tags&quot;: [</span></span><br><span class="line"><span class="string">                    &quot;唐诗三百首&quot;,</span></span><br><span class="line"><span class="string">                    &quot;咏物&quot;,</span></span><br><span class="line"><span class="string">                    &quot;咏物诗&quot;,</span></span><br><span class="line"><span class="string">                    &quot;五言律诗&quot;</span></span><br><span class="line"><span class="string">                ],</span></span><br><span class="line"><span class="string">                &quot;title&quot;: &quot;在嶽詠蟬&quot;,</span></span><br><span class="line"><span class="string">                &quot;id&quot;: &quot;c65539db-4e2b-4ce4-a22b-563b6ef3f4f1&quot;</span></span><br><span class="line"><span class="string">            &#125;,</span></span><br><span class="line"><span class="string">            &#123;</span></span><br><span class="line"><span class="string">                &quot;author&quot;: &quot;陳子昂&quot;,</span></span><br><span class="line"><span class="string">                &quot;paragraphs&quot;: [</span></span><br><span class="line"><span class="string">                    &quot;前不見古人，後不見來者。&quot;,</span></span><br><span class="line"><span class="string">                    &quot;念天地之悠悠，獨愴然而涕下。&quot;</span></span><br><span class="line"><span class="string">                ],</span></span><br><span class="line"><span class="string">                &quot;tags&quot;: [</span></span><br><span class="line"><span class="string">                    &quot;唐诗三百首&quot;,</span></span><br><span class="line"><span class="string">                    &quot;隋・唐・五代&quot;,</span></span><br><span class="line"><span class="string">                    &quot;八年级下册(课外)&quot;,</span></span><br><span class="line"><span class="string">                    &quot;伤怀&quot;,</span></span><br><span class="line"><span class="string">                    &quot;初中古诗&quot;,</span></span><br><span class="line"><span class="string">                    &quot;七言古诗&quot;</span></span><br><span class="line"><span class="string">                ],</span></span><br><span class="line"><span class="string">                &quot;title&quot;: &quot;登幽州臺歌&quot;,</span></span><br><span class="line"><span class="string">                &quot;id&quot;: &quot;c244a5b4-0ed0-48fe-8694-95309acac184&quot;</span></span><br><span class="line"><span class="string">            &#125;</span></span><br><span class="line"><span class="string">        ]</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span>.data(using: .utf8)<span class="operator">!</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> decoder <span class="operator">=</span> <span class="type">JSONDecoder</span>()</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> decodedPoems <span class="operator">=</span> <span class="keyword">try</span> decoder.decode([<span class="type">Poem</span>].<span class="keyword">self</span>, from: jsonData)</span><br><span class="line">            <span class="keyword">self</span>.poems <span class="operator">=</span> decodedPoems</span><br><span class="line">        &#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;Error decoding JSON: <span class="subst">\(error)</span>&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="3-主界面-PoemListView"><a href="#3-主界面-PoemListView" class="headerlink" title="3. 主界面 (PoemListView)"></a>3. 主界面 (PoemListView)</h3><p>这是展示所有诗词的界面。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">PoemListView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@StateObject</span> <span class="keyword">var</span> viewModel <span class="operator">=</span> <span class="type">PoemViewModel</span>()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">NavigationView</span> &#123;</span><br><span class="line">            <span class="type">List</span>(viewModel.poems) &#123; poem <span class="keyword">in</span></span><br><span class="line">                <span class="type">NavigationLink</span>(destination: <span class="type">PoemDetailView</span>(poem: poem)) &#123;</span><br><span class="line">                    <span class="type">VStack</span>(alignment: .leading) &#123;</span><br><span class="line">                        <span class="type">Text</span>(poem.title)</span><br><span class="line">                            .font(.headline)</span><br><span class="line">                        <span class="type">Text</span>(poem.author)</span><br><span class="line">                            .font(.subheadline)</span><br><span class="line">                            .foregroundColor(.gray)</span><br><span class="line">                        <span class="type">HStack</span> &#123;</span><br><span class="line">                            <span class="type">ForEach</span>(poem.tags, id: \.<span class="keyword">self</span>) &#123; tag <span class="keyword">in</span></span><br><span class="line">                                <span class="type">Text</span>(tag)</span><br><span class="line">                                    .font(.caption)</span><br><span class="line">                                    .padding(<span class="number">4</span>)</span><br><span class="line">                                    .background(<span class="type">Color</span>.gray.opacity(<span class="number">0.2</span>))</span><br><span class="line">                                    .cornerRadius(<span class="number">8</span>)</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            .navigationTitle(<span class="string">&quot;诗词列表&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="4-诗词详情页面-PoemDetailView"><a href="#4-诗词详情页面-PoemDetailView" class="headerlink" title="4. 诗词详情页面 (PoemDetailView)"></a>4. 诗词详情页面 (PoemDetailView)</h3><p>这个页面展示诗词的完整内容。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">PoemDetailView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> poem: <span class="type">Poem</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">ScrollView</span> &#123;</span><br><span class="line">            <span class="type">VStack</span>(alignment: .leading, spacing: <span class="number">20</span>) &#123;</span><br><span class="line">                <span class="type">Text</span>(poem.title)</span><br><span class="line">                    .font(.largeTitle)</span><br><span class="line">                    .fontWeight(.bold)</span><br><span class="line">                </span><br><span class="line">                <span class="type">Text</span>(<span class="string">&quot;作者: <span class="subst">\(poem.author)</span>&quot;</span>)</span><br><span class="line">                    .font(.title3)</span><br><span class="line">                    .foregroundColor(.gray)</span><br><span class="line">                </span><br><span class="line">                <span class="type">VStack</span>(alignment: .leading, spacing: <span class="number">15</span>) &#123;</span><br><span class="line">                    <span class="type">ForEach</span>(poem.paragraphs, id: \.<span class="keyword">self</span>) &#123; paragraph <span class="keyword">in</span></span><br><span class="line">                        <span class="type">Text</span>(paragraph)</span><br><span class="line">                            .font(.body)</span><br><span class="line">                            .padding(.bottom, <span class="number">10</span>)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                <span class="type">VStack</span>(alignment: .leading) &#123;</span><br><span class="line">                    <span class="type">Text</span>(<span class="string">&quot;标签:&quot;</span>)</span><br><span class="line">                        .font(.title2)</span><br><span class="line">                        .fontWeight(.semibold)</span><br><span class="line">                    <span class="type">HStack</span> &#123;</span><br><span class="line">                        <span class="type">ForEach</span>(poem.tags, id: \.<span class="keyword">self</span>) &#123; tag <span class="keyword">in</span></span><br><span class="line">                            <span class="type">Text</span>(tag)</span><br><span class="line">                                .font(.caption)</span><br><span class="line">                                .padding(<span class="number">6</span>)</span><br><span class="line">                                .background(<span class="type">Color</span>.blue.opacity(<span class="number">0.1</span>))</span><br><span class="line">                                .cornerRadius(<span class="number">12</span>)</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                .padding(.top, <span class="number">30</span>)</span><br><span class="line">            &#125;</span><br><span class="line">            .padding()</span><br><span class="line">        &#125;</span><br><span class="line">        .navigationTitle(<span class="string">&quot;诗词详情&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="5-主界面展示"><a href="#5-主界面展示" class="headerlink" title="5. 主界面展示"></a>5. 主界面展示</h3><p>通过 <code>PoemListView</code> 展示所有诗词，并且通过 <code>NavigationLink</code> 来跳转到每首诗的详情页面。</p>
+<h3 id="6-运行效果"><a href="#6-运行效果" class="headerlink" title="6. 运行效果"></a>6. 运行效果</h3><ul>
+<li>在 <code>PoemListView</code> 中，你可以看到所有的诗词标题、作者和标签。</li>
+<li>点击进入每首诗的详情页面，展示诗句内容及标签。</li>
+</ul>
+<h1 id="我的json文件在当前ios项目的JsonData文件夹下，json文件的名字为tangshi300-json"><a href="#我的json文件在当前ios项目的JsonData文件夹下，json文件的名字为tangshi300-json" class="headerlink" title="我的json文件在当前ios项目的JsonData文件夹下，json文件的名字为tangshi300.json"></a>我的json文件在当前ios项目的JsonData文件夹下，json文件的名字为tangshi300.json</h1><p>如果你的 JSON 文件保存在项目的 <code>JsonData</code> 文件夹下，并且文件名为 <code>tangshi300.json</code>，你可以按照下面的方法在 SwiftUI 项目中加载这个文件。</p>
+<h3 id="步骤：加载本地-JSON-文件"><a href="#步骤：加载本地-JSON-文件" class="headerlink" title="步骤：加载本地 JSON 文件"></a>步骤：加载本地 JSON 文件</h3><p>我们将更新 <code>PoemViewModel</code> 中的 <code>loadPoems</code> 方法，使它能够从本地加载 <code>tangshi300.json</code> 文件。</p>
+<h3 id="1-修改-PoemViewModel-来加载本地-JSON-文件"><a href="#1-修改-PoemViewModel-来加载本地-JSON-文件" class="headerlink" title="1. 修改 PoemViewModel 来加载本地 JSON 文件"></a>1. 修改 PoemViewModel 来加载本地 JSON 文件</h3><p>在 <code>PoemViewModel</code> 中，我们会使用 <code>Bundle.main</code> 来加载本地的 JSON 文件。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PoemViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> poems: [<span class="type">Poem</span>] <span class="operator">=</span> []</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>() &#123;</span><br><span class="line">        loadPoems()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">loadPoems</span>() &#123;</span><br><span class="line">        <span class="comment">// 获取本地 JSON 文件的 URL</span></span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> url <span class="operator">=</span> <span class="type">Bundle</span>.main.url(forResource: <span class="string">&quot;tangshi300&quot;</span>, withExtension: <span class="string">&quot;json&quot;</span>, subdirectory: <span class="string">&quot;JsonData&quot;</span>) <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;JSON 文件未找到&quot;</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            <span class="comment">// 读取文件内容</span></span><br><span class="line">            <span class="keyword">let</span> jsonData <span class="operator">=</span> <span class="keyword">try</span> <span class="type">Data</span>(contentsOf: url)</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 使用 JSONDecoder 解析 JSON 数据</span></span><br><span class="line">            <span class="keyword">let</span> decoder <span class="operator">=</span> <span class="type">JSONDecoder</span>()</span><br><span class="line">            <span class="keyword">let</span> decodedPoems <span class="operator">=</span> <span class="keyword">try</span> decoder.decode([<span class="type">Poem</span>].<span class="keyword">self</span>, from: jsonData)</span><br><span class="line">            <span class="keyword">self</span>.poems <span class="operator">=</span> decodedPoems</span><br><span class="line">        &#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;加载或解析 JSON 文件时出错: <span class="subst">\(error)</span>&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-确保-tangshi300-json-被正确添加到-Xcode-项目中"><a href="#2-确保-tangshi300-json-被正确添加到-Xcode-项目中" class="headerlink" title="2. 确保 tangshi300.json 被正确添加到 Xcode 项目中"></a>2. 确保 tangshi300.json 被正确添加到 Xcode 项目中</h3><p>确保 <code>tangshi300.json</code> 文件已经正确地添加到项目中，且在 Xcode 中的设置里勾选了“Copy Bundle Resources”，使它能够被打包进应用。</p>
+<ol>
+<li>在 Xcode 项目中右键点击你的 <code>JsonData</code> 文件夹，选择 <code>Add Files to [Your Project]</code>，并选择 <code>tangshi300.json</code> 文件。</li>
+<li>确保选中了 <code>Copy items if needed</code> 和 <code>Add to targets</code>，然后点击 <code>Add</code>。</li>
+</ol>
+<h3 id="3-更新-Info-plist（如果需要）"><a href="#3-更新-Info-plist（如果需要）" class="headerlink" title="3. 更新 Info.plist（如果需要）"></a>3. 更新 Info.plist（如果需要）</h3><p>通常情况下，直接将文件添加到项目中并不会需要修改 <code>Info.plist</code>，但是如果你遇到任何文件读取问题，可以检查 <code>Info.plist</code> 中的路径配置，确保文件在正确的位置。</p>
+<h3 id="4-运行和测试"><a href="#4-运行和测试" class="headerlink" title="4. 运行和测试"></a>4. 运行和测试</h3><p>完成这些修改后，当你运行应用时，<code>PoemViewModel</code> 会从项目的 <code>JsonData</code> 文件夹加载并解析 <code>tangshi300.json</code> 文件中的数据，并通过 SwiftUI 界面展示出来。</p>
+<h1 id="将PoemListView-放进我的tabview"><a href="#将PoemListView-放进我的tabview" class="headerlink" title="将PoemListView() 放进我的tabview"></a>将PoemListView() 放进我的tabview</h1><p>将 <code>PoemListView</code> 放进 <code>TabView</code> 里非常简单。你只需要将 <code>TabView</code> 作为根视图，并将 <code>PoemListView</code> 作为其中的一个 tab 来展示。</p>
+<h3 id="1-修改主界面-TabView"><a href="#1-修改主界面-TabView" class="headerlink" title="1. 修改主界面 (TabView)"></a>1. 修改主界面 (TabView)</h3><p>你可以在主界面中使用 <code>TabView</code> 来组织多个视图。每个标签页面可以展示不同的视图（比如 <code>PoemListView</code>，其他内容视图等）。</p>
+<p>下面是如何将 <code>PoemListView</code> 放进 <code>TabView</code> 的示例：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">TabView</span> &#123;</span><br><span class="line">            <span class="comment">// 第一标签页：诗词列表</span></span><br><span class="line">            <span class="type">PoemListView</span>()</span><br><span class="line">                .tabItem &#123;</span><br><span class="line">                    <span class="type">Label</span>(<span class="string">&quot;诗词&quot;</span>, systemImage: <span class="string">&quot;book.fill&quot;</span>)</span><br><span class="line">                &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 你可以添加其他标签页面</span></span><br><span class="line">            <span class="type">Text</span>(<span class="string">&quot;其他页面&quot;</span>)</span><br><span class="line">                .tabItem &#123;</span><br><span class="line">                    <span class="type">Label</span>(<span class="string">&quot;其他&quot;</span>, systemImage: <span class="string">&quot;star.fill&quot;</span>)</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        .accentColor(.blue) <span class="comment">// 可以自定义选中标签的颜色</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-PoemListView"><a href="#2-PoemListView" class="headerlink" title="2. PoemListView"></a>2. PoemListView</h3><p>这个视图已经是我们之前构建的 <code>PoemListView</code>，不需要做修改。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">PoemListView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@StateObject</span> <span class="keyword">var</span> viewModel <span class="operator">=</span> <span class="type">PoemViewModel</span>()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">NavigationView</span> &#123;</span><br><span class="line">            <span class="type">List</span>(viewModel.poems) &#123; poem <span class="keyword">in</span></span><br><span class="line">                <span class="type">NavigationLink</span>(destination: <span class="type">PoemDetailView</span>(poem: poem)) &#123;</span><br><span class="line">                    <span class="type">VStack</span>(alignment: .leading) &#123;</span><br><span class="line">                        <span class="type">Text</span>(poem.title)</span><br><span class="line">                            .font(.headline)</span><br><span class="line">                        <span class="type">Text</span>(poem.author)</span><br><span class="line">                            .font(.subheadline)</span><br><span class="line">                            .foregroundColor(.gray)</span><br><span class="line">                        <span class="type">HStack</span> &#123;</span><br><span class="line">                            <span class="type">ForEach</span>(poem.tags, id: \.<span class="keyword">self</span>) &#123; tag <span class="keyword">in</span></span><br><span class="line">                                <span class="type">Text</span>(tag)</span><br><span class="line">                                    .font(.caption)</span><br><span class="line">                                    .padding(<span class="number">4</span>)</span><br><span class="line">                                    .background(<span class="type">Color</span>.gray.opacity(<span class="number">0.2</span>))</span><br><span class="line">                                    .cornerRadius(<span class="number">8</span>)</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            .navigationTitle(<span class="string">&quot;诗词列表&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="3-运行效果"><a href="#3-运行效果" class="headerlink" title="3. 运行效果"></a>3. 运行效果</h3><p>现在，<code>PoemListView</code> 已经是 <code>TabView</code> 的其中一个标签页了。你可以通过点击标签来切换不同的视图。</p>
+<ul>
+<li>你可以添加更多的标签视图，只需继续在 <code>TabView</code> 中添加 <code>tabItem</code> 即可。</li>
+<li>通过 <code>.tabItem</code> 设置每个标签的名称和图标（例如使用 SF Symbols 图标）。</li>
+</ul>
+<h3 id="4-自定义-TabBar-样式"><a href="#4-自定义-TabBar-样式" class="headerlink" title="4. 自定义 TabBar 样式"></a>4. 自定义 TabBar 样式</h3><p>如果你想自定义 TabBar 的样式或颜色，你可以使用 <code>.accentColor()</code> 来修改选中的标签颜色。</p>
+<p>例如：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">TabView</span> &#123;</span><br><span class="line">    <span class="type">PoemListView</span>()</span><br><span class="line">        .tabItem &#123;</span><br><span class="line">            <span class="type">Label</span>(<span class="string">&quot;诗词&quot;</span>, systemImage: <span class="string">&quot;book.fill&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="type">Text</span>(<span class="string">&quot;其他页面&quot;</span>)</span><br><span class="line">        .tabItem &#123;</span><br><span class="line">            <span class="type">Label</span>(<span class="string">&quot;其他&quot;</span>, systemImage: <span class="string">&quot;star.fill&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">.accentColor(.blue)  <span class="comment">// 设置选中标签的颜色</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>使用 <code>TabView</code> 包裹你的视图，每个标签页通过 <code>tabItem</code> 设置。</li>
+<li><code>PoemListView</code> 放入 <code>TabView</code> 后会成为一个标签页，你可以轻松切换视图。</li>
+</ul>
+<p>这样，你就可以将 <code>PoemListView</code> 和其他视图放在同一个 TabBar 中，用户可以切换不同的功能页面。如果有更多自定义需求或问题，随时告诉我！</p>
+<h1 id="Add-file-to-xcode-project-的作用"><a href="#Add-file-to-xcode-project-的作用" class="headerlink" title="Add file to xcode project 的作用"></a>Add file to xcode project 的作用</h1><p>在 Xcode 中，<code>Add Files to Xcode Project</code> 是一个常见的操作，它允许你将外部文件（如图像、JSON 文件、代码文件、资源文件等）添加到 Xcode 项目中。这个操作的主要作用和意义包括：</p>
+<h3 id="1-将文件添加到项目中"><a href="#1-将文件添加到项目中" class="headerlink" title="1. 将文件添加到项目中"></a>1. <strong>将文件添加到项目中</strong></h3><p><code>Add Files to Xcode Project</code> 使得你能够将文件添加到 Xcode 项目中，从而使这些文件可以被 Xcode 识别和管理。例如，你可以将 JSON 文件、图像、音频文件、源代码文件、配置文件等添加到项目中。</p>
+<p><strong>作用</strong>：</p>
+<ul>
+<li>文件将被纳入项目管理系统，Xcode 会帮助你跟踪这些文件。</li>
+<li>你可以使用这些文件作为项目的资源、数据文件或代码文件。</li>
+</ul>
+<h3 id="2-控制文件是否复制到项目目录"><a href="#2-控制文件是否复制到项目目录" class="headerlink" title="2. 控制文件是否复制到项目目录"></a>2. <strong>控制文件是否复制到项目目录</strong></h3><p>当你通过 <code>Add Files to Xcode Project</code> 添加文件时，Xcode 会询问你是否需要将这些文件复制到项目目录（本地磁盘）。你可以根据需求选择是否复制文件：</p>
+<ul>
+<li><strong>Copy items if needed</strong>：勾选此选项时，Xcode 会将你添加的文件复制到项目的文件夹中（例如项目的资源文件夹）。即使原文件保存在其他地方，Xcode 会将它们复制过来，并作为项目的一部分来管理。</li>
+<li><strong>Do not copy items</strong>：如果不勾选该选项，Xcode 会添加文件的引用而不会复制文件到项目目录中。换句话说，文件仍然保留在其原始位置，Xcode 只会在项目中引用该文件。</li>
+</ul>
+<p><strong>选择的含义</strong>：</p>
+<ul>
+<li>如果你选择 <code>Copy items if needed</code>，文件将成为项目的一部分，之后即使原始文件发生变化，Xcode 也会使用复制的文件。</li>
+<li>如果你选择 <code>Do not copy items</code>，你只能在原始位置使用文件。如果原文件被移动、删除或修改，Xcode 将无法找到它。</li>
+</ul>
+<h3 id="3-选择是否添加到目标"><a href="#3-选择是否添加到目标" class="headerlink" title="3. 选择是否添加到目标"></a>3. <strong>选择是否添加到目标</strong></h3><p>Xcode 会让你选择将这些文件添加到一个或多个目标（Target）中。目标是你想要构建和部署的内容（例如应用、扩展、测试目标等）。</p>
+<p><strong>作用</strong>：</p>
+<ul>
+<li>如果你选择将文件添加到目标中，那么这些文件将被包括在构建过程里。你可以将不同的资源文件或代码文件关联到不同的目标中。</li>
+<li>例如，你可能有多个目标（比如 <code>iOS App</code> 和 <code>WatchOS App</code>），你可以将文件分别添加到适当的目标中，确保它们在适当的平台上可用。</li>
+</ul>
+<h3 id="4-设置文件的访问控制"><a href="#4-设置文件的访问控制" class="headerlink" title="4. 设置文件的访问控制"></a>4. <strong>设置文件的访问控制</strong></h3><p>当你添加文件时，Xcode 会为每个文件设置权限。你可以控制文件是公开的（可以在整个项目中访问）还是私有的（仅在某些部分访问）。</p>
+<h3 id="5-添加文件并确保它们能被正确打包"><a href="#5-添加文件并确保它们能被正确打包" class="headerlink" title="5. 添加文件并确保它们能被正确打包"></a>5. <strong>添加文件并确保它们能被正确打包</strong></h3><p>通过 <code>Add Files to Xcode Project</code> 添加的资源文件（如图片、JSON 文件、音频文件等）会被正确地添加到项目的 <code>Build Phases</code> 中。例如，如果你添加了一个 JSON 文件，它会被自动添加到项目的 <code>Copy Bundle Resources</code> 阶段，确保文件在应用运行时可以正确访问。</p>
+<h3 id="6-管理文件版本"><a href="#6-管理文件版本" class="headerlink" title="6. 管理文件版本"></a>6. <strong>管理文件版本</strong></h3><p>如果项目使用了版本控制（例如 Git），将文件添加到 Xcode 项目中会使得这些文件成为 Git 版本控制的一部分。你可以通过 Git 跟踪和管理文件的修改。</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p><code>Add Files to Xcode Project</code> 的作用就是将文件（如资源文件、数据文件、源代码文件等）添加到 Xcode 项目中，使得它们能够被 Xcode 管理、编译、打包，并且可以在应用程序中使用。你可以选择是否将文件复制到项目目录、是否添加到特定目标、以及是否将其纳入版本控制。</p>
+<h1 id="用户问题"><a href="#用户问题" class="headerlink" title="用户问题"></a>用户问题</h1><p>我的jsondata在项目的根目录下</p>
+<h1 id="ChatGPT"><a href="#ChatGPT" class="headerlink" title="ChatGPT"></a>ChatGPT</h1><p>好的，既然你的 <code>jsondata</code> 文件夹位于项目的根目录下，加载这个 JSON 文件的方式会更简单。你可以直接通过指定 <code>subdirectory</code> 来访问根目录下的 <code>jsondata</code> 文件夹。</p>
+<p>假设项目结构如下：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">MyProject</span><br><span class="line">│</span><br><span class="line">├── JsonData</span><br><span class="line">│   └── tangshi300.json</span><br><span class="line">│</span><br><span class="line">└── PoemViewModel</span><br><span class="line"><span class="code">    └── PoemViewModel.swift</span></span><br></pre></td></tr></table></figure>
+
+
+<p>在这种结构下，你可以使用以下方法来加载 JSON 文件。</p>
+<h3 id="1-修改-PoemViewModel-swift-中的-loadPoems-方法"><a href="#1-修改-PoemViewModel-swift-中的-loadPoems-方法" class="headerlink" title="1. 修改 PoemViewModel.swift 中的 loadPoems 方法"></a>1. 修改 PoemViewModel.swift 中的 loadPoems 方法</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PoemViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> poems: [<span class="type">Poem</span>] <span class="operator">=</span> []</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>() &#123;</span><br><span class="line">        loadPoems()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">loadPoems</span>() &#123;</span><br><span class="line">        <span class="comment">// 获取 JSON 文件的 URL，文件位于项目根目录的 jsondata 文件夹</span></span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> url <span class="operator">=</span> <span class="type">Bundle</span>.main.url(forResource: <span class="string">&quot;tangshi300&quot;</span>, withExtension: <span class="string">&quot;json&quot;</span>, subdirectory: <span class="string">&quot;JsonData&quot;</span>) <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;JSON 文件未找到&quot;</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            <span class="comment">// 读取 JSON 文件数据</span></span><br><span class="line">            <span class="keyword">let</span> jsonData <span class="operator">=</span> <span class="keyword">try</span> <span class="type">Data</span>(contentsOf: url)</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 使用 JSONDecoder 解码 JSON 数据</span></span><br><span class="line">            <span class="keyword">let</span> decoder <span class="operator">=</span> <span class="type">JSONDecoder</span>()</span><br><span class="line">            <span class="keyword">let</span> decodedPoems <span class="operator">=</span> <span class="keyword">try</span> decoder.decode([<span class="type">Poem</span>].<span class="keyword">self</span>, from: jsonData)</span><br><span class="line">            <span class="keyword">self</span>.poems <span class="operator">=</span> decodedPoems</span><br><span class="line">        &#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;加载或解析 JSON 文件时出错: <span class="subst">\(error)</span>&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-文件路径解释"><a href="#2-文件路径解释" class="headerlink" title="2. 文件路径解释"></a>2. 文件路径解释</h3><ul>
+<li><code>Bundle.main.url(forResource: &quot;tangshi300&quot;, withExtension: &quot;json&quot;, subdirectory: &quot;JsonData&quot;)</code></li>
+</ul>
+<p><code>subdirectory: &quot;JsonData&quot;</code>：指定根目录下的 <code>JsonData</code> 文件夹作为 <code>subdirectory</code>，告诉 <code>Bundle</code> 去 <code>JsonData</code> 文件夹中查找 <code>tangshi300.json</code> 文件。</p>
+<h3 id="3-确保-JSON-文件被正确添加到-Xcode-项目中"><a href="#3-确保-JSON-文件被正确添加到-Xcode-项目中" class="headerlink" title="3. 确保 JSON 文件被正确添加到 Xcode 项目中"></a>3. 确保 JSON 文件被正确添加到 Xcode 项目中</h3><p>请确保你的 <code>JsonData</code> 文件夹中的 <code>tangshi300.json</code> 文件已经被正确添加到 Xcode 项目，并且文件的 <code>Target Membership</code> 已经勾选为该应用的目标。</p>
+<ul>
+<li>在 Xcode 中，右键点击 <code>JsonData</code> 文件夹，选择 <code>Add Files to [Your Project]</code>。</li>
+<li>在弹出的对话框中，确保勾选了 <code>Copy items if needed</code> 和 <code>Add to targets</code>，然后点击 <code>Add</code>。</li>
+</ul>
+<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h3><p>通过 <code>subdirectory: &quot;JsonData&quot;</code>，你可以轻松访问根目录下的 <code>JsonData</code> 文件夹，并加载其中的 <code>tangshi300.json</code> 文件。如果有其他问题，随时告诉我！</p>
+<h1 id="用户问题-1"><a href="#用户问题-1" class="headerlink" title="用户问题"></a>用户问题</h1><p>JSON 文件未找到</p>
+<h1 id="ChatGPT-1"><a href="#ChatGPT-1" class="headerlink" title="ChatGPT"></a>ChatGPT</h1><p>如果你遇到 <code>&quot;JSON 文件未找到&quot;</code> 错误，可能是路径或者文件没有正确添加到项目中。我们可以一步步检查和解决问题：</p>
+<h3 id="1-检查文件路径"><a href="#1-检查文件路径" class="headerlink" title="1. 检查文件路径"></a>1. <strong>检查文件路径</strong></h3><p>确保 JSON 文件的路径是正确的。由于你已经确认文件在项目的根目录下的 <code>JsonData</code> 文件夹中，我们可以确认一下路径是否正确。</p>
+<ul>
+<li>确保 <code>tangshi300.json</code> 文件确实存在于 <code>JsonData</code> 文件夹中，并且 <code>JsonData</code> 文件夹在 Xcode 项目的根目录下。</li>
+<li><code>subdirectory: &quot;JsonData&quot;</code> 应该指向根目录中的文件夹，而不是项目内其他位置。</li>
+</ul>
+<h3 id="2-检查文件是否正确添加到-Xcode-项目中"><a href="#2-检查文件是否正确添加到-Xcode-项目中" class="headerlink" title="2. 检查文件是否正确添加到 Xcode 项目中"></a>2. <strong>检查文件是否正确添加到 Xcode 项目中</strong></h3><p>确保你的 <code>JsonData</code> 文件夹和文件已正确添加到 Xcode 中，并且已经设置为包含在构建中：</p>
+<ul>
+<li>在 Xcode 中右键点击 <code>JsonData</code> 文件夹，选择 **Add Files to [Your Project]**。</li>
+<li>在弹出的对话框中，确保：</li>
+</ul>
+<p>勾选了 <strong>Copy items if needed</strong>（如果你希望将文件复制到项目文件夹中）。</p>
+<p>勾选了 <strong>Add to targets</strong>，并确保选择了你的应用目标。</p>
+<ul>
+<li>这样可以确保文件会被正确包含在项目的构建过程中。</li>
+</ul>
+<h3 id="3-尝试直接访问文件路径"><a href="#3-尝试直接访问文件路径" class="headerlink" title="3. 尝试直接访问文件路径"></a>3. <strong>尝试直接访问文件路径</strong></h3><p>如果上述方法仍然无法找到文件，可以尝试手动检查文件路径。你可以在项目中使用文件的绝对路径来测试是否可以访问文件。</p>
+<h1 id="重构"><a href="#重构" class="headerlink" title="重构"></a>重构</h1><p>我还有唐诗，宋词等也有类似前端需求，但是数据结构稍微不一样，如何复用现在的代码。</p>
+<p>你可以将其他类似的数据结构示例发给我，我会帮助你如何复用当前的代码以支持不同数据结构的情况。针对你提到的唐诗、宋词等内容，数据结构虽然不完全相同，但可以通过适当的抽象和处理来实现代码复用。</p>
+<p>我们可以通过以下几种方式来优化和复用当前的代码：</p>
+<h3 id="1-使用通用模型"><a href="#1-使用通用模型" class="headerlink" title="1. 使用通用模型"></a>1. <strong>使用通用模型</strong></h3><p>你可以创建一个通用的数据模型来处理所有诗词和词曲类型的数据，然后通过条件判断或者配置来决定显示的内容和结构。具体来说，可以创建一个基类或者协议，所有诗词类型都遵循该协议。</p>
+<h3 id="2-解析不同格式的-JSON"><a href="#2-解析不同格式的-JSON" class="headerlink" title="2. 解析不同格式的 JSON"></a>2. <strong>解析不同格式的 JSON</strong></h3><p>在解析 JSON 时，基于不同的数据结构，可以通过配置不同的 <code>Decodable</code> 模型来支持不同格式的 JSON。根据 JSON 文件的结构差异，只需要在 <code>PoemViewModel</code> 中增加逻辑来判断并加载适当的模型。</p>
+<h3 id="3-根据数据类型选择展示方式"><a href="#3-根据数据类型选择展示方式" class="headerlink" title="3. 根据数据类型选择展示方式"></a>3. <strong>根据数据类型选择展示方式</strong></h3><p>通过简单的条件判断，根据不同的数据类型（如唐诗、宋词等）来展示不同的布局或视图。</p>
+<h1 id="其他类型数据示例"><a href="#其他类型数据示例" class="headerlink" title="其他类型数据示例"></a>其他类型数据示例</h1><p>[<br>    {<br>        “chapter”: “学而篇”,<br>        “paragraphs”: [<br>            “子曰：“学而时习之，不亦说乎？有朋自远方来，不亦乐乎？人不知而不愠，不亦君子乎？””,<br>            “有子曰：“其为人也孝弟，而好犯上者，鲜矣；不好犯上而好作乱者，未之有也。君子务本，本立而道生。孝弟也者，其为仁之本与！””,<br>            “子曰：“巧言令色，鲜矣仁！””,<br>            “曾子曰：“吾日三省吾身：为人谋而不忠乎？与朋友交而不信乎？传不习乎？””,<br>            “子曰：“道千乘之国，敬事而信，节用而爱人，使民以时。””,<br>            “子曰：“弟子入则孝，出则弟，谨而信，泛爱众，而亲仁，行有余力，则以学文。””,<br>            “子夏曰：“贤贤易色；事父母，能竭其力；事君，能致其身；与朋友交，言而有信。虽曰未学，吾必谓之学矣。””,<br>            “子曰：“君子不重则不威，学则不固。主忠信，无友不如己者，过，则勿惮改。””,<br>            “曾子曰：“慎终追远，民德归厚矣。””,<br>            “子禽问于子贡曰：“夫子至于是邦也，必闻其政，求之与，抑与之与？”子贡曰：“夫子温、良、恭、俭、让以得之。夫子之求之也，其诸异乎人之求之与？””,<br>            “子曰：“父在，观其志；父没，观其行；三年无改于父之道，可谓孝矣。””,<br>            “有子曰：“礼之用，和为贵。先王之道，斯为美，小大由之。有所不行，知和而和，不以礼节之，亦不可行也。””,<br>            “有子曰：“信近于义，言可复也。恭近于礼，远耻辱也。因不失其亲，亦可宗也。””,<br>            “子曰：“君子食无求饱，居无求安，敏于事而慎于言，就有道而正焉。可谓好学也已。””,<br>            “子贡曰：“贫而无谄，富而无骄，何如？”子曰：“可也。未若贫而乐，富而好礼者也。”子贡曰：“《诗》云：‘如切如磋，如琢如磨’，其斯之谓与？”子曰：“赐也，始可与言《诗》已矣，告诸往而知来者。””,<br>            “子曰：“不患人之不己知，患不知人也。””<br>        ]<br>    },<br>    {<br>        “chapter”: “为政篇”,<br>        “paragraphs”: [<br>            “子曰：“为政以德，譬如北辰，居其所而众星共之。””,<br>            “子曰：“《诗》三百，一言以蔽之，曰：‘思无邪’。””,<br>            “子曰：“道之以政，齐之以刑，民免而无耻。道之以德，齐之以礼，有耻且格。””,<br>            “子曰：“吾十有五而志于学，三十而立，四十而不惑，五十而知天命，六十而耳顺，七十而从心所欲，不逾矩。””,<br>            “孟懿子问孝，子曰：“无违。”樊迟御，子告之曰：“孟孙问孝于我，我对曰‘无违’。”樊迟曰：“何谓也？”子曰：“生，事之以礼；死，葬之以礼，祭之以礼。””,<br>            “孟武伯问孝。子曰：“父母唯其疾之忧。””,<br>            “子游问孝。子曰：“今之孝者，是谓能养。至于犬马皆能有养；不敬，何以别乎？””,<br>            “子夏问孝。子曰：“色难。有事，弟子服其劳；有酒食，先生馔，曾是以为孝乎？””,<br>            “子曰：“吾与回言终日，不违，如愚。退而省其私，亦足以发，回也不愚。””,<br>            “子曰：“视其所以，观其所由，察其所安，人焉廋哉？人焉廋哉？””,<br>            “子曰：“温故而知新，可以为师矣。””,<br>            “子曰：“君子不器。””,<br>            “子贡问君子。子曰：“先行其言而后从之。””,<br>            “子曰：“君子周而不比，小人比而不周。””,<br>            “子曰：“学而不思则罔，思而不学则殆。””,<br>            “子曰：“攻乎异端，斯害也已！””,<br>            “子曰：“由，诲汝知之乎！知之为知之，不知为不知，是知也。””,<br>            “子张学干禄。子曰：“多闻阙疑，慎言其余，则寡尤；多见阙殆，慎行其余，则寡悔。言寡尤，行寡悔，禄在其中矣。””,<br>            “哀公问曰：“何为则民服？”孔子对曰：“举直错诸枉，则民服；举枉错诸直，则民不服。””,<br>            “季康子问：“使民敬、忠以劝，如之何？”子曰：“临之以庄，则敬；孝慈，则忠；举善而教不能，则劝。””,<br>            “或谓孔子曰：“子奚不为政？”子曰：“《书》云：‘孝乎惟孝，友于兄弟，施于有政。’是亦为政，奚其为为政？””,<br>            “子曰：“人而无信，不知其可也。大车无輗，小车无軏，其何以行之哉？””,<br>            “子张问：“十世可知也？”子曰：“殷因于夏礼，所损益，可知也；周因于殷礼，所损益，可知也。其或继周者，虽百世，可知也。””,<br>            “子曰：“非其鬼而祭之，谄也；见义不为，无勇也。””<br>        ]<br>    },</p>
+<p>为了复用现有的代码，并支持不同的数据结构（如唐诗、宋词和《论语》），我们可以进行一些抽象和灵活的设计。下面我会提供一个通用的解决方案，帮助你复用现有代码来支持不同的数据结构。</p>
+<h3 id="1-创建通用的数据模型"><a href="#1-创建通用的数据模型" class="headerlink" title="1. 创建通用的数据模型"></a>1. <strong>创建通用的数据模型</strong></h3><p>我们可以定义一个通用的 <code>Content</code> 协议或基类，然后通过不同的结构体来表示唐诗、宋词和《论语》等内容。</p>
+<h4 id="示例代码："><a href="#示例代码：" class="headerlink" title="示例代码："></a>示例代码：</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通用的内容协议，所有的诗、词、论语都遵循这个协议</span></span><br><span class="line"><span class="keyword">protocol</span> <span class="title class_">Content</span>: <span class="title class_">Decodable</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> title: <span class="type">String</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">    <span class="keyword">var</span> paragraphs: [<span class="type">String</span>] &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 唐诗的数据结构</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Poem</span>: <span class="title class_">Content</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> title: <span class="type">String</span></span><br><span class="line">    <span class="keyword">var</span> paragraphs: [<span class="type">String</span>]</span><br><span class="line">    <span class="keyword">var</span> author: <span class="type">String</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 《论语》章节的数据结构</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Chapter</span>: <span class="title class_">Content</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> title: <span class="type">String</span></span><br><span class="line">    <span class="keyword">var</span> paragraphs: [<span class="type">String</span>]</span><br><span class="line">    <span class="keyword">var</span> chapter: <span class="type">String</span>  <span class="comment">// 对应的章节名</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 宋词的数据结构（假设有类似结构）</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">SongCi</span>: <span class="title class_">Content</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> title: <span class="type">String</span></span><br><span class="line">    <span class="keyword">var</span> paragraphs: [<span class="type">String</span>]</span><br><span class="line">    <span class="keyword">var</span> author: <span class="type">String</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 示例：加载和解码 JSON 数据</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ContentViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">    <span class="meta">@Published</span> <span class="keyword">var</span> contents: [<span class="type">Content</span>] <span class="operator">=</span> []</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">loadContent</span>(<span class="params">fromFile</span> <span class="params">fileName</span>: <span class="type">String</span>, <span class="params">ofType</span> <span class="params">type</span>: <span class="type">String</span>, <span class="params">inFolder</span> <span class="params">folderName</span>: <span class="type">String</span>) &#123;</span><br><span class="line">        <span class="comment">// 获取 JSON 文件的 URL</span></span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> url <span class="operator">=</span> <span class="type">Bundle</span>.main.url(forResource: fileName, withExtension: type, subdirectory: folderName) <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;文件未找到&quot;</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            <span class="comment">// 读取 JSON 文件数据</span></span><br><span class="line">            <span class="keyword">let</span> jsonData <span class="operator">=</span> <span class="keyword">try</span> <span class="type">Data</span>(contentsOf: url)</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 使用 JSONDecoder 解码 JSON 数据</span></span><br><span class="line">            <span class="keyword">let</span> decoder <span class="operator">=</span> <span class="type">JSONDecoder</span>()</span><br><span class="line">            <span class="keyword">let</span> decodedContent <span class="operator">=</span> <span class="keyword">try</span> decoder.decode([<span class="type">Content</span>].<span class="keyword">self</span>, from: jsonData)</span><br><span class="line">            <span class="keyword">self</span>.contents <span class="operator">=</span> decodedContent</span><br><span class="line">        &#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;加载或解析 JSON 文件时出错: <span class="subst">\(error)</span>&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-灵活支持不同数据结构"><a href="#2-灵活支持不同数据结构" class="headerlink" title="2. 灵活支持不同数据结构"></a>2. <strong>灵活支持不同数据结构</strong></h3><p>通过定义通用的协议 <code>Content</code>，你可以让不同类型的数据（如唐诗、宋词、论语等）实现该协议，从而使得它们具有一致的结构（如 <code>title</code> 和 <code>paragraphs</code>）。</p>
+<ul>
+<li><code>Poem</code> 结构体表示唐诗，包含标题、段落和作者。</li>
+<li><code>Chapter</code> 结构体表示《论语》中的章节，包含章节标题和段落。</li>
+<li><code>SongCi</code> 结构体表示宋词，结构类似，但也可以包含其他字段。</li>
+</ul>
+<h3 id="3-加载不同类型的数据"><a href="#3-加载不同类型的数据" class="headerlink" title="3. 加载不同类型的数据"></a>3. <strong>加载不同类型的数据</strong></h3><p>你可以通过修改 <code>ContentViewModel</code> 中的 <code>loadContent</code> 方法来加载不同类型的 JSON 数据。这个方法现在可以加载唐诗、宋词或者《论语》，只需要改变文件名和路径即可。</p>
+<p>例如，你可以在调用时指定不同的数据文件：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> viewModel <span class="operator">=</span> <span class="type">ContentViewModel</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加载唐诗</span></span><br><span class="line">viewModel.loadContent(fromFile: <span class="string">&quot;tangshi300&quot;</span>, ofType: <span class="string">&quot;json&quot;</span>, inFolder: <span class="string">&quot;JsonData&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加载《论语》数据</span></span><br><span class="line">viewModel.loadContent(fromFile: <span class="string">&quot;lunyu&quot;</span>, ofType: <span class="string">&quot;json&quot;</span>, inFolder: <span class="string">&quot;JsonData&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="4-视图展示不同类型的内容"><a href="#4-视图展示不同类型的内容" class="headerlink" title="4. 视图展示不同类型的内容"></a>4. <strong>视图展示不同类型的内容</strong></h3><p>接下来，你可以根据不同的 <code>Content</code> 类型来渲染视图。你可以在视图中使用 <code>ForEach</code> 来展示内容，并根据内容类型自适应显示。例如，展示章节标题、作者或内容的不同方式。</p>
+<h4 id="示例代码：-1"><a href="#示例代码：-1" class="headerlink" title="示例代码："></a>示例代码：</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@StateObject</span> <span class="keyword">var</span> viewModel <span class="operator">=</span> <span class="type">ContentViewModel</span>()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">NavigationView</span> &#123;</span><br><span class="line">            <span class="type">List</span>(viewModel.contents, id: \.title) &#123; content <span class="keyword">in</span></span><br><span class="line">                <span class="type">VStack</span>(alignment: .leading) &#123;</span><br><span class="line">                    <span class="type">Text</span>(content.title)</span><br><span class="line">                        .font(.headline)</span><br><span class="line">                    </span><br><span class="line">                    <span class="type">ForEach</span>(content.paragraphs, id: \.<span class="keyword">self</span>) &#123; paragraph <span class="keyword">in</span></span><br><span class="line">                        <span class="type">Text</span>(paragraph)</span><br><span class="line">                            .font(.body)</span><br><span class="line">                            .padding(.bottom, <span class="number">2</span>)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            .onAppear &#123;</span><br><span class="line">                viewModel.loadContent(fromFile: <span class="string">&quot;lunyu&quot;</span>, ofType: <span class="string">&quot;json&quot;</span>, inFolder: <span class="string">&quot;JsonData&quot;</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="5-根据不同内容的需求调整视图"><a href="#5-根据不同内容的需求调整视图" class="headerlink" title="5. 根据不同内容的需求调整视图"></a>5. <strong>根据不同内容的需求调整视图</strong></h3><p>对于不同类型的数据（例如，唐诗需要显示作者，论语需要显示章节），你可以在视图中做额外的处理：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentDetailView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> content: <span class="type">Content</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">VStack</span> &#123;</span><br><span class="line">            <span class="type">Text</span>(content.title)</span><br><span class="line">                .font(.title)</span><br><span class="line">                .padding()</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">let</span> poem <span class="operator">=</span> content <span class="keyword">as?</span> <span class="type">Poem</span> &#123;</span><br><span class="line">                <span class="type">Text</span>(<span class="string">&quot;作者: <span class="subst">\(poem.author)</span>&quot;</span>)</span><br><span class="line">                    .font(.subheadline)</span><br><span class="line">                    .padding(.bottom)</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="type">ForEach</span>(content.paragraphs, id: \.<span class="keyword">self</span>) &#123; paragraph <span class="keyword">in</span></span><br><span class="line">                <span class="type">Text</span>(paragraph)</span><br><span class="line">                    .font(.body)</span><br><span class="line">                    .padding(.bottom, <span class="number">5</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h3><p>通过上述方式，我们创建了一个灵活的结构来处理不同类型的内容数据（如唐诗、宋词、论语等）。使用通用的 <code>Content</code> 协议和对应的具体数据结构，可以确保复用性和扩展性。你可以轻松地为每种数据类型创建合适的模型和视图，并根据不同的数据来调整内容展示。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/swift%E7%BC%96%E7%A8%8B/" rel="tag"># swift编程</a>
+              <a href="/tags/%E9%87%8D%E6%9E%84/" rel="tag"># 重构</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/03/28/ios%E9%A1%B9%E7%9B%AE%E6%B7%BB%E5%8A%A0-gitignore%E6%96%87%E4%BB%B6/" rel="prev" title="ios项目添加.gitignore文件">
+      <i class="fa fa-chevron-left"></i> ios项目添加.gitignore文件
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2025/03/29/swiftui%E4%B8%AD%E7%9A%84lazyVGrid%E7%94%A8%E6%B3%95/" rel="next" title="swiftui中的lazyVGrid用法">
+      swiftui中的lazyVGrid用法 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#json%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%A4%BA%E4%BE%8B"><span class="nav-text">json数据结构示例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SwiftUI-%E6%9E%84%E5%BB%BA%E8%BF%99%E4%B8%AA%E5%BA%94%E7%94%A8%E7%9A%84%E4%B8%80%E4%B8%AA%E5%9F%BA%E6%9C%AC%E7%A4%BA%E4%BE%8B%EF%BC%9A"><span class="nav-text">SwiftUI 构建这个应用的一个基本示例：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="nav-text">1. 数据模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E7%A4%BA%E4%BE%8B-JSON-%E8%A7%A3%E6%9E%90"><span class="nav-text">2. 示例 JSON 解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E4%B8%BB%E7%95%8C%E9%9D%A2-PoemListView"><span class="nav-text">3. 主界面 (PoemListView)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E8%AF%97%E8%AF%8D%E8%AF%A6%E6%83%85%E9%A1%B5%E9%9D%A2-PoemDetailView"><span class="nav-text">4. 诗词详情页面 (PoemDetailView)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E4%B8%BB%E7%95%8C%E9%9D%A2%E5%B1%95%E7%A4%BA"><span class="nav-text">5. 主界面展示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E8%BF%90%E8%A1%8C%E6%95%88%E6%9E%9C"><span class="nav-text">6. 运行效果</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%88%91%E7%9A%84json%E6%96%87%E4%BB%B6%E5%9C%A8%E5%BD%93%E5%89%8Dios%E9%A1%B9%E7%9B%AE%E7%9A%84JsonData%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%EF%BC%8Cjson%E6%96%87%E4%BB%B6%E7%9A%84%E5%90%8D%E5%AD%97%E4%B8%BAtangshi300-json"><span class="nav-text">我的json文件在当前ios项目的JsonData文件夹下，json文件的名字为tangshi300.json</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%EF%BC%9A%E5%8A%A0%E8%BD%BD%E6%9C%AC%E5%9C%B0-JSON-%E6%96%87%E4%BB%B6"><span class="nav-text">步骤：加载本地 JSON 文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%BF%AE%E6%94%B9-PoemViewModel-%E6%9D%A5%E5%8A%A0%E8%BD%BD%E6%9C%AC%E5%9C%B0-JSON-%E6%96%87%E4%BB%B6"><span class="nav-text">1. 修改 PoemViewModel 来加载本地 JSON 文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E7%A1%AE%E4%BF%9D-tangshi300-json-%E8%A2%AB%E6%AD%A3%E7%A1%AE%E6%B7%BB%E5%8A%A0%E5%88%B0-Xcode-%E9%A1%B9%E7%9B%AE%E4%B8%AD"><span class="nav-text">2. 确保 tangshi300.json 被正确添加到 Xcode 项目中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%9B%B4%E6%96%B0-Info-plist%EF%BC%88%E5%A6%82%E6%9E%9C%E9%9C%80%E8%A6%81%EF%BC%89"><span class="nav-text">3. 更新 Info.plist（如果需要）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E8%BF%90%E8%A1%8C%E5%92%8C%E6%B5%8B%E8%AF%95"><span class="nav-text">4. 运行和测试</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%86PoemListView-%E6%94%BE%E8%BF%9B%E6%88%91%E7%9A%84tabview"><span class="nav-text">将PoemListView() 放进我的tabview</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%BF%AE%E6%94%B9%E4%B8%BB%E7%95%8C%E9%9D%A2-TabView"><span class="nav-text">1. 修改主界面 (TabView)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-PoemListView"><span class="nav-text">2. PoemListView</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%BF%90%E8%A1%8C%E6%95%88%E6%9E%9C"><span class="nav-text">3. 运行效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E8%87%AA%E5%AE%9A%E4%B9%89-TabBar-%E6%A0%B7%E5%BC%8F"><span class="nav-text">4. 自定义 TabBar 样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Add-file-to-xcode-project-%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-text">Add file to xcode project 的作用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%B0%86%E6%96%87%E4%BB%B6%E6%B7%BB%E5%8A%A0%E5%88%B0%E9%A1%B9%E7%9B%AE%E4%B8%AD"><span class="nav-text">1. 将文件添加到项目中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%8E%A7%E5%88%B6%E6%96%87%E4%BB%B6%E6%98%AF%E5%90%A6%E5%A4%8D%E5%88%B6%E5%88%B0%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95"><span class="nav-text">2. 控制文件是否复制到项目目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E9%80%89%E6%8B%A9%E6%98%AF%E5%90%A6%E6%B7%BB%E5%8A%A0%E5%88%B0%E7%9B%AE%E6%A0%87"><span class="nav-text">3. 选择是否添加到目标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E8%AE%BE%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6"><span class="nav-text">4. 设置文件的访问控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E6%B7%BB%E5%8A%A0%E6%96%87%E4%BB%B6%E5%B9%B6%E7%A1%AE%E4%BF%9D%E5%AE%83%E4%BB%AC%E8%83%BD%E8%A2%AB%E6%AD%A3%E7%A1%AE%E6%89%93%E5%8C%85"><span class="nav-text">5. 添加文件并确保它们能被正确打包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E7%AE%A1%E7%90%86%E6%96%87%E4%BB%B6%E7%89%88%E6%9C%AC"><span class="nav-text">6. 管理文件版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-text">小结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E9%97%AE%E9%A2%98"><span class="nav-text">用户问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ChatGPT"><span class="nav-text">ChatGPT</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%BF%AE%E6%94%B9-PoemViewModel-swift-%E4%B8%AD%E7%9A%84-loadPoems-%E6%96%B9%E6%B3%95"><span class="nav-text">1. 修改 PoemViewModel.swift 中的 loadPoems 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%E8%A7%A3%E9%87%8A"><span class="nav-text">2. 文件路径解释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E7%A1%AE%E4%BF%9D-JSON-%E6%96%87%E4%BB%B6%E8%A2%AB%E6%AD%A3%E7%A1%AE%E6%B7%BB%E5%8A%A0%E5%88%B0-Xcode-%E9%A1%B9%E7%9B%AE%E4%B8%AD"><span class="nav-text">3. 确保 JSON 文件被正确添加到 Xcode 项目中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93-1"><span class="nav-text">总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E9%97%AE%E9%A2%98-1"><span class="nav-text">用户问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ChatGPT-1"><span class="nav-text">ChatGPT</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%A3%80%E6%9F%A5%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84"><span class="nav-text">1. 检查文件路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%A3%80%E6%9F%A5%E6%96%87%E4%BB%B6%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE%E6%B7%BB%E5%8A%A0%E5%88%B0-Xcode-%E9%A1%B9%E7%9B%AE%E4%B8%AD"><span class="nav-text">2. 检查文件是否正确添加到 Xcode 项目中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%B0%9D%E8%AF%95%E7%9B%B4%E6%8E%A5%E8%AE%BF%E9%97%AE%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84"><span class="nav-text">3. 尝试直接访问文件路径</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%87%8D%E6%9E%84"><span class="nav-text">重构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%BD%BF%E7%94%A8%E9%80%9A%E7%94%A8%E6%A8%A1%E5%9E%8B"><span class="nav-text">1. 使用通用模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%A7%A3%E6%9E%90%E4%B8%8D%E5%90%8C%E6%A0%BC%E5%BC%8F%E7%9A%84-JSON"><span class="nav-text">2. 解析不同格式的 JSON</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%A0%B9%E6%8D%AE%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E9%80%89%E6%8B%A9%E5%B1%95%E7%A4%BA%E6%96%B9%E5%BC%8F"><span class="nav-text">3. 根据数据类型选择展示方式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E7%B1%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E7%A4%BA%E4%BE%8B"><span class="nav-text">其他类型数据示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%88%9B%E5%BB%BA%E9%80%9A%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="nav-text">1. 创建通用的数据模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81%EF%BC%9A"><span class="nav-text">示例代码：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E7%81%B5%E6%B4%BB%E6%94%AF%E6%8C%81%E4%B8%8D%E5%90%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-text">2. 灵活支持不同数据结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%8A%A0%E8%BD%BD%E4%B8%8D%E5%90%8C%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="nav-text">3. 加载不同类型的数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E8%A7%86%E5%9B%BE%E5%B1%95%E7%A4%BA%E4%B8%8D%E5%90%8C%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%86%85%E5%AE%B9"><span class="nav-text">4. 视图展示不同类型的内容</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81%EF%BC%9A-1"><span class="nav-text">示例代码：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E6%A0%B9%E6%8D%AE%E4%B8%8D%E5%90%8C%E5%86%85%E5%AE%B9%E7%9A%84%E9%9C%80%E6%B1%82%E8%B0%83%E6%95%B4%E8%A7%86%E5%9B%BE"><span class="nav-text">5. 根据不同内容的需求调整视图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93-2"><span class="nav-text">总结</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">YiDa</p>
+  <div class="site-description" itemprop="description">自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。</div>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2023 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YiDa</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

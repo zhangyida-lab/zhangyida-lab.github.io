@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|consolas:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","Muse | Mist":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="悟已往之不谏，知来者之可追。实迷途其未远，觉今是而昨非。——《归去来辞》Hexo can help us to write blog by markdown,and then we can deploy my blog on github or other srevice.  What is github page? GitHub Pages is a static site hosting s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to setup your hexo blog">
+<meta property="og:url" content="http://example.com/2025/09/01/SetupYourBlogByGithubAndHexo/index.html">
+<meta property="og:site_name" content="Yi&#39;s Lab">
+<meta property="og:description" content="悟已往之不谏，知来者之可追。实迷途其未远，觉今是而昨非。——《归去来辞》Hexo can help us to write blog by markdown,and then we can deploy my blog on github or other srevice.  What is github page? GitHub Pages is a static site hosting s">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2025/09/01/SetupYourBlogByGithubAndHexo/blog.jpg">
+<meta property="article:published_time" content="2025-09-01T08:36:04.677Z">
+<meta property="article:modified_time" content="2025-09-01T08:36:04.677Z">
+<meta property="article:author" content="YiDa">
+<meta property="article:tag" content="Blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2025/09/01/SetupYourBlogByGithubAndHexo/blog.jpg">
+
+<link rel="canonical" href="http://example.com/2025/09/01/SetupYourBlogByGithubAndHexo/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>How to setup your hexo blog | Yi's Lab</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Yi's Lab</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">You Find Your Own Tree.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section">首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section">关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section">标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section">分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section">归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/zhangyida-lab" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/09/01/SetupYourBlogByGithubAndHexo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          How to setup your hexo blog
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-09-01 17:36:04" itemprop="dateCreated datePublished" datetime="2025-09-01T17:36:04+09:00">2025-09-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" itemprop="url" rel="index"><span itemprop="name">博客搭建</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>悟已往之不谏，知来者之可追。实迷途其未远，觉今是而昨非。——《归去来辞》<br><em>Hexo can help us to write blog by markdown,and then we can deploy my blog on github or other srevice.</em><br><img src="/2025/09/01/SetupYourBlogByGithubAndHexo/blog.jpg" alt="blog"></p>
+</blockquote>
+<h2 id="What-is-github-page"><a href="#What-is-github-page" class="headerlink" title="What is github page?"></a><a target="_blank" rel="noopener" href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages">What is github page?</a></h2><blockquote>
+<p>GitHub Pages is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository on GitHub, optionally runs the files through a build process, and publishes a website. you can set up what branch will the github page use,so that we can use deploy different branch,one branch to deploy our site,the other to write blog.</p>
+</blockquote>
+<h2 id="What-is-hexo"><a href="#What-is-hexo" class="headerlink" title="What is hexo?"></a><a target="_blank" rel="noopener" href="https://hexo.io/docs/">What is hexo?</a></h2><span id="more"></span>
+<blockquote>
+<p>Hexo is a fast, simple and powerful blog framework. You write posts in Markdown (or other markup languages) and Hexo generates static files with a beautiful theme in seconds.<br>and when you use “hexo deploy”command the generated file will be git push to git repository branch which you have set.</p>
+</blockquote>
+<h2 id="How-to-install-hexo"><a href="#How-to-install-hexo" class="headerlink" title="How to install hexo?"></a>How to install hexo?</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<h2 id="How-to-create-your-site"><a href="#How-to-create-your-site" class="headerlink" title="How to create your site?"></a>How to create your site?</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;folder&gt;</span><br><span class="line"><span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<h2 id="What-is-floder-structure-in-hexo"><a href="#What-is-floder-structure-in-hexo" class="headerlink" title="What is floder structure in hexo?"></a>What is floder structure in hexo?</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── <span class="built_in">source</span></span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
+
+<h2 id="How-to-set-about-page"><a href="#How-to-set-about-page" class="headerlink" title="How to set about page?"></a>How to set about page?</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page --path about/me <span class="string">&quot;About me&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>the above command will create a me.md,so when you click the about tag,the webpage will 404 ,you should rename the file name to index.md.</p>
+<h2 id="How-to-set-tag-and-other-page"><a href="#How-to-set-tag-and-other-page" class="headerlink" title="How to set tag and other page?"></a>How to set tag and other page?</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> your-hexo-site</span><br><span class="line">hexo new page tags</span><br><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
+
+<h2 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post?"></a>Create a new post?</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="How-to-set-bolg-asset-floder"><a href="#How-to-set-bolg-asset-floder" class="headerlink" title="How to set bolg asset floder?"></a>How to set bolg asset floder?</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="How-to-generate-static-files"><a href="#How-to-generate-static-files" class="headerlink" title="How to generate static files?"></a>How to generate static files?</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
+
+<h2 id="How-to-deploy-to-remote-sites"><a href="#How-to-deploy-to-remote-sites" class="headerlink" title="How to deploy to remote sites?"></a>How to deploy to remote sites?</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+
+<h2 id="Clean-cache"><a href="#Clean-cache" class="headerlink" title="Clean cache"></a>Clean cache</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+
+<p>clear db.json and public folder</p>
+<h2 id="How-to-setup-your-hexo-blog-envrinment-for-more-than-one-computer"><a href="#How-to-setup-your-hexo-blog-envrinment-for-more-than-one-computer" class="headerlink" title="How to setup your hexo blog envrinment for more than one computer?"></a>How to setup your hexo blog envrinment for more than one computer?</h2><p>1.create  hexoSource branch on github and set it deafult<br>2.clone the github repository last step you created,and move other file except .git<br>3.copy hexo-blog project to your github repository except .deploy_git<br>4.delete your .git floder in your next theme floder<br>5.push your repository to github<br>6.use below conmmand to deploy your hexo-blog enviroment</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zhangyida-lab/zhangyida-lab.github.io.git.github.io.git</span><br><span class="line"><span class="comment"># install hexo</span></span><br><span class="line">npm install hexo-cli -g</span><br><span class="line"><span class="comment"># install dependent library</span></span><br><span class="line">npm install </span><br><span class="line"><span class="comment"># install deploy tool</span></span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<h2 id="How-to-write-blog-on-hexo"><a href="#How-to-write-blog-on-hexo" class="headerlink" title="How to write blog on hexo?"></a>How to write blog on hexo?</h2><p>Before write remmber git pull command,this command will pull the github main branch.<br>Remmber your new computer do not have your old blog markdown file.<br>When you just write blog in your new computer,you do not need “hexo deploy”,you just need write and push your “hexo g” file.<br>Remmber moditify your github deploy token and my hexoSource’s token is wrong.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+
+<p>There are three default layouts in Hexo: post, page and draft you can use.</p>
+<h2 id="Hexo-offical-document-is-here"><a href="#Hexo-offical-document-is-here" class="headerlink" title="Hexo offical document is here"></a>Hexo offical document is <a target="_blank" rel="noopener" href="https://hexo.io/docs/commands.html">here</a></h2><h3 id="This-command-is-used-to-cerate-draft-post-and-so-on"><a href="#This-command-is-used-to-cerate-draft-post-and-so-on" class="headerlink" title="# This command is used to cerate draft\post and so on"></a># This command is used to cerate draft\post and so on</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="This-command-is-used-publish-your-draft"><a href="#This-command-is-used-publish-your-draft" class="headerlink" title="# This command is used publish your draft"></a># This command is used publish your draft</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo publish [layout] &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="This-command-is-used-to-generate-your-html-page"><a href="#This-command-is-used-to-generate-your-html-page" class="headerlink" title="# This command is used to generate your html page"></a># This command is used to generate your html page</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
+
+<h3 id="This-command-is-used-to-preview-your-blog-site"><a href="#This-command-is-used-to-preview-your-blog-site" class="headerlink" title="# This command is used to preview your blog site"></a># This command is used to preview your blog site</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<h3 id="This-command-is-used-to-list-your-post-tage-category-and-so-on"><a href="#This-command-is-used-to-list-your-post-tage-category-and-so-on" class="headerlink" title="# This command is used to list your post\tage\category and so on"></a># This command is used to list your post\tage\category and so on</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo list &lt;<span class="built_in">type</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="This-command-is-used-to-delpoy-to-your-site-to-github-page"><a href="#This-command-is-used-to-delpoy-to-your-site-to-github-page" class="headerlink" title="# This command is used to delpoy to your site to github page"></a># This command is used to delpoy to your site to github page</h3><ul>
+<li>当执行 hexo deploy 时，Hexo 会将 public 目录中的文件和目录推送至 _config.yml 中指定的远端仓库和分支中，并且完全覆盖该分支下的已有内容</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo deploy</span><br></pre></td></tr></table></figure>
+
+<h3 id="How-to-display-image-on-your-hexo-blog"><a href="#How-to-display-image-on-your-hexo-blog" class="headerlink" title="# How to display image on your hexo blog"></a># How to display image on your hexo blog</h3><ul>
+<li>set the post_asset_folder setting in _config.yml to true</li>
+<li>put the image file in your folder which name is the same as your blog</li>
+<li>writing blog use the below synta.</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">library</span>](<span class="link">wheat.jpg</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="zhangyida’s-bash-hexo-shortcut"><a href="#zhangyida’s-bash-hexo-shortcut" class="headerlink" title="# zhangyida’s bash hexo shortcut"></a># zhangyida’s bash hexo shortcut</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">alias</span> ht=<span class="string">&#x27;hexo clean &amp;&amp; hexo g &amp;&amp; hexo s&#x27;</span></span><br><span class="line">测试部署hexoBlog快捷键</span><br><span class="line"></span><br><span class="line"><span class="built_in">alias</span> hd=<span class="string">&#x27;hexo clean &amp;&amp; hexo deploy&#x27;</span></span><br><span class="line">部署到github快捷键</span><br><span class="line"></span><br><span class="line"><span class="built_in">alias</span> hnp=<span class="string">&#x27;hexo new post&#x27;</span></span><br><span class="line">新建博客</span><br><span class="line"></span><br><span class="line"><span class="built_in">alias</span> hnd=<span class="string">&#x27;hexo new draft&#x27;</span></span><br><span class="line">新建草稿</span><br><span class="line"></span><br><span class="line"><span class="built_in">alias</span> hp=<span class="string">&#x27;hexo publish&#x27;</span></span><br><span class="line">发布草稿</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Blog/" rel="tag"># Blog</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/09/01/JAR%E5%92%8CWAR%E7%9A%84%E5%8C%BA%E5%88%AB/" rel="prev" title="JAR和WAR的区别">
+      <i class="fa fa-chevron-left"></i> JAR和WAR的区别
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2025/09/01/iosProgramming/" rel="next" title="iosProgramming">
+      iosProgramming <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-github-page"><span class="nav-text">What is github page?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-hexo"><span class="nav-text">What is hexo?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-install-hexo"><span class="nav-text">How to install hexo?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-create-your-site"><span class="nav-text">How to create your site?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-floder-structure-in-hexo"><span class="nav-text">What is floder structure in hexo?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-set-about-page"><span class="nav-text">How to set about page?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-set-tag-and-other-page"><span class="nav-text">How to set tag and other page?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Create-a-new-post"><span class="nav-text">Create a new post?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-set-bolg-asset-floder"><span class="nav-text">How to set bolg asset floder?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-generate-static-files"><span class="nav-text">How to generate static files?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-deploy-to-remote-sites"><span class="nav-text">How to deploy to remote sites?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Clean-cache"><span class="nav-text">Clean cache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-setup-your-hexo-blog-envrinment-for-more-than-one-computer"><span class="nav-text">How to setup your hexo blog envrinment for more than one computer?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-write-blog-on-hexo"><span class="nav-text">How to write blog on hexo?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-offical-document-is-here"><span class="nav-text">Hexo offical document is here</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#This-command-is-used-to-cerate-draft-post-and-so-on"><span class="nav-text"># This command is used to cerate draft\post and so on</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#This-command-is-used-publish-your-draft"><span class="nav-text"># This command is used publish your draft</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#This-command-is-used-to-generate-your-html-page"><span class="nav-text"># This command is used to generate your html page</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#This-command-is-used-to-preview-your-blog-site"><span class="nav-text"># This command is used to preview your blog site</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#This-command-is-used-to-list-your-post-tage-category-and-so-on"><span class="nav-text"># This command is used to list your post\tage\category and so on</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#This-command-is-used-to-delpoy-to-your-site-to-github-page"><span class="nav-text"># This command is used to delpoy to your site to github page</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#How-to-display-image-on-your-hexo-blog"><span class="nav-text"># How to display image on your hexo blog</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zhangyida%E2%80%99s-bash-hexo-shortcut"><span class="nav-text"># zhangyida’s bash hexo shortcut</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">YiDa</p>
+  <div class="site-description" itemprop="description">自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。</div>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2023 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YiDa</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
