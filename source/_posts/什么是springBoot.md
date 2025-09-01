@@ -20,7 +20,7 @@ tags:
 
 
 换句话说：
-
+<!--more-->
 
 - **Spring Framework**：功能强大，但配置复杂（XML + JavaConfig）。
 - **Spring Boot**：在 Spring 之上做了大量自动化封装，简化开发。

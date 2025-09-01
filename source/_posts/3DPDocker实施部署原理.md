@@ -14,7 +14,7 @@ tar xzvf docker-20.10.15.tgz yes | cp -f ./docker/* /bin/ cp daemon.json /etc/do
 ```
 
 ### 📌 脚本解析
-
+<!--more-->
 ```bash
 tar xzvf docker-20.10.15.tgz
 ```
