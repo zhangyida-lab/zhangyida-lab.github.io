@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","Muse | Mist":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="jar包和war包的区别1. 定义 JAR（Java ARchive）包  是一种 Java 类库打包格式。 主要用来 打包 Java 类文件、配置文件、资源文件（图片、音频等）。 常见场景：发布 Java 库、工具包，或者 Spring Boot 打包成可运行的 JAR。  WAR（Web Application ARchive）包  是一种 Web 应用打包格式。 用于把一个 Web 应用（S">
+  <meta name="description" content="什么时面向切面编程 面向切面编程（AOP, Aspect Oriented Programming）。 1️⃣ 背景：为什么需要 AOP在传统编程中，有些功能会分散在系统的很多地方反复出现，例如：  日志记录（Logging） 权限控制（Security） 性能监控（Profiling） 事务管理（Transaction）  这些功能不属于具体的业务逻辑，但又对系统非常重要。如果我们在每个方法里都">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAR和WAR的区别">
-<meta property="og:url" content="http://example.com/2025/09/01/JAR%E5%92%8CWAR%E7%9A%84%E5%8C%BA%E5%88%AB/index.html">
+<meta property="og:title" content="什么是面向切面编程">
+<meta property="og:url" content="http://example.com/2025/09/01/%E4%BB%80%E4%B9%88%E6%98%AF%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B/index.html">
 <meta property="og:site_name" content="Yi&#39;s Lab">
-<meta property="og:description" content="jar包和war包的区别1. 定义 JAR（Java ARchive）包  是一种 Java 类库打包格式。 主要用来 打包 Java 类文件、配置文件、资源文件（图片、音频等）。 常见场景：发布 Java 库、工具包，或者 Spring Boot 打包成可运行的 JAR。  WAR（Web Application ARchive）包  是一种 Web 应用打包格式。 用于把一个 Web 应用（S">
+<meta property="og:description" content="什么时面向切面编程 面向切面编程（AOP, Aspect Oriented Programming）。 1️⃣ 背景：为什么需要 AOP在传统编程中，有些功能会分散在系统的很多地方反复出现，例如：  日志记录（Logging） 权限控制（Security） 性能监控（Profiling） 事务管理（Transaction）  这些功能不属于具体的业务逻辑，但又对系统非常重要。如果我们在每个方法里都">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-09-01T07:43:02.000Z">
-<meta property="article:modified_time" content="2025-09-01T08:45:57.057Z">
+<meta property="article:published_time" content="2025-09-01T07:58:40.000Z">
+<meta property="article:modified_time" content="2025-09-01T08:59:58.797Z">
 <meta property="article:author" content="YiDa">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2025/09/01/JAR%E5%92%8CWAR%E7%9A%84%E5%8C%BA%E5%88%AB/">
+<link rel="canonical" href="http://example.com/2025/09/01/%E4%BB%80%E4%B9%88%E6%98%AF%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>JAR和WAR的区别 | Yi's Lab</title>
+  <title>什么是面向切面编程 | Yi's Lab</title>
   
 
 
@@ -197,7 +197,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/09/01/JAR%E5%92%8CWAR%E7%9A%84%E5%8C%BA%E5%88%AB/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/09/01/%E4%BB%80%E4%B9%88%E6%98%AF%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -210,7 +210,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          JAR和WAR的区别
+          什么是面向切面编程
         </h1>
 
         <div class="post-meta">
@@ -221,7 +221,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-09-01 16:43:02 / 修改时间：17:45:57" itemprop="dateCreated datePublished" datetime="2025-09-01T16:43:02+09:00">2025-09-01</time>
+              <time title="创建时间：2025-09-01 16:58:40 / 修改时间：17:59:58" itemprop="dateCreated datePublished" datetime="2025-09-01T16:58:40+09:00">2025-09-01</time>
             </span>
 
           
@@ -242,50 +242,51 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="jar包和war包的区别"><a href="#jar包和war包的区别" class="headerlink" title="jar包和war包的区别"></a>jar包和war包的区别</h1><h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1. 定义"></a>1. 定义</h2><ul>
-<li><strong>JAR（Java ARchive）包</strong></li>
-</ul>
-<p>是一种 <strong>Java 类库打包格式</strong>。</p>
-<p>主要用来 <strong>打包 Java 类文件、配置文件、资源文件（图片、音频等）</strong>。</p>
-<p>常见场景：发布 Java 库、工具包，或者 Spring Boot 打包成可运行的 JAR。</p>
+        <h1 id="什么时面向切面编程"><a href="#什么时面向切面编程" class="headerlink" title="什么时面向切面编程"></a>什么时面向切面编程</h1><p> <strong>面向切面编程（AOP, Aspect Oriented Programming）</strong>。</p>
+<h2 id="1️⃣-背景：为什么需要-AOP"><a href="#1️⃣-背景：为什么需要-AOP" class="headerlink" title="1️⃣ 背景：为什么需要 AOP"></a>1️⃣ 背景：为什么需要 AOP</h2><p>在传统编程中，有些功能会分散在系统的很多地方反复出现，例如：</p>
 <ul>
-<li><strong>WAR（Web Application ARchive）包</strong></li>
+<li>日志记录（Logging）</li>
+<li>权限控制（Security）</li>
+<li>性能监控（Profiling）</li>
+<li>事务管理（Transaction）</li>
 </ul>
-<p>是一种 <strong>Web 应用打包格式</strong>。</p>
-<p>用于把一个 <strong>Web 应用（Servlet、JSP、HTML、JS、CSS、图片、WEB-INF 配置等）</strong> 打包成一个整体。</p>
-<p>常见场景：部署到 Web 服务器（如 Tomcat、Jetty、JBoss）。</p>
-<h2 id="2-文件结构差异"><a href="#2-文件结构差异" class="headerlink" title="2. 文件结构差异"></a>2. 文件结构差异</h2><h3 id="JAR-包结构（普通-Java-应用）"><a href="#JAR-包结构（普通-Java-应用）" class="headerlink" title="JAR 包结构（普通 Java 应用）"></a>JAR 包结构（普通 Java 应用）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">myapp.jar</span><br><span class="line"> ├── META-INF/</span><br><span class="line"> │    └── MANIFEST.MF   （清单文件，可指定主类 Main-Class）</span><br><span class="line"> ├── com/</span><br><span class="line"> │    └── example/...</span><br><span class="line"> └── 资源文件</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="WAR-包结构（Web-应用）"><a href="#WAR-包结构（Web-应用）" class="headerlink" title="WAR 包结构（Web 应用）"></a>WAR 包结构（Web 应用）</h3><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">myapp.war</span><br><span class="line"> ├── META-INF/</span><br><span class="line"> ├── WEB-INF/</span><br><span class="line"> │    ├── web.xml           （Web 应用配置文件，Servlet/<span class="keyword">Filter</span>/Listener）</span><br><span class="line"> │    ├── classes/          （编译好的字节码 .<span class="keyword">class</span> 文件）</span><br><span class="line"> │    └── lib/              （依赖的 JAR 包）</span><br><span class="line"> ├── <span class="keyword">index</span>.jsp              （JSP 页面）</span><br><span class="line"> ├── static/                （静态资源，HTML/JS/CSS/图片）</span><br><span class="line"> └── 其他资源</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="3-部署方式"><a href="#3-部署方式" class="headerlink" title="3. 部署方式"></a>3. 部署方式</h2><ul>
-<li><strong>JAR 包</strong></li>
-</ul>
-<p>可以直接运行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">java -jar myapp.jar</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<p>常见于 <strong>Spring Boot</strong> 应用（内嵌 Tomcat&#x2F;Jetty，不需要单独部署）。</p>
+<p>这些功能不属于具体的业务逻辑，但又对系统非常重要。<br>如果我们在每个方法里都去写日志、做权限校验，就会造成 <strong>代码重复、难以维护</strong>。</p>
+<h2 id="2️⃣-什么是-AOP"><a href="#2️⃣-什么是-AOP" class="headerlink" title="2️⃣ 什么是 AOP"></a>2️⃣ 什么是 AOP</h2><p>AOP 就是 <strong>把这些与业务逻辑无关、却对多个模块都需要的功能</strong>（称为<strong>横切关注点 cross-cutting concerns</strong>）<br>从业务逻辑代码中抽取出来，形成一个单独的“切面（Aspect）”。</p>
+<p>这样，业务代码只管业务，日志、事务、权限等统一交给 AOP 处理。</p>
+<p>👉 可以理解为：</p>
 <ul>
-<li><strong>WAR 包</strong></li>
+<li>OOP（面向对象）&#x3D; 解决“对象的功能划分”</li>
+<li>AOP（面向切面）&#x3D; 解决“跨越多个对象的共性功能”</li>
 </ul>
-<p>需要放到应用服务器（Tomcat、JBoss、WebLogic）里运行。</p>
-<p>例如：把 <code>myapp.war</code> 放到 <code>Tomcat/webapps/</code> 下，启动 Tomcat 后访问应用。</p>
-<h2 id="4-典型应用场景"><a href="#4-典型应用场景" class="headerlink" title="4. 典型应用场景"></a>4. 典型应用场景</h2><ul>
-<li><strong>JAR 包</strong></li>
-</ul>
-<p>工具类库（比如 MyBatis.jar、mysql-connector.jar）</p>
-<p>独立运行的应用（Spring Boot 项目常用）</p>
+<h2 id="3️⃣-核心概念"><a href="#3️⃣-核心概念" class="headerlink" title="3️⃣ 核心概念"></a>3️⃣ 核心概念</h2><p>在 Spring AOP 中，主要有以下几个概念：</p>
 <ul>
-<li><strong>WAR 包</strong></li>
+<li><strong>Aspect（切面）</strong><br>横切关注点的模块化，比如“日志切面”“事务切面”。</li>
+<li><strong>Join Point（连接点）</strong><br>程序执行的某个点，比如方法调用、异常抛出等。</li>
+<li><strong>Pointcut（切点）</strong><br>定义在哪些 Join Point 上织入代码，比如“所有 <code>@Service</code> 注解的方法”。</li>
+<li><strong>Advice（通知）</strong><br>在切点位置要做的动作，比如“方法执行前打印日志”。</li>
 </ul>
-<p>传统 Java Web 项目（Servlet、JSP、Struts、Spring MVC 等）</p>
-<p>部署到企业级 Web 容器中</p>
-<p>✅ <strong>总结一句话</strong>：</p>
+<p>前置通知（Before）</p>
+<p>后置通知（After）</p>
+<p>返回后通知（AfterReturning）</p>
+<p>异常通知（AfterThrowing）</p>
+<p>环绕通知（Around）</p>
 <ul>
-<li><strong>JAR</strong> &#x3D; Java 程序或库，通常可执行或供别人调用。</li>
-<li><strong>WAR</strong> &#x3D; Web 应用程序，必须运行在 Web 服务器中（除非是 Spring Boot 这种“可执行 WAR”）。</li>
+<li><strong>Weaving（织入）</strong><br>把切面应用到目标对象上，生成代理对象。</li>
+</ul>
+<h2 id="4️⃣-举个例子（Spring-AOP）"><a href="#4️⃣-举个例子（Spring-AOP）" class="headerlink" title="4️⃣ 举个例子（Spring AOP）"></a>4️⃣ 举个例子（Spring AOP）</h2><p>比如我有一个业务方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">OrderService</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">createOrder</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;创建订单...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>需求：每次调用 <code>createOrder</code> 方法前后都记录日志。<br>如果不用 AOP，可能要手写日志：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">createOrder</span><span class="params">()</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;开始日志&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;创建订单...&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;结束日志&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>有了 AOP，可以写一个切面类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LogAspect</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Before(&quot;execution(* com.example.service.OrderService.createOrder(..))&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">beforeLog</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;开始日志&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@After(&quot;execution(* com.example.service.OrderService.createOrder(..))&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">afterLog</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;结束日志&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>👉 这样业务类 <code>OrderService</code> 就不用管日志的事了，日志逻辑由 AOP 自动“织入”。</p>
+<h2 id="5️⃣-总结"><a href="#5️⃣-总结" class="headerlink" title="5️⃣ 总结"></a>5️⃣ 总结</h2><ul>
+<li><strong>AOP &#x3D; 解耦“业务逻辑”和“系统级服务”</strong></li>
+<li>把日志、事务、安全这些“横切关注点”从业务逻辑中抽离出来，统一管理。</li>
+<li>Spring AOP 底层基于 <strong>动态代理（JDK Proxy、CGLIB）</strong> 实现。</li>
 </ul>
 
     </div>
@@ -302,12 +303,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2025/08/31/%E4%B8%AD%E9%97%B4%E4%BB%B6%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%94%A8%E6%B3%A8%E5%86%8C%E5%9C%A8Nacos/" rel="prev" title="中间件为什么不用注册在Nacos">
-      <i class="fa fa-chevron-left"></i> 中间件为什么不用注册在Nacos
+    <a href="/2025/09/01/%E4%BB%80%E4%B9%88%E6%98%AF%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/" rel="prev" title="什么是依赖注入">
+      <i class="fa fa-chevron-left"></i> 什么是依赖注入
     </a></div>
       <div class="post-nav-item">
-    <a href="/2025/09/01/%E4%BB%80%E4%B9%88%E6%98%AF%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/" rel="next" title="什么是依赖注入">
-      什么是依赖注入 <i class="fa fa-chevron-right"></i>
+    <a href="/2025/09/01/%E4%BB%80%E4%B9%88%E6%98%AFIOC%E5%AE%B9%E5%99%A8/" rel="next" title="什么是IOC容器">
+      什么是IOC容器 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -367,7 +368,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#jar%E5%8C%85%E5%92%8Cwar%E5%8C%85%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">jar包和war包的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AE%9A%E4%B9%89"><span class="nav-text">1. 定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84%E5%B7%AE%E5%BC%82"><span class="nav-text">2. 文件结构差异</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JAR-%E5%8C%85%E7%BB%93%E6%9E%84%EF%BC%88%E6%99%AE%E9%80%9A-Java-%E5%BA%94%E7%94%A8%EF%BC%89"><span class="nav-text">JAR 包结构（普通 Java 应用）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WAR-%E5%8C%85%E7%BB%93%E6%9E%84%EF%BC%88Web-%E5%BA%94%E7%94%A8%EF%BC%89"><span class="nav-text">WAR 包结构（Web 应用）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F"><span class="nav-text">3. 部署方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%85%B8%E5%9E%8B%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">4. 典型应用场景</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%97%B6%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B"><span class="nav-text">什么时面向切面编程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%B8%8F%E2%83%A3-%E8%83%8C%E6%99%AF%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81-AOP"><span class="nav-text">1️⃣ 背景：为什么需要 AOP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%EF%B8%8F%E2%83%A3-%E4%BB%80%E4%B9%88%E6%98%AF-AOP"><span class="nav-text">2️⃣ 什么是 AOP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%EF%B8%8F%E2%83%A3-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="nav-text">3️⃣ 核心概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%EF%B8%8F%E2%83%A3-%E4%B8%BE%E4%B8%AA%E4%BE%8B%E5%AD%90%EF%BC%88Spring-AOP%EF%BC%89"><span class="nav-text">4️⃣ 举个例子（Spring AOP）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%EF%B8%8F%E2%83%A3-%E6%80%BB%E7%BB%93"><span class="nav-text">5️⃣ 总结</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
