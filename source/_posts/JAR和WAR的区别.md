@@ -18,7 +18,7 @@ tags:
 
 
 主要用来 **打包 Java 类文件、配置文件、资源文件（图片、音频等）**。
-
+<!--more-->
 
 常见场景：发布 Java 库、工具包，或者 Spring Boot 打包成可运行的 JAR。
 - **WAR（Web Application ARchive）包**

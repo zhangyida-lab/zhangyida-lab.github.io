@@ -9,7 +9,7 @@ tags: [swift编程,iOS编程]
 
 ### 1. Swift 语言 - 协议+扩展练习
 
-
+<!--more-->
 ```swift
 protocol Shape {
     var area: Double { get }

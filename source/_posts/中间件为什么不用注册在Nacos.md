@@ -9,7 +9,7 @@ tags:
 
 **“应用服务要注册到 Nacos，为什么中间件（MySQL、Redis、Kafka、RocketMQ、MinIO、ELK 等）不直接注册到 Nacos 呢？”**
 
-
+<!--more-->
 
 ## 1. 微服务注册中心的定位（以 Nacos 为例）
 

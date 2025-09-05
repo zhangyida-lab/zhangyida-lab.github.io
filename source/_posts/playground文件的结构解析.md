@@ -14,7 +14,7 @@ tags: [swift编程,playground]
 
 - **作用**：放**Swift代码文件**，比如 `.swift` 文件。
 - **特点**：
-
+<!--more-->
 
 Sources 中的代码**会自动被 Playground 主体引用**，不需要 `import`。
 

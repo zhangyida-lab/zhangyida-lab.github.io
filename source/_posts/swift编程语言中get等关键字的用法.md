@@ -20,7 +20,7 @@ struct Temperature {
  }
  }
 }
-<!--more-->
+
 
 
 var temp = Temperature(celsius: 40)
@@ -28,7 +28,7 @@ print(temp.fahrenheit)
 temp.fahrenheit = 55
 print(temp.celsius)
 ```
-
+<!--more-->
  ## 这段 Swift 代码定义了一个叫 `Temperature` 的**结构体**，它实现了摄氏度（`celsius`）和华氏度（`fahrenheit`）之间的相互转换。我们来一步步解释：
 
 
