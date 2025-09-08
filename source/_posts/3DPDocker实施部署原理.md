@@ -208,7 +208,7 @@ services:
 
       MINIO_ACCESS_KEY: admin
 
-      MINIO_SECRET_KEY: 3DplazaPlatform2024
+      MINIO_SECRET_KEY: PWD
 
     ports:
 
@@ -285,7 +285,7 @@ version: '3'
 
 `MINIO_ACCESS_KEY=admin` → MinIO 的管理账号。
 
-`MINIO_SECRET_KEY=3DplazaPlatform2024` → MinIO 的管理密码。
+`MINIO_SECRET_KEY=PWD` → MinIO 的管理密码。
 
 ⚠️ 注意：`MINIO_ACCESS_KEY` 和 `MINIO_SECRET_KEY` 这两个参数在新版本 MinIO 中已被替换为 `MINIO_ROOT_USER` 和 `MINIO_ROOT_PASSWORD`，但在你用的这个版本中仍然有效。
 
@@ -343,7 +343,7 @@ networks:
 
 - 管理账号：`admin`
 
-- 管理密码：`3DplazaPlatform2024`
+- 管理密码：`PWD`
 
 - 容器加入 `3dp_net` 网络，方便和你的其他 3DP 服务交互
 
@@ -364,10 +364,10 @@ services:
       - TZ=Asia/Shanghai
       - MODE=standalone
       - SPRING_DATASOURCE_PLATFORM=mysql
-      - MYSQL_SERVICE_HOST=200.157.100.42
+      - MYSQL_SERVICE_HOST=200.157.x.x
       - MYSQL_SERVICE_PORT=3306
       - MYSQL_SERVICE_USER=root
-      - MYSQL_SERVICE_PASSWORD=3DplazaPlatform2024
+      - MYSQL_SERVICE_PASSWORD=PWD
       - MYSQL_SERVICE_DB_NAME=nacos_config
       - NACOS.CORE.AUTH.ENABLED=true
     ports:
@@ -613,17 +613,17 @@ sprite:
 
     #实体类生成路径
 
-    asm-main-class: com.hoteamsoft.touchy.goblin.cordial.doppler.domain.MainEntity
+    asm-main-class: com.ACSPACE.touchy.goblin.cordial.doppler.domain.MainEntity
 
     #项目创建人账号，若mongodb内的userId为空时，可删除此配置
 
-    # login-name: liuyaowei@hoteamsoft.com
+    # login-name: liuyaowei@ACSPACE.com
 
   metadata-center:
 
     #mongodb地址
 
-    host: 200.157.100.42
+    host: 200.157.x.x
 
     #mongodb端口
 
@@ -647,7 +647,7 @@ sprite:
 
     #mongodb密码
 
-    credential-password: 3DplazaPlatform2024
+    credential-password: PWD
 
     #暂不了解
 
@@ -673,7 +673,7 @@ sprite:
 
     enableDsGroup: false
 
-    studioAopPackage: com.hoteamsoft.loki.server.controller
+    studioAopPackage: com.ACSPACE.loki.server.controller
 
     cache:
 
@@ -683,11 +683,11 @@ sprite:
 
       MYSQL:
 
-        url: jdbc:dm://200.157.100.42:5236/PLM_RUN_1?user=PLM_RUN_1&password=3DplazaPlatform2024
+        url: jdbc:dm://200.157.x.x:5236/PLM?user=PLM&password=PWD
 
-        username: PLM_RUN_1
+        username: PLM
 
-        password: 3DplazaPlatform2024
+        password: PWD
 
     primary: mysql
 
@@ -729,7 +729,7 @@ keen:
 
         default:
 
-          host: 200.157.100.42
+          host: 200.157.x.x
 
           password: 123456
 
@@ -751,11 +751,11 @@ loki:
 
     bucket-name: studio-cache
 
-    endpoint: http://200.157.100.42:9000
+    endpoint: http://200.157.x.x:9000
 
     accessKey: admin
 
-    secretKey: 3DplazaPlatform2024  
+    secretKey: PWD  
 
 projectCode: ${project:PROJECT_1635185673461960704_1678843508667}
 
@@ -765,7 +765,7 @@ rocketmq:
 
     group: i-base-test
 
-    namesrvAddr: 200.157.100.42:9876
+    namesrvAddr: 200.157.x.x:9876
 
     topic: "workFlowPluginTopicTest"
 
@@ -775,7 +775,7 @@ CommandService:
 
   #转换节点从系统中获取图幅、反签水印等配置的Url
 
-  ConfigServerUrl: http://200.157.100.42:80
+  ConfigServerUrl: http://200.157.x.x:80
 ```
 
 
@@ -835,7 +835,7 @@ sprite:
 
     version: 1
 
-    asm-main-class: com.hoteamsoft.touchy.goblin.cordial.doppler.domain.MainEntity
+    asm-main-class: com.ACSPACE.touchy.goblin.cordial.doppler.domain.MainEntity
 ```
 
 - `project-code` → 项目唯一编号
@@ -849,7 +849,7 @@ sprite:
 ```yaml
   metadata-center:
 
-    host: 200.157.100.42
+    host: 200.157.x.x
 
     port: 27017
 
@@ -861,7 +861,7 @@ sprite:
 
     credential-db-location: admin
 
-    credential-password: 3DplazaPlatform2024
+    credential-password: PWD
 
     cluster-deployment: false
 ```
@@ -893,7 +893,7 @@ sprite:
 
     enableDsGroup: false
 
-    studioAopPackage: com.hoteamsoft.loki.server.controller
+    studioAopPackage: com.ACSPACE.loki.server.controller
 
     cache:
 
@@ -903,11 +903,11 @@ sprite:
 
       MYSQL:
 
-        url: jdbc:dm://200.157.100.42:5236/PLM_RUN_1?user=PLM_RUN_1&password=3DplazaPlatform2024
+        url: jdbc:dm://200.157.x.x:5236/PLM?user=PLM&password=PWD
 
-        username: PLM_RUN_1
+        username: PLM
 
-        password: 3DplazaPlatform2024
+        password: PWD
 
     primary: mysql
 ```
@@ -977,7 +977,7 @@ keen:
 
         default:
 
-          host: 200.157.100.42
+          host: 200.157.x.x
 
           password: 123456
 
@@ -990,7 +990,7 @@ keen:
 
 - `redis.single.default` → 连接单机 Redis
 
-地址：200.157.100.42:6379
+地址：200.157.x.x:6379
 
 密码：123456
 
@@ -1019,18 +1019,18 @@ loki:
 
     bucket-name: studio-cache
 
-    endpoint: http://200.157.100.42:9000
+    endpoint: http://200.157.x.x:9000
 
     accessKey: admin
 
-    secretKey: 3DplazaPlatform2024
+    secretKey: PWD
 ```
 
 - MinIO 文件存储开启，桶名 `studio-cache`
 
-- 连接地址 `200.157.100.42:9000`
+- 连接地址 `200.157.x.x:9000`
 
-- 访问密钥 `admin / 3DplazaPlatform2024`
+- 访问密钥 `admin / PWD`
 
 👉 用来存储缓存文件、资源文件。
 
@@ -1051,7 +1051,7 @@ rocketmq:
 
     group: i-base-test
 
-    namesrvAddr: 200.157.100.42:9876
+    namesrvAddr: 200.157.x.x:9876
 
     topic: "workFlowPluginTopicTest"
 
@@ -1062,7 +1062,7 @@ rocketmq:
 
 消费组：`i-base-test`
 
-NameServer 地址：`200.157.100.42:9876`
+NameServer 地址：`200.157.x.x:9876`
 
 订阅 Topic：`workFlowPluginTopicTest`
 
@@ -1073,7 +1073,7 @@ Tag：`*`（所有消息）
 ```yaml
 CommandService:
 
-  ConfigServerUrl: http://200.157.100.42:80
+  ConfigServerUrl: http://200.157.x.x:80
 ```
 
 - 远程配置服务地址（可能用于文件转换、图幅、反签水印等）。
