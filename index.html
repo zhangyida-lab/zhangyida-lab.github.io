@@ -194,6 +194,74 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/09/08/%E4%B8%80%E4%B8%AA%E5%B0%86word%E6%96%87%E4%BB%B6%E8%BD%AC%E6%8D%A2%E4%B8%BAmarkdown%E6%96%87%E4%BB%B6%E7%9A%84%E8%84%9A%E6%9C%AC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YiDa">
+      <meta itemprop="description" content="自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yi's Lab">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/09/08/%E4%B8%80%E4%B8%AA%E5%B0%86word%E6%96%87%E4%BB%B6%E8%BD%AC%E6%8D%A2%E4%B8%BAmarkdown%E6%96%87%E4%BB%B6%E7%9A%84%E8%84%9A%E6%9C%AC/" class="post-title-link" itemprop="url">一个将word文件转换为markdown文件的脚本</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-09-08 10:25:52 / 修改时间：11:31:21" itemprop="dateCreated datePublished" datetime="2025-09-08T10:25:52+09:00">2025-09-08</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="功能说明"><a href="#功能说明" class="headerlink" title="功能说明"></a>功能说明</h2><ul>
+<li><p>遍历当前目录下所有 .docx 文件；</p>
+</li>
+<li><p>使用 pypandoc 调用 Pandoc，把 .docx 转换成 .md；</p>
+</li>
+<li><p>Markdown 图片路径只保留文件名：<img src="/image59.png">。</p>
+</li>
+<li><p>图片拷贝到 Markdown 文件同目录，无需依赖 _media 文件夹</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> pypandoc</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convert_img_to_md_syntax</span>(<span class="params">md_file, media_dir, target_dir</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;把 &lt;img&gt; 标签或带路径的 Markdown 图片替换成 ![](文件名)&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(md_file, <span class="string">&quot;r&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        content = f.read()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 替换 &lt;img src=&quot;xxx&quot; ...&gt; 为 ![](文件名)</span></span><br><span class="line">    content = re.sub(</span><br><span class="line">        <span class="string">r&#x27;&lt;img\s+[^&gt;]*src=&quot;([^&quot;]+)&quot;[^&gt;]*&gt;&#x27;</span>,</span><br><span class="line">        <span class="keyword">lambda</span> m: <span class="string">f&quot;![Image](<span class="subst">&#123;os.path.basename(m.group(<span class="number">1</span>))&#125;</span>)&quot;</span>,</span><br><span class="line">        content</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 替换 Markdown ![](路径) 为 ![](文件名)</span></span><br><span class="line">    content = re.sub(</span><br><span class="line">        <span class="string">r&#x27;!\[.*?\]\(([^)]+)\)&#x27;</span>,</span><br><span class="line">        <span class="keyword">lambda</span> m: <span class="string">f&quot;![Image](<span class="subst">&#123;os.path.basename(m.group(<span class="number">1</span>))&#125;</span>)&quot;</span>,</span><br><span class="line">        content</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(md_file, <span class="string">&quot;w&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.write(content)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 拷贝 _media 文件夹中的所有图片到 Markdown 文件同目录</span></span><br><span class="line">    <span class="keyword">if</span> os.path.exists(media_dir):</span><br><span class="line">        <span class="keyword">for</span> root, _, files <span class="keyword">in</span> os.walk(media_dir):</span><br><span class="line">            <span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">                src_file = os.path.join(root, file)</span><br><span class="line">                dst_file = os.path.join(target_dir, file)</span><br><span class="line">                <span class="comment"># 如果目标目录已存在同名文件，则覆盖</span></span><br><span class="line">                shutil.copy2(src_file, dst_file)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convert_docx_to_md</span>(<span class="params">folder=<span class="string">&#x27;.&#x27;</span></span>):</span><br><span class="line">    <span class="keyword">for</span> filename <span class="keyword">in</span> os.listdir(folder):</span><br><span class="line">        <span class="keyword">if</span> filename.lower().endswith(<span class="string">&#x27;.docx&#x27;</span>):</span><br><span class="line">            input_path = os.path.join(folder, filename)</span><br><span class="line">            output_path = os.path.splitext(input_path)[<span class="number">0</span>] + <span class="string">&#x27;.md&#x27;</span></span><br><span class="line">            media_dir = os.path.splitext(filename)[<span class="number">0</span>] + <span class="string">&quot;_media&quot;</span></span><br><span class="line">            target_dir = folder  <span class="comment"># Markdown 同目录</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                <span class="comment"># 转换 docx -&gt; md</span></span><br><span class="line">                pypandoc.convert_file(</span><br><span class="line">                    input_path,</span><br><span class="line">                    <span class="string">&#x27;gfm&#x27;</span>,</span><br><span class="line">                    outputfile=output_path,</span><br><span class="line">                    extra_args=[<span class="string">f&#x27;--extract-media=<span class="subst">&#123;media_dir&#125;</span>&#x27;</span>]</span><br><span class="line">                )</span><br><span class="line"></span><br><span class="line">                <span class="comment"># 修改 Markdown 图片路径，并拷贝图片到 Markdown 同目录</span></span><br><span class="line">                convert_img_to_md_syntax(output_path, media_dir, target_dir)</span><br><span class="line"></span><br><span class="line">                <span class="built_in">print</span>(<span class="string">f&quot;✅ 已转换: <span class="subst">&#123;filename&#125;</span> -&gt; <span class="subst">&#123;os.path.basename(output_path)&#125;</span> (图片已拷贝到同目录)&quot;</span>)</span><br><span class="line">            <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">f&quot;❌ 转换失败 <span class="subst">&#123;filename&#125;</span>: <span class="subst">&#123;e&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    convert_docx_to_md(<span class="string">&#x27;.&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2025/09/05/RocketMQ%E5%BA%94%E7%94%A8%E6%A1%88%E4%BE%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1005,7 +1073,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-09-05 17:12:12" itemprop="dateModified" datetime="2025-09-05T17:12:12+09:00">2025-09-05</time>
+                <time title="修改时间：2025-09-08 12:18:57" itemprop="dateModified" datetime="2025-09-08T12:18:57+09:00">2025-09-08</time>
               </span>
 
           
@@ -1245,79 +1313,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2025/09/01/%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/09/01/%E4%BB%80%E4%B9%88%E6%98%AFIOC%E5%AE%B9%E5%99%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="YiDa">
-      <meta itemprop="description" content="自古人生于世，须有一技之能；我辈既务斯业，便当专心用功；以后名扬四海，根据即在年轻。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yi's Lab">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/09/01/%E4%BB%80%E4%B9%88%E6%98%AFIOC%E5%AE%B9%E5%99%A8/" class="post-title-link" itemprop="url">什么是IOC容器</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2025-09-01 17:01:32" itemprop="dateCreated datePublished" datetime="2025-09-01T17:01:32+09:00">2025-09-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-09-05 17:11:36" itemprop="dateModified" datetime="2025-09-05T17:11:36+09:00">2025-09-05</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="什么是IoC-容器（Inversion-of-Control）"><a href="#什么是IoC-容器（Inversion-of-Control）" class="headerlink" title="什么是IoC 容器（Inversion of Control）"></a>什么是IoC 容器（Inversion of Control）</h1><p> <strong>IoC 容器（Inversion of Control Container）</strong>，它是 Spring 框架的<strong>核心概念</strong>之一。</p>
-<h1 id="🔹-1-什么是-IoC（控制反转）"><a href="#🔹-1-什么是-IoC（控制反转）" class="headerlink" title="🔹 1. 什么是 IoC（控制反转）"></a>🔹 1. 什么是 IoC（控制反转）</h1><p><strong>IoC（Inversion of Control，控制反转）</strong> 的核心思想是：<br>👉 <strong>对象的创建与依赖关系的管理，不再由对象本身控制，而是交给一个统一的容器来管理</strong>。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/09/01/%E4%BB%80%E4%B9%88%E6%98%AFIOC%E5%AE%B9%E5%99%A8/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
