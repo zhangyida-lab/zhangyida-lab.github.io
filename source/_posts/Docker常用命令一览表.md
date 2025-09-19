@@ -15,28 +15,28 @@ docker ps
 docker ps -a
 
 # 启动容器
-docker start &lt;容器ID或名称&gt;
+docker start <容器ID或名称>
 
 # 停止容器
-docker stop &lt;容器ID或名称&gt;
+docker stop <容器ID或名称>
 
 # 重启容器
-docker restart &lt;容器ID或名称&gt;
+docker restart <容器ID或名称>
 
 # 删除容器
-docker rm &lt;容器ID或名称&gt;
+docker rm <容器ID或名称>
 
 # 强制删除运行中的容器
-docker rm -f &lt;容器ID或名称&gt;
+docker rm -f <容器ID或名称>
 
 # 查看容器日志
-docker logs &lt;容器ID或名称&gt;
+docker logs <容器ID或名称>
 
 # 实时查看日志
-docker logs -f &lt;容器ID或名称&gt;
+docker logs -f <容器ID或名称>
 
 # 进入容器（交互式终端）
-docker exec -it &lt;容器ID或名称&gt; /bin/bash
+docker exec -it <容器ID或名称> /bin/bash
 
 ```
 
@@ -49,17 +49,17 @@ docker exec -it &lt;容器ID或名称&gt; /bin/bash
 docker images
 
 # 拉取镜像
-docker pull &lt;镜像名称:标签&gt;
+docker pull <镜像名称:标签>
 # 示例：docker pull nginx:latest
 
 # 删除镜像
-docker rmi &lt;镜像ID或名称&gt;
+docker rmi <镜像ID或名称>
 
 # 构建镜像（需有Dockerfile）
-docker build -t &lt;镜像名称:标签&gt; .
+docker build -t <镜像名称:标签> .
 
 # 给镜像打标签
-docker tag &lt;镜像ID&gt; &lt;新名称:新标签&gt;
+docker tag <镜像ID> <新名称:新标签>
 
 ```
 
@@ -69,16 +69,16 @@ docker tag &lt;镜像ID&gt; &lt;新名称:新标签&gt;
 
 ```bash
 # 启动并运行一个容器
-docker run -it &lt;镜像名称&gt; /bin/bash
+docker run -it <镜像名称> /bin/bash
 
 # 后台运行容器
-docker run -d &lt;镜像名称&gt;
+docker run -d <镜像名称>
 
 # 运行容器并映射端口
-docker run -d -p 8080:80 &lt;镜像名称&gt;
+docker run -d -p 8080:80 <镜像名称>
 
 # 挂载本地目录到容器
-docker run -d -v /宿主机路径:/容器路径 &lt;镜像名称&gt;
+docker run -d -v /宿主机路径:/容器路径 <镜像名称>
 
 ```
 
@@ -91,19 +91,19 @@ docker run -d -v /宿主机路径:/容器路径 &lt;镜像名称&gt;
 docker network ls
 
 # 创建网络
-docker network create &lt;网络名称&gt;
+docker network create <网络名称>
 
 # 删除网络
-docker network rm &lt;网络名称&gt;
+docker network rm <网络名称>
 
 # 查看卷
 docker volume ls
 
 # 创建卷
-docker volume create &lt;卷名称&gt;
+docker volume create <卷名称>
 
 # 删除卷
-docker volume rm &lt;卷名称&gt;
+docker volume rm <卷名称>
 
 ```
 
