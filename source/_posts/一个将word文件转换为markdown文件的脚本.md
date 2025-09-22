@@ -16,7 +16,7 @@ tags: [代码实例,python]
 
 - 图片拷贝到 Markdown 文件同目录，无需依赖 _media 文件夹
 
-
+<!--more-->
 
 ```python
 
